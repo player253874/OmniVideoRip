@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OmniVideoRip | 全网主流与成人视频极速下载器 (100% 免费)</title>
+    <link rel="icon" type="image/png" href="./assets/logo.png" />
+    <link rel="shortcut icon" type="image/png" href="./assets/logo.png" />
+    <meta
+      name="description"
+      content="OmniVideoRip 是一款现代化全网视频极速下载桌面客户端。独家支持 MissAV/GGJav 等成人站点 16 线程满速直下，YouTube 4K、Bilibili、Twitter 原画画质自选，100% 永久免费。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        --font-heading: "Outfit", var(--font-body);
+        --font-mono: "Space Grotesk", Consolas, monospace;
+
+        /* Cinema Obsidian Palette (Synced with OmniVideoRip Client) */
+        --bg-deep: #080b14;
+        --card-bg: rgba(15, 21, 36, 0.75);
+        --card-bg-hover: rgba(22, 30, 50, 0.9);
+        --card-border: rgba(255, 255, 255, 0.08);
+        --card-border-glow: rgba(99, 102, 241, 0.35);
+
+        --accent-indigo: #6366f1;
+        --accent-violet: #8b5cf6;
+        --accent-magenta: #d946ef;
+        --accent-pink: #ec4899;
+
+        --text-main: #f8fafc;
+        --text-muted: #94a3b8;
+        --text-dim: #64748b;
+
+        --grad-brand: linear-gradient(135deg, #38bdf8 0%, #6366f1 50%, #a855f7 100%);
+        --grad-button: linear-gradient(135deg, #6366f1 0%, #7c3aed 50%, #d946ef 100%);
+        --grad-button-hover: linear-gradient(135deg, #4f46e5 0%, #6d28d9 50%, #c026d3 100%);
+        --grad-secondary: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(168, 85, 247, 0.15) 100%);
+        --grad-secondary-hover: linear-gradient(135deg, rgba(99, 102, 241, 0.28) 0%, rgba(168, 85, 247, 0.28) 100%);
+
+        --radius-sm: 8px;
+        --radius-md: 14px;
+        --radius-lg: 20px;
+
+        --shadow-glow: 0 4px 24px rgba(99, 102, 241, 0.35);
+        --shadow-glow-hover: 0 8px 32px rgba(139, 92, 246, 0.55);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: var(--bg-deep);
+        color: var(--text-main);
+        font-family: var(--font-body);
+        line-height: 1.6;
+        overflow-x: hidden;
+        background-image:
+          radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.12) 0%, transparent 45%),
+          radial-gradient(circle at 85% 75%, rgba(168, 85, 247, 0.09) 0%, transparent 50%),
+          radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.04) 0%, transparent 60%);
+        background-attachment: fixed;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* Navbar */
+      .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        background: rgba(8, 11, 20, 0.85);
+        border-bottom: 1px solid var(--card-border);
+        padding: 14px 0;
+      }
+
+      .nav-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .nav-logo {
+        width: 36px;
+        height: 36px;
+        border-radius: 9px;
+        box-shadow: 0 0 16px rgba(99, 102, 241, 0.4);
+      }
+
+      .nav-title {
+        font-family: var(--font-heading);
+        font-size: 20px;
+        font-weight: 800;
+        background: var(--grad-brand);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .nav-link {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text-muted);
+        transition: color 0.2s ease;
+      }
+
+      .nav-link:hover {
+        color: var(--text-main);
+      }
+
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .lang-select {
+        appearance: none;
+        -webkit-appearance: none;
+        background: rgba(255, 255, 255, 0.05) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%2394a3b8' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E") no-repeat right 10px center;
+        color: var(--text-main);
+        border: 1px solid var(--card-border);
+        border-radius: var(--radius-sm);
+        padding: 5px 26px 5px 10px;
+        font-size: 12px;
+        font-weight: 500;
+        cursor: pointer;
+        outline: none;
+        transition: all 0.2s;
+      }
+
+      .lang-select:hover {
+        border-color: var(--accent-indigo);
+      }
+
+      .lang-select option {
+        background: #0f1524;
+        color: #fff;
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 60px 0 40px;
+        text-align: center;
+      }
+
+      .badge-version {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 700;
+        color: #a5b4fc;
+        background: rgba(99, 102, 241, 0.15);
+        border: 1px solid rgba(99, 102, 241, 0.4);
+        padding: 4px 14px;
+        border-radius: 30px;
+        margin-bottom: 20px;
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.25);
+      }
+
+      .badge-dot {
+        width: 6px;
+        height: 6px;
+        background: #10b981;
+        border-radius: 50%;
+        box-shadow: 0 0 8px #10b981;
+      }
+
+      .hero-title {
+        font-family: var(--font-heading);
+        font-size: 52px;
+        font-weight: 800;
+        line-height: 1.15;
+        letter-spacing: -1.5px;
+        max-width: 900px;
+        margin: 0 auto 16px;
+      }
+
+      .hero-title-highlight {
+        background: var(--grad-brand);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .hero-subtitle {
+        font-size: 17px;
+        color: var(--text-muted);
+        max-width: 680px;
+        margin: 0 auto 28px;
+        line-height: 1.6;
+      }
+
+      /* Download Actions */
+      .download-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+        margin-bottom: 20px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 13px 26px;
+        border-radius: var(--radius-md);
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        border: none;
+        outline: none;
+      }
+
+      .btn-primary {
+        background: var(--grad-button);
+        color: #ffffff;
+        box-shadow: var(--shadow-glow);
+      }
+
+      .btn-primary:hover {
+        background: var(--grad-button-hover);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-glow-hover);
+      }
+
+      .btn-secondary {
+        background: var(--grad-secondary);
+        color: #e0e7ff;
+        border: 1px solid rgba(99, 102, 241, 0.4);
+      }
+
+      .btn-secondary:hover {
+        background: var(--grad-secondary-hover);
+        border-color: rgba(139, 92, 246, 0.6);
+        color: #fff;
+        transform: translateY(-2px);
+      }
+
+      /* Quick Feature Pills */
+      .feature-pills {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 40px;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        color: var(--text-muted);
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 5px 12px;
+        border-radius: 20px;
+      }
+
+      .pill-highlight {
+        color: #f472b6;
+        border-color: rgba(236, 72, 153, 0.3);
+        background: rgba(236, 72, 153, 0.08);
+      }
+
+      /* Compact UI Mockup */
+      .preview-container {
+        max-width: 900px;
+        margin: 0 auto 70px;
+        border-radius: var(--radius-lg);
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--card-border-glow);
+        box-shadow: var(--shadow-glow);
+      }
+
+      .mockup-window {
+        background: #0d121f;
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        border: 1px solid var(--card-border);
+      }
+
+      .mockup-topbar {
+        background: #141a2a;
+        padding: 10px 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border-bottom: 1px solid var(--card-border);
+      }
+
+      .mockup-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
+
+      .mockup-dot-red { background: #ef4444; }
+      .mockup-dot-yellow { background: #f59e0b; }
+      .mockup-dot-green { background: #10b981; }
+
+      .mockup-body {
+        padding: 22px 20px;
+      }
+
+      .mockup-input-box {
+        display: flex;
+        gap: 10px;
+        background: #182033;
+        border: 1px solid rgba(99, 102, 241, 0.4);
+        padding: 8px 14px;
+        border-radius: var(--radius-md);
+        margin-bottom: 18px;
+        align-items: center;
+      }
+
+      .mockup-input-text {
+        color: #94a3b8;
+        font-family: var(--font-mono);
+        font-size: 13px;
+        flex: 1;
+      }
+
+      .mockup-btn {
+        background: var(--grad-button);
+        color: #fff;
+        padding: 7px 16px;
+        border-radius: var(--radius-sm);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .mockup-active-card {
+        background: rgba(22, 30, 50, 0.7);
+        border: 1px solid rgba(99, 102, 241, 0.3);
+        border-radius: var(--radius-md);
+        padding: 14px;
+      }
+
+      .mockup-progress-track {
+        height: 6px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+        overflow: hidden;
+        margin: 8px 0;
+      }
+
+      .mockup-progress-bar {
+        height: 100%;
+        width: 78%;
+        background: var(--grad-button);
+      }
+
+      /* Features Grid */
+      .section-title-wrap {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .section-eyebrow {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        font-weight: 700;
+        color: #a5b4fc;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+      }
+
+      .section-heading {
+        font-family: var(--font-heading);
+        font-size: 32px;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 20px;
+        margin-bottom: 70px;
+      }
+
+      .feature-card {
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: var(--radius-lg);
+        padding: 24px;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(16px);
+      }
+
+      .feature-card:hover {
+        background: var(--card-bg-hover);
+        border-color: var(--card-border-glow);
+        transform: translateY(-3px);
+      }
+
+      .feature-card-adult {
+        border-color: rgba(236, 72, 153, 0.35);
+        background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(168, 85, 247, 0.08) 100%);
+      }
+
+      .feature-icon {
+        font-size: 24px;
+        margin-bottom: 12px;
+      }
+
+      .feature-title {
+        font-size: 17px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+
+      .feature-desc {
+        font-size: 13.5px;
+        color: var(--text-muted);
+        line-height: 1.6;
+      }
+
+      /* Platforms Grid */
+      .platforms-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 14px;
+        margin-bottom: 70px;
+      }
+
+      .platform-chip {
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: var(--radius-md);
+        padding: 14px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        transition: all 0.2s ease;
+      }
+
+      .platform-chip:hover {
+        border-color: var(--accent-indigo);
+        background: rgba(255, 255, 255, 0.04);
+        transform: translateY(-2px);
+      }
+
+      .platform-chip-featured {
+        border-color: rgba(236, 72, 153, 0.35);
+        background: rgba(236, 72, 153, 0.05);
+      }
+
+      .platform-icon {
+        font-size: 24px;
+      }
+
+      .platform-info h4 {
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .platform-info p {
+        font-size: 11px;
+        color: var(--text-dim);
+        font-family: var(--font-mono);
+      }
+
+      /* FAQ Accordion */
+      .faq-list {
+        max-width: 800px;
+        margin: 0 auto 70px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .faq-item {
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: var(--radius-md);
+        padding: 18px 22px;
+      }
+
+      .faq-question {
+        font-size: 15px;
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+
+      .faq-answer {
+        font-size: 13.5px;
+        color: var(--text-muted);
+        line-height: 1.6;
+      }
+
+      /* Footer */
+      .footer {
+        border-top: 1px solid var(--card-border);
+        padding: 36px 0;
+        text-align: center;
+        font-size: 13px;
+        color: var(--text-dim);
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 10px;
+      }
+
+      /* In-Flow Full-Width Ad Banners */
+      .site-ad-banner {
+        width: 100%;
+        padding: 16px 0;
+        box-sizing: border-box;
+      }
+
+      .site-ad-banner .ad-banner-card {
+        width: 100%;
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: var(--radius-md);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        padding: 6px;
+        overflow: hidden;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: border-color 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .site-ad-banner .ad-banner-card:hover {
+        border-color: var(--card-border-glow);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(99, 102, 241, 0.15);
+      }
+
+      .site-ad-banner .ad-banner-card iframe {
+        width: 100%;
+        height: 90px;
+        border: none;
+        overflow: hidden;
+        display: block;
+      }
+
+      @media (max-width: 768px) {
+        .hero-title {
+          font-size: 32px;
+        }
+        .nav-links {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="container nav-inner">
+        <div class="nav-brand">
+          <img src="./assets/logo.png" alt="OmniVideoRip Logo" class="nav-logo" />
+          <span class="nav-title">OmniVideoRip</span>
+        </div>
+        <nav class="nav-links">
+          <a href="#features" class="nav-link" data-i18n="nav.features">核心卖点</a>
+          <a href="#platforms" class="nav-link" data-i18n="nav.platforms">支持平台</a>
+          <a href="#downloads" class="nav-link" data-i18n="nav.downloads">免费下载</a>
+          <a href="#faq" class="nav-link" data-i18n="nav.faq">FAQ</a>
+          <a href="https://github.com/player253874/OmniVideoRip" target="_blank" rel="noopener noreferrer" class="nav-link" style="display: inline-flex; align-items: center; gap: 4px; color: #a5b4fc;">
+            <span>⭐ GitHub</span>
+          </a>
+        </nav>
+        <div class="nav-right">
+          <select id="site-lang-select" class="lang-select" title="Language">
+            <option value="auto">🌐 自动 (Auto)</option>
+            <option value="zh-CN">🇨🇳 简体中文</option>
+            <option value="zh-TW">🇭🇰 繁體中文</option>
+            <option value="en">🇺🇸 English</option>
+            <option value="ja">🇯🇵 日本語</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <!-- Top Ad Banner -->
+    <div class="site-ad-banner top-ad-banner">
+      <div class="container">
+        <div class="ad-banner-card">
+          <iframe data-aa="2453867" src="https://acceptable.a-ads.com/2453867/?size=Adaptive" title="Advertisement" loading="lazy" style="border: 0; padding: 0; width: 100%; height: 90px; overflow: hidden; margin: 0 auto; display: block;"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="downloads">
+      <div class="container">
+        <div class="badge-version">
+          <span class="badge-dot"></span>
+          <span data-i18n="hero.badge">v1.3.8 稳定版 · Windows 10/11 64位</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span data-i18n="hero.title1">全网视频极速下载器</span><br />
+          <span class="hero-title-highlight" data-i18n="hero.title2">主流社媒 · 成人AV · 4K原画</span>
+        </h1>
+        <p class="hero-subtitle" data-i18n="hero.subtitle">
+          独家支持 MissAV / GGJav / RouVideo / SupJav 等成人站点 16 线程满速提取，YouTube / B站 / Twitter / TikTok 4K 画质自选，100% 永久免费。
+        </p>
+
+        <!-- Downloads CTA Buttons -->
+        <div class="download-actions">
+          <a id="btn-download-exe" href="https://github.com/player253874/OmniVideoRip/releases/latest/download/OmniVideoRip.exe" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+            <span>🚀</span>
+            <div style="text-align: left;">
+              <div style="font-size: 14px;" data-i18n="btn.exe.title">免费下载绿色版 (.exe)</div>
+              <div style="font-size: 11px; opacity: 0.85; font-family: var(--font-mono);">OmniVideoRip.exe (~12MB · GitHub Releases)</div>
+            </div>
+          </a>
+
+          <a id="btn-download-zip" href="https://github.com/player253874/OmniVideoRip/releases/latest/download/OmniVideoRip-v1.3.8-full.zip" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+            <span>📦</span>
+            <div style="text-align: left;">
+              <div style="font-size: 14px;" data-i18n="btn.zip.title">离线全量便携包 (.zip)</div>
+              <div style="font-size: 11px; opacity: 0.85; font-family: var(--font-mono);">内置双引擎 (~46MB · GitHub Releases)</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Quick Highlight Pills -->
+        <div class="feature-pills">
+          <span class="pill pill-highlight"><span>🔞</span> <span data-i18n="pill.adult">独家支持成人AV</span></span>
+          <span class="pill"><span>🎬</span> <span data-i18n="pill.res">4K/8K画质自选</span></span>
+          <span class="pill"><span>⚡</span> <span data-i18n="pill.threads">16线程并发直下</span></span>
+          <span class="pill"><span>🔄</span> <span data-i18n="pill.autoupdate">反爬规则自动热更</span></span>
+          <span class="pill"><span>💾</span> <span data-i18n="pill.persist">任务断点续传</span></span>
+          <span class="pill"><span>🎁</span> <span data-i18n="pill.free">永久免费无限制</span></span>
+        </div>
+
+        <!-- Software UI Preview -->
+        <div class="preview-container">
+          <div class="mockup-window">
+            <div class="mockup-topbar">
+              <span class="mockup-dot mockup-dot-red"></span>
+              <span class="mockup-dot mockup-dot-yellow"></span>
+              <span class="mockup-dot mockup-dot-green"></span>
+              <span style="font-family: var(--font-mono); font-size: 11px; color: #64748b; margin-left: 10px;">OmniVideoRip v1.3.8</span>
+            </div>
+            <div class="mockup-body">
+              <div class="mockup-input-box">
+                <span>🔗</span>
+                <span class="mockup-input-text">https://missav.live/dm26/ja/jac-082</span>
+                <span class="mockup-btn" data-i18n="mockup.analyze">解析画质</span>
+              </div>
+              <div class="mockup-active-card">
+                <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                  <span>🌸 MissAV · 16 线程 Surrit HLS 并发解密 (原画 1080P)</span>
+                  <span style="color: #d946ef; font-family: var(--font-mono); font-weight: 700;">28.5 MB/s · 78%</span>
+                </div>
+                <div class="mockup-progress-track">
+                  <div class="mockup-progress-bar"></div>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 11px; color: #94a3b8; font-family: var(--font-mono);">
+                  <span>已下载: 1,872 / 2,400 TS 切片</span>
+                  <span>剩余时间: 00:18</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="features" id="features">
+      <div class="container">
+        <div class="section-title-wrap">
+          <p class="section-eyebrow" data-i18n="features.eyebrow">WHY OMNIVIDEORIP</p>
+          <h2 class="section-heading" data-i18n="features.title">核心竞争优势</h2>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card feature-card-adult">
+            <div class="feature-icon">🔞</div>
+            <h3 class="feature-title" style="color: #f472b6;" data-i18n="f1.title">独家支持成人 AV 站点直下</h3>
+            <p class="feature-desc" data-i18n="f1.desc">
+              传统下载器无法抓取的 MissAV、GGJav 等站点，内置 Go 原生 16 线程并发切片解密引擎，全长高清正片 5~10 倍速极速直下并自动合并。
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🎁</div>
+            <h3 class="feature-title" data-i18n="f2.title">100% 永久免费，无任何限制</h3>
+            <p class="feature-desc" data-i18n="f2.desc">
+              无每日下载次数限制，无付费墙，无画质阉割。不逼你充会员，所有功能开箱即用。
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3 class="feature-title" data-i18n="f3.title">图形化画质自选与批量排队</h3>
+            <p class="feature-desc" data-i18n="f3.desc">
+              无需繁琐敲命令行。粘贴链接自动分析可用分辨率（4K/1080P/720P/MP3 音频），支持多链接批量排队下载。
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🔄</div>
+            <h3 class="feature-title" data-i18n="f4.title">反爬规则一键热更，永不失效</h3>
+            <p class="feature-desc" data-i18n="f4.desc">
+              各大网站频繁更新防下载对抗，内置组件在线热更新机制，点击即可秒级自愈升级，无需重新下载客户端。
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3 class="feature-title" data-i18n="f5.title">平台隔离并发与无缝调度</h3>
+            <p class="feature-desc" data-i18n="f5.desc">
+              自研多平台隔离调度锁，每平台独立排队、跨平台全速并行；暂停/删除任务瞬间释放通道，排队任务秒级接续。
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">💾</div>
+            <h3 class="feature-title" data-i18n="f6.title">任务持久化与断点续传</h3>
+            <p class="feature-desc" data-i18n="f6.desc">
+              中途关闭软件或断网，已下载切片完整保留。重启后随时一键接续下载，切片零丢失、绝不重复耗费流量。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Supported Platforms Grid -->
+    <section class="platforms" id="platforms">
+      <div class="container">
+        <div class="section-title-wrap">
+          <p class="section-eyebrow" data-i18n="platforms.eyebrow">SUPPORTED SITES</p>
+          <h2 class="section-heading" data-i18n="platforms.title">主流与成人站点全面支持</h2>
+        </div>
+
+        <div class="platforms-grid">
+          <div class="platform-chip platform-chip-featured">
+            <span class="platform-icon">🌸</span>
+            <div class="platform-info">
+              <h4 style="color: #f472b6;">MissAV</h4>
+              <p>16 线程并发 · 全长 1080P 正片</p>
+            </div>
+          </div>
+          <div class="platform-chip platform-chip-featured">
+            <span class="platform-icon">🟣</span>
+            <div class="platform-info">
+              <h4 style="color: #c084fc;">GGJav</h4>
+              <p>16 线程 HLS 切片解密原画合并</p>
+            </div>
+          </div>
+          <div class="platform-chip platform-chip-featured">
+            <span class="platform-icon">🥩</span>
+            <div class="platform-info">
+              <h4 style="color: #f472b6;">RouVideo (肉视频)</h4>
+              <p>16 线程自动解密 · 720P/1080P 原画直下</p>
+            </div>
+          </div>
+          <div class="platform-chip platform-chip-featured">
+            <span class="platform-icon">🎬</span>
+            <div class="platform-info">
+              <h4 style="color: #fb923c;">SupJav</h4>
+              <p>多播放线路还原 · 1080P 原画极速直下</p>
+            </div>
+          </div>
+
+          <div class="platform-chip">
+            <span class="platform-icon">🔴</span>
+            <div class="platform-info">
+              <h4>YouTube</h4>
+              <p>4K / 8K · 1080P · MP3音频提取</p>
+            </div>
+          </div>
+          <div class="platform-chip">
+            <span class="platform-icon">🔵</span>
+            <div class="platform-info">
+              <h4>Bilibili 哔哩哔哩</h4>
+              <p>1080P/4K · 多P分卷批量抓取</p>
+            </div>
+          </div>
+          <div class="platform-chip">
+            <span class="platform-icon">🖤</span>
+            <div class="platform-info">
+              <h4>X (Twitter)</h4>
+              <p>1080P 原画 · 多视频提取 · GIF转MP4</p>
+            </div>
+          </div>
+          <div class="platform-chip">
+            <span class="platform-icon">📷</span>
+            <div class="platform-info">
+              <h4>Instagram</h4>
+              <p>Reels 短视频 · 帖子高清原画</p>
+            </div>
+          </div>
+          <div class="platform-chip">
+            <span class="platform-icon">🎵</span>
+            <div class="platform-info">
+              <h4>TikTok / 抖音</h4>
+              <p>无水印提取 · 原声音频分离</p>
+            </div>
+          </div>
+          <div class="platform-chip">
+            <span class="platform-icon">🌐</span>
+            <div class="platform-info">
+              <h4>全网 1800+ 站点</h4>
+              <p>通用引擎持续更新</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="section-title-wrap">
+          <p class="section-eyebrow" data-i18n="faq.eyebrow">FAQ</p>
+          <h2 class="section-heading" data-i18n="faq.title">常见问题</h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-question" data-i18n="faq.q1">真的完全免费吗？有下载次数限制吗？</div>
+            <p class="faq-answer" data-i18n="faq.a1">
+              100% 永久免费，无任何下载次数或画质限制，无付费墙。软件仅展示少量非侵入式匿名广告，不收集任何用户数据。
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" data-i18n="faq.q2">“单文件版”与“离线完整包”该选哪个？</div>
+            <p class="faq-answer" data-i18n="faq.a2">
+              推荐直接下载【离线完整包 (.zip)】，已内置 yt-dlp 与 ffmpeg 双引擎，解压即用无需额外联网下载；如果追求极致轻便，可选【单文件版 (.exe)】（约 12MB），首次打开在线获取引擎。
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" data-i18n="faq.q3">视频网站更新反爬策略后失效怎么办？</div>
+            <p class="faq-answer" data-i18n="faq.a3">
+              只需点击软件底部的“🔄 更新 yt-dlp”按钮，即可一键升级至官方最新解析规则，秒级恢复下载，无需重新安装主程序。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Ad Banner -->
+    <div class="site-ad-banner bottom-ad-banner">
+      <div class="container">
+        <div class="ad-banner-card">
+          <iframe data-aa="2453867" src="https://acceptable.a-ads.com/2453867/?size=Adaptive" title="Advertisement" loading="lazy" style="border: 0; padding: 0; width: 100%; height: 90px; overflow: hidden; margin: 0 auto; display: block;"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-links">
+          <a href="#downloads" data-i18n="nav.downloads">下载</a>
+          <a href="#features" data-i18n="nav.features">卖点</a>
+          <a href="#platforms" data-i18n="nav.platforms">平台</a>
+          <a href="#faq" data-i18n="nav.faq">FAQ</a>
+          <a href="https://github.com/player253874/OmniVideoRip" target="_blank" rel="noopener noreferrer">⭐ GitHub 仓库</a>
+          <a href="https://github.com/player253874/OmniVideoRip/releases" target="_blank" rel="noopener noreferrer">📦 Releases 发行页</a>
+        </div>
+        <p>OmniVideoRip &copy; 2026 · 100% Free Universal & Adult Video Ripper</p>
+      </div>
+    </footer>
+
+    <!-- Script: Config + Multi-language i18n -->
+    <script>
+      const SITE_CONFIG = {
+        version: "1.3.8",
+        repo: "player253874/OmniVideoRip",
+        exeDownloadUrl: "https://github.com/player253874/OmniVideoRip/releases/latest/download/OmniVideoRip.exe",
+        zipDownloadUrl: "https://github.com/player253874/OmniVideoRip/releases/latest/download/OmniVideoRip-v1.3.8-full.zip",
+        releasesUrl: "https://github.com/player253874/OmniVideoRip/releases"
+      };
+
+      document.getElementById("btn-download-exe").href = SITE_CONFIG.exeDownloadUrl;
+      document.getElementById("btn-download-zip").href = SITE_CONFIG.zipDownloadUrl;
+
+      const I18N = {
+        "zh-CN": {
+          "nav.features": "核心卖点",
+          "nav.platforms": "支持平台",
+          "nav.downloads": "免费下载",
+          "nav.faq": "FAQ",
+          "hero.badge": "v1.3.8 稳定版 · Windows 10/11 64位",
+          "hero.title1": "全网视频极速下载器",
+          "hero.title2": "主流社媒 · 成人AV · 4K原画",
+          "hero.subtitle": "独家支持 MissAV / GGJav / RouVideo / SupJav 等成人站点 16 线程满速提取，YouTube / B站 / Twitter / TikTok 4K 画质自选，100% 永久免费。",
+          "btn.exe.title": "免费下载绿色版 (.exe)",
+          "btn.zip.title": "离线全量便携包 (.zip)",
+          "pill.adult": "独家支持成人AV",
+          "pill.res": "4K/8K画质自选",
+          "pill.threads": "16线程并发直下",
+          "pill.autoupdate": "反爬规则自动热更",
+          "pill.persist": "任务断点续传",
+          "pill.free": "永久免费无限制",
+          "mockup.analyze": "解析画质",
+          "features.eyebrow": "WHY OMNIVIDEORIP",
+          "features.title": "核心竞争优势",
+          "f1.title": "独家支持成人 AV 站点直下",
+          "f1.desc": "传统下载器无法抓取的 MissAV、GGJav、RouVideo、SupJav 等站点，内置 Go 原生 16 线程并发解密引擎，全长高清正片 5~10 倍速极速直下并自动合并。",
+          "f2.title": "100% 永久免费，无任何限制",
+          "f2.desc": "无每日下载次数限制，无付费墙，无画质阉割。不逼你充会员，所有功能开箱即用。",
+          "f3.title": "图形化画质自选与批量排队",
+          "f3.desc": "无需繁琐敲命令。粘贴链接自动分析可用分辨率（4K/1080P/720P/MP3 音频），支持多链接批量排队下载。",
+          "f4.title": "反爬规则一键热更，永不失效",
+          "f4.desc": "各大视频网站频繁更新防爬机制，内置组件在线热更新机制，点击即可秒级自愈升级，免重装客户端。",
+          "f5.title": "平台隔离并发与无缝调度",
+          "f5.desc": "自研多平台隔离调度锁，每平台独立排队、跨平台全速并行；暂停/删除任务瞬间释放通道，排队任务秒级接续。",
+          "f6.title": "任务持久化与断点续传",
+          "f6.desc": "中途关闭软件或断网，已下载切片完整保留。重启后随时一键接续下载，切片零丢失、绝不重复耗费流量。",
+          "platforms.eyebrow": "SUPPORTED SITES",
+          "platforms.title": "主流与成人站点全面支持",
+          "faq.eyebrow": "FAQ",
+          "faq.title": "常见问题",
+          "faq.q1": "真的完全免费吗？有下载次数限制吗？",
+          "faq.a1": "100% 永久免费，无任何下载次数或画质限制，无付费墙。软件仅展示少量非侵入式匿名广告，不收集任何用户数据。",
+          "faq.q2": "“单文件版”与“离线完整包”该选哪个？",
+          "faq.a2": "推荐直接下载【离线完整包 (.zip)】，已内置 yt-dlp 与 ffmpeg 双引擎，解压即用无需额外联网下载；如果追求极致轻便，可选【单文件版 (.exe)】（约 12MB），首次打开在线获取引擎。",
+          "faq.q3": "视频网站更新反爬策略后失效怎么办？",
+          "faq.a3": "只需点击软件底部的“🔄 更新 yt-dlp”按钮，即可一键升级至官方最新解析规则，秒级恢复下载，无需重新安装主程序。",
+        },
+        "zh-TW": {
+          "nav.features": "核心賣點",
+          "nav.platforms": "支援平台",
+          "nav.downloads": "免費下載",
+          "nav.faq": "FAQ",
+          "hero.badge": "v1.3.8 穩定版 · Windows 10/11 64位元",
+          "hero.title1": "全網影音極速下載器",
+          "hero.title2": "主流社群 · 成人AV · 4K原畫",
+          "hero.subtitle": "獨家支援 MissAV / GGJav / RouVideo / SupJav 等成人站點 16 執行緒滿速擷取，YouTube / B站 / Twitter / TikTok 4K 畫質自選，100% 永久免費。",
+          "btn.exe.title": "免費下載綠色版 (.exe)",
+          "btn.zip.title": "離線完整免安裝包 (.zip)",
+          "pill.adult": "獨家支援成人AV",
+          "pill.res": "4K/8K畫質自選",
+          "pill.threads": "16執行緒並行直下",
+          "pill.autoupdate": "反爬規則自動熱更",
+          "pill.persist": "任務斷點續傳",
+          "pill.free": "永久免費無限制",
+          "mockup.analyze": "解析畫質",
+          "features.eyebrow": "WHY OMNIVIDEORIP",
+          "features.title": "核心競爭優勢",
+          "f1.title": "獨家支援成人 AV 站點直下",
+          "f1.desc": "傳統下載器無法抓取的 MissAV、GGJav、RouVideo、SupJav 等站點，內建 Go 原生 16 執行緒並行解密引擎，全長高清正片 5~10 倍速極速直下並自動合併。",
+          "f2.title": "100% 永久免費，無任何限制",
+          "f2.desc": "無每日下載次數限制，無付費牆，無畫質閹割。不逼你買會員，所有功能開箱即用。",
+          "f3.title": "圖形化畫質自選與批次排隊",
+          "f3.desc": "無需繁瑣敲指令。貼上連結自動分析可用解析度（4K/1080P/720P/MP3 音訊），支援多連結批次排隊下載。",
+          "f4.title": "反爬規則一鍵熱更，永不失效",
+          "f4.desc": "各大影音網站頻繁更新防下載防禦，內建元件線上熱更新機制，點擊即可秒級自癒升級，免重裝客戶端。",
+          "f5.title": "平台隔離並行與無縫調度",
+          "f5.desc": "自研多平台隔離調度鎖，各平台任務獨立排隊、跨平台全速並行；暫停/刪除任務瞬間釋放通道，排隊任務秒級接續。",
+          "f6.title": "任務持久化與斷點續傳",
+          "f6.desc": "中途關閉軟體或斷網，已下載分片完整保留。重啟後隨時一鍵接續下載，分片零遺失、絕不浪費流量重載。",
+          "platforms.eyebrow": "SUPPORTED SITES",
+          "platforms.title": "主流與成人站點全面支援",
+          "faq.eyebrow": "FAQ",
+          "faq.title": "常見問題",
+          "faq.q1": "真的完全免費嗎？有下載次數限制嗎？",
+          "faq.a1": "100% 永久免費，無任何下載次數或畫質限制，無付費牆。軟體僅展示少量非侵入式匿名廣告，不收集任何使用者資料。",
+          "faq.q2": "「單一執行檔」與「離線完整包」該選哪個？",
+          "faq.a2": "推薦直接下載【離線完整包 (.zip)】，已內建 yt-dlp 與 ffmpeg 雙引擎，解壓即用無需額外連網下載；追求極致輕巧可選【單一執行檔 (.exe)】（約 12MB）。",
+          "faq.q3": "影音網站更新反爬規則後失效怎麼辦？",
+          "faq.a3": "只需點擊軟體底部的「🔄 更新 yt-dlp」按鈕，即可一鍵升級至官方最新解析規則，秒級恢復下載，無需重新安裝主程式。",
+        },
+        en: {
+          "nav.features": "Advantages",
+          "nav.platforms": "Platforms",
+          "nav.downloads": "Free Download",
+          "nav.faq": "FAQ",
+          "hero.badge": "v1.3.8 Release · Windows 10/11 64-bit",
+          "hero.title1": "Universal Video Ripper",
+          "hero.title2": "Mainstream · Adult JAV · 4K / 8K",
+          "hero.subtitle": "Exclusive support for MissAV, GGJav, RouVideo, SupJav with 16-thread fast extraction. YouTube, Bilibili, Twitter 4K quality selector. 100% Free Forever.",
+          "btn.exe.title": "Free Portable EXE",
+          "btn.zip.title": "Full Standalone ZIP",
+          "pill.adult": "Adult Sites Exclusive",
+          "pill.res": "4K/8K Quality Select",
+          "pill.threads": "16-Thread Fast Rip",
+          "pill.autoupdate": "Self-Healing Hot Updates",
+          "pill.persist": "Resumable Downloads",
+          "pill.free": "100% Free Forever",
+          "mockup.analyze": "Analyze Quality",
+          "features.eyebrow": "WHY OMNIVIDEORIP",
+          "features.title": "Core Competitive Advantages",
+          "f1.title": "Exclusive Adult & JAV Site Ripper",
+          "f1.desc": "Where ordinary downloaders fail (MissAV, GGJav, RouVideo, SupJav), our native Go 16-thread HLS engine decrypts and downloads full 1080P videos 5-10x faster.",
+          "f2.title": "100% Free Forever · Zero Paywalls",
+          "f2.desc": "No daily limits, no license keys, no quality restrictions. Every feature is completely free out of the box.",
+          "f3.title": "Visual Quality Picker & Batch Queues",
+          "f3.desc": "No terminal commands needed. Paste any link to pick 4K, 1080P, 720P, or extract audio MP3 with batch queue support.",
+          "f4.title": "One-Click Anti-Scrape Live Updates",
+          "f4.desc": "When sites update anti-scraping rules, click 'Update yt-dlp' inside the app to self-heal in seconds — zero reinstall needed.",
+          "f5.title": "Per-Platform Parallel Isolation",
+          "f5.desc": "Isolated concurrency locks allow true multi-site parallel ripping. Instant slot handover on pause or delete.",
+          "f6.title": "Persistent Tasks & Resume Support",
+          "f6.desc": "Close the app anytime — cached video chunks remain intact. Resume downloads with one click upon restart.",
+          "platforms.eyebrow": "SUPPORTED SITES",
+          "platforms.title": "Mainstream & Adult Sites Supported",
+          "faq.eyebrow": "FAQ",
+          "faq.title": "Frequently Asked Questions",
+          "faq.q1": "Is OmniVideoRip truly free? Any download limits?",
+          "faq.a1": "100% free with no limits on speed, quality, or download counts. Displays only non-intrusive anonymous ads with zero tracking.",
+          "faq.q2": "Which version should I download, EXE or ZIP?",
+          "faq.a2": "We recommend the Full Standalone ZIP (~46MB) as it includes bundled yt-dlp & ffmpeg sidecars ready offline. The single EXE (~12MB) updates on first run.",
+          "faq.q3": "What if a video site updates its protections?",
+          "faq.a3": "Simply click '🔄 Update yt-dlp' inside the client to fetch fresh scraper rules immediately.",
+        },
+        ja: {
+          "nav.features": "特徴",
+          "nav.platforms": "対応サイト",
+          "nav.downloads": "無料ダウンロード",
+          "nav.faq": "FAQ",
+          "hero.badge": "v1.3.8 安定版 · Windows 10/11 (64bit)",
+          "hero.title1": "全ネット動画高速ダウンローダー",
+          "hero.title2": "主要SNS · 成人AV · 4K原画",
+          "hero.subtitle": "MissAV / GGJav / RouVideo / SupJav 等の成人サイトを16スレッドで独占高速抽出。YouTube / Bilibili / Twitter 4K画質選択対応、100% 完全無料。",
+          "btn.exe.title": "ポータブル単一EXE版",
+          "btn.zip.title": "完全オフラインZIP版",
+          "pill.adult": "成人AV独占対応",
+          "pill.res": "4K/8K画質選択",
+          "pill.threads": "16スレッド高速直下",
+          "pill.autoupdate": "仕様変更に自動追従",
+          "pill.persist": "タスク中断再開",
+          "pill.free": "永久完全無料",
+          "mockup.analyze": "画質解析",
+          "features.eyebrow": "WHY OMNIVIDEORIP",
+          "features.title": "選ばれる理由と圧倒的優位性",
+          "f1.title": "成人 / AV サイト独占高速直下",
+          "f1.desc": "一般的なダウンローダーでは保存できない MissAV、GGJav、RouVideo、SupJav にネイティブ対応。Go 16スレッド並行復号でフルHD本編を5〜10倍速で自動結合。",
+          "f2.title": "100% 永久無料 · 制限一切なし",
+          "f2.desc": "1日のダウンロード回数制限や課金壁、画質制限は一切ありません。すべての機能を完全無料でお使いいただけます。",
+          "f3.title": "直感的な画質選択と一括キュー",
+          "f3.desc": "黒い画面のコマンド入力は不要。URLを貼るだけで 4K/1080P/720P/MP3 音声を自由に選択して一括ダウンロード可能。",
+          "f4.title": "仕様変更に強いアプリ内自動更新",
+          "f4.desc": "動画サイトが仕様変更を行っても、アプリ内からワンクリックで最新解析ルールへ即時アップデート可能。",
+          "f5.title": "プラットフォーム別並行分離スケジューリング",
+          "f5.desc": "サイトごとに独立したキュー管理。タスクの一時停止や削除時に即座にロックを解放し、次タスクをスムーズに昇格。",
+          "f6.title": "タスク永続化とレジューム再开",
+          "f6.desc": "アプリを終了してもダウンロード済みデータは保持されます。再起動後もワンクリックで続きから高速再開可能。",
+          "platforms.eyebrow": "SUPPORTED SITES",
+          "platforms.title": "主要メディア＆成人サイトを網羅",
+          "faq.eyebrow": "FAQ",
+          "faq.title": "よくある質問",
+          "faq.q1": "本当に無料ですか？制限はありますか？",
+          "faq.a1": "100% 完全無料で機能や回数の制限はありません。プライバシーを侵害しない少量の匿名広告のみ掲載されています。",
+          "faq.q2": "単一EXE版と完全ZIP版はどちらを選ぶべき？",
+          "faq.a2": "初めての方には依存エンジンがすべて同梱された【完全オフラインZIP版 (~46MB)】がおすすめです。身軽さを重視する場合は【単一EXE版 (~12MB)】をお選びください。",
+          "faq.q3": "動画サイトが仕様変更した場合は？",
+          "faq.a3": "アプリ内の「🔄 更新 yt-dlp」をクリックするだけで、最新の解析エンジンへ即座に更新できます。",
+        },
+      };
+
+      function applyLocale(localeKey) {
+        let dict = I18N[localeKey];
+        if (!dict) {
+          if (localeKey.startsWith("zh")) {
+            dict = localeKey.includes("tw") || localeKey.includes("hk") || localeKey.includes("hant") ? I18N["zh-TW"] : I18N["zh-CN"];
+          } else if (localeKey.startsWith("ja")) {
+            dict = I18N["ja"];
+          } else if (localeKey.startsWith("en")) {
+            dict = I18N["en"];
+          } else {
+            dict = I18N["zh-CN"];
+          }
+        }
+
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (dict && dict[key]) {
+            if (dict[key].includes("<")) {
+              el.innerHTML = dict[key];
+            } else {
+              el.textContent = dict[key];
+            }
+          }
+        });
+      }
+
+      function resolveSystemLocale() {
+        const navLang = navigator.language || navigator.userLanguage || "zh-CN";
+        const lower = navLang.toLowerCase();
+        if (lower.startsWith("zh")) {
+          return lower.includes("tw") || lower.includes("hk") || lower.includes("hant") ? "zh-TW" : "zh-CN";
+        }
+        if (lower.startsWith("ja")) return "ja";
+        if (lower.startsWith("en")) return "en";
+        return "zh-CN";
+      }
+
+      let currentLocale = resolveSystemLocale();
+
+      const langSelect = document.getElementById("site-lang-select");
+      langSelect.addEventListener("change", (e) => {
+        const val = e.target.value;
+        currentLocale = val === "auto" ? resolveSystemLocale() : val;
+        applyLocale(currentLocale);
+      });
+
+      applyLocale(currentLocale);
+
+      // Dynamically fetch latest release from GitHub API (auto-syncs new versions without manual edits)
+      async function syncLatestRelease() {
+        try {
+          const res = await fetch(`https://api.github.com/repos/${SITE_CONFIG.repo}/releases/latest`);
+          if (res.ok) {
+            const data = await res.json();
+            const tag = data.tag_name ? data.tag_name.replace(/^v/, '') : SITE_CONFIG.version;
+            SITE_CONFIG.version = tag;
+
+            if (data.assets && data.assets.length > 0) {
+              const exeAsset = data.assets.find(a => a.name.endsWith('.exe'));
+              const zipAsset = data.assets.find(a => a.name.endsWith('.zip'));
+              if (exeAsset) SITE_CONFIG.exeDownloadUrl = exeAsset.browser_download_url;
+              if (zipAsset) SITE_CONFIG.zipDownloadUrl = zipAsset.browser_download_url;
+            } else {
+              SITE_CONFIG.exeDownloadUrl = `https://github.com/${SITE_CONFIG.repo}/releases/download/v${tag}/OmniVideoRip.exe`;
+              SITE_CONFIG.zipDownloadUrl = `https://github.com/${SITE_CONFIG.repo}/releases/download/v${tag}/OmniVideoRip-v${tag}-full.zip`;
+            }
+
+            const btnExe = document.getElementById("btn-download-exe");
+            const btnZip = document.getElementById("btn-download-zip");
+            if (btnExe) btnExe.href = SITE_CONFIG.exeDownloadUrl;
+            if (btnZip) btnZip.href = SITE_CONFIG.zipDownloadUrl;
+
+            // Dynamically update version badge in DOM
+            document.querySelectorAll("[data-i18n='hero.badge']").forEach(el => {
+              el.textContent = `v${tag} 稳定版 · Windows 10/11 64位`;
+            });
+          }
+        } catch (e) {
+          // Gracefully fall back to pre-configured static URLs
+          console.log("GitHub release dynamic sync fallback to static:", e);
+        }
+      }
+
+      syncLatestRelease();
+    </script>
+  </body>
+</html>

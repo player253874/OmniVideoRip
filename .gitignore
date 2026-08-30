@@ -13,7 +13,9 @@ Thumbs.db
 /.gocache/
 /resource.syso
 /release/
-/website/
+/website/release/
+*.tmp
+*.tmp.zip
 
 # Keep only build-time source icons
 /build/*

@@ -1,0 +1,18 @@
+# Netlify Build and Deploy Configuration for OmniVideoRip
+[build]
+  publish = "website"
+
+# Performance & Security Headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# SPA / Clean URL fallback
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

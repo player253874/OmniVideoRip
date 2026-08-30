@@ -209,7 +209,7 @@ func CheckLatestYTDLPVersion(ctx context.Context) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	req.Header.Set("User-Agent", "OmniVideoRip-Updater/1.3.7")
+	req.Header.Set("User-Agent", "OmniVideoRip-Updater/1.3.8")
 
 	resp, err := client.Do(req)
 	if err != nil {
@@ -261,7 +261,7 @@ func DownloadOrUpdateYTDLP(ctx context.Context, progressCb ProgressCallback) (st
 				lastErr = err
 				continue
 			}
-			req.Header.Set("User-Agent", "OmniVideoRip-Updater/1.3.7")
+			req.Header.Set("User-Agent", "OmniVideoRip-Updater/1.3.8")
 
 			r, err := cl.Do(req)
 			if err == nil && r.StatusCode == http.StatusOK {
@@ -387,7 +387,7 @@ func DownloadOrUpdateFFmpeg(ctx context.Context, progressCb ProgressCallback) (s
 				lastErr = err
 				continue
 			}
-			req.Header.Set("User-Agent", "OmniVideoRip-Updater/1.3.7")
+			req.Header.Set("User-Agent", "OmniVideoRip-Updater/1.3.8")
 
 			r, err := cl.Do(req)
 			if err == nil && r.StatusCode == http.StatusOK {
