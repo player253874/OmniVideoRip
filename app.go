@@ -216,7 +216,7 @@ func (a *App) CheckLatestYTDLP() (string, error) {
 }
 
 func (a *App) warmupVersionInfo() VersionInfo {
-	info := VersionInfo{AppVersion: "1.3.6"}
+	info := VersionInfo{AppVersion: "1.3.7"}
 
 	ytPath, _ := sidecars.ResolveYTDLPPath(a.ytdlpPath)
 	if ytPath != "" {
@@ -274,7 +274,7 @@ func (a *App) GetVersionInfo() VersionInfo {
 	}
 	a.verMu.RUnlock()
 
-	info := VersionInfo{AppVersion: "1.3.6"}
+	info := VersionInfo{AppVersion: "1.3.7"}
 	ytPath, _ := sidecars.ResolveYTDLPPath(a.ytdlpPath)
 	if ytPath != "" {
 		info.YTDLPVersion = "已就绪"
@@ -380,7 +380,7 @@ func (a *App) SubmitDownloadWithQuality(rawURL, outputDir, formatID string) (tas
 		URL:           strings.TrimSpace(rawURL),
 		OutputDir:     outDir,
 		Source:        "OmniVideoRip_Desktop",
-		ClientVersion: "1.3.6",
+		ClientVersion: "1.3.7",
 	}
 
 	task, err := a.taskStore.Create(req)
@@ -422,7 +422,7 @@ func (a *App) SubmitBatchDownloads(rawURLsText, outputDir string) ([]tasks.Task,
 				URL:           cleanURL,
 				OutputDir:     outDir,
 				Source:        "OmniVideoRip_Batch",
-				ClientVersion: "1.3.6",
+				ClientVersion: "1.3.7",
 			}
 
 			task, err := a.taskStore.Create(req)

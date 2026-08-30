@@ -2,7 +2,7 @@
 
 OmniVideoRip 是一个基于 Go + Wails + 原生 Web 技术构建的现代化全网视频极速提取与下载桌面端软件。
 
-[![Release](https://img.shields.io/badge/Release-v1.3.6-orange.svg)](./release/OmniVideoRip.exe)
+[![Release](https://img.shields.io/badge/Release-v1.3.7-orange.svg)](./release/OmniVideoRip.exe)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20x64-blue.svg)](file:///release/OmniVideoRip.exe)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
@@ -23,6 +23,8 @@ OmniVideoRip 是一个基于 Go + Wails + 原生 Web 技术构建的现代化全
 
 ## 📝 版本更新说明 (Changelog)
 
+### [v1.3.7] - 2026-08-31
+- 🖥️ **界面边界修复**：修复顶部粘性区域在窄窗口和缩放场景下越出应用边框的问题。
 ### [v1.3.5] - 2026-08-30
 - 🧹 **清空队列真正持久化**：修复前端 API 名称失配，清空后同步清除 `tasks.json`，轮询和重启不再恢复旧任务；
 - ⏹️ **安全停止下载协程**：清空时等待所有 worker 退出后再删除断点缓存，避免缓存目录重新出现；
