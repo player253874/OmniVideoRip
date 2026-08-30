@@ -12,11 +12,11 @@
     />
     <meta
       name="description"
-      content="OmniVideoRip 是一款现代化全网视频极速下载客户端。完整搭载 yt-dlp 1800+ 站点解析生态，自研 16 线程 HLS 并发解密引擎，独家支持 MissAV、GGJav、RouVideo、SupJav 等成人站点 4K/1080P 高清正片满速直下。对比 4K Video Downloader 等付费软件，100% 永久免费、无画质锁、无下载次数限制、无需购买订阅密钥。"
+      content="OmniVideoRip 是一款现代化全网视频极速下载客户端。完整搭载 yt-dlp 1800+ 站点解析生态，自研 16 线程 HLS 并发解密引擎，独家支持 MissAV、RouVideo、GGJav 等成人站点 4K/1080P 高清正片满速直下。对比 4K Video Downloader 等付费软件，100% 永久免费、无画质锁、无下载次数限制、无需购买订阅密钥。"
     />
     <meta
       name="keywords"
-      content="OmniVideoRip, 视频下载器, yt-dlp 图形化, 4K视频下载, YouTube 4K下载, MissAV下载, GGJav下载, 肉视频下载, RouVideo下载, SupJav下载, Bilibili下载, Twitter视频下载, TikTok无水印下载, 4K Video Downloader 替代, 免费视频下载软件"
+      content="OmniVideoRip, 视频下载器, yt-dlp 图形化, 4K视频下载, YouTube 4K下载, MissAV下载, GGJav下载, 肉视频下载, RouVideo下载, Bilibili下载, Twitter视频下载, TikTok无水印下载, 4K Video Downloader 替代, 免费视频下载软件"
     />
     <meta name="author" content="OmniVideoRip" />
     <meta name="robots" content="index, follow" />
@@ -35,7 +35,7 @@
     <meta property="og:title" content="OmniVideoRip - 全网视频极速下载器 (100% 永久免费)" />
     <meta
       property="og:description"
-      content="完整搭载 yt-dlp 1800+ 站点解析能力，独家自研 16 线程解密 MissAV/GGJav/RouVideo/SupJav 等成人正片。4K/8K 画质自选，零付费墙。"
+      content="完整搭载 yt-dlp 1800+ 站点解析能力，独家自研 16 线程解密 MissAV/RouVideo/GGJav 等成人正片。4K/8K 画质自选，零付费墙。"
     />
     <meta property="og:image" content="https://omnivideorip.netlify.app/assets/logo.png" />
 
@@ -45,7 +45,7 @@
     <meta name="twitter:title" content="OmniVideoRip - 全网视频极速下载器 (100% 永久免费)" />
     <meta
       name="twitter:description"
-      content="完整搭载 yt-dlp 1800+ 站点解析能力，独家自研 16 线程解密 MissAV/GGJav/RouVideo/SupJav 等成人正片。4K/8K 画质自选，零付费墙。"
+      content="完整搭载 yt-dlp 1800+ 站点解析能力，独家自研 16 线程解密 MissAV/RouVideo/GGJav 等成人正片。4K/8K 画质自选，零付费墙。"
     />
     <meta name="twitter:image" content="https://omnivideorip.netlify.app/assets/logo.png" />
 
@@ -327,7 +327,7 @@
       .hero-subtitle {
         font-size: clamp(15px, 2vw, 18px);
         color: var(--text-muted);
-        max-width: 860px;
+        max-width: 880px;
         margin: 0 auto 34px;
         line-height: 1.7;
       }
@@ -419,9 +419,9 @@
         font-weight: 500;
       }
 
-      /* Live Interactive Demo Widget */
-      .live-demo-card {
-        max-width: 980px;
+      /* Capability & Format Matrix Showcase (取代原先生硬假链接框) */
+      .matrix-card {
+        max-width: 1040px;
         margin: 0 auto;
         background: var(--card-bg);
         border: 1px solid var(--card-border);
@@ -429,13 +429,13 @@
         box-shadow: var(--shadow-card), 0 0 40px rgba(99, 102, 241, 0.1);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
-        padding: 28px;
+        padding: 32px;
         text-align: left;
         position: relative;
         overflow: hidden;
       }
 
-      .live-demo-card::before {
+      .matrix-card::before {
         content: '';
         position: absolute;
         top: 0;
@@ -445,123 +445,118 @@
         background: var(--grad-brand);
       }
 
-      .demo-header {
+      .matrix-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: 18px;
+        margin-bottom: 24px;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 12px;
       }
 
-      .demo-title-group {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .demo-badge {
-        font-size: 11px;
-        font-weight: 700;
-        text-transform: uppercase;
-        background: rgba(16, 185, 129, 0.15);
-        color: #34d399;
-        border: 1px solid rgba(16, 185, 129, 0.3);
-        padding: 3px 8px;
-        border-radius: 6px;
-      }
-
-      .demo-tabs {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-        margin-bottom: 16px;
-      }
-
-      .demo-tab-chip {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 6px 14px;
-        background: rgba(30, 41, 59, 0.6);
-        border: 1px solid var(--card-border);
-        border-radius: 20px;
-        font-size: 13px;
-        font-weight: 600;
-        color: var(--text-muted);
-        cursor: pointer;
-        transition: all 0.2s ease;
-      }
-
-      .demo-tab-chip:hover, .demo-tab-chip.active {
-        background: rgba(99, 102, 241, 0.2);
-        border-color: var(--accent-indigo);
-        color: #ffffff;
-        box-shadow: 0 0 16px rgba(99, 102, 241, 0.25);
-      }
-
-      .demo-input-box {
+      .matrix-title-group {
         display: flex;
         align-items: center;
         gap: 12px;
-        background: rgba(5, 7, 14, 0.7);
-        border: 1px solid var(--card-border);
-        border-radius: var(--radius-md);
-        padding: 10px 16px;
-        margin-bottom: 20px;
       }
 
-      .demo-url-text {
-        flex: 1;
-        font-family: var(--font-mono);
-        font-size: 13.5px;
-        color: #38bdf8;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-
-      .demo-engine-tag {
+      .matrix-badge {
         font-size: 11px;
-        font-weight: 700;
+        font-weight: 800;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        background: rgba(99, 102, 241, 0.15);
+        color: #a5b4fc;
+        border: 1px solid rgba(99, 102, 241, 0.3);
         padding: 4px 10px;
         border-radius: 6px;
-        background: rgba(236, 72, 153, 0.15);
-        color: #f472b6;
-        border: 1px solid rgba(236, 72, 153, 0.3);
-        white-space: nowrap;
       }
 
-      .demo-results-grid {
+      .matrix-specs-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 12px;
+        grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+        gap: 16px;
+        margin-bottom: 28px;
       }
 
-      .demo-res-card {
-        background: rgba(15, 23, 42, 0.85);
+      .spec-item {
+        background: rgba(10, 15, 29, 0.7);
         border: 1px solid var(--card-border);
-        border-radius: var(--radius-sm);
-        padding: 12px 14px;
+        border-radius: var(--radius-md);
+        padding: 18px 20px;
         display: flex;
-        align-items: center;
-        justify-content: space-between;
+        align-items: flex-start;
+        gap: 14px;
+        transition: all 0.25s ease;
       }
 
-      .demo-res-quality {
+      .spec-item:hover {
+        border-color: var(--card-border-glow);
+        background: rgba(18, 27, 49, 0.85);
+        transform: translateY(-2px);
+      }
+
+      .spec-icon {
+        font-size: 24px;
+        line-height: 1;
+        padding: 8px;
+        background: rgba(99, 102, 241, 0.12);
+        border-radius: 10px;
+        border: 1px solid rgba(99, 102, 241, 0.25);
+      }
+
+      .spec-title {
         font-family: var(--font-heading);
         font-size: 15px;
         font-weight: 800;
         color: var(--text-main);
+        margin-bottom: 4px;
       }
 
-      .demo-res-badge {
-        font-size: 11px;
-        font-weight: 700;
-        padding: 2px 8px;
-        border-radius: 4px;
-        background: rgba(99, 102, 241, 0.15);
-        color: #a5b4fc;
+      .spec-desc {
+        font-size: 12.5px;
+        color: var(--text-muted);
+        line-height: 1.5;
+      }
+
+      /* How it Works 3-Step Bar */
+      .steps-bar {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        padding-top: 20px;
+        border-top: 1px solid var(--card-border);
+      }
+
+      .step-box {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background: rgba(15, 23, 42, 0.5);
+        border: 1px solid var(--card-border);
+        border-radius: var(--radius-sm);
+        padding: 12px 14px;
+      }
+
+      .step-num {
+        font-family: var(--font-mono);
+        font-size: 14px;
+        font-weight: 800;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: var(--grad-brand);
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .step-text {
+        font-size: 12.5px;
+        font-weight: 600;
+        color: var(--text-main);
       }
 
       /* Comparison Table Section */
@@ -828,6 +823,9 @@
         .hero-stats-grid {
           grid-template-columns: repeat(2, 1fr);
         }
+        .steps-bar {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
@@ -897,7 +895,7 @@
         </h1>
 
         <p class="hero-subtitle" data-i18n="hero.subtitle">
-          搭载完整 yt-dlp 1800+ 站点解析生态，自研 16 线程 HLS 并发解密引擎，独家支持 MissAV、GGJav、RouVideo、SupJav 等成人高清正片满速直下。对比 4K Video Downloader 等昂贵付费软件，零付费墙、无画质锁、无下载次数限制。
+          搭载完整 yt-dlp 1800+ 站点解析生态，自研 16 线程 HLS 并发解密引擎，独家支持 MissAV、RouVideo、GGJav 等成人高清正片满速直下。对比 4K Video Downloader 等昂贵付费软件，零付费墙、无画质锁、无下载次数限制。
         </p>
 
         <!-- CTA Buttons -->
@@ -955,53 +953,95 @@
           </div>
         </div>
 
-        <!-- Interactive Link Sniffer & Speed Visualizer (替代生硬的假截图) -->
-        <div class="live-demo-card">
-          <div class="demo-header">
-            <div class="demo-title-group">
-              <span class="demo-badge" data-i18n="demo.badge">LIVE ENGINE SIMULATOR</span>
-              <strong style="font-size: 14px;" data-i18n="demo.title">智能嗅探与并发解密演示</strong>
+        <!-- Universal Format & Multi-Platform Matrix (全规格与能力矩阵展示) -->
+        <div class="matrix-card">
+          <div class="matrix-header">
+            <div class="matrix-title-group">
+              <span class="matrix-badge" data-i18n="matrix.badge">FULL SPECTRUM SUPPORT</span>
+              <strong style="font-size: 16px; font-family: var(--font-heading);" data-i18n="matrix.title">
+                全规格输出 · 超高清解析与并发解密能力矩阵
+              </strong>
             </div>
-            <span style="font-size: 12px; color: var(--text-dim);" data-i18n="demo.hint">点击下方平台标签即刻体验嗅探逻辑</span>
+            <span style="font-size: 12.5px; color: var(--text-dim);" data-i18n="matrix.hint">
+              1800+ 视频站点生态 · 4K/8K/1080P/MP3 全格式覆盖
+            </span>
           </div>
 
-          <div class="demo-tabs" id="demo-tabs">
-            <button type="button" class="demo-tab-chip active" data-platform="missav">🌸 MissAV</button>
-            <button type="button" class="demo-tab-chip" data-platform="rouvideo">🥩 RouVideo (肉视频)</button>
-            <button type="button" class="demo-tab-chip" data-platform="supjav">🎬 SupJav</button>
-            <button type="button" class="demo-tab-chip" data-platform="youtube">🔴 YouTube 4K</button>
-            <button type="button" class="demo-tab-chip" data-platform="bilibili">🔵 Bilibili (哔哩哔哩)</button>
-            <button type="button" class="demo-tab-chip" data-platform="twitter">🖤 X (Twitter)</button>
-            <button type="button" class="demo-tab-chip" data-platform="tiktok">🎵 TikTok 无水印</button>
+          <div class="matrix-specs-grid">
+            <div class="spec-item">
+              <span class="spec-icon">📺</span>
+              <div>
+                <div class="spec-title" data-i18n="spec.s1.title">8K / 4K Ultra HD & HDR60</div>
+                <div class="spec-desc" data-i18n="spec.s1.desc">
+                  支持 YouTube 8K/4K、B站 4K 60fps 超清最高码率视频流与音频流自动封装，原汁原味还原母带级画质。
+                </div>
+              </div>
+            </div>
+
+            <div class="spec-item">
+              <span class="spec-icon">🎬</span>
+              <div>
+                <div class="spec-title" data-i18n="spec.s2.title">1080P 16 线程并发流解密</div>
+                <div class="spec-desc" data-i18n="spec.s2.desc">
+                  针对 MissAV、RouVideo (肉视频)、GGJav 等成人站点，Go 原生 16 线程高速切片并发解密，秒级合并为单文件 MP4。
+                </div>
+              </div>
+            </div>
+
+            <div class="spec-item">
+              <span class="spec-icon">🎧</span>
+              <div>
+                <div class="spec-title" data-i18n="spec.s3.title">Hi-Res 无损音频分离提取</div>
+                <div class="spec-desc" data-i18n="spec.s3.desc">
+                  支持一键抓取视频原声，自动转换为 320kbps MP3、AAC、FLAC 高品质纯音频，完美保存音乐、播客与 BGM。
+                </div>
+              </div>
+            </div>
+
+            <div class="spec-item">
+              <span class="spec-icon">📱</span>
+              <div>
+                <div class="spec-title" data-i18n="spec.s4.title">短视频无水印 1080P 直下</div>
+                <div class="spec-desc" data-i18n="spec.s4.desc">
+                  TikTok、抖音短视频原生去水印提取，Instagram Reels 与 X (Twitter) 推文高清原画与动图 GIF 瞬间直存。
+                </div>
+              </div>
+            </div>
+
+            <div class="spec-item">
+              <span class="spec-icon">⚡</span>
+              <div>
+                <div class="spec-title" data-i18n="spec.s5.title">现代编码全兼容 (AV1/HEVC/H.264)</div>
+                <div class="spec-desc" data-i18n="spec.s5.desc">
+                  全面兼容 AV1、HEVC / H.265、H.264 / AVC、VP9 等现代流媒体编码，智能无损混流封装，全设备流畅播放。
+                </div>
+              </div>
+            </div>
+
+            <div class="spec-item">
+              <span class="spec-icon">📦</span>
+              <div>
+                <div class="spec-title" data-i18n="spec.s6.title">多 P 连载 / 播放列表批量并发</div>
+                <div class="spec-desc" data-i18n="spec.s6.desc">
+                  支持 YouTube 播放列表、B 站多 P 连载番剧与合集批量导入排队，自研多平台并发调度锁，极速下载不堵车。
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="demo-input-box">
-            <span>🔗</span>
-            <div class="demo-url-text" id="demo-url">https://missav.ws/dm12/cn/ipx-999</div>
-            <div class="demo-engine-tag" id="demo-engine">16-Thread HLS Decryptor</div>
-          </div>
-
-          <div class="demo-results-grid" id="demo-results">
-            <div class="demo-res-card">
-              <div>
-                <div class="demo-res-quality">1080P Full HD</div>
-                <div style="font-size: 11px; color: #10b981;">16 线程满速直下 · 原画自动合并</div>
-              </div>
-              <span class="demo-res-badge">~4.8 GB</span>
+          <!-- 3-Step Instant Flow -->
+          <div class="steps-bar">
+            <div class="step-box">
+              <span class="step-num">1</span>
+              <span class="step-text" data-i18n="step.1">① 复制任意受支持的网页视频链接</span>
             </div>
-            <div class="demo-res-card">
-              <div>
-                <div class="demo-res-quality">720P HD</div>
-                <div style="font-size: 11px; color: var(--text-muted);">极速节省带宽</div>
-              </div>
-              <span class="demo-res-badge">~2.1 GB</span>
+            <div class="step-box">
+              <span class="step-num">2</span>
+              <span class="step-text" data-i18n="step.2">② 自动智能识别平台并列出可用清晰度</span>
             </div>
-            <div class="demo-res-card">
-              <div>
-                <div class="demo-res-quality">MP3 Audio</div>
-                <div style="font-size: 11px; color: var(--text-muted);">无损原声音频分离</div>
-              </div>
-              <span class="demo-res-badge">~128 MB</span>
+            <div class="step-box">
+              <span class="step-num">3</span>
+              <span class="step-text" data-i18n="step.3">③ 16 线程满速直下并自动合并为完整 MP4</span>
             </div>
           </div>
         </div>
@@ -1034,7 +1074,7 @@
                 <td><span class="tag-lose">✖ $19.95~$29.99 需购买授权</span></td>
               </tr>
               <tr>
-                <td data-i18n="row.adult">独家成人正片直下 (MissAV/RouVideo/SupJav)</td>
+                <td data-i18n="row.adult">独家成人正片直下 (MissAV/RouVideo/GGJav)</td>
                 <td class="highlight-col"><span class="tag-win">✔ 自研 16 线程原生流解密合并</span></td>
                 <td><span class="tag-lose">✖ 完全不支持 / 报 403 阻断</span></td>
                 <td><span class="tag-lose">✖ 切片断裂 / 需手动繁琐拼接</span></td>
@@ -1090,7 +1130,7 @@
             <div class="feature-icon-box">🔞</div>
             <h3 data-i18n="f2.title">自研 16 线程成人 HLS 并发解密</h3>
             <p data-i18n="f2.desc">
-              传统下载器束手无策的 MissAV、GGJav、RouVideo（肉视频）、SupJav 等站点，内置 Go 原生 16 线程切片并发解密算法，全长高清 1080P 正片 5~10 倍极速直下并自动合并。
+              传统下载器束手无策的 MissAV、RouVideo（肉视频）、GGJav 等站点，内置 Go 原生 16 线程切片并发解密算法，全长高清 1080P 正片 5~10 倍极速直下并自动合并。
             </p>
           </div>
 
@@ -1150,13 +1190,6 @@
             <div>
               <div class="platform-name" style="color: #f472b6;">RouVideo (肉视频)</div>
               <div class="platform-desc">16 线程自动解密 · 原画 MP4 极速直下</div>
-            </div>
-          </div>
-          <div class="platform-chip platform-chip-adult">
-            <span class="platform-icon">🎬</span>
-            <div>
-              <div class="platform-name" style="color: #fb923c;">SupJav</div>
-              <div class="platform-desc">多播放线路 Hex 还原 · 1080P 原画直下</div>
             </div>
           </div>
           <div class="platform-chip platform-chip-adult">
@@ -1304,21 +1337,38 @@
           "hero.badge": "v1.3.8 稳定版 · Windows 10/11 64位",
           "hero.title1": "全网视频极速下载器",
           "hero.title2": "yt-dlp 完整能力 · 成人正片 16 线程解密 · 100% 永久免费",
-          "hero.subtitle": "搭载完整 yt-dlp 1800+ 站点解析生态，自研 16 线程 HLS 并发解密引擎，独家支持 MissAV、GGJav、RouVideo、SupJav 等成人高清正片满速直下。对比 4K Video Downloader 等昂贵付费软件，零付费墙、无画质锁、无下载次数限制。",
+          "hero.subtitle": "搭载完整 yt-dlp 1800+ 站点解析生态，自研 16 线程 HLS 并发解密引擎，独家支持 MissAV、RouVideo、GGJav 等成人高清正片满速直下。对比 4K Video Downloader 等昂贵付费软件，零付费墙、无画质锁、无下载次数限制。",
           "btn.exe.title": "免费下载绿色版 (.exe)",
           "btn.zip.title": "离线全量便携包 (.zip)",
           "stat.sites": "全网支持站点 (yt-dlp 完整引擎)",
           "stat.threads": "独家原生并发流解密",
           "stat.quality": "HDR 原画自选 & MP3 提取",
           "stat.free": "无付费墙 · 无次数限制",
-          "demo.badge": "LIVE ENGINE SIMULATOR",
-          "demo.title": "智能嗅探与并发解密演示",
-          "demo.hint": "点击下方平台标签即刻体验嗅探逻辑",
+
+          "matrix.badge": "FULL SPECTRUM SUPPORT",
+          "matrix.title": "全规格输出 · 超高清解析与并发解密能力矩阵",
+          "matrix.hint": "1800+ 视频站点生态 · 4K/8K/1080P/MP3 全格式覆盖",
+          "spec.s1.title": "8K / 4K Ultra HD & HDR60",
+          "spec.s1.desc": "支持 YouTube 8K/4K、B站 4K 60fps 超清最高码率视频流与音频流自动封装，原汁原味还原母带级画质。",
+          "spec.s2.title": "1080P 16 线程并发流解密",
+          "spec.s2.desc": "针对 MissAV、RouVideo (肉视频)、GGJav 等成人站点，Go 原生 16 线程高速切片并发解密，秒级合并为单文件 MP4。",
+          "spec.s3.title": "Hi-Res 无损音频分离提取",
+          "spec.s3.desc": "支持一键抓取视频原声，自动转换为 320kbps MP3、AAC、FLAC 高品质纯音频，完美保存音乐、播客与 BGM。",
+          "spec.s4.title": "短视频无水印 1080P 直下",
+          "spec.s4.desc": "TikTok、抖音短视频原生去水印提取，Instagram Reels 与 X (Twitter) 推文高清原画与动图 GIF 瞬间直存。",
+          "spec.s5.title": "现代编码全兼容 (AV1/HEVC/H.264)",
+          "spec.s5.desc": "全面兼容 AV1、HEVC / H.265、H.264 / AVC、VP9 等现代流媒体编码，智能无损混流封装，全设备流畅播放。",
+          "spec.s6.title": "多 P 连载 / 播放列表批量并发",
+          "spec.s6.desc": "支持 YouTube 播放列表、B 站多 P 连载番剧与合集批量导入排队，自研多平台并发调度锁，极速下载不堵车。",
+          "step.1": "① 复制任意受支持的网页视频链接",
+          "step.2": "② 自动智能识别平台并列出可用清晰度",
+          "step.3": "③ 16 线程满速直下并自动合并为完整 MP4",
+
           "compare.eyebrow": "FEATURE COMPARISON",
           "compare.title": "为什么选择 OmniVideoRip？对比昂贵的付费下载器",
           "th.feature": "功能特性 / 对比维度",
           "row.price": "价格与付费门槛",
-          "row.adult": "独家成人正片直下 (MissAV/RouVideo/SupJav)",
+          "row.adult": "独家成人正片直下 (MissAV/RouVideo/GGJav)",
           "row.quality": "画质选择权限",
           "row.limits": "每日下载次数限制",
           "row.selfheal": "视频网站反爬应对",
@@ -1328,7 +1378,7 @@
           "f1.title": "完整集成 yt-dlp 1800+ 站点生态",
           "f1.desc": "无损继承开源社区最强大的 yt-dlp 核心。无论是 YouTube 4K/8K HDR、Bilibili 4K 番剧、TikTok 无水印短视频还是 X (Twitter) 推文视频，一键极速抓取。",
           "f2.title": "自研 16 线程成人 HLS 并发解密",
-          "f2.desc": "传统下载器束手无策的 MissAV、GGJav、RouVideo（肉视频）、SupJav 等站点，内置 Go 原生 16 线程切片并发解密算法，全长高清 1080P 正片 5~10 倍极速直下并自动合并。",
+          "f2.desc": "传统下载器束手无策的 MissAV、RouVideo（肉视频）、GGJav 等站点，内置 Go 原生 16 线程切片并发解密算法，全长高清 1080P 正片 5~10 倍极速直下并自动合并。",
           "f3.title": "100% 永久免费 · 彻底告别付费陷阱",
           "f3.desc": "没有任何每日下载配额、没有画质锁死、无需注册购买 License。拒绝像商业软件一样处处弹窗催费，所有功能开箱即用。",
           "f4.title": "可视化画质自选 & MP3 提取",
@@ -1361,21 +1411,38 @@
           "hero.badge": "v1.3.8 穩定版 · Windows 10/11 64位元",
           "hero.title1": "全網影片極速下載器",
           "hero.title2": "完整 yt-dlp 核心 · 獨家成人正片 16 執行緒解密 · 100% 永久免費",
-          "hero.subtitle": "完整搭載 yt-dlp 1800+ 影音網站解析引擎，獨家研發 16 執行緒 HLS 原生並行解密核心，完美支援 MissAV、GGJav、RouVideo、SupJav 等成人網站 4K/1080P 高畫質正片滿速下載。相較於 4K Video Downloader 等昂貴收費軟體，零付費牆、無畫質閹割、無每日下載次數限制。",
+          "hero.subtitle": "完整搭載 yt-dlp 1800+ 影音網站解析引擎，獨家研發 16 執行緒 HLS 原生並行解密核心，完美支援 MissAV、RouVideo、GGJav 等成人網站 4K/1080P 高畫質正片滿速下載。相較於 4K Video Downloader 等昂貴收費軟體，零付費牆、無畫質閹割、無每日下載次數限制。",
           "btn.exe.title": "免費下載綠色版 (.exe)",
           "btn.zip.title": "離線完整免安裝包 (.zip)",
           "stat.sites": "全網支援網站 (yt-dlp 完整引擎)",
           "stat.threads": "獨家原生並行串流解密",
           "stat.quality": "HDR 原畫自選 & MP3 擷取",
           "stat.free": "無付費牆 · 無次數限制",
-          "demo.badge": "LIVE ENGINE SIMULATOR",
-          "demo.title": "智慧嗅探與並行解密展示",
-          "demo.hint": "點擊下方平台標籤即刻體驗嗅探邏輯",
+
+          "matrix.badge": "FULL SPECTRUM SUPPORT",
+          "matrix.title": "全規格輸出 · 超高畫質解析與並行解密能力矩陣",
+          "matrix.hint": "1800+ 影音網站生態 · 4K/8K/1080P/MP3 全格式覆蓋",
+          "spec.s1.title": "8K / 4K Ultra HD & HDR60",
+          "spec.s1.desc": "支援 YouTube 8K/4K、B站 4K 60fps 超高畫質最高位元率視訊與音訊自動封裝，原汁原味還原母帶級細節。",
+          "spec.s2.title": "1080P 16 執行緒並行串流解密",
+          "spec.s2.desc": "針對 MissAV、RouVideo（肉視頻）、GGJav 等成人站點，Go 原生 16 執行緒高速分片並行解密，秒級合併為單一 MP4 檔案。",
+          "spec.s3.title": "Hi-Res 無損音訊分離擷取",
+          "spec.s3.desc": "支援一鍵擷取影片原聲，自動轉換為 320kbps MP3、AAC、FLAC 高品質純音訊，完美保存音樂、Podcast 與 BGM。",
+          "spec.s4.title": "短影音無浮水印 1080P 直下",
+          "spec.s4.desc": "TikTok、抖音短影音原生去浮水印擷取，Instagram Reels 與 X (Twitter) 推文高畫質原圖與動圖 GIF 瞬間直存。",
+          "spec.s5.title": "現代編碼全相容 (AV1/HEVC/H.264)",
+          "spec.s5.desc": "全面相容 AV1、HEVC / H.265、H.264 / AVC、VP9 等現代串流編碼，智慧無損混流封裝，所有裝置順暢播放。",
+          "spec.s6.title": "多 P 連載 / 播放清單批次並行",
+          "spec.s6.desc": "支援 YouTube 播放清單、B 站多 P 連載動畫與合輯批次匯入排隊，自研多平台並行調度鎖，極速下載不卡彈。",
+          "step.1": "① 複製任意受支援的網頁影片連結",
+          "step.2": "② 自動智慧識別平台並列出可用解析度",
+          "step.3": "③ 16 執行緒滿速直下並自動合併為完整 MP4",
+
           "compare.eyebrow": "FEATURE COMPARISON",
           "compare.title": "為什麼選擇 OmniVideoRip？對比昂貴的收費下載軟體",
           "th.feature": "功能特性 / 對比維度",
           "row.price": "價格與付費門檻",
-          "row.adult": "獨家成人正片直下 (MissAV/RouVideo/SupJav)",
+          "row.adult": "獨家成人正片直下 (MissAV/RouVideo/GGJav)",
           "row.quality": "畫質選擇權限",
           "row.limits": "每日下載次數限制",
           "row.selfheal": "影音網站反爬應對",
@@ -1385,7 +1452,7 @@
           "f1.title": "完整整合 yt-dlp 1800+ 網站生態",
           "f1.desc": "無損繼承開源社群最強大的 yt-dlp 核心。無論是 YouTube 4K/8K HDR、Bilibili 4K 動畫、TikTok 無浮水印短影音還是 X (Twitter) 推文影片，一鍵極速擷取。",
           "f2.title": "自研 16 執行緒成人 HLS 並行解密",
-          "f2.desc": "傳統下載工具無法解析的 MissAV、GGJav、RouVideo（肉視頻）、SupJav 等網站，內建 Go 原生 16 執行緒切片並行解密演算法，全長 1080P 高畫質正片 5~10 倍極速直下並自動合併。",
+          "f2.desc": "傳統下載工具無法解析的 MissAV、RouVideo（肉視頻）、GGJav 等網站，內建 Go 原生 16 執行緒切片並行解密演算法，全長 1080P 高畫質正片 5~10 倍極速直下並自動合併。",
           "f3.title": "100% 永久免費 · 徹底告別付費陷阱",
           "f3.desc": "沒有任何每日下載限額、沒有畫質鎖定、免註冊購買授權金鑰。絕不像商業軟體到處跳出購買視窗，所有功能開箱即用。",
           "f4.title": "圖形化畫質自選 & MP3 擷取",
@@ -1418,21 +1485,38 @@
           "hero.badge": "v1.3.8 Stable · Windows 10/11 64-bit",
           "hero.title1": "Universal Video Ripper",
           "hero.title2": "Powered by yt-dlp · 16-Thread Adult HLS Decryption · 100% Free Forever",
-          "hero.subtitle": "Harness the full power of yt-dlp across 1,800+ mainstream sites. Boosted by our proprietary 16-thread Go HLS engine to effortlessly decrypt and download MissAV, GGJav, RouVideo, and SupJav in full 1080P/4K. Unlike expensive paid tools like 4K Video Downloader+, OmniVideoRip has zero paywalls, zero daily caps, and zero quality locks.",
+          "hero.subtitle": "Harness the full power of yt-dlp across 1,800+ mainstream sites. Boosted by our proprietary 16-thread Go HLS engine to effortlessly decrypt and download MissAV, RouVideo, and GGJav in full 1080P/4K. Unlike expensive paid tools like 4K Video Downloader+, OmniVideoRip has zero paywalls, zero daily caps, and zero quality locks.",
           "btn.exe.title": "Free Portable EXE",
           "btn.zip.title": "Full Standalone ZIP",
           "stat.sites": "Supported Sites (Full yt-dlp Engine)",
           "stat.threads": "Proprietary Concurrent Decryption",
           "stat.quality": "4K/8K HDR & MP3 Extraction",
           "stat.free": "Zero Paywalls · Unlimited",
-          "demo.badge": "LIVE ENGINE SIMULATOR",
-          "demo.title": "Smart URL Sniffer & Multi-Thread Visualizer",
-          "demo.hint": "Click any platform pill below to preview sniffing logic",
+
+          "matrix.badge": "FULL SPECTRUM SUPPORT",
+          "matrix.title": "Ultra-HD Output & Multi-Thread Decryption Matrix",
+          "matrix.hint": "1,800+ Site Ecosystem · Complete 4K/8K/1080P/MP3 Format Coverage",
+          "spec.s1.title": "8K / 4K Ultra HD & HDR60",
+          "spec.s1.desc": "Lossless multiplexing of highest bitrate video/audio streams from YouTube 8K/4K and Bilibili 4K 60fps.",
+          "spec.s2.title": "1080P 16-Thread HLS Decryption",
+          "spec.s2.desc": "Native Go 16-thread slice decryption for MissAV, RouVideo, and GGJav — merged into clean standalone MP4s in seconds.",
+          "spec.s3.title": "Hi-Res Lossless Audio Extractor",
+          "spec.s3.desc": "Extract soundtrack and podcasts into 320kbps MP3, AAC, or FLAC high-fidelity pure audio in one click.",
+          "spec.s4.title": "Clean Watermark-Free Shorts",
+          "spec.s4.desc": "Rip watermark-free TikTok clips, Instagram Reels, and X (Twitter) full HD media and GIF animations instantly.",
+          "spec.s5.title": "Modern Codec Support (AV1/HEVC/H.264)",
+          "spec.s5.desc": "Fully compatible with AV1, HEVC/H.265, H.264/AVC, and VP9 streams. Smart zero-loss remuxing for instant playback on any device.",
+          "spec.s6.title": "Batch Playlists & Multi-Part Series",
+          "spec.s6.desc": "Paste YouTube playlists or multi-part anime series. Isolated concurrency scheduling ensures parallel downloading without congestion.",
+          "step.1": "① Copy any supported video URL from your browser",
+          "step.2": "② OmniVideoRip auto-detects platform and lists available resolutions",
+          "step.3": "③ 16-thread engine downloads & merges into a clean standalone MP4",
+
           "compare.eyebrow": "FEATURE COMPARISON",
           "compare.title": "Why Choose OmniVideoRip? Compared to Overpriced Downloaders",
           "th.feature": "Features / Comparison",
           "row.price": "Price & Paywalls",
-          "row.adult": "Adult Site Ripping (MissAV/RouVideo/SupJav)",
+          "row.adult": "Adult Site Ripping (MissAV/RouVideo/GGJav)",
           "row.quality": "Resolution Freedom",
           "row.limits": "Daily Download Caps",
           "row.selfheal": "Anti-Bot & Scraper Self-Healing",
@@ -1442,7 +1526,7 @@
           "f1.title": "Full yt-dlp 1,800+ Site Ecosystem",
           "f1.desc": "Directly inherits the open-source community's finest yt-dlp core. Download YouTube 4K/8K HDR, Bilibili 4K anime, TikTok watermark-free clips, and X (Twitter) videos in one click.",
           "f2.title": "Proprietary 16-Thread Adult HLS Decryptor",
-          "f2.desc": "Where traditional downloaders fail, our native Go 16-thread HLS decryption algorithm unlocks MissAV, GGJav, RouVideo, and SupJav with 5-10x speed and automatic merging.",
+          "f2.desc": "Where traditional downloaders fail, our native Go 16-thread HLS decryption algorithm unlocks MissAV, RouVideo, and GGJav with 5-10x speed and automatic merging.",
           "f3.title": "100% Free Forever · Zero Paywalls",
           "f3.desc": "No daily download quotas, no 1080P/4K paywalls, and no subscription keys required. No annoying popups asking for money — every feature works out of the box.",
           "f4.title": "Visual Quality Picker & Audio MP3 Extractor",
@@ -1475,21 +1559,38 @@
           "hero.badge": "v1.3.8 安定版 · Windows 10/11 (64bit)",
           "hero.title1": "全ネット動画高速ダウンローダー",
           "hero.title2": "yt-dlp 完全統合 · 成人AV 16スレッド独自復号 · 完全無料",
-          "hero.subtitle": "1,800以上の主要サイトに対応する yt-dlp の全機能を完全搭載。さらに自社開発の 16スレッド並行 HLS 復号エンジンにより、一般のダウンローダーでは保存できない MissAV・GGJav・RouVideo・SupJav のフルHD本編を高画質・圧倒的スピードで一括保存可能。4K Video Downloader 等の高額な有料ソフトと異なり、画質制限・回数制限・課金要素は一切ありません。",
+          "hero.subtitle": "1,800以上の主要サイトに対応する yt-dlp の全機能を完全搭載。さらに自社開発の 16スレッド並行 HLS 復号エンジンにより、一般のダウンローダーでは保存できない MissAV・RouVideo・GGJav のフルHD本編を高画質・圧倒的スピードで一括保存可能。4K Video Downloader 等の高額な有料ソフトと異なり、画質制限・回数制限・課金要素は一切ありません。",
           "btn.exe.title": "ポータブル単一EXE版",
           "btn.zip.title": "完全オフラインZIP版",
           "stat.sites": "対応サイト数 (yt-dlp 完全エンジン)",
           "stat.threads": "独自 16スレッド並行復号",
           "stat.quality": "4K/8K HDR 画質選択 & MP3 抽出",
           "stat.free": "完全無料 · 制限一切なし",
-          "demo.badge": "LIVE ENGINE SIMULATOR",
-          "demo.title": "スマート解析＆マルチスレッド復号シミュレーター",
-          "demo.hint": "下のプラットフォームタブをクリックして解析をお試しください",
+
+          "matrix.badge": "FULL SPECTRUM SUPPORT",
+          "matrix.title": "超高画質＆マルチスレッド復号スペックマトリクス",
+          "matrix.hint": "1,800以上の動画サイトエコシステム · 4K/8K/1080P/MP3 全フォーマット網羅",
+          "spec.s1.title": "8K / 4K Ultra HD & HDR60",
+          "spec.s1.desc": "YouTube 8K/4K、Bilibili 4K 60fps 等の最高ビットレート映像と音声を自動結合し、マスター級の高画質を忠実に保存。",
+          "spec.s2.title": "1080P 16スレッド並行ストリーム復号",
+          "spec.s2.desc": "MissAV、RouVideo（肉視頻）、GGJav 等の成人サイトに対応。Go言語 16スレッド並行復号により、フルHD本編を瞬時に単一MP4へ自動結合。",
+          "spec.s3.title": "ハイレゾ無劣化音声 MP3 抽出",
+          "spec.s3.desc": "動画から音声トラックのみを高音質 320kbps MP3、AAC、FLAC としてワンクリック自動分離抽出。音楽やBGMの保存に最適。",
+          "spec.s4.title": "ショート動画 透かしなし 1080P 直下",
+          "spec.s4.desc": "TikTok や Instagram Reels、X (旧Twitter) の高画質動画や GIF アニメーションを透かしなしでクリアに即時保存。",
+          "spec.s5.title": "最新コーデック完全対応 (AV1/HEVC/H.264)",
+          "spec.s5.desc": "AV1、HEVC / H.265、H.264 / AVC、VP9 などの最新動画圧縮規格に対応。無劣化リマップによりあらゆるデバイスで即時再生可能。",
+          "spec.s6.title": "連続アニメ / 再生リスト一括並行ダウンロード",
+          "spec.s6.desc": "YouTube の再生リストや複数パートの連載動画を一括登録。サイト別並行スケジューリングにより回線をフル活用して高速ダウンロード。",
+          "step.1": "① ブラウザから対象の動画URLをコピー",
+          "step.2": "② OmniVideoRip がサイトを自動識別し選択可能な画質一覧を表示",
+          "step.3": "③ 16スレッド高速ダウンロード＆完全なMP4ファイルへ自動結合",
+
           "compare.eyebrow": "FEATURE COMPARISON",
           "compare.title": "なぜ OmniVideoRip が選ばれるのか？ 有料ダウンローダーとの徹底比較",
           "th.feature": "機能項目 / 比較ポイント",
           "row.price": "価格・有料課金",
-          "row.adult": "成人AVサイト本編直下 (MissAV/RouVideo/SupJav)",
+          "row.adult": "成人AVサイト本編直下 (MissAV/RouVideo/GGJav)",
           "row.quality": "画質選択の自由度",
           "row.limits": "1日のダウンロード回数制限",
           "row.selfheal": "動画サイトの仕様変更への対応",
@@ -1499,7 +1600,7 @@
           "f1.title": "yt-dlp 1,800+ サイトの解析エコシステムを完全搭載",
           "f1.desc": "オープンソース最強の yt-dlp コアを無駄なく統合。YouTube 4K/8K HDR、Bilibili 4K、TikTok 透かしなし動画、X (旧Twitter) 動画まで、URL を貼るだけで即座に保存。",
           "f2.title": "独自開発 16スレッド並行 HLS 復号エンジン",
-          "f2.desc": "一般的な保存ツールでは 403 エラーになる MissAV、GGJav、RouVideo（肉視頻）、SupJav にネイティブ対応。Go 言語による 16スレッド並行復号でフルHD本編を 5〜10 倍速で高速直下・自動結合。",
+          "f2.desc": "一般的な保存ツールでは 403 エラーになる MissAV、RouVideo（肉視頻）、GGJav にネイティブ対応。Go 言語による 16スレッド並行復号でフルHD本編を 5〜10 倍速で高速直下・自動結合。",
           "f3.title": "100% 永久完全無料 · 課金トラップ一切なし",
           "f3.desc": "1日の保存制限や画質ロック、ライセンス購入の催促は一切ありません。商業ソフトのような煩わしい購入ポップアップもなく、すべての機能がインストール直後からフル解放。",
           "f4.title": "直感的な画質選択 & 音声 MP3 抽出",
@@ -1522,105 +1623,6 @@
           "faq.a4": "OmniVideoRip は Windows のシステムプロキシや Clash / v2ray / SOCKS5 等の環境を自動検出します。プロキシツールが起動していれば設定不要で自動適用されます。"
         }
       };
-
-      // Interactive Demo Simulator Data
-      const DEMO_DATA = {
-        missav: {
-          url: "https://missav.ws/dm12/cn/ipx-999",
-          engine: "16-Thread Go HLS Decryptor",
-          results: [
-            { quality: "1080P Full HD", desc: "16 线程满速直下 · 原画自动合并", size: "~4.8 GB" },
-            { quality: "720P HD", desc: "极速节省带宽", size: "~2.1 GB" },
-            { quality: "MP3 Audio", desc: "无损原声音频分离", size: "~128 MB" }
-          ]
-        },
-        rouvideo: {
-          url: "https://rou.video/v/cmt6sx2gg0000s6zm7hpzvx3x",
-          engine: "Go 16-Thread Master M3U8 Decryptor",
-          results: [
-            { quality: "1080P 60fps", desc: "专属流解密 · 原画 MP4 极速合并", size: "~3.2 GB" },
-            { quality: "720P HD", desc: "标准高清画质", size: "~1.4 GB" },
-            { quality: "MP3 Audio", desc: "原声提取", size: "~95 MB" }
-          ]
-        },
-        supjav: {
-          url: "https://supjav.com/452470.html",
-          engine: "Hex Player Line Token Resolver",
-          results: [
-            { quality: "1080P Native", desc: "TV/FST 原生线路嗅探 · 绕过 403", size: "~5.1 GB" },
-            { quality: "720P HD", desc: "高速备用线路", size: "~2.3 GB" },
-            { quality: "MP3 Audio", desc: "音频抓取", size: "~140 MB" }
-          ]
-        },
-        youtube: {
-          url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-          engine: "yt-dlp Native 4K/8K Engine",
-          results: [
-            { quality: "4K 2160P 60fps HDR", desc: "最高画质视频流与音频自动压制", size: "~1.8 GB" },
-            { quality: "1080P 60fps", desc: "全高清畅享画质", size: "~450 MB" },
-            { quality: "320kbps MP3", desc: "高保真音频提取", size: "~32 MB" }
-          ]
-        },
-        bilibili: {
-          url: "https://www.bilibili.com/video/BV1xx411c7mD",
-          engine: "Bilibili 4K / Multi-P Batch Parser",
-          results: [
-            { quality: "4K 超清 60fps", desc: "中文文件名原生支持 · 多 P 批量", size: "~820 MB" },
-            { quality: "1080P 高清", desc: "大会员画质自选", size: "~310 MB" },
-            { quality: "AAC / MP3", desc: "BGM 原声分离", size: "~28 MB" }
-          ]
-        },
-        twitter: {
-          url: "https://x.com/SpaceX/status/1768254215891390976",
-          engine: "X (Twitter) GraphQL Ripper",
-          results: [
-            { quality: "1080P HD", desc: "推文最高码率自动提取 · GIF 转 MP4", size: "~95 MB" },
-            { quality: "720P HD", desc: "移动端适配", size: "~45 MB" }
-          ]
-        },
-        tiktok: {
-          url: "https://www.tiktok.com/@creator/video/728938192837192",
-          engine: "TikTok Watermark-Free Ripper",
-          results: [
-            { quality: "1080P 无水印", desc: "去水印纯净原画直下", size: "~48 MB" },
-            { quality: "BGM 原声音频", desc: "短视频热门背景音乐提取", size: "~8 MB" }
-          ]
-        }
-      };
-
-      function updateDemo(platformKey) {
-        const item = DEMO_DATA[platformKey];
-        if (!item) return;
-
-        const urlEl = document.getElementById("demo-url");
-        const engineEl = document.getElementById("demo-engine");
-        const resultsEl = document.getElementById("demo-results");
-
-        if (urlEl) urlEl.textContent = item.url;
-        if (engineEl) engineEl.textContent = item.engine;
-
-        if (resultsEl) {
-          resultsEl.innerHTML = item.results.map(r => `
-            <div class="demo-res-card">
-              <div>
-                <div class="demo-res-quality">${r.quality}</div>
-                <div style="font-size: 11px; color: var(--text-muted);">${r.desc}</div>
-              </div>
-              <span class="demo-res-badge">${r.size}</span>
-            </div>
-          `).join('');
-        }
-      }
-
-      // Demo tab switching
-      document.querySelectorAll(".demo-tab-chip").forEach(btn => {
-        btn.addEventListener("click", () => {
-          document.querySelectorAll(".demo-tab-chip").forEach(b => b.classList.remove("active"));
-          btn.classList.add("active");
-          const p = btn.getAttribute("data-platform");
-          updateDemo(p);
-        });
-      });
 
       function applyLocale(localeKey) {
         let dict = I18N[localeKey];
