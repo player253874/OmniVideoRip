@@ -64,6 +64,7 @@
         },
         "description": "Universal video downloader powered by yt-dlp and proprietary 16-thread adult video decryptors. 100% free with no limits.",
         "softwareVersion": "1.3.8",
+        "datePublished": "2026-08-30",
         "downloadUrl": "https://github.com/player253874/OmniVideoRip/releases/latest"
       }
     </script>
@@ -293,7 +294,7 @@
         background: rgba(99, 102, 241, 0.12);
         border: 1px solid rgba(99, 102, 241, 0.25);
         border-radius: 30px;
-        padding: 5px 16px;
+        padding: 6px 18px;
         font-size: 13px;
         font-weight: 600;
         color: #a5b4fc;
@@ -338,7 +339,7 @@
         justify-content: center;
         gap: 20px;
         flex-wrap: wrap;
-        margin-bottom: 36px;
+        margin-bottom: 20px;
       }
 
       .btn {
@@ -377,6 +378,32 @@
         background: rgba(45, 60, 85, 0.85);
         border-color: rgba(99, 102, 241, 0.4);
         transform: translateY(-2px);
+      }
+
+      /* Release Meta Bar */
+      .release-meta-bar {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid var(--card-border);
+        border-radius: 30px;
+        padding: 6px 18px;
+        font-size: 12.5px;
+        color: var(--text-muted);
+        margin-bottom: 36px;
+        flex-wrap: wrap;
+      }
+
+      .release-meta-bar strong {
+        color: #38bdf8;
+        font-family: var(--font-mono);
+      }
+
+      .release-meta-sep {
+        color: var(--text-dim);
+        opacity: 0.5;
       }
 
       /* Metric Stats Banner */
@@ -826,6 +853,10 @@
         .steps-bar {
           grid-template-columns: 1fr;
         }
+        .release-meta-bar {
+          font-size: 11.5px;
+          gap: 8px;
+        }
       }
     </style>
   </head>
@@ -884,7 +915,7 @@
       <div class="container">
         <div class="badge-version">
           <span class="badge-dot"></span>
-          <span data-i18n="hero.badge">v1.3.8 稳定版 · Windows 10/11 64位</span>
+          <span data-i18n="hero.badge">v1.3.8 稳定版 · 发布时间：2026-08-30 · Windows 10/11 64位</span>
         </div>
 
         <h1 class="hero-title">
@@ -931,6 +962,15 @@
               </div>
             </div>
           </a>
+        </div>
+
+        <!-- Release Meta Bar (Version & Published Date) -->
+        <div class="release-meta-bar">
+          <span class="release-meta-item">🏷️ <span data-i18n="rel.ver.label">最新版本:</span> <strong id="rel-ver-tag">v1.3.8</strong></span>
+          <span class="release-meta-sep">•</span>
+          <span class="release-meta-item">📅 <span data-i18n="rel.date.label">发布时间:</span> <strong id="rel-date-tag">2026-08-30</strong></span>
+          <span class="release-meta-sep">•</span>
+          <span class="release-meta-item">🔒 <span data-i18n="rel.sha.label">无毒无后门 · 开源透明</span></span>
         </div>
 
         <!-- 4 Key Stat Metrics -->
@@ -1321,6 +1361,7 @@
     <script>
       const SITE_CONFIG = {
         version: "1.3.8",
+        releaseDate: "2026-08-30",
         repo: "player253874/OmniVideoRip",
         exeDownloadUrl: "https://github.com/player253874/OmniVideoRip/releases/latest/download/OmniVideoRip.exe",
         zipDownloadUrl: "https://github.com/player253874/OmniVideoRip/releases/latest/download/OmniVideoRip-v1.3.8-full.zip",
@@ -1335,12 +1376,15 @@
           "nav.platforms": "支持平台",
           "nav.downloads": "免费下载",
           "nav.faq": "FAQ",
-          "hero.badge": "v1.3.8 稳定版 · Windows 10/11 64位",
+          "hero.badge": "v1.3.8 稳定版 · 发布时间：2026-08-30 · Windows 10/11 64位",
           "hero.title1": "全网视频极速下载器",
           "hero.title2": "yt-dlp 完整能力 · 成人正片 16 线程解密 · 100% 永久免费",
           "hero.subtitle": "搭载完整 yt-dlp 1800+ 站点解析生态，自研 16 线程 HLS 并发解密引擎，独家支持 MissAV、RouVideo、GGJav 等成人高清正片满速直下。对比 4K Video Downloader 等昂贵付费软件，零付费墙、无画质锁、无下载次数限制。",
           "btn.exe.title": "免费下载绿色版 (.exe)",
           "btn.zip.title": "离线全量便携包 (.zip)",
+          "rel.ver.label": "最新版本:",
+          "rel.date.label": "发布时间:",
+          "rel.sha.label": "无毒无后门 · 开源透明",
           "stat.sites": "全网支持站点 (yt-dlp 完整引擎)",
           "stat.threads": "独家原生并发流解密",
           "stat.quality": "HDR 原画自选 & MP3 提取",
@@ -1409,12 +1453,15 @@
           "nav.platforms": "支援平台",
           "nav.downloads": "免費下載",
           "nav.faq": "FAQ",
-          "hero.badge": "v1.3.8 穩定版 · Windows 10/11 64位元",
+          "hero.badge": "v1.3.8 穩定版 · 發布時間：2026-08-30 · Windows 10/11 64位元",
           "hero.title1": "全網影片極速下載器",
           "hero.title2": "完整 yt-dlp 核心 · 獨家成人正片 16 執行緒解密 · 100% 永久免費",
           "hero.subtitle": "完整搭載 yt-dlp 1800+ 影音網站解析引擎，獨家研發 16 執行緒 HLS 原生並行解密核心，完美支援 MissAV、RouVideo、GGJav 等成人網站 4K/1080P 高畫質正片滿速下載。相較於 4K Video Downloader 等昂貴收費軟體，零付費牆、無畫質閹割、無每日下載次數限制。",
           "btn.exe.title": "免費下載綠色版 (.exe)",
           "btn.zip.title": "離線完整免安裝包 (.zip)",
+          "rel.ver.label": "最新版本:",
+          "rel.date.label": "發布時間:",
+          "rel.sha.label": "無毒無後門 · 開源透明",
           "stat.sites": "全網支援網站 (yt-dlp 完整引擎)",
           "stat.threads": "獨家原生並行串流解密",
           "stat.quality": "HDR 原畫自選 & MP3 擷取",
@@ -1466,7 +1513,7 @@
           "platforms.title": "主流社群與成人網站全面支援",
           "faq.eyebrow": "FAQ",
           "faq.title": "常見問題解答",
-          "faq.q1": "真的完全免費嗎？有下載次數或畫質限制嗎？",
+          "faq.q1": "真的完全免費嗎？有下載次數或畫质限制嗎？",
           "faq.a1": "100% 永久免費，無任何下載配額、畫質限制或付費牆。軟體僅展示少量非侵入式匿名廣告以支持維護，絕不收集任何使用者隱私資料。",
           "faq.q2": "「綠色單一執行檔」與「離線完整包」有何不同？該選哪個？",
           "faq.a2": "強烈推薦直接下載【離線完整免安裝包 (.zip)】，已內建最新版 yt-dlp 與 ffmpeg 雙引擎，解壓縮即可直接開箱使用；若您追求極致輕巧，可選【綠色單一執行檔 (.exe)】（約 12.7MB）。",
@@ -1483,12 +1530,15 @@
           "nav.platforms": "Platforms",
           "nav.downloads": "Free Download",
           "nav.faq": "FAQ",
-          "hero.badge": "v1.3.8 Stable · Windows 10/11 64-bit",
+          "hero.badge": "v1.3.8 Stable · Released: Aug 30, 2026 · Windows 10/11 64-bit",
           "hero.title1": "Universal Video Ripper",
           "hero.title2": "Powered by yt-dlp · 16-Thread Adult HLS Decryption · 100% Free Forever",
           "hero.subtitle": "Harness the full power of yt-dlp across 1,800+ mainstream sites. Boosted by our proprietary 16-thread Go HLS engine to effortlessly decrypt and download MissAV, RouVideo, and GGJav in full 1080P/4K. Unlike expensive paid tools like 4K Video Downloader+, OmniVideoRip has zero paywalls, zero daily caps, and zero quality locks.",
           "btn.exe.title": "Free Portable EXE",
           "btn.zip.title": "Full Standalone ZIP",
+          "rel.ver.label": "Latest Version:",
+          "rel.date.label": "Release Date:",
+          "rel.sha.label": "Clean & Safe · Open Source",
           "stat.sites": "Supported Sites (Full yt-dlp Engine)",
           "stat.threads": "Proprietary Concurrent Decryption",
           "stat.quality": "4K/8K HDR & MP3 Extraction",
@@ -1557,12 +1607,15 @@
           "nav.platforms": "対応サイト",
           "nav.downloads": "無料ダウンロード",
           "nav.faq": "よくある質問",
-          "hero.badge": "v1.3.8 安定版 · Windows 10/11 (64bit)",
+          "hero.badge": "v1.3.8 安定版 · リリース日：2026-08-30 · Windows 10/11 (64bit)",
           "hero.title1": "全ネット動画高速ダウンローダー",
           "hero.title2": "yt-dlp 完全統合 · 成人AV 16スレッド独自復号 · 完全無料",
           "hero.subtitle": "1,800以上の主要サイトに対応する yt-dlp の全機能を完全搭載。さらに自社開発の 16スレッド並行 HLS 復号エンジンにより、一般のダウンローダーでは保存できない MissAV・RouVideo・GGJav のフルHD本編を高画質・圧倒的スピードで一括保存可能。4K Video Downloader 等の高額な有料ソフトと異なり、画質制限・回数制限・課金要素は一切ありません。",
           "btn.exe.title": "ポータブル単一EXE版",
           "btn.zip.title": "完全オフラインZIP版",
+          "rel.ver.label": "最新バージョン:",
+          "rel.date.label": "リリース日:",
+          "rel.sha.label": "ウイルスフリー · オープンソース",
           "stat.sites": "対応サイト数 (yt-dlp 完全エンジン)",
           "stat.threads": "独自 16スレッド並行復号",
           "stat.quality": "4K/8K HDR 画質選択 & MP3 抽出",
@@ -1625,6 +1678,38 @@
         }
       };
 
+      function formatReleaseDate(isoString, locale) {
+        if (!isoString) return "2026-08-30";
+        try {
+          const d = new Date(isoString);
+          if (isNaN(d.getTime())) return "2026-08-30";
+          const yyyy = d.getFullYear();
+          const mm = String(d.getMonth() + 1).padStart(2, '0');
+          const dd = String(d.getDate()).padStart(2, '0');
+          if (locale === 'en') {
+            const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            return `${months[d.getMonth()]} ${d.getDate()}, ${yyyy}`;
+          }
+          return `${yyyy}-${mm}-${dd}`;
+        } catch (e) {
+          return "2026-08-30";
+        }
+      }
+
+      function updateReleaseBadges(tag, dateStr) {
+        const relVer = document.getElementById("rel-ver-tag");
+        const relDate = document.getElementById("rel-date-tag");
+        if (relVer) relVer.textContent = `v${tag}`;
+        if (relDate) relDate.textContent = dateStr;
+
+        document.querySelectorAll("[data-i18n='hero.badge']").forEach(el => {
+          if (currentLocale === 'ja') el.textContent = `v${tag} 安定版 · リリース日：${dateStr} · Windows 10/11 (64bit)`;
+          else if (currentLocale === 'zh-TW') el.textContent = `v${tag} 穩定版 · 發布時間：${dateStr} · Windows 10/11 64位元`;
+          else if (currentLocale === 'en') el.textContent = `v${tag} Stable · Released: ${dateStr} · Windows 10/11 64-bit`;
+          else el.textContent = `v${tag} 稳定版 · 发布时间：${dateStr} · Windows 10/11 64位`;
+        });
+      }
+
       function applyLocale(localeKey) {
         let dict = I18N[localeKey];
         if (!dict) {
@@ -1653,6 +1738,9 @@
         if (dict && dict["page.title"]) {
           document.title = dict["page.title"];
         }
+
+        const dateStr = formatReleaseDate(SITE_CONFIG.releaseDate, currentLocale);
+        updateReleaseBadges(SITE_CONFIG.version, dateStr);
       }
 
       function resolveSystemLocale() {
@@ -1689,6 +1777,9 @@
             const data = await res.json();
             const tag = data.tag_name ? data.tag_name.replace(/^v/, '') : SITE_CONFIG.version;
             SITE_CONFIG.version = tag;
+            if (data.published_at) {
+              SITE_CONFIG.releaseDate = data.published_at;
+            }
 
             if (data.assets && data.assets.length > 0) {
               const exeAsset = data.assets.find(a => a.name.endsWith('.exe'));
@@ -1705,12 +1796,8 @@
             if (btnExe) btnExe.href = SITE_CONFIG.exeDownloadUrl;
             if (btnZip) btnZip.href = SITE_CONFIG.zipDownloadUrl;
 
-            document.querySelectorAll("[data-i18n='hero.badge']").forEach(el => {
-              if (currentLocale === 'ja') el.textContent = `v${tag} 安定版 · Windows 10/11 (64bit)`;
-              else if (currentLocale === 'zh-TW') el.textContent = `v${tag} 穩定版 · Windows 10/11 64位元`;
-              else if (currentLocale === 'en') el.textContent = `v${tag} Stable · Windows 10/11 64-bit`;
-              else el.textContent = `v${tag} 稳定版 · Windows 10/11 64位`;
-            });
+            const dateStr = formatReleaseDate(SITE_CONFIG.releaseDate, currentLocale);
+            updateReleaseBadges(tag, dateStr);
           }
         } catch (e) {
           console.log("GitHub dynamic sync fallback to static:", e);

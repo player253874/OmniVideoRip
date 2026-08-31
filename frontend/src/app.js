@@ -89,11 +89,13 @@ const elements = {
   updateMsg: document.getElementById("update-msg"),
 };
 
+let _lastVersionInfo = null;
+
 document.addEventListener("DOMContentLoaded", async () => {
-  await initWailsApp();
   if (window.i18n && window.i18n.initI18n) {
     await window.i18n.initI18n();
   }
+  await initWailsApp();
   bindEvents();
   renderHistory();
 });
@@ -103,18 +105,49 @@ function t(key, params) {
   return window.i18n ? window.i18n.t(key, params) : key;
 }
 
+function renderVersionInfo(verInfo) {
+  if (!verInfo) return;
+  _lastVersionInfo = verInfo;
+
+  const verApp = document.getElementById("ver-app");
+  const verYtdlp = document.getElementById("ver-ytdlp");
+  const verFfmpeg = document.getElementById("ver-ffmpeg");
+
+  if (verApp && verInfo.appVersion) {
+    verApp.textContent = "v" + verInfo.appVersion;
+  }
+
+  if (verYtdlp) {
+    if (verInfo.ytdlpVersion && verInfo.ytdlpVersion.trim() !== "") {
+      verYtdlp.textContent = verInfo.ytdlpVersion;
+      verYtdlp.classList.remove("ver-missing");
+      verYtdlp.classList.add("ver-ready");
+    } else {
+      verYtdlp.textContent = t("ver.ytdlp.missing");
+      verYtdlp.classList.remove("ver-ready");
+      verYtdlp.classList.add("ver-missing");
+    }
+  }
+
+  if (verFfmpeg) {
+    if (verInfo.ffmpegVersion && verInfo.ffmpegVersion.trim() !== "") {
+      verFfmpeg.textContent = verInfo.ffmpegVersion;
+      verFfmpeg.classList.remove("ver-missing");
+      verFfmpeg.classList.add("ver-ready");
+    } else {
+      verFfmpeg.textContent = t("ver.ffmpeg.missing");
+      verFfmpeg.classList.remove("ver-ready");
+      verFfmpeg.classList.add("ver-missing");
+    }
+  }
+}
+
 async function refreshVersionInfo() {
   if (window.go && window.go.main && window.go.main.App && window.go.main.App.GetVersionInfo) {
     try {
       const verInfo = await window.go.main.App.GetVersionInfo();
       if (verInfo) {
-        const verApp = document.getElementById("ver-app");
-        const verYtdlp = document.getElementById("ver-ytdlp");
-        const verFfmpeg = document.getElementById("ver-ffmpeg");
-
-        if (verApp && verInfo.appVersion) verApp.textContent = "v" + verInfo.appVersion;
-        if (verYtdlp) verYtdlp.textContent = verInfo.ytdlpVersion || t("ver.ytdlp.missing");
-        if (verFfmpeg) verFfmpeg.textContent = verInfo.ffmpegVersion || t("ver.ffmpeg.missing");
+        renderVersionInfo(verInfo);
       }
     } catch (e) {
       console.warn("Refresh version error:", e);
@@ -125,7 +158,7 @@ async function refreshVersionInfo() {
 async function initWailsApp() {
   if (window.go && window.go.main && window.go.main.App) {
     try {
-      refreshVersionInfo();
+      await refreshVersionInfo();
 
       const defaultDir = await window.go.main.App.GetDefaultDownloadDir();
       if (defaultDir && !localStorage.getItem("custom_output_dir")) {
@@ -147,13 +180,7 @@ async function initWailsApp() {
   if (window.runtime && window.runtime.EventsOn) {
     window.runtime.EventsOn("version:ready", (verInfo) => {
       if (verInfo) {
-        const verApp = document.getElementById("ver-app");
-        const verYtdlp = document.getElementById("ver-ytdlp");
-        const verFfmpeg = document.getElementById("ver-ffmpeg");
-
-        if (verApp && verInfo.appVersion) verApp.textContent = "v" + verInfo.appVersion;
-        if (verYtdlp && verInfo.ytdlpVersion) verYtdlp.textContent = verInfo.ytdlpVersion;
-        if (verFfmpeg && verInfo.ffmpegVersion) verFfmpeg.textContent = verInfo.ffmpegVersion;
+        renderVersionInfo(verInfo);
       }
     });
 
@@ -276,7 +303,11 @@ function bindEvents() {
       renderActiveDownloads();
       renderQueuePanel();
       renderHistory();
-      refreshVersionInfo();
+      if (_lastVersionInfo) {
+        renderVersionInfo(_lastVersionInfo);
+      } else {
+        refreshVersionInfo();
+      }
       if (state.currentMetaData) {
         renderResolutionOptions(state.currentMetaData);
       }
