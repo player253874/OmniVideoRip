@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OmniVideoRip | 全网视频极速抓取器</title>
+    <link rel="icon" type="image/png" href="./assets/logo.png" />
+    <link rel="shortcut icon" type="image/png" href="./assets/logo.png" />
+    <meta
+      name="description"
+      content="OmniVideoRip 全能视频抓取器。支持 YouTube、Bilibili、GGJav、MissAV、TikTok、X (Twitter)、Instagram 等 1800+ 站点的高清音视频本地极速提取与多任务批量排队下载。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./i18n.js"></script>
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <!-- BEGIN AADS AD UNIT 2453867 -->
+    <div style="position: absolute; z-index: 99999;">
+      <input autocomplete="off" type="checkbox" id="aadsstickymtg2bxe2" hidden />
+      <div>
+        <div style="width: 100%; height: auto; position: fixed; text-align: center; font-size: 0; top: 0; left: 0; right: 0; margin: auto; pointer-events: none;">
+          <label for="aadsstickymtg2bxe2" title="Close advertisement" style="top: 50%; transform: translateY(-50%); right: 24px; position: absolute; border-radius: 4px; background: rgba(248, 248, 249, 0.70); padding: 4px; z-index: 99999; cursor: pointer; pointer-events: auto;">
+            <svg fill="#000000" height="16" width="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 490 490" aria-hidden="true">
+              <polygon points="456.851,0 245,212.564 33.149,0 0.708,32.337 212.669,245.004 0.708,457.678 33.149,490 245,277.443 456.851,490 489.292,457.678 277.331,245.004 489.292,32.337" />
+            </svg>
+          </label>
+          <div id="aads-sticky-frame-2453867" style="width: 100%; margin: auto; position: relative; z-index: 99998; pointer-events: auto;">
+            <iframe data-aa="2453867" src="https://acceptable.a-ads.com/2453867/?size=Adaptive" title="Advertisement" loading="lazy" style="border: 0; padding: 0; width: 70%; min-height: 90px; height: auto; overflow: hidden; margin: auto;"></iframe>
+          </div>
+        </div>
+        <style>
+          #aadsstickymtg2bxe2:checked + div {
+            display: none;
+          }
+        </style>
+      </div>
+    </div>
+    <!-- END AADS AD UNIT 2453867 -->
+    <div class="app-container">
+      <!-- App Header -->
+      <header class="app-header">
+        <div class="brand-container">
+          <img src="./assets/logo.png" alt="OmniVideoRip Logo" class="brand-logo" />
+          <div class="brand-text">
+            <div class="brand-title-row">
+              <h1 class="brand-title">OmniVideoRip</h1>
+              <span class="version-badge">v1.3.6</span>
+            </div>
+            <p class="brand-tagline" data-i18n="brand.tagline">全网视频极速抓取平台</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <div class="lang-selector-box">
+            <select id="lang-select" class="lang-select" title="切换界面语言 (Language)">
+              <option value="auto" data-i18n="lang.auto">🌐 自动 (系统语言)</option>
+              <option value="zh-CN">🇨🇳 简体中文</option>
+              <option value="zh-TW">🇭🇰 繁體中文</option>
+              <option value="en">🇺🇸 English</option>
+              <option value="ja">🇯🇵 日本語</option>
+            </select>
+          </div>
+        </div>
+      </header>
+
+
+      <!-- Main Workspace -->
+      <main class="main-content">
+        <!-- Hero Download Section (PRIMARY VISUAL FOCUS) -->
+        <section class="card hero-download-card">
+          <!-- MAIN DOWNLOAD ENTRY FORM (Primary Priority) -->
+          <form id="download-form" class="main-download-form">
+            <!-- Mode Switcher Tabs (Single URL / Multi-Line Batch Queue) -->
+            <div class="entry-mode-bar">
+              <div class="mode-tabs">
+                <button type="button" class="mode-tab-btn active" id="tab-single-mode" data-i18n="mode.single">
+                  🔗 单链接下载
+                </button>
+                <button type="button" class="mode-tab-btn" id="tab-batch-mode" data-i18n="mode.batch">
+                  📋 批量多链接排队下载
+                </button>
+              </div>
+              <span class="mode-hint" id="mode-hint-text" data-i18n="mode.hint.single">粘贴单个视频页面地址，自动分析可用分辨率</span>
+            </div>
+
+            <!-- Single URL Mode Box -->
+            <div class="primary-url-box" id="single-url-box">
+              <div class="platform-indicator" id="detected-platform-badge">
+                <span id="platform-icon">🔗</span>
+                <span id="platform-name" data-i18n="input.detect.auto">自动识别</span>
+              </div>
+              <input
+                id="url-input"
+                name="url"
+                type="url"
+                inputmode="url"
+                data-i18n-placeholder="input.placeholder"
+                placeholder="在此粘贴任意视频地址 (如 YouTube, Bilibili, TikTok, X, MissAV, GGJav...)"
+                autocomplete="off"
+              />
+              <div class="input-actions">
+                <button type="button" id="paste-btn" class="action-btn" data-i18n-title="input.paste.title" title="一键粘贴剪贴板">
+                  <span data-i18n="input.paste">📋 粘贴</span>
+                </button>
+                <button type="button" id="clear-btn" class="action-btn hidden" title="清空">
+                  ✕
+                </button>
+              </div>
+              <button class="button button-submit" type="submit" id="analyze-submit-btn" data-i18n="btn.analyze">
+                解析画质
+              </button>
+            </div>
+
+            <!-- Batch Multi-Line Textarea Box (Hidden by default) -->
+            <div class="batch-url-box hidden" id="batch-url-box">
+              <textarea
+                id="batch-url-input"
+                class="batch-textarea"
+                rows="4"
+                data-i18n-placeholder="batch.placeholder"
+                placeholder="在此粘贴多个视频地址，每行一个链接 (或空格分隔)。例如:&#10;https://www.youtube.com/watch?v=HlLx7oE7q3I&#10;https://missav.live/dm26/ja/jac-082&#10;https://www.bilibili.com/video/BV1xx411c7mD"
+              ></textarea>
+              <div class="batch-action-bar">
+                <button type="button" id="batch-paste-btn" class="button button-secondary button-small" data-i18n="batch.paste">
+                  📋 粘贴剪贴板多链接
+                </button>
+                <button type="button" id="batch-clear-btn" class="button button-text button-small" data-i18n="batch.clear">
+                  清空列表
+                </button>
+                <button class="button button-submit" type="submit" style="margin-left: auto;" data-i18n="batch.submit">
+                  开始批量下载
+                </button>
+              </div>
+            </div>
+
+            <!-- SECONDARY VISUAL ELEMENT: Compact Output Path Settings -->
+            <div class="secondary-path-bar">
+              <div class="path-meta-info">
+                <span class="path-meta-label" data-i18n="path.label">📁 下载保存位置:</span>
+                <input
+                  type="text"
+                  id="single-output-dir-input"
+                  class="compact-path-input"
+                  value=""
+                  data-i18n-placeholder="path.placeholder"
+                  placeholder="选择或输入视频保存路径"
+                />
+              </div>
+              <button type="button" id="single-browse-btn" class="button button-subtle-browse" data-i18n="path.browse">
+                更改目录 📁
+              </button>
+            </div>
+          </form>
+
+          <!-- RESOLUTION / FORMAT SELECTOR CARD (Appears after Analyzing Link) -->
+          <div id="resolution-selector-card" class="resolution-card hidden">
+            <div class="res-card-header">
+              <div class="res-video-info">
+                <img id="res-video-thumb" src="" alt="Thumbnail" class="res-thumb hidden" />
+                <div>
+                  <h3 id="res-video-title" class="res-title" data-i18n="res.loading.title">正在读取视频标题...</h3>
+                  <span id="res-video-meta" class="res-meta">平台: YouTube · 时长: --:--</span>
+                </div>
+              </div>
+              <button type="button" id="res-close-btn" class="action-btn" data-i18n="res.close">✕ 关闭</button>
+            </div>
+
+            <div class="res-options-group">
+              <label class="res-options-label" data-i18n="res.label">🎯 请选择下载画质 / 分辨率:</label>
+              <div id="res-chips-container" class="res-chips-container">
+                <!-- Resolution options dynamically injected -->
+              </div>
+            </div>
+
+            <div class="res-card-footer">
+              <button type="button" id="res-confirm-download-btn" class="button button-submit" data-i18n="res.confirm">
+                开始下载
+              </button>
+            </div>
+          </div>
+
+          <!-- ACTIVE RUNNING DOWNLOADS SECTION (Above Queue Panel) -->
+          <div id="active-downloads-section" class="active-downloads-section hidden">
+            <div class="active-downloads-header">
+              <div class="section-title-wrap">
+                <span class="pulse-indicator"></span>
+                <h3 data-i18n="active.title">⚡ 正在下载</h3>
+                <span id="active-running-badge" class="badge badge-status">0 个进行中</span>
+              </div>
+            </div>
+            <div id="active-downloads-list" class="active-downloads-list">
+              <!-- Active downloading task cards dynamically injected here -->
+            </div>
+          </div>
+
+          <!-- CURRENT QUEUE PANEL (Non-running tasks: Queued -> Failed -> Completed) -->
+          <div id="queue-panel" class="queue-panel hidden">
+            <div class="queue-header">
+              <div class="queue-title-group">
+                <h3 data-i18n="queue.title">当前队列</h3>
+                <span id="queue-count-badge" class="badge badge-status">0 个任务</span>
+              </div>
+              <div class="queue-stats">
+                <span id="queue-waiting-count">⏳ 等待中: 0</span>
+                <span id="queue-failed-count">❌ 失败: 0</span>
+                <span id="queue-done-count">✅ 已完成: 0</span>
+                <button type="button" id="clear-queue-btn" class="button button-small button-text" style="padding: 2px 8px; font-size: 11px;" data-i18n="queue.clear">清空队列与缓存 🧹</button>
+              </div>
+            </div>
+
+            <div class="queue-list" id="queue-tasks-list">
+              <!-- Queue items dynamically appended -->
+            </div>
+          </div>
+
+          <!-- COMPONENT UPDATE PROGRESS CARD (Hidden by default) -->
+          <div id="update-progress-card" class="update-card hidden">
+            <div class="update-header">
+              <span id="update-title" class="update-title">🔄 正在更新 yt-dlp 解析引擎...</span>
+              <span id="update-pct" class="update-pct">0%</span>
+            </div>
+            <div class="progress-bar-track">
+              <div id="update-bar-fill" class="progress-bar-fill" style="width: 0%"></div>
+            </div>
+            <div id="update-msg" class="update-msg" data-i18n="update.from.github">正在从 GitHub 官方源获取最新版本...</div>
+          </div>
+
+          <div id="version-info-bar" class="version-bar">
+            <div class="version-item"><span data-i18n="ver.app.label">主程序</span> <span id="ver-app">v1.3.6</span></div>
+            <div class="version-item">
+              <span data-i18n="ver.ytdlp.label">yt-dlp</span> <span id="ver-ytdlp" data-i18n="ver.loading">加载中...</span>
+              <button type="button" id="btn-update-ytdlp" class="version-update-btn" data-i18n-title="update.ytdlp.btn.title" title="检查并更新 yt-dlp 解析引擎 (针对各视频网站反爬高频更新)">
+                <span data-i18n="update.ytdlp.btn">🔄 更新 yt-dlp</span>
+              </button>
+            </div>
+            <div class="version-item">
+              <span data-i18n="ver.ffmpeg.label">ffmpeg</span> <span id="ver-ffmpeg" data-i18n="ver.loading">加载中...</span>
+              <button type="button" id="btn-update-ffmpeg" class="version-update-btn btn-secondary-update" data-i18n-title="update.ffmpeg.btn.title" title="检查并更新 ffmpeg 组件 (音视频合并库，通常无需更新)">
+                <span data-i18n="update.ffmpeg.btn">🔄 更新 ffmpeg</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Supported Platforms Showcase Section -->
+        <section class="card platforms-section">
+          <div class="section-title-row">
+            <div>
+              <p class="section-eyebrow" data-i18n="platforms.eyebrow">SUPPORTED PLATFORMS DIRECTORY</p>
+              <h2 data-i18n="platforms.title">全网主要支持平台名录</h2>
+            </div>
+          </div>
+
+          <div class="platforms-grid" id="platforms-grid">
+            <!-- Platform Cards -->
+            <div class="platform-card">
+              <div class="p-header">
+                <span class="p-icon">📷</span>
+                <div>
+                  <h3 class="p-title">Instagram</h3>
+                  <span class="p-domains">instagram.com · instagr.am</span>
+                </div>
+              </div>
+              <p class="p-desc" data-i18n="platform.instagram.desc">支持 Instagram Reels 短视频、帖子视频与快拍动态高清原画嗅探提取。</p>
+              <div class="p-tags">
+                <span class="p-tag" data-i18n="platform.instagram.tag1">Reels 短视频</span>
+                <span class="p-tag" data-i18n="platform.instagram.tag2">高清无水印</span>
+              </div>
+            </div>
+            <!-- Platform Cards -->
+            <div class="platform-card">
+              <div class="p-header">
+                <span class="p-icon">🔴</span>
+                <div>
+                  <h4 class="p-title">YouTube</h4>
+                  <span class="p-domains">youtube.com, youtu.be</span>
+                </div>
+              </div>
+              <p class="p-desc" data-i18n="platform.youtube.desc">支持 4K/8K 极速解析、自由选择 1080P/720P/480P 画质与 MP3 无损音频提取。</p>
+              <div class="p-tags">
+                <span class="p-tag" data-i18n="platform.youtube.tag1">4K / 8K</span>
+                <span class="p-tag" data-i18n="platform.youtube.tag2">画质自选</span>
+                <span class="p-tag" data-i18n="platform.youtube.tag3">音频提取</span>
+              </div>
+            </div>
+
+            <div class="platform-card">
+              <div class="p-header">
+                <span class="p-icon">🔵</span>
+                <div>
+                  <h4 class="p-title">Bilibili (哔哩哔哩)</h4>
+                  <span class="p-domains">bilibili.com, b23.tv</span>
+                </div>
+              </div>
+              <p class="p-desc" data-i18n="platform.bilibili.desc">支持番剧、UP 主投稿视频 1080P/4K 提取，多 P 分卷批量抓取。</p>
+              <div class="p-tags">
+                <span class="p-tag" data-i18n="platform.bilibili.tag1">1080P/4K</span>
+                <span class="p-tag" data-i18n="platform.bilibili.tag2">中文文件名原生支持</span>
+              </div>
+            </div>
+
+            <div class="platform-card">
+              <div class="p-header">
+                <span class="p-icon">🌸</span>
+                <div>
+                  <h4 class="p-title">MissAV</h4>
+                  <span class="p-domains">missav.ws, missav.live, missav.ai</span>
+                </div>
+              </div>
+              <p class="p-desc" data-i18n="platform.missav.desc">Go 原生 16 线程 Surrit HLS 并发解密引擎，全长高清正片 5~10 倍极速直下。</p>
+              <div class="p-tags">
+                <span class="p-tag" data-i18n="platform.missav.tag1">16 线程并发</span>
+                <span class="p-tag" data-i18n="platform.missav.tag2">全长正片</span>
+              </div>
+            </div>
+
+            <div class="platform-card">
+              <div class="p-header">
+                <span class="p-icon">🟣</span>
+                <div>
+                  <h4 class="p-title">GGJav</h4>
+                  <span class="p-domains">ggjav.com, ggjav.tv</span>
+                </div>
+              </div>
+              <p class="p-desc" data-i18n="platform.ggjav.desc">Go 原生 16 线程 HLS 切片解密算法，自动合并播放器分段。</p>
+              <div class="p-tags">
+                <span class="p-tag" data-i18n="platform.ggjav.tag1">16 线程并发</span>
+                <span class="p-tag" data-i18n="platform.ggjav.tag2">原画 MP4</span>
+              </div>
+            </div>
+
+            <div class="platform-card">
+              <div class="p-header">
+                <span class="p-icon">🥩</span>
+                <div>
+                  <h4 class="p-title">RouVideo (肉视频)</h4>
+                  <span class="p-domains">rou.video</span>
+                </div>
+              </div>
+              <p class="p-desc" data-i18n="platform.rouvideo.desc">Go 原生 16 线程自动解密 HLS 索引，全长高清 720P/1080P 极速直下并自动合并。</p>
+              <div class="p-tags">
+                <span class="p-tag" data-i18n="platform.rouvideo.tag1">16 线程解密直下</span>
+                <span class="p-tag" data-i18n="platform.rouvideo.tag2">原画 MP4</span>
+              </div>
+            </div>
+
+
+            <div class="platform-card">
+              <div class="p-header">
+                <span class="p-icon">🎵</span>
+                <div>
+                  <h4 class="p-title">TikTok / 抖音</h4>
+                  <span class="p-domains">tiktok.com, douyin.com</span>
+                </div>
+              </div>
+              <p class="p-desc" data-i18n="platform.tiktok.desc">支持无水印 1080P 短视频提取，背景 BGM 原声音频自动分离。</p>
+              <div class="p-tags">
+                <span class="p-tag" data-i18n="platform.tiktok.tag1">无水印提取</span>
+              </div>
+            </div>
+
+            <div class="platform-card">
+              <div class="p-header">
+                <span class="p-icon">🖤</span>
+                <div>
+                  <h4 class="p-title">X (Twitter)</h4>
+                  <span class="p-domains">x.com, twitter.com</span>
+                </div>
+              </div>
+              <p class="p-desc" data-i18n="platform.x.desc">支持推文内多视频抓取、高清画质自动匹配与推文动图 GIF 转 MP4。</p>
+              <div class="p-tags">
+                <span class="p-tag" data-i18n="platform.x.tag1">多视频解析</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Download History Section -->
+        <section id="history-section" class="card history-section hidden">
+          <div class="section-title-row">
+            <div>
+              <p class="section-eyebrow" data-i18n="history.eyebrow">RECENT COMPLETED</p>
+              <h2 data-i18n="history.title">历史记录</h2>
+            </div>
+            <button type="button" id="clear-history-btn" class="button button-text" data-i18n="history.clear">清空记录</button>
+          </div>
+          <div id="history-list" class="history-list">
+            <!-- Dynamically populated -->
+          </div>
+        </section>
+      </main>
+
+
+      <!-- Footer -->
+      <footer class="app-footer">
+        <p data-i18n="footer.text">OmniVideoRip Desktop Client &copy; 2026 · 全网视频极速抓取平台</p>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+# OS
+Thumbs.db
+.DS_Store
+
+# Logs
+*.log
+
+# Generated binaries, packages, caches, and publish-only assets
+*.exe
+*.zip
+/bin/
+/frontend/dist/
+/.gocache/
+/resource.syso
+/release/
+/website/
+
+# Keep only build-time source icons
+/build/*
+!/build/appicon.png
+!/build/appicon.ico
+!/build/windows/
+!/build/windows/icon.ico
+
+# Editor
+.idea/
+.vscode/
+
+# Local agent rules
+AGENTS.md
+GEMINI.md
