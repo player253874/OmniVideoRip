@@ -880,7 +880,7 @@
             rel="noopener noreferrer"
             class="nav-github-badge"
           >
-            <span>⭐ GitHub 仓库</span>
+            <span data-i18n="nav.github">⭐ GitHub 仓库</span>
           </a>
         </nav>
 
@@ -958,7 +958,7 @@
             <div style="text-align: left;">
               <div style="font-size: 14.5px;" data-i18n="btn.zip.title">离线全量便携包 (.zip)</div>
               <div style="font-size: 11px; opacity: 0.85; font-family: var(--font-mono);">
-                内置双引擎 (~46MB · 开箱即用)
+                <span data-i18n="btn.zip.sub">内置双引擎 (~46MB · 开箱即用)</span>
               </div>
             </div>
           </a>
@@ -980,7 +980,7 @@
             <div class="stat-label" data-i18n="stat.sites">全网支持站点 (yt-dlp 完整引擎)</div>
           </div>
           <div class="stat-card">
-            <div class="stat-num">16 线程</div>
+            <div class="stat-num" data-i18n="stat.num.threads">16 线程</div>
             <div class="stat-label" data-i18n="stat.threads">独家原生并发流解密</div>
           </div>
           <div class="stat-card">
@@ -988,7 +988,7 @@
             <div class="stat-label" data-i18n="stat.quality">HDR 原画自选 & MP3 提取</div>
           </div>
           <div class="stat-card">
-            <div class="stat-num">$0 免费</div>
+            <div class="stat-num" data-i18n="stat.num.free">$0 免费</div>
             <div class="stat-label" data-i18n="stat.free">无付费墙 · 无次数限制</div>
           </div>
         </div>
@@ -1103,45 +1103,45 @@
                 <th data-i18n="th.feature">功能特性 / 对比维度</th>
                 <th class="highlight-col">⭐ OmniVideoRip</th>
                 <th>4K Video Downloader+</th>
-                <th>IDM / Downie / 传统嗅探器</th>
+                <th data-i18n="th.others">IDM / Downie / 传统嗅探器</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td data-i18n="row.price">价格与付费门槛</td>
-                <td class="highlight-col"><span class="tag-win">✔ 100% 永久免费 ($0)</span></td>
-                <td><span class="tag-lose">✖ $25~$65 强制订阅/买断</span></td>
-                <td><span class="tag-lose">✖ $19.95~$29.99 需购买授权</span></td>
+                <td class="highlight-col"><span class="tag-win" data-i18n="compare.price.omni">✔ 100% 永久免费 ($0)</span></td>
+                <td><span class="tag-lose" data-i18n="compare.price.4k">✖ $25~$65 强制订阅/买断</span></td>
+                <td><span class="tag-lose" data-i18n="compare.price.others">✖ $19.95~$29.99 需购买授权</span></td>
               </tr>
               <tr>
                 <td data-i18n="row.adult">独家成人正片直下 (MissAV/RouVideo/GGJav)</td>
-                <td class="highlight-col"><span class="tag-win">✔ 自研 16 线程原生流解密合并</span></td>
-                <td><span class="tag-lose">✖ 完全不支持 / 报 403 阻断</span></td>
-                <td><span class="tag-lose">✖ 切片断裂 / 需手动繁琐拼接</span></td>
+                <td class="highlight-col"><span class="tag-win" data-i18n="compare.adult.omni">✔ 自研 16 线程原生流解密合并</span></td>
+                <td><span class="tag-lose" data-i18n="compare.adult.4k">✖ 完全不支持 / 报 403 阻断</span></td>
+                <td><span class="tag-lose" data-i18n="compare.adult.others">✖ 切片断裂 / 需手动繁琐拼接</span></td>
               </tr>
               <tr>
                 <td data-i18n="row.quality">画质选择权限</td>
-                <td class="highlight-col"><span class="tag-win">✔ 4K / 8K / 1080P 全开放</span></td>
-                <td><span class="tag-lose">✖ 免费版强制锁 720P 限制</span></td>
-                <td><span class="tag-win">✔ 支持高画质</span></td>
+                <td class="highlight-col"><span class="tag-win" data-i18n="compare.quality.omni">✔ 4K / 8K / 1080P 全开放</span></td>
+                <td><span class="tag-lose" data-i18n="compare.quality.4k">✖ 免费版强制锁 720P 限制</span></td>
+                <td><span class="tag-win" data-i18n="compare.quality.others">✔ 支持高画质</span></td>
               </tr>
               <tr>
                 <td data-i18n="row.limits">每日下载次数限制</td>
-                <td class="highlight-col"><span class="tag-win">✔ 无限次批量排队</span></td>
-                <td><span class="tag-lose">✖ 免费版每日限 10~30 个</span></td>
-                <td><span class="tag-win">✔ 无限制</span></td>
+                <td class="highlight-col"><span class="tag-win" data-i18n="compare.limits.omni">✔ 无限次批量排队</span></td>
+                <td><span class="tag-lose" data-i18n="compare.limits.4k">✖ 免费版每日限 10~30 个</span></td>
+                <td><span class="tag-win" data-i18n="compare.limits.others">✔ 无限制</span></td>
               </tr>
               <tr>
                 <td data-i18n="row.selfheal">视频网站反爬应对</td>
-                <td class="highlight-col"><span class="tag-win">✔ 软件内一键热更规则自愈</span></td>
-                <td><span class="tag-lose">✖ 经常失效 / 强迫升级大版本</span></td>
-                <td><span class="tag-lose">✖ 需手动找插件或脚本</span></td>
+                <td class="highlight-col"><span class="tag-win" data-i18n="compare.selfheal.omni">✔ 软件内一键热更规则自愈</span></td>
+                <td><span class="tag-lose" data-i18n="compare.selfheal.4k">✖ 经常失效 / 强迫升级大版本</span></td>
+                <td><span class="tag-lose" data-i18n="compare.selfheal.others">✖ 需手动找插件或脚本</span></td>
               </tr>
               <tr>
                 <td data-i18n="row.proxy">代理自适应穿透 (Clash/v2ray/系统代理)</td>
-                <td class="highlight-col"><span class="tag-win">✔ 注册表与环境变量全自动继承</span></td>
-                <td><span class="tag-lose">✖ 需手动繁琐配置 Proxy</span></td>
-                <td><span class="tag-lose">✖ 易出现 TLS 握手超时</span></td>
+                <td class="highlight-col"><span class="tag-win" data-i18n="compare.proxy.omni">✔ 注册表与环境变量全自动继承</span></td>
+                <td><span class="tag-lose" data-i18n="compare.proxy.4k">✖ 需手动繁琐配置 Proxy</span></td>
+                <td><span class="tag-lose" data-i18n="compare.proxy.others">✖ 易出现 TLS 握手超时</span></td>
               </tr>
             </tbody>
           </table>
@@ -1222,21 +1222,21 @@
             <span class="platform-icon">🌸</span>
             <div>
               <div class="platform-name" style="color: #f472b6;">MissAV</div>
-              <div class="platform-desc">16 线程并发 · 全长 1080P 正片</div>
+              <div class="platform-desc" data-i18n="p.missav.desc">16 线程并发 · 全长 1080P 正片</div>
             </div>
           </div>
           <div class="platform-chip platform-chip-adult">
             <span class="platform-icon">🥩</span>
             <div>
-              <div class="platform-name" style="color: #f472b6;">RouVideo (肉视频)</div>
-              <div class="platform-desc">16 线程自动解密 · 原画 MP4 极速直下</div>
+              <div class="platform-name" style="color: #f472b6;" data-i18n="p.rouvideo.name">RouVideo (肉视频)</div>
+              <div class="platform-desc" data-i18n="p.rouvideo.desc">16 线程自动解密 · 原画 MP4 极速直下</div>
             </div>
           </div>
           <div class="platform-chip platform-chip-adult">
             <span class="platform-icon">🟣</span>
             <div>
               <div class="platform-name" style="color: #c084fc;">GGJav</div>
-              <div class="platform-desc">16 线程 HLS 切片解密与自动合并</div>
+              <div class="platform-desc" data-i18n="p.ggjav.desc">16 线程 HLS 切片解密与自动合并</div>
             </div>
           </div>
 
@@ -1244,42 +1244,42 @@
             <span class="platform-icon">🔴</span>
             <div>
               <div class="platform-name">YouTube</div>
-              <div class="platform-desc">4K / 8K · 1080P · MP3 音频提取</div>
+              <div class="platform-desc" data-i18n="p.youtube.desc">4K / 8K · 1080P · MP3 音频提取</div>
             </div>
           </div>
           <div class="platform-chip">
             <span class="platform-icon">🔵</span>
             <div>
-              <div class="platform-name">Bilibili 哔哩哔哩</div>
-              <div class="platform-desc">1080P/4K 番剧 · 多 P 分卷批量抓取</div>
+              <div class="platform-name" data-i18n="p.bilibili.name">Bilibili 哔哩哔哩</div>
+              <div class="platform-desc" data-i18n="p.bilibili.desc">1080P/4K 番剧 · 多 P 分卷批量抓取</div>
             </div>
           </div>
           <div class="platform-chip">
             <span class="platform-icon">🖤</span>
             <div>
               <div class="platform-name">X (Twitter)</div>
-              <div class="platform-desc">1080P 原画 · 多视频解析 · GIF 转 MP4</div>
+              <div class="platform-desc" data-i18n="p.x.desc">1080P 原画 · 多视频解析 · GIF 转 MP4</div>
             </div>
           </div>
           <div class="platform-chip">
             <span class="platform-icon">📷</span>
             <div>
               <div class="platform-name">Instagram</div>
-              <div class="platform-desc">Reels 短视频 · 帖子高清原画嗅探</div>
+              <div class="platform-desc" data-i18n="p.instagram.desc">Reels 短视频 · 帖子高清原画嗅探</div>
             </div>
           </div>
           <div class="platform-chip">
             <span class="platform-icon">🎵</span>
             <div>
-              <div class="platform-name">TikTok / 抖音</div>
-              <div class="platform-desc">无水印 1080P 提取 · 原声音频分离</div>
+              <div class="platform-name" data-i18n="p.tiktok.name">TikTok / 抖音</div>
+              <div class="platform-desc" data-i18n="p.tiktok.desc">无水印 1080P 提取 · 原声音频分离</div>
             </div>
           </div>
           <div class="platform-chip">
             <span class="platform-icon">🌐</span>
             <div>
-              <div class="platform-name">全网 1800+ 站点</div>
-              <div class="platform-desc">yt-dlp 通用引擎持续自愈更新</div>
+              <div class="platform-name" data-i18n="p.all.name">全网 1800+ 站点</div>
+              <div class="platform-desc" data-i18n="p.all.desc">yt-dlp 通用引擎持续自愈更新</div>
             </div>
           </div>
         </div>
@@ -1350,8 +1350,8 @@
           <a href="#compare" data-i18n="nav.compare">付费软件对比</a>
           <a href="#platforms" data-i18n="nav.platforms">支持平台</a>
           <a href="#faq" data-i18n="nav.faq">FAQ</a>
-          <a href="https://github.com/player253874/OmniVideoRip" target="_blank" rel="noopener noreferrer">⭐ GitHub 源码</a>
-          <a href="https://github.com/player253874/OmniVideoRip/releases" target="_blank" rel="noopener noreferrer">📦 Releases 发行页</a>
+          <a href="https://github.com/player253874/OmniVideoRip" target="_blank" rel="noopener noreferrer" data-i18n="footer.github">⭐ GitHub 源码</a>
+          <a href="https://github.com/player253874/OmniVideoRip/releases" target="_blank" rel="noopener noreferrer" data-i18n="footer.releases">📦 Releases 发行页</a>
         </div>
         <p>OmniVideoRip &copy; 2026 · 100% Free Universal & Adult Video Ripper · Open Source Powered</p>
       </div>
@@ -1443,7 +1443,46 @@
           "faq.q3": "视频网站升级反爬规则或解析失败怎么办？",
           "faq.a3": "① <b>主流视频网站（YouTube / B站 / TikTok / X 等）</b>：主要依托强大的 yt-dlp 生态，若遇到改版失效，只需点击软件主界面底部的“🔄 更新 yt-dlp”按钮，即可一键在线拉取官方最新规则秒级自愈；<br/>② <b>自研独家成人站点（MissAV / RouVideo / GGJav 等）</b>：由我们研发团队专门维护逆向解密算法。若遇成人站点改版阻断，欢迎前往 <a href=\"https://github.com/player253874/OmniVideoRip/issues\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: #818cf8; text-decoration: underline; font-weight: 600;\">GitHub Issues 提交反馈</a>（附上失效链接），我们会在第一时间跟进逆向适配并推送更新补丁。",
           "faq.q4": "下载国外或成人网站视频需要开代理吗？",
-          "faq.a4": "软件已全面支持 Windows 系统注册表代理与 Clash / v2ray / SOCKS5 等环境变量代理。只要您的电脑开启了代理工具，OmniVideoRip 会全自动继承代理通道，无需任何繁琐配置。"
+          "faq.a4": "软件已全面支持 Windows 系统注册表代理与 Clash / v2ray / SOCKS5 等环境变量代理。只要您的电脑开启了代理工具，OmniVideoRip 会全自动继承代理通道，无需任何繁琐配置。",
+
+          "nav.github": "⭐ GitHub 仓库",
+          "btn.zip.sub": "内置双引擎 (~46MB · 开箱即用)",
+          "stat.num.threads": "16 线程",
+          "stat.num.free": "$0 免费",
+          "th.others": "IDM / Downie / 传统嗅探器",
+          "compare.price.omni": "✔ 100% 永久免费 ($0)",
+          "compare.price.4k": "✖ $25~$65 强制订阅/买断",
+          "compare.price.others": "✖ $19.95~$29.99 需购买授权",
+          "compare.adult.omni": "✔ 自研 16 线程原生流解密合并",
+          "compare.adult.4k": "✖ 完全不支持 / 报 403 阻断",
+          "compare.adult.others": "✖ 切片断裂 / 需手动繁琐拼接",
+          "compare.quality.omni": "✔ 4K / 8K / 1080P 全开放",
+          "compare.quality.4k": "✖ 免费版强制锁 720P 限制",
+          "compare.quality.others": "✔ 支持高画质",
+          "compare.limits.omni": "✔ 无限次批量排队",
+          "compare.limits.4k": "✖ 免费版每日限 10~30 个",
+          "compare.limits.others": "✔ 无限制",
+          "compare.selfheal.omni": "✔ 软件内一键热更规则自愈",
+          "compare.selfheal.4k": "✖ 经常失效 / 强迫升级大版本",
+          "compare.selfheal.others": "✖ 需手动找插件或脚本",
+          "compare.proxy.omni": "✔ 注册表与环境变量全自动继承",
+          "compare.proxy.4k": "✖ 需手动繁琐配置 Proxy",
+          "compare.proxy.others": "✖ 易出现 TLS 握手超时",
+          "p.missav.desc": "16 线程并发 · 全长 1080P 正片",
+          "p.rouvideo.name": "RouVideo (肉视频)",
+          "p.rouvideo.desc": "16 线程自动解密 · 原画 MP4 极速直下",
+          "p.ggjav.desc": "16 线程 HLS 切片解密与自动合并",
+          "p.youtube.desc": "4K / 8K · 1080P · MP3 音频提取",
+          "p.bilibili.name": "Bilibili 哔哩哔哩",
+          "p.bilibili.desc": "1080P/4K 番剧 · 多 P 分卷批量抓取",
+          "p.x.desc": "1080P 原画 · 多视频解析 · GIF 转 MP4",
+          "p.instagram.desc": "Reels 短视频 · 帖子高清原画嗅探",
+          "p.tiktok.name": "TikTok / 抖音",
+          "p.tiktok.desc": "无水印 1080P 提取 · 原声音频分离",
+          "p.all.name": "全网 1800+ 站点",
+          "p.all.desc": "yt-dlp 通用引擎持续自愈更新",
+          "footer.github": "⭐ GitHub 源码",
+          "footer.releases": "📦 Releases 发行页"
         },
 
         "zh-TW": {
@@ -1520,7 +1559,46 @@
           "faq.q3": "影音網站升級反爬防禦或解析失敗怎麼辦？",
           "faq.a3": "① <b>主流社群與影音網站（YouTube / B站 / TikTok / X 等）</b>：依託強大的 yt-dlp 生態，若遇到改版失效，只需點擊軟體主介面底部的「🔄 更新 yt-dlp」按鈕，即可一鍵線上拉取官方最新規則秒級自癒；<br/>② <b>自研獨家成人網站（MissAV / RouVideo / GGJav 等）</b>：由我們研發團隊專門維護逆向解密演算法。若遇成人站點改版阻斷，歡迎前往 <a href=\"https://github.com/player253874/OmniVideoRip/issues\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: #818cf8; text-decoration: underline; font-weight: 600;\">GitHub Issues 提交反饋</a>（附上失效連結），我們會在第一時間跟進逆向適配並發布更新補丁。",
           "faq.q4": "下載海外或成人網站影片需要開代理嗎？",
-          "faq.a4": "軟體已全面支援 Windows 系統登錄檔代理與 Clash / v2ray / SOCKS5 等環境變數代理。只要電腦開啟了代理工具，OmniVideoRip 會自動繼承通道，無需繁瑣設定。"
+          "faq.a4": "軟體已全面支援 Windows 系統登錄檔代理與 Clash / v2ray / SOCKS5 等環境變數代理。只要電腦開啟了代理工具，OmniVideoRip 會自動繼承通道，無需繁瑣設定。",
+
+          "nav.github": "⭐ GitHub 倉庫",
+          "btn.zip.sub": "內建雙引擎 (~46MB · 開箱即用)",
+          "stat.num.threads": "16 執行緒",
+          "stat.num.free": "$0 免費",
+          "th.others": "IDM / Downie / 傳統嗅探器",
+          "compare.price.omni": "✔ 100% 永久免費 ($0)",
+          "compare.price.4k": "✖ $25~$65 強制訂閱/買斷",
+          "compare.price.others": "✖ $19.95~$29.99 需購買授權",
+          "compare.adult.omni": "✔ 自研 16 執行緒原生串流解密合併",
+          "compare.adult.4k": "✖ 完全不支援 / 報 403 阻斷",
+          "compare.adult.others": "✖ 切片斷裂 / 需手動繁瑣拼接",
+          "compare.quality.omni": "✔ 4K / 8K / 1080P 全開放",
+          "compare.quality.4k": "✖ 免費版強制鎖 720P 限制",
+          "compare.quality.others": "✔ 支援高畫質",
+          "compare.limits.omni": "✔ 無限次批次排隊",
+          "compare.limits.4k": "✖ 免費版每日限 10~30 個",
+          "compare.limits.others": "✔ 無限制",
+          "compare.selfheal.omni": "✔ 軟體內一鍵熱更規則自癒",
+          "compare.selfheal.4k": "✖ 經常失效 / 強迫升級大版本",
+          "compare.selfheal.others": "✖ 需手動找外掛或腳本",
+          "compare.proxy.omni": "✔ 登錄檔與環境變數全自動繼承",
+          "compare.proxy.4k": "✖ 需手動繁瑣設定 Proxy",
+          "compare.proxy.others": "✖ 易出現 TLS 握手逾時",
+          "p.missav.desc": "16 執行緒並行 · 全長 1080P 正片",
+          "p.rouvideo.name": "RouVideo (肉視頻)",
+          "p.rouvideo.desc": "16 執行緒自動解密 · 原畫 MP4 極速直下",
+          "p.ggjav.desc": "16 執行緒 HLS 分片解密與自動合併",
+          "p.youtube.desc": "4K / 8K · 1080P · MP3 音訊擷取",
+          "p.bilibili.name": "Bilibili 嗶哩嗶哩",
+          "p.bilibili.desc": "1080P/4K 動畫 · 多 P 分卷批次抓取",
+          "p.x.desc": "1080P 原畫 · 多影片解析 · GIF 轉 MP4",
+          "p.instagram.desc": "Reels 短影音 · 貼文高畫質原圖嗅探",
+          "p.tiktok.name": "TikTok / 抖音",
+          "p.tiktok.desc": "無浮水印 1080P 擷取 · 原聲音訊分離",
+          "p.all.name": "全網 1800+ 網站",
+          "p.all.desc": "yt-dlp 通用引擎持續自癒更新",
+          "footer.github": "⭐ GitHub 源碼",
+          "footer.releases": "📦 Releases 發行頁"
         },
 
         "en": {
@@ -1597,7 +1675,46 @@
           "faq.q3": "What if a video site updates its anti-bot rules or parsing fails?",
           "faq.a3": "① <b>Mainstream Media (YouTube, Bilibili, TikTok, X, etc.)</b>: Powered by the upstream yt-dlp core. If a site updates its layout, simply click '🔄 Update yt-dlp' at the bottom of the client window to pull the latest official rules and self-heal in seconds.<br/>② <b>Proprietary Adult Platforms (MissAV, RouVideo, GGJav, etc.)</b>: Maintained and reverse-engineered exclusively by our in-house team. If you encounter an extraction failure on these sites, please report it directly on our <a href=\"https://github.com/player253874/OmniVideoRip/issues\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: #818cf8; text-decoration: underline; font-weight: 600;\">GitHub Issues page</a> (along with the problematic URL), and we will promptly investigate and push an engine patch.",
           "faq.q4": "Do I need a proxy to download overseas or adult videos?",
-          "faq.a4": "OmniVideoRip automatically detects Windows Registry system proxies and Clash/v2ray/SOCKS5 environments. If your proxy software is active, OmniVideoRip routes through it automatically."
+          "faq.a4": "OmniVideoRip automatically detects Windows Registry system proxies and Clash/v2ray/SOCKS5 environments. If your proxy software is active, OmniVideoRip routes through it automatically.",
+
+          "nav.github": "⭐ GitHub Repo",
+          "btn.zip.sub": "Dual Engines Pre-bundled (~46MB · Ready to Run)",
+          "stat.num.threads": "16 Threads",
+          "stat.num.free": "$0 Free",
+          "th.others": "IDM / Downie / Legacy Sniffers",
+          "compare.price.omni": "✔ 100% Free Forever ($0)",
+          "compare.price.4k": "✖ $25-$65 Mandatory Subscription/Lifetime",
+          "compare.price.others": "✖ $19.95-$29.99 License Required",
+          "compare.adult.omni": "✔ Native 16-Thread Stream Decrypt & Merge",
+          "compare.adult.4k": "✖ Not Supported / Blocked with 403",
+          "compare.adult.others": "✖ Broken Chunks / Manual Merge Required",
+          "compare.quality.omni": "✔ 4K / 8K / 1080P Fully Unlocked",
+          "compare.quality.4k": "✖ Free Tier Locked to 720P",
+          "compare.quality.others": "✔ Supports High Resolution",
+          "compare.limits.omni": "✔ Unlimited Batch Downloads",
+          "compare.limits.4k": "✖ Free Tier Capped at 10-30/day",
+          "compare.limits.others": "✔ Unlimited",
+          "compare.selfheal.omni": "✔ One-Click In-App Rule Hot-Updates",
+          "compare.selfheal.4k": "✖ Frequent Breakages / Forced Upgrades",
+          "compare.selfheal.others": "✖ Manual Plugins or Scripts Needed",
+          "compare.proxy.omni": "✔ Auto-Inherits System & Environment Proxy",
+          "compare.proxy.4k": "✖ Tedious Manual Proxy Setup",
+          "compare.proxy.others": "✖ Prone to TLS Handshake Timeouts",
+          "p.missav.desc": "16-Thread Concurrency · Full 1080P Feature",
+          "p.rouvideo.name": "RouVideo",
+          "p.rouvideo.desc": "16-Thread Auto Decrypt · Original MP4 Direct Download",
+          "p.ggjav.desc": "16-Thread HLS Chunk Decrypt & Auto Merge",
+          "p.youtube.desc": "4K / 8K · 1080P · MP3 Audio Extractor",
+          "p.bilibili.name": "Bilibili",
+          "p.bilibili.desc": "1080P/4K Anime · Multi-Part Batch Rip",
+          "p.x.desc": "1080P Full HD · Multi-Video Parsing · GIF to MP4",
+          "p.instagram.desc": "Reels Shorts · Full HD Post Media Sniffing",
+          "p.tiktok.name": "TikTok / Douyin",
+          "p.tiktok.desc": "Watermark-Free 1080P · Audio Track Separation",
+          "p.all.name": "1,800+ Global Sites",
+          "p.all.desc": "yt-dlp Universal Engine with Continuous Updates",
+          "footer.github": "⭐ GitHub Source",
+          "footer.releases": "📦 Releases Page"
         },
 
         "ja": {
@@ -1674,7 +1791,46 @@
           "faq.q3": "動画サイトの仕様変更や解析エラーが発生した場合はどうすればいいですか？",
           "faq.a3": "① <b>主要動画サイト（YouTube・Bilibili・TikTok・X 等）</b>：yt-dlp の強力なエコシステムに依存しているため、仕様変更時はアプリ画面下部の「🔄 更新 yt-dlp」ボタンをクリックするだけで、最新の公式解析ルールへ即時アップデートされ復旧します。<br/>② <b>独自対応の成人サイト（MissAV・RouVideo・GGJav 等）</b>：当開発チームが独自にリバースエンジニアリングと復号アルゴリズムを保守しています。もしダウンロードがブロックされた場合は、お手数ですが <a href=\"https://github.com/player253874/OmniVideoRip/issues\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: #818cf8; text-decoration: underline; font-weight: 600;\">GitHub Issues</a> より不具合のあるURLを添えてご報告ください。迅速に解析エンジンを改修し更新パッチを配信いたします。",
           "faq.q4": "海外サイトや成人サイトのダウンロードにプロキシは必要ですか？",
-          "faq.a4": "OmniVideoRip は Windows のシステムプロキシや Clash / v2ray / SOCKS5 等の環境を自動検出します。プロキシツールが起動していれば設定不要で自動適用されます。"
+          "faq.a4": "OmniVideoRip は Windows のシステムプロキシや Clash / v2ray / SOCKS5 等の環境を自動検出します。プロキシツールが起動していれば設定不要で自動適用されます。",
+
+          "nav.github": "⭐ GitHub リポジトリ",
+          "btn.zip.sub": "双発エンジン内蔵 (~46MB · 設定不要)",
+          "stat.num.threads": "16スレッド",
+          "stat.num.free": "完全無料 $0",
+          "th.others": "IDM / Downie / 従来のスニッファー",
+          "compare.price.omni": "✔ 100% 永久完全無料 ($0)",
+          "compare.price.4k": "✖ $25〜$65 強制サブスク/買い切り",
+          "compare.price.others": "✖ $19.95〜$29.99 有料ライセンス必須",
+          "compare.adult.omni": "✔ 独自 16スレッド並行復号＆自動結合",
+          "compare.adult.4k": "✖ 完全非対応 / 403エラーで遮断",
+          "compare.adult.others": "✖ 分割切断 / 面倒な手動結合が必要",
+          "compare.quality.omni": "✔ 4K / 8K / 1080P すべて無制限開放",
+          "compare.quality.4k": "✖ 無料版は 720P に制限・ロック",
+          "compare.quality.others": "✔ 高画質対応",
+          "compare.limits.omni": "✔ 完全無制限・一括キュー対応",
+          "compare.limits.4k": "✖ 無料版は1日10〜30件の上限あり",
+          "compare.limits.others": "✔ 無制限",
+          "compare.selfheal.omni": "✔ アプリ内ワンクリック即時ルール更新",
+          "compare.selfheal.4k": "✖ 頻繁にエラー / メジャー版の再購入催促",
+          "compare.selfheal.others": "✖ プラグインや外部スクリプトの手動導入が必要",
+          "compare.proxy.omni": "✔ レジストリ＆環境変数を自動認識",
+          "compare.proxy.4k": "✖ 面倒な手動プロキシ設定が必要",
+          "compare.proxy.others": "✖ TLSハンドシェイク切断やタイムアウト多発",
+          "p.missav.desc": "16スレッド並行 · フルHD 1080P 本編",
+          "p.rouvideo.name": "RouVideo (肉視頻)",
+          "p.rouvideo.desc": "16スレッド自動復号 · 原画MP4 高速直下",
+          "p.ggjav.desc": "16スレッド HLS 復号＆自動結合",
+          "p.youtube.desc": "4K / 8K · 1080P · MP3 音声抽出",
+          "p.bilibili.name": "Bilibili (ビリビリ)",
+          "p.bilibili.desc": "1080P/4K アニメ · 複数パート一括保存",
+          "p.x.desc": "1080P 原画 · 複数動画解析 · GIF→MP4変換",
+          "p.instagram.desc": "Reels ショート · 投稿高画質メディア保存",
+          "p.tiktok.name": "TikTok / 抖音",
+          "p.tiktok.desc": "透かしなし 1080P · BGM原音自動分離",
+          "p.all.name": "全ネット 1,800+ サイト",
+          "p.all.desc": "yt-dlp 汎用エンジンによる継続的アップデート",
+          "footer.github": "⭐ GitHub ソースコード",
+          "footer.releases": "📦 Releases 配布ページ"
         }
       };
 
