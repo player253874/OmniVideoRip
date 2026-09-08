@@ -14,9 +14,12 @@ import (
 )
 
 type Store struct {
-	mu          sync.RWMutex
-	tasks       map[string]Task
-	persistPath string
+	mu             sync.RWMutex
+	tasks          map[string]Task
+	persistPath    string
+	progressTimer  *time.Timer
+	progressDirty  bool
+	lastPersistErr error
 }
 
 func NewStore(persistPath ...string) *Store {
@@ -68,7 +71,7 @@ func (s *Store) Load() error {
 
 	for id, task := range loadedTasks {
 		// If a task was running/downloading when app was closed, restore as paused
-		if task.Status == StatusRunning || task.Status == "downloading" || task.Status == "merging" {
+		if task.Status == StatusQueued || task.Status == StatusCheckingDependencies || task.Status == StatusWaitingForSidecars || task.Status == StatusRunning || task.Status == "downloading" || task.Status == "merging" {
 			task.Status = StatusPaused
 			task.Message = "未完成任务 (已暂停，点击继续)"
 		}
@@ -78,7 +81,13 @@ func (s *Store) Load() error {
 	return nil
 }
 
-func (s *Store) persistLocked() error {
+func (s *Store) persistLocked() (err error) {
+	defer func() {
+		s.lastPersistErr = err
+		if err == nil {
+			s.progressDirty = false
+		}
+	}()
 	if s.persistPath == "" {
 		return nil
 	}
@@ -133,6 +142,7 @@ func (s *Store) Create(req CreateTaskRequest) (Task, error) {
 		Source:        strings.TrimSpace(req.Source),
 		OutputDir:     strings.TrimSpace(req.OutputDir),
 		ClientVersion: strings.TrimSpace(req.ClientVersion),
+		FormatID:      strings.TrimSpace(req.FormatID),
 		CreatedAt:     now,
 		UpdatedAt:     now,
 	}
@@ -170,6 +180,11 @@ func (s *Store) List() []Task {
 }
 
 func (s *Store) Delete(id string) bool {
+	deleted, _ := s.DeleteWithError(id)
+	return deleted
+}
+
+func (s *Store) DeleteWithError(id string) (bool, error) {
 	s.mu.Lock()
 	defer s.mu.Unlock()
 
@@ -177,11 +192,59 @@ func (s *Store) Delete(id string) bool {
 		delete(s.tasks, id)
 		if err := s.persistLocked(); err != nil {
 			s.tasks[id] = task
-			return false
+			return false, err
 		}
-		return true
+		return true, nil
 	}
-	return false
+	return false, nil
+}
+
+// Progress is checkpointed at most once per second; lifecycle changes remain synchronous.
+func (s *Store) UpdateProgress(id string, updateFn func(*Task)) (Task, bool) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	task, ok := s.tasks[id]
+	if !ok {
+		return Task{}, false
+	}
+	updateFn(&task)
+	task.UpdatedAt = time.Now().UTC().Format(time.RFC3339)
+	s.tasks[id] = task
+	s.progressDirty = true
+	if s.progressTimer == nil && s.persistPath != "" {
+		s.progressTimer = time.AfterFunc(time.Second, func() {
+			s.mu.Lock()
+			defer s.mu.Unlock()
+			s.progressTimer = nil
+			s.lastPersistErr = s.persistLocked()
+			if s.lastPersistErr == nil {
+				s.progressDirty = false
+			}
+		})
+	}
+	return task, true
+}
+
+func (s *Store) Flush() error {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	if s.progressTimer != nil {
+		s.progressTimer.Stop()
+		s.progressTimer = nil
+	}
+	if s.progressDirty {
+		s.lastPersistErr = s.persistLocked()
+		if s.lastPersistErr == nil {
+			s.progressDirty = false
+		}
+	}
+	return s.lastPersistErr
+}
+
+func (s *Store) PersistenceError() error {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+	return s.lastPersistErr
 }
 
 func (s *Store) Clear() error {

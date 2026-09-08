@@ -34,6 +34,7 @@ type VersionInfo struct {
 }
 
 type App struct {
+	taskMu       sync.Mutex
 	ctx          context.Context
 	logger       *log.Logger
 	paths        config.Paths
@@ -120,23 +121,6 @@ func (a *App) UpdateYTDLPComponent() (string, error) {
 		"message": "正在检查官方最新发布版本...",
 	})
 
-	info := a.GetVersionInfo()
-	currentVer := strings.TrimSpace(strings.TrimPrefix(info.YTDLPVersion, "v"))
-
-	latestTag, checkErr := sidecars.CheckLatestYTDLPVersion(a.ctx)
-	if checkErr == nil && latestTag != "" {
-		cleanLatest := strings.TrimSpace(strings.TrimPrefix(latestTag, "v"))
-		if currentVer != "" && (currentVer == cleanLatest || strings.HasPrefix(currentVer, cleanLatest)) {
-			runtime.EventsEmit(a.ctx, "ytdlp:update:done", map[string]interface{}{
-				"path":          a.ytdlpPath,
-				"ytdlpVersion":  info.YTDLPVersion,
-				"message":       fmt.Sprintf("当前已是官方最新版本 (%s)，无需重复下载！", info.YTDLPVersion),
-				"alreadyLatest": true,
-			})
-			return a.ytdlpPath, nil
-		}
-	}
-
 	targetPath, err := sidecars.DownloadOrUpdateYTDLP(a.ctx, func(pct int, msg string) {
 		runtime.EventsEmit(a.ctx, "ytdlp:update:progress", map[string]interface{}{
 			"percent": pct,
@@ -171,7 +155,15 @@ func (a *App) UpdateFFmpegComponent() (string, error) {
 
 	info := a.GetVersionInfo()
 	ffPath, _ := sidecars.ResolveFFmpegPath(a.ffmpegPath)
-	if info.FFmpegVersion != "" && ffPath != "" {
+	current := false
+	if ffPath != "" {
+		var err error
+		current, err = sidecars.IsFFmpegCurrent(a.ctx, ffPath)
+		if err != nil {
+			return "", fmt.Errorf("check official FFmpeg release: %w", err)
+		}
+	}
+	if current {
 		runtime.EventsEmit(a.ctx, "ffmpeg:update:done", map[string]interface{}{
 			"path":          ffPath,
 			"ffmpegVersion": info.FFmpegVersion,
@@ -216,7 +208,7 @@ func (a *App) CheckLatestYTDLP() (string, error) {
 }
 
 func (a *App) warmupVersionInfo() VersionInfo {
-	info := VersionInfo{AppVersion: "1.3.8"}
+	info := VersionInfo{AppVersion: "1.3.9"}
 
 	ytPath, _ := sidecars.ResolveYTDLPPath(a.ytdlpPath)
 	if ytPath != "" {
@@ -274,7 +266,7 @@ func (a *App) GetVersionInfo() VersionInfo {
 	}
 	a.verMu.RUnlock()
 
-	info := VersionInfo{AppVersion: "1.3.8"}
+	info := VersionInfo{AppVersion: "1.3.9"}
 	ytPath, _ := sidecars.ResolveYTDLPPath(a.ytdlpPath)
 	if ytPath != "" {
 		info.YTDLPVersion = "已就绪"
@@ -368,6 +360,8 @@ func (a *App) SubmitDownload(rawURL, outputDir string) (tasks.Task, error) {
 }
 
 func (a *App) SubmitDownloadWithQuality(rawURL, outputDir, formatID string) (tasks.Task, error) {
+	a.taskMu.Lock()
+	defer a.taskMu.Unlock()
 	if a.taskStore == nil || a.taskExecutor == nil {
 		return tasks.Task{}, fmt.Errorf("application is not ready")
 	}
@@ -380,7 +374,8 @@ func (a *App) SubmitDownloadWithQuality(rawURL, outputDir, formatID string) (tas
 		URL:           strings.TrimSpace(rawURL),
 		OutputDir:     outDir,
 		Source:        "OmniVideoRip_Desktop",
-		ClientVersion: "1.3.8",
+		FormatID:      formatID,
+		ClientVersion: "1.3.9",
 	}
 
 	task, err := a.taskStore.Create(req)
@@ -399,6 +394,8 @@ func (a *App) SubmitDownloadWithQuality(rawURL, outputDir, formatID string) (tas
 }
 
 func (a *App) SubmitBatchDownloads(rawURLsText, outputDir string) ([]tasks.Task, error) {
+	a.taskMu.Lock()
+	defer a.taskMu.Unlock()
 	if a.taskStore == nil || a.taskExecutor == nil {
 		return nil, fmt.Errorf("application is not ready")
 	}
@@ -422,7 +419,7 @@ func (a *App) SubmitBatchDownloads(rawURLsText, outputDir string) ([]tasks.Task,
 				URL:           cleanURL,
 				OutputDir:     outDir,
 				Source:        "OmniVideoRip_Batch",
-				ClientVersion: "1.3.8",
+				ClientVersion: "1.3.9",
 			}
 
 			task, err := a.taskStore.Create(req)
@@ -466,6 +463,8 @@ func (a *App) GetTaskStatus(taskId string) (tasks.Task, error) {
 }
 
 func (a *App) PauseTask(taskId string) (tasks.Task, error) {
+	a.taskMu.Lock()
+	defer a.taskMu.Unlock()
 	if a.taskStore == nil || a.taskExecutor == nil {
 		return tasks.Task{}, fmt.Errorf("application is not ready")
 	}
@@ -477,6 +476,8 @@ func (a *App) PauseTask(taskId string) (tasks.Task, error) {
 }
 
 func (a *App) ResumeTask(taskId string) (tasks.Task, error) {
+	a.taskMu.Lock()
+	defer a.taskMu.Unlock()
 	if a.taskStore == nil || a.taskExecutor == nil {
 		return tasks.Task{}, fmt.Errorf("application is not ready")
 	}
@@ -488,6 +489,8 @@ func (a *App) ResumeTask(taskId string) (tasks.Task, error) {
 }
 
 func (a *App) DeleteTask(taskId string) (bool, error) {
+	a.taskMu.Lock()
+	defer a.taskMu.Unlock()
 	if a.taskStore == nil {
 		return false, fmt.Errorf("application is not ready")
 	}
@@ -498,7 +501,14 @@ func (a *App) DeleteTask(taskId string) (bool, error) {
 
 	// 1. Cancel if active
 	if a.taskExecutor != nil {
-		a.taskExecutor.CancelIfActive(taskId)
+		a.taskExecutor.CancelAndWait(taskId)
+	}
+	deleted, err := a.taskStore.DeleteWithError(taskId)
+	if err != nil {
+		return false, fmt.Errorf("delete persisted task: %w", err)
+	}
+	if !deleted {
+		return false, nil
 	}
 
 	// 2. If task was not successfully completed, clean up its uncompleted resume cache
@@ -507,11 +517,12 @@ func (a *App) DeleteTask(taskId string) (bool, error) {
 		if outDir == "" {
 			outDir = a.paths.DownloadsDir
 		}
-		extractors.CleanupTaskResumeCache(outDir, task.Platform, task.URL)
+		if err := extractors.CleanupTaskResumeCache(outDir, task.Platform, task.URL); err != nil {
+			return true, err
+		}
 	}
 
 	// 3. Remove from store
-	a.taskStore.Delete(taskId)
 	if a.ctx != nil {
 		runtime.EventsEmit(a.ctx, "task:deleted", taskId)
 	}
@@ -519,15 +530,21 @@ func (a *App) DeleteTask(taskId string) (bool, error) {
 }
 
 func (a *App) ClearAllTasksAndCaches() error {
+	a.taskMu.Lock()
+	defer a.taskMu.Unlock()
 	if a.taskStore == nil {
 		return fmt.Errorf("application is not ready")
 	}
 
-	// 1. Stop scheduling, cancel every worker, and wait until no worker can recreate caches.
-	allTasks := a.taskStore.List()
+	action := func() error { return a.clearStoppedTasks() }
 	if a.taskExecutor != nil {
-		a.taskExecutor.CancelAllAndWait()
+		return a.taskExecutor.WithStoppedWorkers(action)
 	}
+	return action()
+}
+
+func (a *App) clearStoppedTasks() error {
+	allTasks := a.taskStore.List()
 
 	// 2. For uncompleted tasks, clean up individual resume caches
 	for _, t := range allTasks {
@@ -536,12 +553,11 @@ func (a *App) ClearAllTasksAndCaches() error {
 			if outDir == "" {
 				outDir = a.paths.DownloadsDir
 			}
-			extractors.CleanupTaskResumeCache(outDir, t.Platform, t.URL)
+			if err := extractors.CleanupTaskResumeCache(outDir, t.Platform, t.URL); err != nil {
+				return err
+			}
 		}
 	}
-
-	// 3. Clean up all remaining unfinished caches in outputDir & tempDir
-	extractors.CleanupAllUnfinishedCaches(a.paths.DownloadsDir)
 
 	// 4. Persist the empty store before telling the frontend the clear succeeded.
 	if err := a.taskStore.Clear(); err != nil {
@@ -557,4 +573,17 @@ func (a *App) ClearAllTasksAndCaches() error {
 // ClearTasks keeps older frontend bindings compatible with the durable clear operation.
 func (a *App) ClearTasks() error {
 	return a.ClearAllTasksAndCaches()
+}
+
+func (a *App) OnShutdown(ctx context.Context) {
+	a.taskMu.Lock()
+	defer a.taskMu.Unlock()
+	if a.taskExecutor != nil {
+		a.taskExecutor.CancelAllAndWait()
+	}
+	if a.taskStore != nil {
+		if err := a.taskStore.Flush(); err != nil && a.logger != nil {
+			a.logger.Printf("Save task progress: %v", err)
+		}
+	}
 }

@@ -127,7 +127,7 @@ func downloadRouPlaylist(ctx context.Context, playlistURL, pageURL, outDir, titl
 		return "", err
 	}
 
-	workDir := resumeDir(outDir, "rouvideo", codeNameFromURL(pageURL, "ROUVIDEO"))
+	workDir := GetTaskResumeDir(outDir, "rouvideo", pageURL)
 	if err := os.MkdirAll(workDir, 0755); err != nil {
 		return "", err
 	}

@@ -147,6 +147,7 @@ try {
     Push-Location "frontend"
     try {
         npm run build
+        if ($LASTEXITCODE -ne 0) { throw "Frontend build failed" }
     } finally {
         Pop-Location
     }
@@ -163,6 +164,7 @@ try {
     }
 
     go build -buildvcs=false -trimpath -tags "desktop,production" -ldflags "-H windowsgui -s -w" -o "OmniVideoRip.exe" .
+    if ($LASTEXITCODE -ne 0) { throw "Go build failed" }
 } finally {
     Pop-Location
 }

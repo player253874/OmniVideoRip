@@ -18,7 +18,11 @@ func TestSubmitBatchDownloadsMarksQueueOverflowFailed(t *testing.T) {
 	store := tasks.NewStore()
 	taskExecutor := executor.New(log.New(io.Discard, "", 0), store, t.TempDir(), "", "")
 	for i := 0; i < 64; i++ {
-		if err := taskExecutor.Enqueue(fmt.Sprintf("occupied_%d", i)); err != nil {
+		task, err := store.Create(tasks.CreateTaskRequest{URL: fmt.Sprintf("https://example.com/occupied/%d", i)})
+		if err != nil {
+			t.Fatal(err)
+		}
+		if err := taskExecutor.Enqueue(task.ID); err != nil {
 			t.Fatalf("fill queue: %v", err)
 		}
 	}
@@ -134,8 +138,8 @@ func TestClearAllTasksAndCaches(t *testing.T) {
 	if _, err := os.Stat(c2); !os.IsNotExist(err) {
 		t.Fatalf("cache c2 was not removed")
 	}
-	if _, err := os.Stat(filepath.Join(tempDir, "video.partial.mp4")); !os.IsNotExist(err) {
-		t.Fatalf("partial video was not removed")
+	if _, err := os.Stat(filepath.Join(tempDir, "video.partial.mp4")); err != nil {
+		t.Fatalf("unowned partial video was removed")
 	}
 }
 
@@ -146,4 +150,20 @@ func TestGetSystemLocale(t *testing.T) {
 		t.Fatalf("expected non-empty locale")
 	}
 	t.Logf("Detected system locale: %s", locale)
+}
+
+func TestDeleteTaskPropagatesPersistenceError(t *testing.T) {
+	store := tasks.NewStore()
+	task, _ := store.Create(tasks.CreateTaskRequest{URL: "https://example.com/video"})
+	blocker := filepath.Join(t.TempDir(), "blocker")
+	os.WriteFile(blocker, []byte("x"), 0600)
+	store.SetPersistPath(filepath.Join(blocker, "tasks.json"))
+	app := &App{taskStore: store}
+	deleted, err := app.DeleteTask(task.ID)
+	if err == nil || deleted {
+		t.Fatalf("deleted=%v err=%v", deleted, err)
+	}
+	if _, ok := store.Get(task.ID); !ok {
+		t.Fatal("failed delete lost task")
+	}
 }

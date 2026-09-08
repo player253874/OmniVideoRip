@@ -30,6 +30,23 @@ const state = {
   selectedFormatId: "best",
 };
 
+const taskSnapshots = new TaskSnapshots(state.tasksMap);
+
+async function refreshTaskSnapshot() {
+  const api = window.go?.main?.App;
+  if (!api?.GetAllTasks) return false;
+  const token = taskSnapshots.request();
+  const tasks = await api.GetAllTasks();
+  const previous = new Map(state.tasksMap);
+  if (!taskSnapshots.apply(token, tasks)) return false;
+  for (const task of tasks || []) {
+    if (task.status === 'completed' && previous.get(task.id)?.status !== 'completed') addHistoryItem(task);
+  }
+  renderActiveDownloads();
+  renderQueuePanel();
+  return true;
+}
+
 const elements = {
   tabSingleMode: document.getElementById("tab-single-mode"),
   tabBatchMode: document.getElementById("tab-batch-mode"),
@@ -165,12 +182,7 @@ async function initWailsApp() {
         state.outputDir = defaultDir;
       }
 
-      const allTasks = await window.go.main.App.GetAllTasks();
-      if (allTasks && allTasks.length > 0) {
-        allTasks.forEach((t) => state.tasksMap.set(t.id, t));
-        renderActiveDownloads();
-        renderQueuePanel();
-      }
+      await refreshTaskSnapshot();
     } catch (e) {
       console.warn("Wails binding error:", e);
     }
@@ -187,7 +199,7 @@ async function initWailsApp() {
     window.runtime.EventsOn("task:progress", (task) => {
       if (task && task.id) {
         const prev = state.tasksMap.get(task.id);
-        state.tasksMap.set(task.id, task);
+        if (!taskSnapshots.progress(task)) return;
 
         if (task.status === "completed" && (!prev || prev.status !== "completed")) {
           addHistoryItem(task);
@@ -199,13 +211,13 @@ async function initWailsApp() {
     });
 
     window.runtime.EventsOn("task:deleted", (taskId) => {
-      state.tasksMap.delete(taskId);
+      taskSnapshots.remove(taskId);
       renderActiveDownloads();
       renderQueuePanel();
     });
 
     window.runtime.EventsOn("tasks:cleared", () => {
-      state.tasksMap.clear();
+      taskSnapshots.clear();
       renderActiveDownloads();
       renderQueuePanel();
     });
@@ -480,7 +492,10 @@ function bindEvents() {
   });
 
   elements.clearQueueBtn?.addEventListener("click", async () => {
+    if (elements.clearQueueBtn.disabled) return;
+    elements.clearQueueBtn.disabled = true;
     stopPolling();
+    taskSnapshots.invalidate();
     try {
       const appApi = window.go?.main?.App;
       if (appApi?.ClearAllTasksAndCaches) {
@@ -490,13 +505,15 @@ function bindEvents() {
       } else {
         throw new Error("Clear task API is unavailable");
       }
-      state.tasksMap.clear();
+      taskSnapshots.clear();
       renderActiveDownloads();
       renderQueuePanel();
     } catch (err) {
       console.warn("Clear tasks and caches failed:", err);
       window.alert(`清空队列与缓存失败：${err?.message || err}`);
     } finally {
+      taskSnapshots.invalidate();
+      elements.clearQueueBtn.disabled = false;
       startPolling();
     }
   });
@@ -642,6 +659,7 @@ async function startDownloadAfterResolution() {
       };
     }
 
+    taskSnapshots.invalidate();
     state.tasksMap.set(task.id, task);
     elements.resolutionSelectorCard.classList.add("hidden");
     renderActiveDownloads();
@@ -678,6 +696,7 @@ async function submitBatchTasks() {
       }));
     }
 
+    taskSnapshots.invalidate();
     newTasks.forEach((task) => state.tasksMap.set(task.id, task));
     elements.batchUrlInput.value = "";
     renderActiveDownloads();
@@ -693,21 +712,8 @@ function startPolling() {
   state.pollHandle = setInterval(async () => {
     try {
       if (window.go && window.go.main && window.go.main.App && window.go.main.App.GetAllTasks) {
-        const tasksList = await window.go.main.App.GetAllTasks();
-        if (tasksList) {
-          let hasActive = false;
-          tasksList.forEach((t) => {
-            const prev = state.tasksMap.get(t.id);
-            state.tasksMap.set(t.id, t);
-            if (t.status === "completed" && (!prev || prev.status !== "completed")) {
-              addHistoryItem(t);
-            }
-            if (t.status === "running" || t.status === "downloading" || t.status === "merging" || t.status === "queued" || t.status === "pending") {
-              hasActive = true;
-            }
-          });
-          renderActiveDownloads();
-          renderQueuePanel();
+        if (await refreshTaskSnapshot()) {
+          const hasActive = [...state.tasksMap.values()].some(task => ['running', 'downloading', 'merging', 'queued', 'pending'].includes(task.status));
           if (!hasActive) stopPolling();
         }
       }
@@ -730,11 +736,8 @@ window.pauseTaskFromQueue = async function (taskId) {
     if (window.go && window.go.main && window.go.main.App && window.go.main.App.PauseTask) {
       await window.go.main.App.PauseTask(taskId);
     }
-    const allTasks = await window.go.main.App.GetAllTasks();
-    if (allTasks) {
-      state.tasksMap.clear();
-      allTasks.forEach((t) => state.tasksMap.set(t.id, t));
-    }
+    taskSnapshots.invalidate();
+    await refreshTaskSnapshot();
     renderActiveDownloads();
     renderQueuePanel();
     startPolling();
@@ -748,11 +751,8 @@ window.resumeTaskFromQueue = async function (taskId) {
     if (window.go && window.go.main && window.go.main.App && window.go.main.App.ResumeTask) {
       await window.go.main.App.ResumeTask(taskId);
     }
-    const allTasks = await window.go.main.App.GetAllTasks();
-    if (allTasks) {
-      state.tasksMap.clear();
-      allTasks.forEach((t) => state.tasksMap.set(t.id, t));
-    }
+    taskSnapshots.invalidate();
+    await refreshTaskSnapshot();
     renderActiveDownloads();
     renderQueuePanel();
     startPolling();
@@ -766,17 +766,14 @@ window.deleteTaskFromQueue = async function (taskId) {
     if (window.go && window.go.main && window.go.main.App && window.go.main.App.DeleteTask) {
       await window.go.main.App.DeleteTask(taskId);
     }
-    state.tasksMap.delete(taskId);
-    const allTasks = await window.go.main.App.GetAllTasks();
-    if (allTasks) {
-      state.tasksMap.clear();
-      allTasks.forEach((t) => state.tasksMap.set(t.id, t));
-    }
+    taskSnapshots.remove(taskId);
+    await refreshTaskSnapshot();
     renderActiveDownloads();
     renderQueuePanel();
     startPolling();
   } catch (err) {
     console.warn("Delete task error:", err);
+    window.alert(err?.message || String(err));
   }
 };
 

@@ -44,9 +44,9 @@ type fxTwitterResponse struct {
 }
 
 type vxTwitterResponse struct {
-	Text          string `json:"text"`
-	UserName      string `json:"user_name"`
-	UserScreen    string `json:"user_screen_name"`
+	Text          string   `json:"text"`
+	UserName      string   `json:"user_name"`
+	UserScreen    string   `json:"user_screen_name"`
 	MediaURLs     []string `json:"mediaURLs"`
 	MediaExtended []struct {
 		URL          string `json:"url"`
@@ -284,7 +284,11 @@ func DownloadTwitter(ctx context.Context, pageURL, outDir, formatID string, prog
 		fileName = fmt.Sprintf("X_%s_%s.mp4", user, tweetID)
 	}
 	outPath := filepath.Join(outDir, fileName)
-	tempPath := outPath + ".downloading"
+	workDir := GetTaskResumeDir(outDir, "x", pageURL)
+	if err := os.MkdirAll(workDir, 0755); err != nil {
+		return "", err
+	}
+	tempPath := filepath.Join(workDir, "video.downloading")
 
 	// Dedicated streaming client with NO overall request deadline (Timeout: 0)
 	streamClient := &http.Client{
@@ -366,7 +370,7 @@ func DownloadTwitter(ctx context.Context, pageURL, outDir, formatID string, prog
 
 			if time.Since(lastReport) > 300*time.Millisecond && totalBytes > 0 {
 				lastReport = time.Now()
-				pct := int(float64(downloaded) / float64(totalBytes) * 90) + 10
+				pct := int(float64(downloaded)/float64(totalBytes)*90) + 10
 				if pct > 99 {
 					pct = 99
 				}

@@ -131,7 +131,7 @@ func DownloadGGJav(ctx context.Context, pageURL, outDir, ffmpegPath string, prog
 		return "", err
 	}
 
-	workDir := resumeDir(outDir, "ggjav", codeNameFromURL(pageURL, "GGJAV"))
+	workDir := GetTaskResumeDir(outDir, "ggjav", pageURL)
 	if err := os.MkdirAll(workDir, 0755); err != nil {
 		return "", err
 	}

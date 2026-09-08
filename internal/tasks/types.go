@@ -17,6 +17,7 @@ type CreateTaskRequest struct {
 	OutputDir     string `json:"outputDir,omitempty"`
 	Source        string `json:"source,omitempty"`
 	ClientVersion string `json:"clientVersion,omitempty"`
+	FormatID      string `json:"formatId,omitempty"`
 }
 
 type Task struct {
@@ -31,6 +32,7 @@ type Task struct {
 	ErrorCode     string `json:"errorCode,omitempty"`
 	Source        string `json:"source,omitempty"`
 	ClientVersion string `json:"clientVersion,omitempty"`
+	FormatID      string `json:"formatId,omitempty"`
 	CreatedAt     string `json:"createdAt"`
 	UpdatedAt     string `json:"updatedAt"`
 }

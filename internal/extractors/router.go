@@ -16,6 +16,7 @@ import (
 )
 
 type ProgressCallback func(percent int, message string)
+type taskCacheKey struct{}
 
 type VideoFormatOption struct {
 	FormatID    string `json:"formatId"`
@@ -142,6 +143,7 @@ func (r *ExtractorRouter) DownloadWithFormat(ctx context.Context, pageURL, custo
 	}
 
 	platform := detectPlatform(pageURL)
+	ctx = context.WithValue(ctx, taskCacheKey{}, GetTaskResumeDir(outDir, platform, pageURL))
 
 	switch platform {
 	case "missav":
@@ -237,6 +239,14 @@ func (r *ExtractorRouter) runYTDLPWithReferer(ctx context.Context, ytPath, ffPat
 		"--continue",
 		"--encoding", "utf-8",
 	}
+	cacheDir := GetTaskResumeDir(outDir, detectPlatform(pageURL), pageURL)
+	if taskCache, ok := ctx.Value(taskCacheKey{}).(string); ok {
+		cacheDir = taskCache
+	}
+	if err := os.MkdirAll(cacheDir, 0755); err != nil {
+		return "", err
+	}
+	args = append(args, "--paths", "temp:"+cacheDir)
 
 	args = append(args, getJSRuntimeArgs()...)
 

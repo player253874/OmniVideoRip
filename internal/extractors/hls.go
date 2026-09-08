@@ -2,6 +2,8 @@ package extractors
 
 import (
 	"context"
+	"crypto/sha256"
+	"encoding/json"
 	"errors"
 	"fmt"
 	"io"
@@ -33,6 +35,9 @@ func validateHTTPURL(rawURL string) error {
 		return fmt.Errorf("unsupported URL scheme %q", parsed.Scheme)
 	}
 	host := strings.TrimSuffix(strings.ToLower(parsed.Hostname()), ".")
+	if strings.Contains(host, "%") {
+		return fmt.Errorf("scoped IP destinations are not allowed")
+	}
 	if host == "localhost" || strings.HasSuffix(host, ".localhost") {
 		return fmt.Errorf("local network targets are not allowed")
 	}
@@ -124,6 +129,12 @@ func cacheHostIPs(host string, ips []net.IP) {
 // the system resolver and static mappings produce no usable address.
 func collectAllIPs(ctx context.Context, host string) []net.IP {
 	host = strings.ToLower(strings.TrimSuffix(strings.TrimSpace(host), "."))
+	if ip := net.ParseIP(host); ip != nil {
+		if isPrivateIP(ip) || poisonedIPs[ip.String()] {
+			return nil
+		}
+		return []net.IP{ip}
+	}
 	if cached := cachedHostIPs(host); len(cached) > 0 {
 		return cached
 	}
@@ -147,7 +158,7 @@ func collectAllIPs(ctx context.Context, host string) []net.IP {
 	}
 
 	sysCtx, sysCancel := context.WithTimeout(ctx, 3*time.Second)
-	sysIPs, sysErr := net.DefaultResolver.LookupIP(sysCtx, "ip4", host)
+	sysIPs, sysErr := net.DefaultResolver.LookupIP(sysCtx, "ip", host)
 	sysCancel()
 	if sysErr == nil {
 		for _, ip := range sysIPs {
@@ -172,7 +183,7 @@ func collectAllIPs(ctx context.Context, host string) []net.IP {
 					return d.DialContext(c, "udp", addr)
 				},
 			}
-			ips, _ := resolver.LookupIP(lookupCtx, "ip4", host)
+			ips, _ := resolver.LookupIP(lookupCtx, "ip", host)
 			responses <- ips
 		}()
 	}
@@ -191,10 +202,37 @@ func collectAllIPs(ctx context.Context, host string) []net.IP {
 	return result
 }
 
+type proxyAddressKey struct{}
+
+func proxyDialAddress(proxy *url.URL) string {
+	port := proxy.Port()
+	if port == "" {
+		switch proxy.Scheme {
+		case "https":
+			port = "443"
+		case "socks5", "socks5h":
+			port = "1080"
+		default:
+			port = "80"
+		}
+	}
+	return net.JoinHostPort(proxy.Hostname(), port)
+}
+
 func newSafeHTTPClient(timeout time.Duration) *http.Client {
 	transport := &http.Transport{
 		Proxy: func(req *http.Request) (*url.URL, error) {
-			return GetSystemProxyURL(req.URL)
+			if err := validateHTTPURL(req.URL.String()); err != nil {
+				return nil, err
+			}
+			proxyURL, err := GetSystemProxyURL(req.URL)
+			proxyAddress := ""
+			if proxyURL != nil && err == nil {
+				proxyAddress = proxyDialAddress(proxyURL)
+			}
+			// Explicit user-configured proxies are trusted to resolve the remote target.
+			*req = *req.WithContext(context.WithValue(req.Context(), proxyAddressKey{}, proxyAddress))
+			return proxyURL, err
 		},
 		ForceAttemptHTTP2:     false,
 		MaxIdleConns:          64,
@@ -203,41 +241,7 @@ func newSafeHTTPClient(timeout time.Duration) *http.Client {
 		TLSHandshakeTimeout:   15 * time.Second,
 		ResponseHeaderTimeout: 25 * time.Second,
 		DialContext: func(ctx context.Context, network, address string) (net.Conn, error) {
-			host, port, err := net.SplitHostPort(address)
-			if err != nil {
-				return nil, err
-			}
-
-			// If host is loopback or local address (e.g. local proxy 127.0.0.1:7890), dial directly without DNS lookup
-			if ip := net.ParseIP(host); ip != nil && (ip.IsLoopback() || isPrivateIP(ip)) {
-				d := &net.Dialer{Timeout: 10 * time.Second, KeepAlive: 30 * time.Second}
-				return d.DialContext(ctx, network, address)
-			}
-			if host == "localhost" {
-				d := &net.Dialer{Timeout: 10 * time.Second, KeepAlive: 30 * time.Second}
-				return d.DialContext(ctx, network, address)
-			}
-
-			ips := collectAllIPs(ctx, host)
-			if len(ips) == 0 {
-				d := &net.Dialer{Timeout: 8 * time.Second, KeepAlive: 30 * time.Second}
-				return d.DialContext(ctx, network, address)
-			}
-
-			// Try each IP with a per-IP dial timeout
-			perIPTimeout := 4 * time.Second
-			var lastErr error
-			for _, ip := range ips {
-				dialCtx, dialCancel := context.WithTimeout(ctx, perIPTimeout)
-				d := &net.Dialer{Timeout: perIPTimeout, KeepAlive: 30 * time.Second}
-				conn, err := d.DialContext(dialCtx, network, net.JoinHostPort(ip.String(), port))
-				dialCancel()
-				if err == nil {
-					return conn, nil
-				}
-				lastErr = err
-			}
-			return nil, fmt.Errorf("dial %s: all %d addresses failed, last error: %w", host, len(ips), lastErr)
+			return dialSafeAddress(ctx, network, address, collectAllIPs)
 		},
 	}
 	return &http.Client{
@@ -250,6 +254,45 @@ func newSafeHTTPClient(timeout time.Duration) *http.Client {
 			return validateHTTPURL(req.URL.String())
 		},
 	}
+}
+
+func dialSafeAddress(ctx context.Context, network, address string, lookup func(context.Context, string) []net.IP) (net.Conn, error) {
+	host, port, err := net.SplitHostPort(address)
+	if err != nil {
+		return nil, err
+	}
+
+	// If host is loopback or local address (e.g. local proxy 127.0.0.1:7890), dial directly without DNS lookup
+	if proxyAddress, _ := ctx.Value(proxyAddressKey{}).(string); proxyAddress != "" && proxyAddress == address {
+		d := &net.Dialer{Timeout: 10 * time.Second, KeepAlive: 30 * time.Second}
+		return d.DialContext(ctx, network, address)
+	}
+	if err := validateHTTPURL("http://" + address); err != nil {
+		return nil, err
+	}
+
+	ips := lookup(ctx, host)
+	if len(ips) == 0 {
+		return nil, fmt.Errorf("lookup %s: no permitted public addresses", host)
+	}
+
+	// Try each IP with a per-IP dial timeout
+	perIPTimeout := 4 * time.Second
+	var lastErr error
+	for _, ip := range ips {
+		if isPrivateIP(ip) {
+			continue
+		}
+		dialCtx, dialCancel := context.WithTimeout(ctx, perIPTimeout)
+		d := &net.Dialer{Timeout: perIPTimeout, KeepAlive: 30 * time.Second}
+		conn, err := d.DialContext(dialCtx, network, net.JoinHostPort(ip.String(), port))
+		dialCancel()
+		if err == nil {
+			return conn, nil
+		}
+		lastErr = err
+	}
+	return nil, fmt.Errorf("dial %s: all %d addresses failed, last error: %w", host, len(ips), lastErr)
 }
 
 func readLimitedBody(resp *http.Response, limit int64) ([]byte, error) {
@@ -307,41 +350,36 @@ func GetTaskResumeDir(outDir, platform, rawURL string) string {
 	default:
 		key = codeNameFromURL(rawURL, "VIDEO")
 	}
-	return resumeDir(outDir, platform, key)
+	digest := sha256.Sum256([]byte(rawURL))
+	for len(key) > 32 {
+		runes := []rune(key)
+		key = string(runes[:len(runes)-1])
+	}
+	return resumeDir(outDir, platform, key+fmt.Sprintf("-%x", digest[:8]))
 }
 
 // CleanupTaskResumeCache removes the deterministic resume directory for a given task.
-func CleanupTaskResumeCache(outDir, platform, rawURL string) {
+func CleanupTaskResumeCache(outDir, platform, rawURL string) error {
 	if strings.TrimSpace(outDir) == "" || strings.TrimSpace(rawURL) == "" {
-		return
+		return nil
 	}
 	dir := GetTaskResumeDir(outDir, platform, rawURL)
-	_ = os.RemoveAll(dir)
+	info, err := os.Lstat(dir)
+	if os.IsNotExist(err) {
+		return nil
+	}
+	if err != nil {
+		return err
+	}
+	if info.Mode()&os.ModeSymlink != 0 {
+		return fmt.Errorf("refusing linked cache directory")
+	}
+	return os.RemoveAll(dir)
 }
 
 // CleanupAllUnfinishedCaches removes all .omnivideorip-resume-* and temporary segment caches in outDir and tempDir.
 func CleanupAllUnfinishedCaches(outDir string) {
-	if strings.TrimSpace(outDir) != "" {
-		if entries, err := os.ReadDir(outDir); err == nil {
-			for _, e := range entries {
-				if e.IsDir() && (strings.HasPrefix(e.Name(), ".omnivideorip-") || strings.HasPrefix(e.Name(), ".omnivideorip-resume-")) {
-					_ = os.RemoveAll(filepath.Join(outDir, e.Name()))
-				}
-				if !e.IsDir() && (strings.HasSuffix(e.Name(), ".partial.mp4") || strings.HasSuffix(e.Name(), ".part")) {
-					_ = os.Remove(filepath.Join(outDir, e.Name()))
-				}
-			}
-		}
-	}
-
-	tempDir := os.TempDir()
-	if entries, err := os.ReadDir(tempDir); err == nil {
-		for _, e := range entries {
-			if e.IsDir() && strings.HasPrefix(e.Name(), ".omnivideorip-") {
-				_ = os.RemoveAll(filepath.Join(tempDir, e.Name()))
-			}
-		}
-	}
+	// No directory-wide deletion: only CleanupTaskResumeCache can establish ownership.
 }
 
 func segmentFileIsUsable(path string) bool {
@@ -368,6 +406,16 @@ func segmentFileIsUsable(path string) bool {
 func downloadSegments(ctx context.Context, segmentURLs []string, workDir string, workers int, progressCb ProgressCallback, download segmentDownloader) ([]string, error) {
 	if len(segmentURLs) == 0 {
 		return nil, fmt.Errorf("playlist contains no segments")
+	}
+	// Bind numbered fragments to their exact playlist, including variant and signed URLs.
+	manifest, err := json.Marshal(segmentURLs)
+	if err != nil {
+		return nil, err
+	}
+	digest := sha256.Sum256(manifest)
+	workDir = filepath.Join(workDir, fmt.Sprintf("playlist-%x", digest))
+	if err := os.MkdirAll(workDir, 0755); err != nil {
+		return nil, err
 	}
 	if workers < 1 {
 		workers = 1

@@ -35,6 +35,8 @@ type Executor struct {
 	scheduleSignal   chan struct{}
 	workerWG         sync.WaitGroup
 	clearing         bool
+	clearMu          sync.Mutex
+	activeDone       map[string]chan struct{}
 }
 
 func New(logger *log.Logger, store *tasks.Store, outputDir, ytdlpPath, ffmpegPath string) *Executor {
@@ -48,6 +50,7 @@ func New(logger *log.Logger, store *tasks.Store, outputDir, ytdlpPath, ffmpegPat
 		taskFormat:       make(map[string]string),
 		activeByPlatform: make(map[string]string),
 		activeCancels:    make(map[string]context.CancelFunc),
+		activeDone:       make(map[string]chan struct{}),
 		scheduleSignal:   make(chan struct{}, 64),
 	}
 }
@@ -94,7 +97,7 @@ func (e *Executor) schedule(ctx context.Context) {
 	e.mu.Lock()
 	defer e.mu.Unlock()
 
-	if e.clearing || len(e.pendingQueue) == 0 {
+	if ctx.Err() != nil || e.clearing || len(e.pendingQueue) == 0 {
 		return
 	}
 
@@ -102,7 +105,22 @@ func (e *Executor) schedule(ctx context.Context) {
 
 	for _, item := range e.pendingQueue {
 		task, ok := e.store.Get(item.TaskID)
-		if !ok || task.Status == tasks.StatusPaused || task.Status == tasks.StatusCompleted || task.Status == tasks.StatusFailed {
+		if !ok || task.Status != tasks.StatusQueued {
+			continue
+		}
+		if _, stopping := e.activeDone[item.TaskID]; stopping {
+			remaining = append(remaining, item)
+			continue
+		}
+		cacheBusy := false
+		for activeID := range e.activeDone {
+			if activeTask, ok := e.store.Get(activeID); ok && activeTask.URL == task.URL && activeTask.OutputDir == task.OutputDir {
+				cacheBusy = true
+				break
+			}
+		}
+		if cacheBusy {
+			remaining = append(remaining, item)
 			continue
 		}
 
@@ -121,6 +139,7 @@ func (e *Executor) schedule(ctx context.Context) {
 		taskCtx, taskCancel := context.WithCancel(ctx)
 		e.activeByPlatform[platform] = item.TaskID
 		e.activeCancels[item.TaskID] = taskCancel
+		e.activeDone[item.TaskID] = make(chan struct{})
 
 		// Immediately update task in store and notify frontend so it transitions to running instantly
 		e.emitUpdate(item.TaskID, func(t *tasks.Task) {
@@ -143,6 +162,10 @@ func (e *Executor) runWorker(taskCtx context.Context, taskID, formatID, platform
 	defer func() {
 		e.mu.Lock()
 		delete(e.activeCancels, taskID)
+		if done, ok := e.activeDone[taskID]; ok {
+			close(done)
+			delete(e.activeDone, taskID)
+		}
 		if e.activeByPlatform[platform] == taskID {
 			delete(e.activeByPlatform, platform)
 		}
@@ -167,6 +190,16 @@ func (e *Executor) EnqueueWithFormat(taskID, formatID string) error {
 		e.mu.Unlock()
 		return fmt.Errorf("task queue is full")
 	}
+	for _, item := range e.pendingQueue {
+		if item.TaskID == taskID {
+			e.mu.Unlock()
+			return nil
+		}
+	}
+	if _, ok := e.store.Get(taskID); !ok {
+		e.mu.Unlock()
+		return fmt.Errorf("task not found")
+	}
 	e.taskFormat[taskID] = formatID
 	e.pendingQueue = append(e.pendingQueue, QueuedTaskItem{TaskID: taskID, FormatID: formatID})
 	e.mu.Unlock()
@@ -185,7 +218,6 @@ func (e *Executor) PauseTask(taskID string) error {
 	e.mu.Lock()
 	if cancel, running := e.activeCancels[taskID]; running && cancel != nil {
 		cancel()
-		delete(e.activeCancels, taskID)
 		for p, id := range e.activeByPlatform {
 			if id == taskID {
 				delete(e.activeByPlatform, p)
@@ -200,10 +232,9 @@ func (e *Executor) PauseTask(taskID string) error {
 			break
 		}
 	}
-	e.mu.Unlock()
-
 	task, ok := e.store.Get(taskID)
 	if !ok {
+		e.mu.Unlock()
 		return fmt.Errorf("task not found")
 	}
 	if task.Status == tasks.StatusQueued || task.Status == tasks.StatusRunning {
@@ -212,11 +243,17 @@ func (e *Executor) PauseTask(taskID string) error {
 			item.Message = "下载已暂停 (支持随时继续)"
 		})
 	}
+	e.mu.Unlock()
 	e.notifySchedule()
 	return nil
 }
 
 func (e *Executor) ResumeTask(taskID string) error {
+	e.mu.Lock()
+	defer e.mu.Unlock()
+	if e.clearing {
+		return fmt.Errorf("task executor is clearing")
+	}
 	task, ok := e.store.Get(taskID)
 	if !ok {
 		return fmt.Errorf("task not found")
@@ -225,22 +262,43 @@ func (e *Executor) ResumeTask(taskID string) error {
 		return nil
 	}
 
-	formatID := "best"
-	e.mu.Lock()
+	formatID := task.FormatID
+	if formatID == "" {
+		formatID = "best"
+	}
 	if f, ok := e.taskFormat[taskID]; ok && f != "" {
 		formatID = f
 	}
-	e.mu.Unlock()
+	for _, item := range e.pendingQueue {
+		if item.TaskID == taskID {
+			return nil
+		}
+	}
+	if len(e.pendingQueue) >= 64 {
+		return fmt.Errorf("task queue is full")
+	}
 
-	e.emitUpdate(taskID, func(item *tasks.Task) {
+	if !e.emitUpdate(taskID, func(item *tasks.Task) {
 		item.Status = tasks.StatusQueued
 		item.Message = "已加入恢复队列，准备继续下载..."
-	})
+	}) {
+		return fmt.Errorf("could not persist resumed task")
+	}
 
-	return e.EnqueueWithFormat(taskID, formatID)
+	e.taskFormat[taskID] = formatID
+	e.pendingQueue = append(e.pendingQueue, QueuedTaskItem{TaskID: taskID, FormatID: formatID})
+	e.notifySchedule()
+	return nil
 }
 
 func (e *Executor) CancelAllAndWait() {
+	_ = e.WithStoppedWorkers(func() error { return nil })
+}
+
+// Hold the scheduling barrier through the caller's persistence and cache cleanup.
+func (e *Executor) WithStoppedWorkers(action func() error) error {
+	e.clearMu.Lock()
+	defer e.clearMu.Unlock()
 	e.mu.Lock()
 	e.clearing = true
 	for _, cancel := range e.activeCancels {
@@ -257,14 +315,30 @@ func (e *Executor) CancelAllAndWait() {
 	e.mu.Lock()
 	e.activeCancels = make(map[string]context.CancelFunc)
 	e.activeByPlatform = make(map[string]string)
-	e.clearing = false
 	e.mu.Unlock()
+	defer func() { e.mu.Lock(); e.clearing = false; e.mu.Unlock(); e.notifySchedule() }()
+	return action()
+}
+
+func (e *Executor) CancelAndWait(taskID string) {
+	e.mu.Lock()
+	done := e.cancelLocked(taskID)
+	e.mu.Unlock()
+	e.notifySchedule()
+	if done != nil {
+		<-done
+	}
 }
 func (e *Executor) CancelIfActive(taskID string) {
 	e.mu.Lock()
+	e.cancelLocked(taskID)
+	e.mu.Unlock()
+	e.notifySchedule()
+}
+
+func (e *Executor) cancelLocked(taskID string) <-chan struct{} {
 	if cancel, ok := e.activeCancels[taskID]; ok && cancel != nil {
 		cancel()
-		delete(e.activeCancels, taskID)
 		for p, id := range e.activeByPlatform {
 			if id == taskID {
 				delete(e.activeByPlatform, p)
@@ -278,8 +352,7 @@ func (e *Executor) CancelIfActive(taskID string) {
 			break
 		}
 	}
-	e.mu.Unlock()
-	e.notifySchedule()
+	return e.activeDone[taskID]
 }
 
 func (e *Executor) processTask(taskCtx context.Context, taskID, formatID string) {
@@ -294,13 +367,20 @@ func (e *Executor) processTask(taskCtx context.Context, taskID, formatID string)
 
 	e.logger.Printf("Processing task %s (%s, format: %s)", task.ID, task.Platform, formatID)
 
+	e.ctxMu.Lock()
 	router := extractors.NewRouter(e.outputDir, e.ytdlpPath, e.ffmpegPath)
+	e.ctxMu.Unlock()
 
 	outPath, err := router.DownloadWithFormat(taskCtx, task.URL, task.OutputDir, formatID, func(percent int, msg string) {
 		if taskCtx.Err() != nil {
 			return
 		}
-		e.emitUpdate(taskID, func(item *tasks.Task) {
+		e.mu.Lock()
+		defer e.mu.Unlock()
+		if taskCtx.Err() != nil {
+			return
+		}
+		updated, ok := e.store.UpdateProgress(taskID, func(item *tasks.Task) {
 			if taskCtx.Err() != nil {
 				return
 			}
@@ -310,7 +390,15 @@ func (e *Executor) processTask(taskCtx context.Context, taskID, formatID string)
 			}
 			item.Message = msg
 		})
+		if ok {
+			e.publishUpdate(updated)
+		}
 	})
+	e.mu.Lock()
+	defer e.mu.Unlock()
+	if taskCtx.Err() != nil {
+		return
+	}
 
 	if err != nil {
 		if taskCtx.Err() != nil || errors.Is(err, context.Canceled) {
@@ -339,11 +427,19 @@ func (e *Executor) processTask(taskCtx context.Context, taskID, formatID string)
 	})
 }
 
-func (e *Executor) emitUpdate(taskID string, updateFn func(item *tasks.Task)) {
+func (e *Executor) emitUpdate(taskID string, updateFn func(item *tasks.Task)) bool {
 	updatedTask, ok := e.store.Update(taskID, updateFn)
 	if !ok {
-		return
+		if err := e.store.PersistenceError(); err != nil {
+			e.logger.Printf("Task persistence failed: %v", err)
+		}
+		return false
 	}
+	e.publishUpdate(updatedTask)
+	return true
+}
+
+func (e *Executor) publishUpdate(updatedTask tasks.Task) {
 
 	e.ctxMu.Lock()
 	wCtx := e.wailsCtx

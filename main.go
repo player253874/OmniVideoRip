@@ -19,7 +19,7 @@ func main() {
 	app := NewApp()
 
 	err := wails.Run(&options.App{
-		Title:     "OmniVideoRip v1.3.8",
+		Title:     "OmniVideoRip v1.3.9",
 		Width:     1280,
 		Height:    820,
 		MinWidth:  960,
@@ -29,6 +29,7 @@ func main() {
 		},
 		BackgroundColour: &options.RGBA{R: 18, G: 21, B: 28, A: 255},
 		OnStartup:        app.OnStartup,
+		OnShutdown:       app.OnShutdown,
 		Bind: []interface{}{
 			app,
 		},

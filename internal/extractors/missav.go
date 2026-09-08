@@ -211,7 +211,7 @@ func DownloadMissAVWithFormat(ctx context.Context, pageURL, outDir, ffmpegPath, 
 		return "", err
 	}
 
-	workDir := resumeDir(outDir, "missav", codeNameFromURL(pageURL, "MISSAV"))
+	workDir := GetTaskResumeDir(outDir, "missav", pageURL)
 	if err := os.MkdirAll(workDir, 0755); err != nil {
 		return "", err
 	}
