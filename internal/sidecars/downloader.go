@@ -204,6 +204,12 @@ func CheckLatestYTDLPVersion(ctx context.Context) (string, error) {
 	return asset.Tag, err
 }
 
+// CheckLatestFFmpegVersion queries trusted release metadata.
+func CheckLatestFFmpegVersion(ctx context.Context) (string, error) {
+	asset, err := latestVerifiedAsset(ctx, newSafeHTTPClient(20*time.Second), ffmpegSpec)
+	return asset.Tag, err
+}
+
 func DownloadOrUpdateYTDLP(ctx context.Context, progressCb ProgressCallback) (string, error) {
 	return updateVerifiedComponent(ctx, ytDlpSpec, progressCb)
 }

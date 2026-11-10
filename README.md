@@ -98,7 +98,7 @@ bin/ffmpeg.exe
 缺少文件时，脚本会自动下载最新版本：
 
 - `yt-dlp.exe` 来自 `yt-dlp/yt-dlp` 官方 GitHub Release。
-- `ffmpeg.exe` 来自 `BtbN/FFmpeg-Builds` 的 Win64 LGPL GitHub Release；FFmpeg 官方不直接发布 Windows EXE。
+- `ffmpeg.exe` 来自 `FFmpeg-Builds/FFmpeg-Builds` 的 Win64 GPL GitHub Release；FFmpeg 官方不直接发布 Windows EXE。
 
 下载内容会先保存到临时位置，并使用 GitHub Release API 返回的 SHA-256 摘要进行验证。摘要不匹配或压缩包中缺少有效的 Windows EXE 时，构建会立即终止，不会把文件写入 `bin`。已有的依赖不会被自动更新或覆盖；删除对应文件后重新构建，才会获取当时的最新版本。
 

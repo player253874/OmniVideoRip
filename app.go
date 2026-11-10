@@ -160,6 +160,9 @@ func (a *App) UpdateFFmpegComponent() (string, error) {
 		var err error
 		current, err = sidecars.IsFFmpegCurrent(a.ctx, ffPath)
 		if err != nil {
+			runtime.EventsEmit(a.ctx, "ffmpeg:update:error", map[string]interface{}{
+				"error": err.Error(),
+			})
 			return "", fmt.Errorf("check official FFmpeg release: %w", err)
 		}
 	}
@@ -207,8 +210,15 @@ func (a *App) CheckLatestYTDLP() (string, error) {
 	return sidecars.CheckLatestYTDLPVersion(a.ctx)
 }
 
+func (a *App) CheckLatestFFmpeg() (string, error) {
+	if a.ctx == nil {
+		return "", fmt.Errorf("application is not ready")
+	}
+	return sidecars.CheckLatestFFmpegVersion(a.ctx)
+}
+
 func (a *App) warmupVersionInfo() VersionInfo {
-	info := VersionInfo{AppVersion: "1.3.9"}
+	info := VersionInfo{AppVersion: "1.4.1"}
 
 	ytPath, _ := sidecars.ResolveYTDLPPath(a.ytdlpPath)
 	if ytPath != "" {
@@ -266,7 +276,7 @@ func (a *App) GetVersionInfo() VersionInfo {
 	}
 	a.verMu.RUnlock()
 
-	info := VersionInfo{AppVersion: "1.3.9"}
+	info := VersionInfo{AppVersion: "1.4.1"}
 	ytPath, _ := sidecars.ResolveYTDLPPath(a.ytdlpPath)
 	if ytPath != "" {
 		info.YTDLPVersion = "已就绪"

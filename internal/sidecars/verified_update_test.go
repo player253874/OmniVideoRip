@@ -13,6 +13,7 @@ import (
 	"path/filepath"
 	"strings"
 	"testing"
+	"time"
 )
 
 type updateRoundTrip func(*http.Request) (*http.Response, error)
@@ -38,6 +39,36 @@ func TestMetadataRequiresOfficialDigestAndURL(t *testing.T) {
 			body, _ := json.Marshal(map[string]any{"tag_name": "v1", "assets": []any{map[string]any{"name": "yt-dlp.exe", "digest": tc.digest, "browser_download_url": tc.url, "size": 16}}})
 			client := &http.Client{Transport: updateRoundTrip(func(r *http.Request) (*http.Response, error) { return updateResponse(body), nil })}
 			_, err := latestVerifiedAsset(context.Background(), client, ytDlpSpec)
+			if (err == nil) != tc.valid {
+				t.Fatalf("valid=%v err=%v", tc.valid, err)
+			}
+		})
+	}
+}
+
+func TestFFmpegMetadataRepoMigration(t *testing.T) {
+	for _, tc := range []struct {
+		name, url string
+		valid     bool
+	}{
+		{"canonical", "https://github.com/FFmpeg-Builds/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip", true},
+		{"legacy_redirect", "https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip", true},
+		{"malicious_user", "https://github.com/attacker/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip", false},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			body, _ := json.Marshal(map[string]any{
+				"tag_name": "latest",
+				"assets": []any{
+					map[string]any{
+						"name":                 "ffmpeg-master-latest-win64-gpl.zip",
+						"digest":               "sha256:" + strings.Repeat("b", 64),
+						"browser_download_url": tc.url,
+						"size":                 1024,
+					},
+				},
+			})
+			client := &http.Client{Transport: updateRoundTrip(func(r *http.Request) (*http.Response, error) { return updateResponse(body), nil })}
+			_, err := latestVerifiedAsset(context.Background(), client, ffmpegSpec)
 			if (err == nil) != tc.valid {
 				t.Fatalf("valid=%v err=%v", tc.valid, err)
 			}
@@ -158,4 +189,21 @@ func TestFFmpegArchiveAndInstalledDigest(t *testing.T) {
 	if _, err := unpackVerifiedExecutable(broken, dir, "ffmpeg.exe"); err == nil {
 		t.Fatal("truncated ZIP accepted")
 	}
+}
+
+func TestLiveCheckFFmpeg(t *testing.T) {
+	if testing.Short() {
+		t.Skip("skipping live network test in short mode")
+	}
+	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
+	defer cancel()
+	tag, err := CheckLatestFFmpegVersion(ctx)
+	if err != nil {
+		t.Logf("Live FFmpeg check failed (may be offline / rate limited): %v", err)
+		return
+	}
+	if tag == "" {
+		t.Fatal("expected non-empty tag")
+	}
+	t.Logf("Live FFmpeg tag: %s", tag)
 }

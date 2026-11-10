@@ -4,6 +4,15 @@
 
 ---
 
+## [v1.4.1] - 2026-11-11
+
+### 🛠️ FFmpeg 在线更新与官方仓库重定向修复
+- **适配上游仓库迁移**：GitHub 官方编译源由 `BtbN/FFmpeg-Builds` 迁移重命名为 `FFmpeg-Builds/FFmpeg-Builds`，更新内部规格并兼容旧重定向路径白名单校验；
+- **组件更新状态与错误闭环**：修复 `UpdateFFmpegComponent` 在最新状态检测异常时未向前端派发 `ffmpeg:update:error` 事件的问题；
+- **新增 FFmpeg 官方最新版探测接口**：与 yt-dlp 对齐，提供 `CheckLatestFFmpeg` 接口支持。
+
+---
+
 ## [v1.4.0] - 2026-11-11
 
 ### 🚀 GGJav 备用网盘源解密与容灾下载支持

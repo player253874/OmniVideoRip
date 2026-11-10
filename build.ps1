@@ -107,8 +107,8 @@ function Ensure-FFmpeg {
         return
     }
 
-    $assetName = "ffmpeg-master-latest-win64-lgpl.zip"
-    $asset = Get-LatestReleaseAsset -Repository "BtbN/FFmpeg-Builds" -AssetName $assetName
+    $assetName = "ffmpeg-master-latest-win64-gpl.zip"
+    $asset = Get-LatestReleaseAsset -Repository "FFmpeg-Builds/FFmpeg-Builds" -AssetName $assetName
     $temporaryRoot = Join-Path ([System.IO.Path]::GetTempPath()) ("omnivideorip-build-{0}" -f [guid]::NewGuid())
     New-Item -ItemType Directory -Path $temporaryRoot | Out-Null
     try {

@@ -22,8 +22,20 @@ const maxUpdateBytes int64 = 512 << 20
 type componentSpec struct{ Repo, Asset, Executable string }
 
 var ytDlpSpec = componentSpec{"yt-dlp/yt-dlp", "yt-dlp.exe", "yt-dlp.exe"}
-var ffmpegSpec = componentSpec{"BtbN/FFmpeg-Builds", "ffmpeg-master-latest-win64-gpl.zip", "ffmpeg.exe"}
+var ffmpegSpec = componentSpec{"FFmpeg-Builds/FFmpeg-Builds", "ffmpeg-master-latest-win64-gpl.zip", "ffmpeg.exe"}
 var componentUpdateMu sync.Mutex
+
+func isAllowedAssetPath(path, repo string) bool {
+	if strings.HasPrefix(path, "/"+repo+"/releases/download/") {
+		return true
+	}
+	if (repo == "FFmpeg-Builds/FFmpeg-Builds" || repo == "BtbN/FFmpeg-Builds") &&
+		(strings.HasPrefix(path, "/FFmpeg-Builds/FFmpeg-Builds/releases/download/") ||
+			strings.HasPrefix(path, "/BtbN/FFmpeg-Builds/releases/download/")) {
+		return true
+	}
+	return false
+}
 
 type verifiedAsset struct {
 	Tag, URL, Digest string
@@ -47,7 +59,7 @@ func latestVerifiedAsset(ctx context.Context, client *http.Client, spec componen
 	if err != nil {
 		return verifiedAsset{}, err
 	}
-	req.Header.Set("User-Agent", "OmniVideoRip-Updater/1.3.9")
+	req.Header.Set("User-Agent", "OmniVideoRip-Updater/1.4.1")
 	req.Header.Set("Accept", "application/vnd.github+json")
 	resp, err := guarded.Do(req)
 	if err != nil {
@@ -86,7 +98,7 @@ func latestVerifiedAsset(ctx context.Context, client *http.Client, spec componen
 			return verifiedAsset{}, fmt.Errorf("official SHA-256 missing for %s; refusing installation", spec.Asset)
 		}
 		u, err := url.Parse(asset.URL)
-		if err != nil || u.Scheme != "https" || u.Host != "github.com" || u.User != nil || !strings.HasPrefix(u.Path, "/"+spec.Repo+"/releases/download/") {
+		if err != nil || u.Scheme != "https" || u.Host != "github.com" || u.User != nil || !isAllowedAssetPath(u.Path, spec.Repo) {
 			return verifiedAsset{}, fmt.Errorf("unexpected official asset URL")
 		}
 		if asset.Size <= 0 || asset.Size > maxUpdateBytes {
@@ -154,7 +166,7 @@ func downloadVerifiedAsset(ctx context.Context, client *http.Client, asset verif
 		if err != nil {
 			return "", err
 		}
-		req.Header.Set("User-Agent", "OmniVideoRip-Updater/1.3.9")
+		req.Header.Set("User-Agent", "OmniVideoRip-Updater/1.4.1")
 		resp, err := client.Do(req)
 		if err != nil {
 			lastErr = err
