@@ -19,7 +19,7 @@ func main() {
 	app := NewApp()
 
 	err := wails.Run(&options.App{
-		Title:     "OmniVideoRip v1.4.1",
+		Title:     "OmniVideoRip v1.5.0",
 		Width:     1280,
 		Height:    820,
 		MinWidth:  960,

@@ -3,10 +3,12 @@ const PLATFORM_MAP = {
   bilibili: { name: "Bilibili", icon: "🔵", color: "#3b82f6" },
   missav: { name: "MissAV", icon: "🌸", color: "#ec4899" },
   ggjav: { name: "GGJav", icon: "🟣", color: "#a855f7" },
+  supjav: { name: "SupJav", icon: "⚡", color: "#f59e0b" },
   rouvideo: { name: "RouVideo (肉视频)", icon: "🥩", color: "#f472b6" },
   tiktok: { name: "TikTok / 抖音", icon: "🎵", color: "#06b6d4" },
   x: { name: "X (Twitter)", icon: "🖤", color: "#94a3b8" },
   instagram: { name: "Instagram", icon: "📷", color: "#e1306c" },
+  tver: { name: "TVer", icon: "🇯🇵", color: "#38bdf8" },
   generic: { get name() { return window.i18n ? window.i18n.t("platform.generic") : "全网通用解析"; }, icon: "🌐", color: "#10b981" },
 };
 
@@ -104,6 +106,16 @@ const elements = {
   updatePct: document.getElementById("update-pct"),
   updateBarFill: document.getElementById("update-bar-fill"),
   updateMsg: document.getElementById("update-msg"),
+
+  // Supported Platforms Modal & Showcase
+  btnOpenPlatformsModal: document.getElementById("btn-open-platforms-modal"),
+  platformsModal: document.getElementById("platforms-modal"),
+  btnClosePlatformsModal: document.getElementById("btn-close-platforms-modal"),
+  platformsSearchInput: document.getElementById("platforms-search-input"),
+  btnClearPlatformsSearch: document.getElementById("btn-clear-platforms-search"),
+  platformsSearchCount: document.getElementById("platforms-search-count"),
+  platformsCategoryChips: document.getElementById("platforms-category-chips"),
+  modalPlatformsList: document.getElementById("modal-platforms-list"),
 };
 
 let _lastVersionInfo = null;
@@ -114,6 +126,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
   await initWailsApp();
   bindEvents();
+  initPlatformsModal();
   renderHistory();
 });
 
@@ -330,6 +343,9 @@ function bindEvents() {
           elements.modeHintText.textContent = t("mode.hint.batch.active");
         }
       }
+      if (elements.platformsModal && !elements.platformsModal.classList.contains("hidden")) {
+        renderPlatformsModalList(elements.platformsSearchInput?.value || "", currentPlatformCategory);
+      }
     }
   });
 
@@ -525,6 +541,179 @@ function bindEvents() {
   });
 }
 
+let currentPlatformCategory = "all";
+let searchDebounceTimer = null;
+
+function initPlatformsModal() {
+  if (!elements.btnOpenPlatformsModal || !elements.platformsModal) return;
+
+  function openModal(initialSearch = "", initialCategory = "") {
+    if (initialCategory) {
+      currentPlatformCategory = initialCategory;
+      if (elements.platformsCategoryChips) {
+        elements.platformsCategoryChips.querySelectorAll(".chip-btn").forEach((btn) => {
+          btn.classList.toggle("active", btn.getAttribute("data-cat") === initialCategory);
+        });
+      }
+    }
+    if (elements.platformsSearchInput) {
+      elements.platformsSearchInput.value = initialSearch;
+      if (elements.btnClearPlatformsSearch) {
+        elements.btnClearPlatformsSearch.classList.toggle("hidden", !initialSearch);
+      }
+    }
+    elements.platformsModal.classList.remove("hidden");
+    renderPlatformsModalList(initialSearch, currentPlatformCategory);
+    setTimeout(() => {
+      elements.platformsSearchInput?.focus();
+    }, 50);
+  }
+
+  function closeModal() {
+    elements.platformsModal.classList.add("hidden");
+  }
+
+  elements.btnOpenPlatformsModal.addEventListener("click", () => {
+    openModal("", "all");
+  });
+
+  elements.btnClosePlatformsModal?.addEventListener("click", closeModal);
+
+  elements.platformsModal.addEventListener("click", (e) => {
+    if (e.target === elements.platformsModal) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !elements.platformsModal.classList.contains("hidden")) {
+      closeModal();
+    }
+  });
+
+  // Showcase pills click event
+  document.querySelectorAll(".showcase-pill").forEach((pill) => {
+    pill.addEventListener("click", () => {
+      const search = pill.getAttribute("data-search") || "";
+      const cat = pill.getAttribute("data-cat") || "all";
+      openModal(search, cat);
+    });
+  });
+
+  // Category filter chips
+  elements.platformsCategoryChips?.addEventListener("click", (e) => {
+    const chip = e.target.closest(".chip-btn");
+    if (!chip) return;
+    const cat = chip.getAttribute("data-cat") || "all";
+    currentPlatformCategory = cat;
+    elements.platformsCategoryChips.querySelectorAll(".chip-btn").forEach((b) => b.classList.remove("active"));
+    chip.classList.add("active");
+    renderPlatformsModalList(elements.platformsSearchInput?.value || "", currentPlatformCategory);
+  });
+
+  // Search input with debounce
+  elements.platformsSearchInput?.addEventListener("input", (e) => {
+    const val = e.target.value.trim();
+    if (elements.btnClearPlatformsSearch) {
+      elements.btnClearPlatformsSearch.classList.toggle("hidden", !val);
+    }
+    clearTimeout(searchDebounceTimer);
+    searchDebounceTimer = setTimeout(() => {
+      renderPlatformsModalList(val, currentPlatformCategory);
+    }, 100);
+  });
+
+  // Clear search button
+  elements.btnClearPlatformsSearch?.addEventListener("click", () => {
+    if (elements.platformsSearchInput) {
+      elements.platformsSearchInput.value = "";
+      elements.platformsSearchInput.focus();
+    }
+    elements.btnClearPlatformsSearch.classList.add("hidden");
+    renderPlatformsModalList("", currentPlatformCategory);
+  });
+
+  // Delegated click on site cards
+  elements.modalPlatformsList?.addEventListener("click", (e) => {
+    const card = e.target.closest(".modal-site-card");
+    if (!card) return;
+    const domain = card.getAttribute("data-domain") || "";
+    if (domain) {
+      const primaryDomain = domain.split(",")[0].trim();
+      const sampleUrl = "https://" + primaryDomain;
+      elements.urlInput.value = sampleUrl;
+      updatePlatformBadge(sampleUrl);
+      closeModal();
+      elements.urlInput.focus();
+      elements.urlInput.select();
+    }
+  });
+}
+
+function renderPlatformsModalList(query = "", category = "all") {
+  if (!elements.modalPlatformsList) return;
+
+  const dataset = (window.SUPPORTED_PLATFORMS || globalThis.SUPPORTED_PLATFORMS || []);
+  const cleanQuery = query.toLowerCase().trim();
+
+  let filtered = dataset.filter((p) => {
+    if (category !== "all" && p.category !== category) return false;
+    if (!cleanQuery) return true;
+    if (p.name && p.name.toLowerCase().includes(cleanQuery)) return true;
+    if (p.domain && p.domain.toLowerCase().includes(cleanQuery)) return true;
+    if (p.id && p.id.toLowerCase().includes(cleanQuery)) return true;
+    if (p.tags && Array.isArray(p.tags)) {
+      return p.tags.some((tg) => tg.toLowerCase().includes(cleanQuery));
+    }
+    return false;
+  });
+
+  // Update count badge
+  if (elements.platformsSearchCount) {
+    if (!cleanQuery && category === "all") {
+      elements.platformsSearchCount.textContent = `共 ${dataset.length}+ 站点`;
+    } else {
+      elements.platformsSearchCount.textContent = `找到 ${filtered.length} 个站点`;
+    }
+  }
+
+  if (filtered.length === 0) {
+    elements.modalPlatformsList.innerHTML = `
+      <div class="modal-empty-state">
+        <div class="empty-icon">🔎</div>
+        <div class="empty-title">未找到匹配站点</div>
+        <div class="empty-desc">${t("modal.empty")}</div>
+      </div>
+    `;
+    return;
+  }
+
+  // Render cards (render first 150 items to keep UI snappy)
+  const MAX_RENDER = 150;
+  const slice = filtered.slice(0, MAX_RENDER);
+  const cardsHtml = slice.map((p) => {
+    const tagsHtml = (p.tags && Array.isArray(p.tags))
+      ? p.tags.map((tg) => `<span class="site-tag">${escapeHtml(tg)}</span>`).join("")
+      : "";
+    return `
+      <div class="modal-site-card" data-domain="${escapeHtml(p.domain)}" title="点击填入 ${escapeHtml(p.name)} 网址">
+        <div class="site-card-top">
+          <span class="site-card-icon">${p.icon || "🌐"}</span>
+          <span class="site-card-name">${escapeHtml(p.name)}</span>
+        </div>
+        <div class="site-card-domain">${escapeHtml(p.domain)}</div>
+        ${tagsHtml ? `<div class="site-card-tags">${tagsHtml}</div>` : ""}
+      </div>
+    `;
+  }).join("");
+
+  const moreNotice = filtered.length > MAX_RENDER
+    ? `<div style="grid-column: 1 / -1; text-align: center; color: var(--text-muted); font-size: 12px; padding: 12px 0;">已显示前 ${MAX_RENDER} 个结果，共 ${filtered.length} 个站点。可通过精准输入缩减范围。</div>`
+    : "";
+
+  elements.modalPlatformsList.innerHTML = cardsHtml + moreNotice;
+}
+
 function updatePlatformBadge(rawUrl) {
   if (!rawUrl) {
     elements.detectedPlatformBadge.classList.add("hidden");
@@ -546,9 +735,11 @@ function detectPlatformKey(rawUrl) {
     if (hostname.includes("youtu")) return "youtube";
     if (hostname.includes("bilibili") || hostname.includes("b23.tv")) return "bilibili";
     if (hostname.includes("ggjav")) return "ggjav";
+    if (hostname.includes("supjav")) return "supjav";
     if (hostname.includes("missav")) return "missav";
     if (hostname.includes("rou.video")) return "rouvideo";
     if (hostname.includes("tiktok")) return "tiktok";
+    if (hostname.includes("tver.jp")) return "tver";
     if (hostname.includes("x.com") || hostname.includes("twitter")) return "x";
     if (hostname.includes("instagram") || hostname.includes("instagr.am")) return "instagram";
 

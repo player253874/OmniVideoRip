@@ -65,6 +65,9 @@ func (r *ExtractorRouter) Analyze(ctx context.Context, pageURL string) (VideoMet
 	if platform == "rouvideo" {
 		return AnalyzeRouVideo(ctx, pageURL)
 	}
+	if platform == "supjav" {
+		return AnalyzeSupJav(ctx, pageURL)
+	}
 
 	if platform == "x" {
 		if meta, err := AnalyzeTwitter(ctx, pageURL); err == nil {
@@ -155,6 +158,9 @@ func (r *ExtractorRouter) DownloadWithFormat(ctx context.Context, pageURL, custo
 	case "rouvideo":
 		ffPath, _ := sidecars.ResolveFFmpegPath(r.ffmpegPath)
 		return DownloadRouVideo(ctx, r, pageURL, outDir, ffPath, formatID, progressCb)
+	case "supjav":
+		ffPath, _ := sidecars.ResolveFFmpegPath(r.ffmpegPath)
+		return DownloadSupJav(ctx, r, pageURL, outDir, ffPath, formatID, progressCb)
 
 	case "x":
 		outPath, err := DownloadTwitter(ctx, pageURL, outDir, formatID, progressCb)
@@ -419,6 +425,8 @@ func detectPlatform(rawURL string) string {
 		return "ggjav"
 	case matchesDomain(host, "rou.video"):
 		return "rouvideo"
+	case matchesDomain(host, "supjav.com"):
+		return "supjav"
 
 	case matchesDomain(host, "youtube.com"), matchesDomain(host, "youtu.be"):
 		return "youtube"

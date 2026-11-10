@@ -17,9 +17,10 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
+    <script src="./platforms-data.js"></script>
     <script src="./i18n.js"></script>
-    <script src="./app.js" defer></script>
     <script src="./task-snapshots.js"></script>
+    <script src="./app.js" defer></script>
   </head>
   <body>
     <div class="app-container">
@@ -30,7 +31,7 @@
           <div class="brand-text">
             <div class="brand-title-row">
               <h1 class="brand-title">OmniVideoRip</h1>
-              <span class="version-badge">v1.4.1</span>
+              <span class="version-badge">v1.5.0</span>
             </div>
             <p class="brand-tagline" data-i18n="brand.tagline">全网视频极速抓取平台</p>
           </div>
@@ -235,135 +236,98 @@
         </section>
 
         <!-- Supported Platforms Showcase Section -->
-        <section class="card platforms-section">
-          <div class="section-title-row">
-            <div>
-              <p class="section-eyebrow" data-i18n="platforms.eyebrow">SUPPORTED PLATFORMS DIRECTORY</p>
-              <h2 data-i18n="platforms.title">全网主要支持平台名录</h2>
+        <section class="card platforms-showcase-section">
+          <div class="showcase-header">
+            <div class="showcase-badge">
+              <span class="showcase-badge-pulse"></span>
+              <span data-i18n="showcase.eyebrow">1,800+ PLATFORMS POWERED BY YT-DLP & NATIVE ENGINES</span>
+            </div>
+            <h2 class="showcase-title" data-i18n="showcase.title">支持全网超千家音视频与社媒平台</h2>
+            <p class="showcase-subtitle" data-i18n="showcase.subtitle">
+              集成官方完整 yt-dlp 1800+ 站点解析生态与自研 16 线程并发流解密引擎，全球主流社媒短视频、海内外长剧集、高码率切片原画一键极速抓取。
+            </p>
+          </div>
+
+          <!-- Decorative Icon & Brand Pill Wall -->
+          <div class="showcase-pills-container">
+            <div class="showcase-pill" title="YouTube (4K/8K / MP3)">
+              <span class="pill-icon" style="color: #ef4444;">🔴</span>
+              <span class="pill-name">YouTube</span>
+              <span class="pill-tag">4K / 8K</span>
+            </div>
+            <div class="showcase-pill" title="TikTok / 抖音 (无水印 1080P)">
+              <span class="pill-icon" style="color: #06b6d4;">🎵</span>
+              <span class="pill-name">TikTok / 抖音</span>
+              <span class="pill-tag">无水印</span>
+            </div>
+            <div class="showcase-pill" title="Bilibili (4K 60fps / 多P批量)">
+              <span class="pill-icon" style="color: #00aeec;">📺</span>
+              <span class="pill-name">Bilibili</span>
+              <span class="pill-tag">4K 60fps</span>
+            </div>
+            <div class="showcase-pill" title="TVer (日本民放电视台官方点播)">
+              <span class="pill-icon" style="color: #3b82f6;">🇯🇵</span>
+              <span class="pill-name">TVer</span>
+              <span class="pill-tag">日剧综艺</span>
+            </div>
+            <div class="showcase-pill" title="X (Twitter) (推文多视频 / GIF)">
+              <span class="pill-icon" style="color: #f8fafc;">𝕏</span>
+              <span class="pill-name">X (Twitter)</span>
+              <span class="pill-tag">高清推文</span>
+            </div>
+            <div class="showcase-pill" title="Instagram (Reels / Stories)">
+              <span class="pill-icon" style="color: #ec4899;">📷</span>
+              <span class="pill-name">Instagram</span>
+              <span class="pill-tag">Reels</span>
+            </div>
+            <div class="showcase-pill" title="Twitch (直播切片 / VOD 录播)">
+              <span class="pill-icon" style="color: #a855f7;">🟣</span>
+              <span class="pill-name">Twitch</span>
+              <span class="pill-tag">VOD 录播</span>
+            </div>
+            <div class="showcase-pill" title="Facebook (Watch / Reels)">
+              <span class="pill-icon" style="color: #1877f2;">🔵</span>
+              <span class="pill-name">Facebook</span>
+              <span class="pill-tag">Watch</span>
+            </div>
+            <div class="showcase-pill" title="Reddit (音画自动封装)">
+              <span class="pill-icon" style="color: #ff4500;">🤖</span>
+              <span class="pill-name">Reddit</span>
+              <span class="pill-tag">MP4 合成</span>
+            </div>
+            <div class="showcase-pill" title="Vimeo (4K 创作者原画)">
+              <span class="pill-icon" style="color: #1ab7ea;">▶️</span>
+              <span class="pill-name">Vimeo</span>
+              <span class="pill-tag">4K 原画</span>
+            </div>
+            <div class="showcase-pill" title="Niconico (ニコニコ動画)">
+              <span class="pill-icon" style="color: #94a3b8;">🐱</span>
+              <span class="pill-name">Niconico</span>
+              <span class="pill-tag">动画番剧</span>
+            </div>
+            <div class="showcase-pill" title="MissAV / SupJav (自研 16 线程高速并发解密)">
+              <span class="pill-icon" style="color: #f43f5e;">⚡</span>
+              <span class="pill-name">MissAV / SupJav</span>
+              <span class="pill-tag">16 线程解密</span>
+            </div>
+            <div class="showcase-pill" title="SoundCloud (无损音频提取)">
+              <span class="pill-icon" style="color: #ff5500;">🎧</span>
+              <span class="pill-name">SoundCloud</span>
+              <span class="pill-tag">无损音轨</span>
+            </div>
+            <div class="showcase-pill showcase-pill-more">
+              <span class="pill-icon">✨</span>
+              <span class="pill-name">+ 1,800 更多平台</span>
             </div>
           </div>
 
-          <div class="platforms-grid" id="platforms-grid">
-            <!-- Platform Cards -->
-            <div class="platform-card">
-              <div class="p-header">
-                <span class="p-icon">📷</span>
-                <div>
-                  <h3 class="p-title">Instagram</h3>
-                  <span class="p-domains">instagram.com · instagr.am</span>
-                </div>
-              </div>
-              <p class="p-desc" data-i18n="platform.instagram.desc">支持 Instagram Reels 短视频、帖子视频与快拍动态高清原画嗅探提取。</p>
-              <div class="p-tags">
-                <span class="p-tag" data-i18n="platform.instagram.tag1">Reels 短视频</span>
-                <span class="p-tag" data-i18n="platform.instagram.tag2">高清无水印</span>
-              </div>
-            </div>
-            <!-- Platform Cards -->
-            <div class="platform-card">
-              <div class="p-header">
-                <span class="p-icon">🔴</span>
-                <div>
-                  <h4 class="p-title">YouTube</h4>
-                  <span class="p-domains">youtube.com, youtu.be</span>
-                </div>
-              </div>
-              <p class="p-desc" data-i18n="platform.youtube.desc">支持 4K/8K 极速解析、自由选择 1080P/720P/480P 画质与 MP3 无损音频提取。</p>
-              <div class="p-tags">
-                <span class="p-tag" data-i18n="platform.youtube.tag1">4K / 8K</span>
-                <span class="p-tag" data-i18n="platform.youtube.tag2">画质自选</span>
-                <span class="p-tag" data-i18n="platform.youtube.tag3">音频提取</span>
-              </div>
-            </div>
-
-            <div class="platform-card">
-              <div class="p-header">
-                <span class="p-icon">🔵</span>
-                <div>
-                  <h4 class="p-title">Bilibili (哔哩哔哩)</h4>
-                  <span class="p-domains">bilibili.com, b23.tv</span>
-                </div>
-              </div>
-              <p class="p-desc" data-i18n="platform.bilibili.desc">支持番剧、UP 主投稿视频 1080P/4K 提取，多 P 分卷批量抓取。</p>
-              <div class="p-tags">
-                <span class="p-tag" data-i18n="platform.bilibili.tag1">1080P/4K</span>
-                <span class="p-tag" data-i18n="platform.bilibili.tag2">中文文件名原生支持</span>
-              </div>
-            </div>
-
-            <div class="platform-card">
-              <div class="p-header">
-                <span class="p-icon">🌸</span>
-                <div>
-                  <h4 class="p-title">MissAV</h4>
-                  <span class="p-domains">missav.ws, missav.live, missav.ai</span>
-                </div>
-              </div>
-              <p class="p-desc" data-i18n="platform.missav.desc">Go 原生 16 线程 Surrit HLS 并发解密引擎，全长高清正片 5~10 倍极速直下。</p>
-              <div class="p-tags">
-                <span class="p-tag" data-i18n="platform.missav.tag1">16 线程并发</span>
-                <span class="p-tag" data-i18n="platform.missav.tag2">全长正片</span>
-              </div>
-            </div>
-
-            <div class="platform-card">
-              <div class="p-header">
-                <span class="p-icon">🟣</span>
-                <div>
-                  <h4 class="p-title">GGJav</h4>
-                  <span class="p-domains">ggjav.com, ggjav.tv</span>
-                </div>
-              </div>
-              <p class="p-desc" data-i18n="platform.ggjav.desc">Go 原生 16 线程 HLS 切片解密算法，自动合并播放器分段。</p>
-              <div class="p-tags">
-                <span class="p-tag" data-i18n="platform.ggjav.tag1">16 线程并发</span>
-                <span class="p-tag" data-i18n="platform.ggjav.tag2">原画 MP4</span>
-              </div>
-            </div>
-
-            <div class="platform-card">
-              <div class="p-header">
-                <span class="p-icon">🥩</span>
-                <div>
-                  <h4 class="p-title">RouVideo (肉视频)</h4>
-                  <span class="p-domains">rou.video</span>
-                </div>
-              </div>
-              <p class="p-desc" data-i18n="platform.rouvideo.desc">Go 原生 16 线程自动解密 HLS 索引，全长高清 720P/1080P 极速直下并自动合并。</p>
-              <div class="p-tags">
-                <span class="p-tag" data-i18n="platform.rouvideo.tag1">16 线程解密直下</span>
-                <span class="p-tag" data-i18n="platform.rouvideo.tag2">原画 MP4</span>
-              </div>
-            </div>
-
-
-            <div class="platform-card">
-              <div class="p-header">
-                <span class="p-icon">🎵</span>
-                <div>
-                  <h4 class="p-title">TikTok / 抖音</h4>
-                  <span class="p-domains">tiktok.com, douyin.com</span>
-                </div>
-              </div>
-              <p class="p-desc" data-i18n="platform.tiktok.desc">支持无水印 1080P 短视频提取，背景 BGM 原声音频自动分离。</p>
-              <div class="p-tags">
-                <span class="p-tag" data-i18n="platform.tiktok.tag1">无水印提取</span>
-              </div>
-            </div>
-
-            <div class="platform-card">
-              <div class="p-header">
-                <span class="p-icon">🖤</span>
-                <div>
-                  <h4 class="p-title">X (Twitter)</h4>
-                  <span class="p-domains">x.com, twitter.com</span>
-                </div>
-              </div>
-              <p class="p-desc" data-i18n="platform.x.desc">支持推文内多视频抓取、高清画质自动匹配与推文动图 GIF 转 MP4。</p>
-              <div class="p-tags">
-                <span class="p-tag" data-i18n="platform.x.tag1">多视频解析</span>
-              </div>
-            </div>
+          <!-- Search Entrance CTA -->
+          <div class="showcase-cta-bar">
+            <button id="btn-open-platforms-modal" class="btn-search-platforms" type="button">
+              <span class="cta-search-icon">🔍</span>
+              <span data-i18n="showcase.search.btn">查询全部支持网站名录 (可搜索 1800+ 站点)</span>
+              <span class="cta-arrow">→</span>
+            </button>
           </div>
         </section>
 
@@ -393,6 +357,52 @@
       <footer class="app-footer">
         <p data-i18n="footer.text">OmniVideoRip Desktop Client &copy; 2026 · 全网视频极速抓取平台</p>
       </footer>
+    </div>
+
+    <!-- Supported Platforms Searchable Directory Modal -->
+    <div id="platforms-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true">
+      <div class="modal-dialog platforms-modal-dialog">
+        <div class="modal-header">
+          <div class="modal-title-group">
+            <h3 class="modal-title" data-i18n="modal.platforms.title">🔍 支持网站全量查询名录</h3>
+            <p class="modal-subtitle" data-i18n="modal.platforms.subtitle">收录全球 1,800+ 主流媒体、社交平台与自研解密站点，输入关键字即可实时筛选</p>
+          </div>
+          <button id="btn-close-platforms-modal" class="btn-close-modal" aria-label="关闭">&times;</button>
+        </div>
+
+        <!-- Search input & stats -->
+        <div class="modal-search-bar">
+          <div class="search-input-wrapper">
+            <span class="search-icon">🔍</span>
+            <input
+              type="text"
+              id="platforms-search-input"
+              class="platforms-search-input"
+              data-i18n-ph="modal.search.placeholder"
+              placeholder="搜索支持网站或域名（例如：YouTube, B站, TVer, TikTok, Twitter, SupJav...）"
+              autocomplete="off"
+            />
+            <button id="btn-clear-platforms-search" class="btn-clear-search hidden" title="清空">&times;</button>
+          </div>
+          <div class="platforms-count-badge" id="platforms-search-count">共 1,850+ 站点</div>
+        </div>
+
+        <!-- Category Filter Chips -->
+        <div class="modal-category-chips" id="platforms-category-chips">
+          <button class="chip-btn active" data-cat="all" data-i18n="cat.all">全部 (1800+)</button>
+          <button class="chip-btn" data-cat="popular" data-i18n="cat.popular">热门主流</button>
+          <button class="chip-btn" data-cat="social" data-i18n="cat.social">社交短视频</button>
+          <button class="chip-btn" data-cat="streaming" data-i18n="cat.streaming">流媒体/电视</button>
+          <button class="chip-btn" data-cat="japan" data-i18n="cat.japan">日韩专区</button>
+          <button class="chip-btn" data-cat="audio" data-i18n="cat.audio">音乐音频</button>
+          <button class="chip-btn" data-cat="adult" data-i18n="cat.adult">成人正片解密</button>
+        </div>
+
+        <!-- Results list container -->
+        <div class="modal-platforms-list" id="modal-platforms-list">
+          <!-- Dynamically rendered site cards -->
+        </div>
+      </div>
     </div>
   </body>
 </html>
