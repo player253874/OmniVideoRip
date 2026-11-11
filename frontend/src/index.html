@@ -18,6 +18,7 @@
     />
     <link rel="stylesheet" href="./styles.css" />
     <script src="./platforms-data.js"></script>
+    <script src="./platform-i18n.js"></script>
     <script src="./i18n.js"></script>
     <script src="./task-snapshots.js"></script>
     <script src="./app.js" defer></script>
@@ -31,7 +32,7 @@
           <div class="brand-text">
             <div class="brand-title-row">
               <h1 class="brand-title">OmniVideoRip</h1>
-              <span class="version-badge">v1.5.2</span>
+              <span class="version-badge">v1.5.3</span>
             </div>
             <p class="brand-tagline" data-i18n="brand.tagline">全网视频极速抓取平台</p>
           </div>
@@ -222,7 +223,7 @@
           </div>
 
           <div id="version-info-bar" class="version-bar">
-            <div class="version-item"><span data-i18n="ver.app.label">主程序</span> <span id="ver-app">v1.3.9</span></div>
+            <div class="version-item"><span data-i18n="ver.app.label">主程序</span> <span id="ver-app">v1.5.3</span></div>
             <div class="version-item">
               <span data-i18n="ver.ytdlp.label">yt-dlp</span> <span id="ver-ytdlp" class="ver-missing">未安装 (需点击更新)</span>
               <button type="button" id="btn-update-ytdlp" class="version-update-btn" data-i18n-title="update.ytdlp.btn.title" title="检查并更新 yt-dlp 解析引擎 (针对各视频网站反爬高频更新)">
@@ -311,7 +312,7 @@
             </div>
             <div class="showcase-pill showcase-pill-more">
               <span class="pill-icon">✨</span>
-              <span class="pill-name">+ 1,800 更多平台</span>
+              <span class="pill-name" data-i18n="showcase.more">+ 1,800 更多平台</span>
             </div>
           </div>
 
@@ -373,7 +374,7 @@
               type="text"
               id="platforms-search-input"
               class="platforms-search-input"
-              data-i18n-ph="modal.search.placeholder"
+              data-i18n-placeholder="modal.search.placeholder"
               placeholder="搜索支持网站或域名（例如：YouTube, B站, TVer, TikTok, Twitter, SupJav...）"
               autocomplete="off"
             />
@@ -405,8 +406,8 @@
       <div class="modal-dialog supjav-modal-dialog">
         <div class="modal-header">
           <div class="modal-title-group">
-            <h3 class="modal-title" data-i18n="supjav.modal.title">⚡ SupJav 视频下载与验证指引</h3>
-            <p class="modal-subtitle" data-i18n="supjav.modal.subtitle">Cloudflare Turnstile 5秒盾人机验证拦截应对指南</p>
+            <h3 class="modal-title" data-i18n="supjav.modal.title">⚡ SupJav 视频下载与 F12 抓流指引</h3>
+            <p class="modal-subtitle" data-i18n="supjav.modal.subtitle">Cloudflare 5秒盾验证拦截应对指南 · F12 提取 .m3u8 极速直下</p>
           </div>
           <button id="btn-close-supjav-modal" class="btn-close-modal" aria-label="关闭">&times;</button>
         </div>
@@ -415,73 +416,73 @@
           <div class="supjav-alert-banner">
             <span class="banner-icon">🛡️</span>
             <div class="banner-text" data-i18n="supjav.modal.banner">
-              SupJav 站点全站受 Cloudflare Turnstile 人机验证保护，常规后台自动请求会被直接拦截。我们为您准备了以下两套快速下载方案：
+              SupJav 全站受 Cloudflare Turnstile 人机验证保护且播放线路经过动态混淆，常规后台请求会被拦截。只需按 F12 抓取 .m3u8 真实视频流即可开启 16 线程满速下载：
             </div>
           </div>
 
           <div class="supjav-methods-container">
-            <!-- Method 1: Verification Window (Option 2) -->
+            <!-- Method 1: F12 DevTools Network m3u8 Extraction (Recommended) -->
             <div class="supjav-method-card active-method">
-              <div class="method-badge" data-i18n="supjav.modal.m1.badge">⭐ 方案 1：独立窗口人机验证 (推荐)</div>
-              <h4 class="method-title" data-i18n="supjav.modal.m1.title">启动专属独立小窗口完成验证</h4>
+              <div class="method-badge" data-i18n="supjav.modal.m1.badge">⭐ 推荐方案：浏览器按 F12 提取 .m3u8 视频流 (100% 成功)</div>
+              <h4 class="method-title" data-i18n="supjav.modal.m1.title">四步快速获取真实 .m3u8 播放流地址</h4>
               
               <div class="supjav-steps-list">
                 <div class="supjav-step-item">
                   <span class="step-num">1</span>
                   <div class="step-desc" data-i18n="supjav.modal.m1.s1">
-                    点击下方<strong>【启动独立验证窗口】</strong>，将在独立纯净小窗口中打开当前 SupJav 页面。
+                    点击下方【在浏览器中打开视频页】（或【启动独立窗口】），手动勾选一次 Cloudflare “确认您是人类”复选框。
                   </div>
                 </div>
                 <div class="supjav-step-item">
                   <span class="step-num">2</span>
                   <div class="step-desc" data-i18n="supjav.modal.m1.s2">
-                    在窗口中手动点击一次<strong>“确认您是人类 (Turnstile)”</strong>复选框通过验证。
+                    在浏览器页面按下键盘 F12（或右键页面选择“检查 / Inspect”），点击顶部【Network (网络)】标签，在过滤框中输入 m3u8。
                   </div>
                 </div>
                 <div class="supjav-step-item">
                   <span class="step-num">3</span>
                   <div class="step-desc" data-i18n="supjav.modal.m1.s3">
-                    页面加载后，在视频下方的播放线路（如 <strong>FastStream</strong> / <strong>TVLogy</strong> / <strong>StreamWish</strong>）按钮上<strong>右键选择“复制链接地址”</strong>（或按 Ctrl+A 复制页面）。
+                    点击网页中的视频播放按钮（若列表为空可按 F5 刷新后再点播放），列表中会出现 .m3u8 条目（如 master.m3u8 / index.m3u8）。
                   </div>
                 </div>
                 <div class="supjav-step-item">
                   <span class="step-num">4</span>
                   <div class="step-desc" data-i18n="supjav.modal.m1.s4">
-                    点击下方<strong>【自动读取剪贴板并下载】</strong>，软件将自动嗅探分流线路并开启 16 线程满速直下！
+                    右键该 .m3u8 条目 → 选择【复制 (Copy) → 复制链接地址 (Copy URL)】，随后点击下方【读取剪贴板 .m3u8 并下载】即可 16 线程极速直下！
                   </div>
                 </div>
               </div>
 
               <div class="method-actions">
-                <button type="button" id="btn-supjav-open-window" class="btn-supjav-primary">
-                  <span>🪟</span>
-                  <span data-i18n="supjav.modal.m1.btn_open">启动独立验证窗口</span>
+                <button type="button" id="btn-supjav-open-browser" class="btn-supjav-primary">
+                  <span>🌐</span>
+                  <span data-i18n="supjav.modal.btn_browser">1. 在浏览器中打开视频页</span>
                 </button>
                 <button type="button" id="btn-supjav-read-clipboard" class="btn-supjav-secondary">
                   <span>📋</span>
-                  <span data-i18n="supjav.modal.m1.btn_clip">自动读取剪贴板并下载</span>
+                  <span data-i18n="supjav.modal.m1.btn_clip">2. 读取剪贴板 .m3u8 并下载</span>
                 </button>
               </div>
               <div id="supjav-clipboard-status" class="supjav-status-text hidden"></div>
             </div>
 
-            <!-- Method 2: Direct Stream Link -->
+            <!-- Method 2: Manual Paste .m3u8 or cURL -->
             <div class="supjav-method-card">
-              <div class="method-badge secondary-badge" data-i18n="supjav.modal.m2.badge">⚡ 方案 2：直接填入分流链接</div>
-              <h4 class="method-title" data-i18n="supjav.modal.m2.title">直接输入播放线路或 .m3u8 极速直下</h4>
+              <div class="method-badge secondary-badge" data-i18n="supjav.modal.m2.badge">⚡ 手动粘贴：直接输入 .m3u8 链接或 cURL 命令</div>
+              <h4 class="method-title" data-i18n="supjav.modal.m2.title">粘贴从 F12 Network 复制的 .m3u8 地址</h4>
               <p class="method-desc" data-i18n="supjav.modal.m2.desc">
-                若您已在外部浏览器中打开了该视频，可直接将播放线路（FastStream / TVLogy / StreamTape / StreamWish 等）或 .m3u8 链接粘贴到下方：
+                您也可以将从 F12 网络面板复制的 .m3u8 链接（或 Copy as cURL 命令）直接粘贴到下方输入框：
               </p>
               <div class="supjav-direct-box">
                 <input
                   type="text"
                   id="supjav-direct-stream-input"
                   class="supjav-input"
-                  data-i18n-ph="supjav.modal.m2.ph"
-                  placeholder="在此直接粘贴 FastStream / TVLogy / StreamWish / StreamTape 或 .m3u8 链接..."
+                  data-i18n-placeholder="supjav.modal.m2.ph"
+                  placeholder="在此粘贴 F12 抓取的 https://.../master.m3u8 链接或 cURL..."
                 />
                 <button type="button" id="btn-supjav-direct-download" class="btn-supjav-direct">
-                  <span data-i18n="supjav.modal.m2.btn">🚀 解析并下载</span>
+                  <span data-i18n="supjav.modal.m2.btn">🚀 立即解析下载</span>
                 </button>
               </div>
             </div>
@@ -489,9 +490,9 @@
 
           <!-- Bottom auxiliary actions -->
           <div class="supjav-modal-footer">
-            <button type="button" id="btn-supjav-open-browser" class="button button-secondary">
-              <span>🌐</span>
-              <span data-i18n="supjav.modal.btn_browser">在系统默认浏览器中打开视频页</span>
+            <button type="button" id="btn-supjav-open-window" class="button button-secondary">
+              <span>🪟</span>
+              <span data-i18n="supjav.modal.m1.btn_open">启动独立小窗口打开</span>
             </button>
             <button type="button" id="btn-supjav-done" class="button button-primary">
               <span data-i18n="supjav.modal.btn_close">我知道了，返回主界面</span>

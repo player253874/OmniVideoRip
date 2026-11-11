@@ -54,6 +54,9 @@ func (r *ExtractorRouter) Analyze(ctx context.Context, pageURL string) (VideoMet
 	if err := validateHTTPURL(pageURL); err != nil {
 		return VideoMetaData{}, fmt.Errorf("invalid video URL: %w", err)
 	}
+	if _, _, title, ok := parseDirectM3U8(pageURL); ok {
+		return analyzeDirectM3U8(pageURL, title), nil
+	}
 	platform := detectPlatform(pageURL)
 
 	if platform == "missav" {
@@ -143,6 +146,12 @@ func (r *ExtractorRouter) DownloadWithFormat(ctx context.Context, pageURL, custo
 	}
 	if err := os.MkdirAll(outDir, 0755); err != nil {
 		return "", fmt.Errorf("创建输出目录失败: %w", err)
+	}
+
+	if cleanURL, referer, title, ok := parseDirectM3U8(pageURL); ok {
+		ctx = context.WithValue(ctx, taskCacheKey{}, GetTaskResumeDir(outDir, "m3u8", cleanURL))
+		ffPath, _ := sidecars.ResolveFFmpegPath(r.ffmpegPath)
+		return r.downloadDirectM3U8(ctx, cleanURL, referer, title, outDir, ffPath, formatID, progressCb)
 	}
 
 	platform := detectPlatform(pageURL)

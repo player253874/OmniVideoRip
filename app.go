@@ -218,7 +218,7 @@ func (a *App) CheckLatestFFmpeg() (string, error) {
 }
 
 func (a *App) warmupVersionInfo() VersionInfo {
-	info := VersionInfo{AppVersion: "1.4.1"}
+	info := VersionInfo{AppVersion: "1.5.3"}
 
 	ytPath, _ := sidecars.ResolveYTDLPPath(a.ytdlpPath)
 	if ytPath != "" {
@@ -276,7 +276,7 @@ func (a *App) GetVersionInfo() VersionInfo {
 	}
 	a.verMu.RUnlock()
 
-	info := VersionInfo{AppVersion: "1.4.1"}
+	info := VersionInfo{AppVersion: "1.5.3"}
 	ytPath, _ := sidecars.ResolveYTDLPPath(a.ytdlpPath)
 	if ytPath != "" {
 		info.YTDLPVersion = "已就绪"

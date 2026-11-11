@@ -9,6 +9,7 @@ const PLATFORM_MAP = {
   x: { name: "X (Twitter)", icon: "🖤", color: "#94a3b8" },
   instagram: { name: "Instagram", icon: "📷", color: "#e1306c" },
   tver: { name: "TVer", icon: "🇯🇵", color: "#38bdf8" },
+  m3u8: { name: "HLS / M3U8 直链", icon: "⚡", color: "#f59e0b" },
   generic: { get name() { return window.i18n ? window.i18n.t("platform.generic") : "全网通用解析"; }, icon: "🌐", color: "#10b981" },
 };
 
@@ -668,15 +669,18 @@ function renderPlatformsModalList(query = "", category = "all") {
 
   const dataset = (window.SUPPORTED_PLATFORMS || globalThis.SUPPORTED_PLATFORMS || []);
   const cleanQuery = query.toLowerCase().trim();
+  const locale = window.i18n?.getCurrentLocale?.() || "zh-CN";
+  const locTag = (tg) => (globalThis.localizePlatformTag ? globalThis.localizePlatformTag(tg, locale) : tg);
+  const locName = (n) => (globalThis.localizePlatformName ? globalThis.localizePlatformName(n, locale) : n);
 
   let filtered = dataset.filter((p) => {
     if (category !== "all" && p.category !== category) return false;
     if (!cleanQuery) return true;
-    if (p.name && p.name.toLowerCase().includes(cleanQuery)) return true;
+    if (p.name && (p.name.toLowerCase().includes(cleanQuery) || locName(p.name).toLowerCase().includes(cleanQuery))) return true;
     if (p.domain && p.domain.toLowerCase().includes(cleanQuery)) return true;
     if (p.id && p.id.toLowerCase().includes(cleanQuery)) return true;
     if (p.tags && Array.isArray(p.tags)) {
-      return p.tags.some((tg) => tg.toLowerCase().includes(cleanQuery));
+      return p.tags.some((tg) => tg.toLowerCase().includes(cleanQuery) || locTag(tg).toLowerCase().includes(cleanQuery));
     }
     return false;
   });
@@ -684,9 +688,9 @@ function renderPlatformsModalList(query = "", category = "all") {
   // Update count badge
   if (elements.platformsSearchCount) {
     if (!cleanQuery && category === "all") {
-      elements.platformsSearchCount.textContent = `共 ${dataset.length}+ 站点`;
+      elements.platformsSearchCount.textContent = t("modal.count.total", { n: dataset.length });
     } else {
-      elements.platformsSearchCount.textContent = `找到 ${filtered.length} 个站点`;
+      elements.platformsSearchCount.textContent = t("modal.count.found", { n: filtered.length });
     }
   }
 
@@ -694,7 +698,7 @@ function renderPlatformsModalList(query = "", category = "all") {
     elements.modalPlatformsList.innerHTML = `
       <div class="modal-empty-state">
         <div class="empty-icon">🔎</div>
-        <div class="empty-title">未找到匹配站点</div>
+        <div class="empty-title">${t("modal.empty.title")}</div>
         <div class="empty-desc">${t("modal.empty")}</div>
       </div>
     `;
@@ -705,14 +709,15 @@ function renderPlatformsModalList(query = "", category = "all") {
   const MAX_RENDER = 150;
   const slice = filtered.slice(0, MAX_RENDER);
   const cardsHtml = slice.map((p) => {
+    const name = locName(p.name);
     const tagsHtml = (p.tags && Array.isArray(p.tags))
-      ? p.tags.map((tg) => `<span class="site-tag">${escapeHtml(tg)}</span>`).join("")
+      ? p.tags.map((tg) => `<span class="site-tag">${escapeHtml(locTag(tg))}</span>`).join("")
       : "";
     return `
-      <div class="modal-site-card" data-domain="${escapeHtml(p.domain)}" title="点击填入 ${escapeHtml(p.name)} 网址">
+      <div class="modal-site-card" data-domain="${escapeHtml(p.domain)}" title="${escapeHtml(t("modal.card.fill", { name }))}">
         <div class="site-card-top">
           <span class="site-card-icon">${p.icon || "🌐"}</span>
-          <span class="site-card-name">${escapeHtml(p.name)}</span>
+          <span class="site-card-name">${escapeHtml(name)}</span>
         </div>
         <div class="site-card-domain">${escapeHtml(p.domain)}</div>
         ${tagsHtml ? `<div class="site-card-tags">${tagsHtml}</div>` : ""}
@@ -721,7 +726,7 @@ function renderPlatformsModalList(query = "", category = "all") {
   }).join("");
 
   const moreNotice = filtered.length > MAX_RENDER
-    ? `<div style="grid-column: 1 / -1; text-align: center; color: var(--text-muted); font-size: 12px; padding: 12px 0;">已显示前 ${MAX_RENDER} 个结果，共 ${filtered.length} 个站点。可通过精准输入缩减范围。</div>`
+    ? `<div style="grid-column: 1 / -1; text-align: center; color: var(--text-muted); font-size: 12px; padding: 12px 0;">${t("modal.more", { max: MAX_RENDER, n: filtered.length })}</div>`
     : "";
 
   elements.modalPlatformsList.innerHTML = cardsHtml + moreNotice;
@@ -743,6 +748,52 @@ function openSupJavTutorialModal(url = "") {
 
 function closeSupJavTutorialModal() {
   elements.supjavTutorialModal?.classList.add("hidden");
+}
+
+function decorateSupJavStreamUrl(streamUrl) {
+  if (!streamUrl || !streamUrl.toLowerCase().includes(".m3u8")) return streamUrl;
+  if (streamUrl.includes("omni_referer=") || streamUrl.includes("omni_title=")) return streamUrl;
+  const hints = [];
+  if (currentSupJavUrl && currentSupJavUrl.includes("supjav.com")) {
+    hints.push(`omni_referer=${encodeURIComponent(currentSupJavUrl)}`);
+    const m = currentSupJavUrl.match(/\/([a-zA-Z0-9_-]+)\.html/i);
+    if (m && m[1]) {
+      hints.push(`omni_title=${encodeURIComponent("SupJav_" + m[1])}`);
+    }
+  }
+  if (hints.length === 0) return streamUrl;
+  const sep = streamUrl.includes("#") ? "&" : "#";
+  return `${streamUrl}${sep}${hints.join("&")}`;
+}
+
+async function resolveStreamUrlFromInput(rawText) {
+  const trimmed = rawText ? rawText.trim() : "";
+  if (!trimmed) return "";
+
+  let links = [];
+  if (window.go?.main?.App?.ExtractSupJavLinksFromText) {
+    try {
+      links = await window.go.main.App.ExtractSupJavLinksFromText(trimmed);
+    } catch (e) {
+      console.warn("ExtractSupJavLinksFromText error:", e);
+    }
+  }
+  if (!links || links.length === 0) {
+    const m3u8Matches = trimmed.match(/https?:\/\/[^\s"'<>]+?\.m3u8[^\s"'<>]*/gi);
+    if (m3u8Matches && m3u8Matches.length > 0) {
+      links = m3u8Matches;
+    } else {
+      const embedMatches = trimmed.match(/https?:\/\/[^\s"'<>]*(?:faststream\.to|fststream\.to|tvlogy\.to|streamtape\.com|streamwish\.to|voe\.sx)[^\s"'<>]*/gi);
+      if (embedMatches) links = embedMatches;
+    }
+  }
+  if (links && links.length > 0) {
+    return decorateSupJavStreamUrl(links[0]);
+  }
+  if (/^https?:\/\//i.test(trimmed)) {
+    return decorateSupJavStreamUrl(trimmed);
+  }
+  return "";
 }
 
 function initSupJavModal() {
@@ -816,18 +867,8 @@ function initSupJavModal() {
         }
       }
 
-      // Extract embed links from text
-      let links = [];
-      if (window.go?.main?.App?.ExtractSupJavLinksFromText) {
-        links = await window.go.main.App.ExtractSupJavLinksFromText(trimmed);
-      }
-      if (!links || links.length === 0) {
-        const matches = trimmed.match(/https?:\/\/[^\s"'<>]*(?:faststream\.to|fststream\.to|tvlogy\.to|streamtape\.com|streamwish\.to|voe\.sx|\.m3u8)[^\s"'<>]*/gi);
-        if (matches) links = matches;
-      }
-
-      if (links && links.length > 0) {
-        const streamUrl = links[0];
+      const streamUrl = await resolveStreamUrlFromInput(trimmed);
+      if (streamUrl && (streamUrl.toLowerCase().includes(".m3u8") || /faststream|fststream|tvlogy|streamtape|streamwish|voe\.sx/i.test(streamUrl))) {
         if (elements.supjavClipboardStatus) {
           elements.supjavClipboardStatus.textContent = t("supjav.clip.success");
           elements.supjavClipboardStatus.classList.remove("hidden");
@@ -837,7 +878,7 @@ function initSupJavModal() {
           elements.urlInput.value = streamUrl;
           updatePlatformBadge(streamUrl);
           analyzeSingleVideo();
-        }, 500);
+        }, 400);
       } else {
         if (elements.supjavClipboardStatus) {
           elements.supjavClipboardStatus.textContent = t("supjav.clip.empty");
@@ -854,12 +895,13 @@ function initSupJavModal() {
   });
 
   // Action 3: Direct stream download
-  elements.btnSupjavDirectDownload?.addEventListener("click", () => {
+  elements.btnSupjavDirectDownload?.addEventListener("click", async () => {
     const val = elements.supjavDirectStreamInput?.value?.trim();
     if (!val) return;
+    const resolved = (await resolveStreamUrlFromInput(val)) || val;
     closeSupJavTutorialModal();
-    elements.urlInput.value = val;
-    updatePlatformBadge(val);
+    elements.urlInput.value = resolved;
+    updatePlatformBadge(resolved);
     analyzeSingleVideo();
   });
 
@@ -870,6 +912,10 @@ function initSupJavModal() {
       await window.go.main.App.OpenURLInBrowser(targetUrl);
     } else {
       window.open(targetUrl, "_blank");
+    }
+    if (elements.supjavClipboardStatus) {
+      elements.supjavClipboardStatus.textContent = t("supjav.window.opened");
+      elements.supjavClipboardStatus.classList.remove("hidden");
     }
   });
 }
@@ -897,7 +943,11 @@ function updatePlatformBadge(rawUrl) {
 
 function detectPlatformKey(rawUrl) {
   try {
-    const hostname = new URL(rawUrl).hostname.toLowerCase().replace(/^www\./, "");
+    const u = new URL(rawUrl);
+    const hostname = u.hostname.toLowerCase().replace(/^www\./, "");
+    if (u.pathname.toLowerCase().includes(".m3u8") || u.search.toLowerCase().includes(".m3u8")) {
+      return "m3u8";
+    }
 
     if (hostname.includes("youtu")) return "youtube";
     if (hostname.includes("bilibili") || hostname.includes("b23.tv")) return "bilibili";

@@ -18,6 +18,7 @@ var (
 	supjavIframeRegex   = regexp.MustCompile(`(?i)<iframe[^>]+src=["']([^"']+)["']`)
 	supjavEntryTitle    = regexp.MustCompile(`(?i)<h1[^>]*class=["'][^"']*entry-title[^"']*["'][^>]*>([\s\S]*?)</h1>`)
 	commonEmbedUrlRegex = regexp.MustCompile(`https?://[^\s"'<>]*(?:faststream\.to|fststream\.to|tvlogy\.to|streamtape\.com|streamwish\.to|voe\.sx)[^\s"'<>]*`)
+	curlRefererRegex    = regexp.MustCompile(`(?i)(?:-H|--header)\s+['"]Referer:\s*([^'"]+)['"]`)
 )
 
 func isSupJavEmbedURL(rawURL string) bool {
@@ -38,19 +39,29 @@ func ExtractEmbedLinksFromText(text string) []string {
 	var results []string
 	seen := make(map[string]bool)
 
+	var curlRef string
+	if m := curlRefererRegex.FindStringSubmatch(text); len(m) > 1 {
+		curlRef = strings.TrimSpace(m[1])
+	}
+
 	add := func(link string) {
 		link = strings.TrimSpace(link)
+		link = strings.TrimRight(link, `"'`+"`"+`,;)`)
 		if link == "" || seen[link] {
 			return
+		}
+		if curlRef != "" && strings.Contains(strings.ToLower(link), ".m3u8") && !strings.Contains(link, "#") {
+			link = link + "#" + fragmentRefererKey + "=" + url.QueryEscape(curlRef)
 		}
 		seen[link] = true
 		results = append(results, link)
 	}
 
-	for _, m := range commonEmbedUrlRegex.FindAllString(text, -1) {
+	// Prioritize direct .m3u8 stream links first
+	for _, m := range m3u8Regex.FindAllString(text, -1) {
 		add(m)
 	}
-	for _, m := range m3u8Regex.FindAllString(text, -1) {
+	for _, m := range commonEmbedUrlRegex.FindAllString(text, -1) {
 		add(m)
 	}
 	for _, e := range extractSupJavEmbeds(text) {

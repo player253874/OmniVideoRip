@@ -200,4 +200,37 @@ func TestExtractEmbedLinksFromText(t *testing.T) {
 	if len(links) < 3 {
 		t.Fatalf("expected at least 3 links, got %d: %v", len(links), links)
 	}
+	if !strings.Contains(links[0], "test.m3u8") {
+		t.Errorf("expected m3u8 link to be prioritized first, got %q", links[0])
+	}
 }
+
+func TestParseDirectM3U8AndAnalyze(t *testing.T) {
+	raw := "https://arbitrary-cdn-123.example.net/hls/stream/master.m3u8?token=abc#omni_referer=https%3A%2F%2Fsupjav.com%2F&omni_title=SupJav_390226"
+	clean, ref, title, ok := parseDirectM3U8(raw)
+	if !ok {
+		t.Fatalf("expected parseDirectM3U8 to succeed")
+	}
+	if clean != "https://arbitrary-cdn-123.example.net/hls/stream/master.m3u8?token=abc" {
+		t.Errorf("unexpected clean URL: %q", clean)
+	}
+	if ref != "https://supjav.com/" {
+		t.Errorf("unexpected referer: %q", ref)
+	}
+	if title != "SupJav_390226" {
+		t.Errorf("unexpected title: %q", title)
+	}
+
+	router := NewRouter(t.TempDir(), "", "")
+	meta, err := router.Analyze(context.Background(), raw)
+	if err != nil {
+		t.Fatalf("router.Analyze on direct m3u8 failed: %v", err)
+	}
+	if meta.Platform != "m3u8" {
+		t.Errorf("expected platform m3u8, got %q", meta.Platform)
+	}
+	if len(meta.Formats) < 4 {
+		t.Errorf("expected multiple quality formats, got %d", len(meta.Formats))
+	}
+}
+

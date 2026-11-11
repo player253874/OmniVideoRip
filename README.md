@@ -2,7 +2,7 @@
 
 OmniVideoRip 是一个基于 Go + Wails + 原生 Web 技术构建的现代化全网视频极速提取与下载桌面端软件。
 
-[![Release](https://img.shields.io/badge/Release-v1.5.2-orange.svg)](./release/OmniVideoRip.exe)
+[![Release](https://img.shields.io/badge/Release-v1.5.3-orange.svg)](./release/OmniVideoRip.exe)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20x64-blue.svg)](file:///release/OmniVideoRip.exe)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
@@ -22,6 +22,10 @@ OmniVideoRip 是一个基于 Go + Wails + 原生 Web 技术构建的现代化全
 ---
 
 ## 📝 版本更新说明 (Changelog)
+
+### [v1.5.3] - 2026-11-12
+- 🌍 **支持平台名录全量多语言支持**：点击任意平台胶囊或打开支持网站查询名录时，全部 1,227+ 站点名称、116 种标签、计数徽章与提示信息完整支持简/繁/英/日四语种切换与多语言搜索。
+- ⚡ **SupJav F12 `.m3u8` 抓流指引与通用 HLS 直链引擎**：重构 SupJav 下载指引弹窗，引导用户通过浏览器 `F12 -> Network -> m3u8` 复制 `.m3u8` 链接（或 cURL 命令）一键读取下载；后端新增通用 `.m3u8` 直链解析与 16 线程并发下载支持，兼容任意 CDN 域名。
 
 ### [v1.5.2] - 2026-11-11
 - 🐛 **修复暂停后删除下载任务失败问题**：优化后端任务取消的超时保护（防止子进程僵死导致死锁）与 Windows 缓存清理重试机制，确保暂停状态下可瞬时安全删除任务。
