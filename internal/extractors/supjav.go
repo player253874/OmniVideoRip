@@ -311,6 +311,9 @@ func DownloadSupJav(ctx context.Context, router *ExtractorRouter, pageURL, outDi
 
 	var lastErr error
 	for idx, embedURL := range embeds {
+		if ctx.Err() != nil {
+			return "", ctx.Err()
+		}
 		if progressCb != nil {
 			progressCb(10+idx*5, fmt.Sprintf("尝试解析分流源 [%d/%d]...", idx+1, len(embeds)))
 		}

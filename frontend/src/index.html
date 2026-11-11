@@ -31,7 +31,7 @@
           <div class="brand-text">
             <div class="brand-title-row">
               <h1 class="brand-title">OmniVideoRip</h1>
-              <span class="version-badge">v1.5.1</span>
+              <span class="version-badge">v1.5.2</span>
             </div>
             <p class="brand-tagline" data-i18n="brand.tagline">全网视频极速抓取平台</p>
           </div>
@@ -327,12 +327,13 @@
 
         <!-- Download History Section -->
         <section id="history-section" class="card history-section hidden">
-          <div class="section-title-row">
-            <div>
-              <p class="section-eyebrow" data-i18n="history.eyebrow">RECENT COMPLETED</p>
-              <h2 data-i18n="history.title">历史记录</h2>
+          <div class="history-header">
+            <div class="history-header-left">
+              <span class="history-header-icon">📜</span>
+              <h3 class="history-header-title" data-i18n="history.title">下载历史记录</h3>
+              <span class="history-count-badge" id="history-count-badge">0</span>
             </div>
-            <button type="button" id="clear-history-btn" class="button button-text" data-i18n="history.clear">清空记录</button>
+            <button type="button" id="clear-history-btn" class="history-clear-btn" data-i18n="history.clear">清空记录</button>
           </div>
           <div id="history-list" class="history-list">
             <!-- Dynamically populated -->
@@ -496,6 +497,30 @@
               <span data-i18n="supjav.modal.btn_close">我知道了，返回主界面</span>
             </button>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Confirm Delete Task Modal -->
+    <div id="confirm-delete-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true">
+      <div class="modal-dialog confirm-modal-dialog">
+        <div class="modal-header">
+          <div class="modal-title-group">
+            <h3 class="modal-title" data-i18n="confirm.delete.title">🗑️ 删除下载任务</h3>
+          </div>
+          <button id="btn-close-confirm-modal" class="btn-close-modal" aria-label="关闭">&times;</button>
+        </div>
+        <div class="modal-body confirm-modal-body">
+          <p class="confirm-modal-text" data-i18n="confirm.delete.message">
+            确定要删除该下载任务吗？
+          </p>
+          <div class="confirm-modal-subtext" data-i18n="confirm.delete.subtext">
+            ⚠️ 该操作将同时清理未完成的临时分片与下载缓存文件，释放磁盘空间。
+          </div>
+        </div>
+        <div class="confirm-modal-footer">
+          <button type="button" id="btn-cancel-delete" class="button button-secondary" data-i18n="confirm.delete.cancel">取消</button>
+          <button type="button" id="btn-confirm-delete" class="button button-danger" data-i18n="confirm.delete.ok">确认删除并清理缓存</button>
         </div>
       </div>
     </div>

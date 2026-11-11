@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"sync"
+	"time"
 
 	"videodownloader/internal/extractors"
 	"videodownloader/internal/tasks"
@@ -326,7 +327,13 @@ func (e *Executor) CancelAndWait(taskID string) {
 	e.mu.Unlock()
 	e.notifySchedule()
 	if done != nil {
-		<-done
+		select {
+		case <-done:
+		case <-time.After(3 * time.Second):
+			if e.logger != nil {
+				e.logger.Printf("CancelAndWait: timed out waiting for task %s worker to stop", taskID)
+			}
+		}
 	}
 }
 func (e *Executor) CancelIfActive(taskID string) {

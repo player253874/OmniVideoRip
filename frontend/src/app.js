@@ -1124,8 +1124,61 @@ window.resumeTaskFromQueue = async function (taskId) {
   }
 };
 
+function confirmDeleteTask(taskId) {
+  return new Promise((resolve) => {
+    const modal = document.getElementById("confirm-delete-modal");
+    if (!modal) {
+      const ok = window.confirm(t("confirm.delete.prompt"));
+      resolve(ok);
+      return;
+    }
+    const btnConfirm = document.getElementById("btn-confirm-delete");
+    const btnCancel = document.getElementById("btn-cancel-delete");
+    const btnClose = document.getElementById("btn-close-confirm-modal");
+
+    function cleanup() {
+      modal.classList.add("hidden");
+      btnConfirm?.removeEventListener("click", onConfirm);
+      btnCancel?.removeEventListener("click", onCancel);
+      btnClose?.removeEventListener("click", onCancel);
+      modal.removeEventListener("click", onBackdrop);
+      document.removeEventListener("keydown", onKeyDown);
+    }
+    function onConfirm() {
+      cleanup();
+      resolve(true);
+    }
+    function onCancel() {
+      cleanup();
+      resolve(false);
+    }
+    function onBackdrop(e) {
+      if (e.target === modal) {
+        cleanup();
+        resolve(false);
+      }
+    }
+    function onKeyDown(e) {
+      if (e.key === "Escape") {
+        cleanup();
+        resolve(false);
+      }
+    }
+
+    btnConfirm?.addEventListener("click", onConfirm);
+    btnCancel?.addEventListener("click", onCancel);
+    btnClose?.addEventListener("click", onCancel);
+    modal.addEventListener("click", onBackdrop);
+    document.addEventListener("keydown", onKeyDown);
+    modal.classList.remove("hidden");
+  });
+}
+
 window.deleteTaskFromQueue = async function (taskId) {
   try {
+    const confirmed = await confirmDeleteTask(taskId);
+    if (!confirmed) return;
+
     if (window.go && window.go.main && window.go.main.App && window.go.main.App.DeleteTask) {
       await window.go.main.App.DeleteTask(taskId);
     }
@@ -1356,22 +1409,34 @@ function extractFileName(fullPath) {
 }
 
 function renderHistory() {
-  if (!elements.historyList) return;
-  if (state.history.length === 0) {
+  if (!elements.historyList || !elements.historySection) return;
+  if (!state.history || state.history.length === 0) {
     elements.historySection.classList.add("hidden");
     return;
   }
 
   elements.historySection.classList.remove("hidden");
+  const countBadge = document.getElementById("history-count-badge");
+  if (countBadge) {
+    countBadge.textContent = state.history.length;
+  }
+
   elements.historyList.innerHTML = state.history
+    .slice(0, 50)
     .map(
       (item) => `
       <div class="history-item">
-        <div class="history-title-row">
-          <div class="history-title">${escapeHtml(item.fileName)}</div>
-          <div class="history-time">${escapeHtml(item.time)}</div>
+        <div class="history-item-main">
+          <div class="history-title-row">
+            <span class="history-item-icon">🎬</span>
+            <div class="history-title" title="${escapeHtml(item.fileName || item.outputPath || '')}">${escapeHtml(item.fileName)}</div>
+            <div class="history-time">${escapeHtml(item.time || '')}</div>
+          </div>
+          <div class="history-path" title="${escapeHtml(item.outputPath || '')}">${escapeHtml(item.outputPath || '')}</div>
         </div>
-        <div class="history-path">${escapeHtml(item.outputPath)}</div>
+        <div class="history-item-actions">
+          <button type="button" class="history-action-btn" title="${t("queue.copy.path")}" onclick="window.copyFilePath('${escapePath(item.outputPath || '')}')">📋</button>
+        </div>
       </div>
     `
     )

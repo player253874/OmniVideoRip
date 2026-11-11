@@ -567,8 +567,19 @@ func (a *App) DeleteTask(taskId string) (bool, error) {
 		if outDir == "" {
 			outDir = a.paths.DownloadsDir
 		}
-		if err := extractors.CleanupTaskResumeCache(outDir, task.Platform, task.URL); err != nil {
-			return true, err
+		if cleanErr := extractors.CleanupTaskResumeCache(outDir, task.Platform, task.URL); cleanErr != nil {
+			// On Windows, background processes may still hold handles briefly; retry asynchronously
+			go func(targetDir, platform, rawURL, tid string) {
+				for attempt := 0; attempt < 5; attempt++ {
+					time.Sleep(150 * time.Millisecond)
+					if err := extractors.CleanupTaskResumeCache(targetDir, platform, rawURL); err == nil {
+						return
+					}
+				}
+				if a.logger != nil {
+					a.logger.Printf("Warning: resume cache cleanup for deleted task %s could not be completed: targetDir=%s", tid, targetDir)
+				}
+			}(outDir, task.Platform, task.URL, taskId)
 		}
 	}
 

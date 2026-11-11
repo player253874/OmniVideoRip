@@ -101,6 +101,58 @@ func TestPauseResumeDeleteTask(t *testing.T) {
 	}
 }
 
+func TestDeletePausedTaskDirectly(t *testing.T) {
+	store := tasks.NewStore()
+	tempDir := t.TempDir()
+	taskExecutor := executor.New(log.New(io.Discard, "", 0), store, tempDir, "", "")
+	app := &App{
+		taskStore:    store,
+		taskExecutor: taskExecutor,
+		paths:        config.Paths{DownloadsDir: tempDir},
+	}
+
+	task, err := store.Create(tasks.CreateTaskRequest{
+		URL:       "https://missav.live/cesd-999",
+		OutputDir: tempDir,
+	})
+	if err != nil {
+		t.Fatalf("create task: %v", err)
+	}
+
+	// 1. Pause directly
+	paused, err := app.PauseTask(task.ID)
+	if err != nil {
+		t.Fatalf("pause task: %v", err)
+	}
+	if paused.Status != tasks.StatusPaused {
+		t.Fatalf("paused status = %q; want %q", paused.Status, tasks.StatusPaused)
+	}
+
+	// 2. Put cache directory in place
+	cacheDir := extractors.GetTaskResumeDir(tempDir, task.Platform, task.URL)
+	_ = os.MkdirAll(cacheDir, 0755)
+	_ = os.WriteFile(filepath.Join(cacheDir, "seg_00001.ts"), []byte("test"), 0644)
+
+	// 3. Delete paused task directly
+	deleted, err := app.DeleteTask(task.ID)
+	if err != nil {
+		t.Fatalf("delete paused task error: %v", err)
+	}
+	if !deleted {
+		t.Fatalf("delete paused task returned false")
+	}
+
+	// Verify task is removed from store
+	if _, ok := store.Get(task.ID); ok {
+		t.Fatalf("paused task still exists in store after delete")
+	}
+
+	// Verify cache directory is removed
+	if _, err := os.Stat(cacheDir); !os.IsNotExist(err) {
+		t.Fatalf("cache directory %s was not removed", cacheDir)
+	}
+}
+
 func TestClearAllTasksAndCaches(t *testing.T) {
 	store := tasks.NewStore()
 	tempDir := t.TempDir()

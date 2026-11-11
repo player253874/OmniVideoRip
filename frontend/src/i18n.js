@@ -163,6 +163,13 @@ const I18N_TRANSLATIONS = {
     "supjav.clip.success": "✅ 已成功从剪贴板识别到有效分流线路，正在开始下载...",
     "supjav.clip.empty": "⚠️ 未能从剪贴板识别到有效播放源或页面内容。请在验证窗口右键复制播放线路（如 FastStream / TVLogy）后再试。",
     "supjav.window.opened": "🪟 独立验证窗口已打开！请在窗口中勾选人机验证，随后右键复制播放线路链接（如 FastStream）并点击下方读取按钮。",
+    // Delete Task Confirmation
+    "confirm.delete.title": "🗑️ 删除任务确认",
+    "confirm.delete.message": "确定要删除该下载任务吗？",
+    "confirm.delete.subtext": "⚠️ 该操作将同时清理未完成的临时分片与下载缓存，释放磁盘空间。",
+    "confirm.delete.cancel": "取消",
+    "confirm.delete.ok": "确认删除并清理缓存",
+    "confirm.delete.prompt": "确定要删除该下载任务吗？该操作将同时清理未完成的临时分片与下载缓存文件。",
   },
 
   en: {
@@ -305,6 +312,13 @@ const I18N_TRANSLATIONS = {
     "supjav.clip.success": "✅ Stream link detected from clipboard, starting download...",
     "supjav.clip.empty": "⚠️ No valid stream link or page content found in clipboard. Please copy a server link (e.g., FastStream/TVLogy) in the window and try again.",
     "supjav.window.opened": "🪟 Verification window opened! Check 'Verify you are human', right-click a server link (e.g. FastStream), and click 'Read Clipboard & Download'.",
+    // Delete Task Confirmation
+    "confirm.delete.title": "🗑️ Confirm Task Deletion",
+    "confirm.delete.message": "Are you sure you want to delete this download task?",
+    "confirm.delete.subtext": "⚠️ This will also remove any incomplete segment and cache files to free disk space.",
+    "confirm.delete.cancel": "Cancel",
+    "confirm.delete.ok": "Delete & Clear Cache",
+    "confirm.delete.prompt": "Are you sure you want to delete this download task? This will also remove any incomplete segment and cache files.",
   },
 
   ja: {
@@ -447,6 +461,13 @@ const I18N_TRANSLATIONS = {
     "supjav.clip.success": "✅ クリップボードから有効な配信リンクを検出しました。ダウンロードを開始します...",
     "supjav.clip.empty": "⚠️ クリップボードに有効な再生リンクが見つかりませんでした。ウィンドウで再生サーバー（FastStream等）のリンクをコピーしてからお試しください。",
     "supjav.window.opened": "🪟 認証ウィンドウを開きました。人間確認をクリック後、再生サーバーリンク（FastStream等）をコピーして下のボタンを押してください。",
+    // Delete Task Confirmation
+    "confirm.delete.title": "🗑️ タスク削除の確認",
+    "confirm.delete.message": "このダウンロードタスクを削除してもよろしいですか？",
+    "confirm.delete.subtext": "⚠️ 未完了のセグメントおよびダウンロードキャッシュも同時に削除されます。",
+    "confirm.delete.cancel": "キャンセル",
+    "confirm.delete.ok": "削除してキャッシュをクリア",
+    "confirm.delete.prompt": "このダウンロードタスクを削除してもよろしいですか？未完了のセグメントおよびダウンロードキャッシュも同時に削除されます。",
   },
 
   "zh-TW": {
@@ -589,6 +610,13 @@ const I18N_TRANSLATIONS = {
     "supjav.clip.success": "✅ 已成功從剪貼簿識別到有效分流線路，正在開始下載...",
     "supjav.clip.empty": "⚠️ 未能從剪貼簿識別到有效播放源或頁面內容。請在驗證視窗右鍵複製播放線路（如 FastStream / TVLogy）後再試。",
     "supjav.window.opened": "🪟 獨立驗證視窗已打開！請在視窗中勾選人機驗證，隨後右鍵複製播放線路連結（如 FastStream）並點擊下方讀取按鈕。",
+    // Delete Task Confirmation
+    "confirm.delete.title": "🗑️ 刪除任務確認",
+    "confirm.delete.message": "確定要刪除該下載任務嗎？",
+    "confirm.delete.subtext": "⚠️ 此操作將同時清理未完成的暫存切片與下載快取，釋放磁碟空間。",
+    "confirm.delete.cancel": "取消",
+    "confirm.delete.ok": "確認刪除並清理快取",
+    "confirm.delete.prompt": "確定要刪除該下載任務嗎？此操作將同時清理未完成的暫存切片與下載快取檔案。",
   },
 };
 
