@@ -116,6 +116,18 @@ const elements = {
   platformsSearchCount: document.getElementById("platforms-search-count"),
   platformsCategoryChips: document.getElementById("platforms-category-chips"),
   modalPlatformsList: document.getElementById("modal-platforms-list"),
+
+  // SupJav Tutorial & Verification Modal
+  supjavGuideBtn: document.getElementById("supjav-guide-btn"),
+  supjavTutorialModal: document.getElementById("supjav-tutorial-modal"),
+  btnCloseSupjavModal: document.getElementById("btn-close-supjav-modal"),
+  btnSupjavOpenWindow: document.getElementById("btn-supjav-open-window"),
+  btnSupjavReadClipboard: document.getElementById("btn-supjav-read-clipboard"),
+  supjavClipboardStatus: document.getElementById("supjav-clipboard-status"),
+  supjavDirectStreamInput: document.getElementById("supjav-direct-stream-input"),
+  btnSupjavDirectDownload: document.getElementById("btn-supjav-direct-download"),
+  btnSupjavOpenBrowser: document.getElementById("btn-supjav-open-browser"),
+  btnSupjavDone: document.getElementById("btn-supjav-done"),
 };
 
 let _lastVersionInfo = null;
@@ -127,6 +139,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   await initWailsApp();
   bindEvents();
   initPlatformsModal();
+  initSupJavModal();
   renderHistory();
 });
 
@@ -714,9 +727,157 @@ function renderPlatformsModalList(query = "", category = "all") {
   elements.modalPlatformsList.innerHTML = cardsHtml + moreNotice;
 }
 
+let currentSupJavUrl = "";
+
+function openSupJavTutorialModal(url = "") {
+  currentSupJavUrl = url || elements.urlInput?.value?.trim() || "";
+  if (elements.supjavDirectStreamInput) {
+    elements.supjavDirectStreamInput.value = "";
+  }
+  if (elements.supjavClipboardStatus) {
+    elements.supjavClipboardStatus.textContent = "";
+    elements.supjavClipboardStatus.classList.add("hidden");
+  }
+  elements.supjavTutorialModal?.classList.remove("hidden");
+}
+
+function closeSupJavTutorialModal() {
+  elements.supjavTutorialModal?.classList.add("hidden");
+}
+
+function initSupJavModal() {
+  if (!elements.supjavTutorialModal) return;
+
+  elements.supjavGuideBtn?.addEventListener("click", () => {
+    openSupJavTutorialModal(elements.urlInput?.value?.trim());
+  });
+
+  elements.btnCloseSupjavModal?.addEventListener("click", closeSupJavTutorialModal);
+  elements.btnSupjavDone?.addEventListener("click", closeSupJavTutorialModal);
+
+  elements.supjavTutorialModal.addEventListener("click", (e) => {
+    if (e.target === elements.supjavTutorialModal) {
+      closeSupJavTutorialModal();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !elements.supjavTutorialModal.classList.contains("hidden")) {
+      closeSupJavTutorialModal();
+    }
+  });
+
+  // Action 1: Open verification window
+  elements.btnSupjavOpenWindow?.addEventListener("click", async () => {
+    const targetUrl = currentSupJavUrl || elements.urlInput?.value?.trim() || "https://supjav.com/";
+    try {
+      if (window.go?.main?.App?.OpenSupJavVerificationWindow) {
+        await window.go.main.App.OpenSupJavVerificationWindow(targetUrl);
+      } else {
+        window.open(targetUrl, "_blank");
+      }
+      if (elements.supjavClipboardStatus) {
+        elements.supjavClipboardStatus.textContent = t("supjav.window.opened");
+        elements.supjavClipboardStatus.classList.remove("hidden");
+      }
+    } catch (err) {
+      console.warn("Open verification window failed:", err);
+      window.open(targetUrl, "_blank");
+    }
+  });
+
+  // Action 2: Read clipboard & download
+  elements.btnSupjavReadClipboard?.addEventListener("click", async () => {
+    try {
+      const clipText = await navigator.clipboard.readText();
+      const trimmed = clipText ? clipText.trim() : "";
+      if (!trimmed) {
+        if (elements.supjavClipboardStatus) {
+          elements.supjavClipboardStatus.textContent = t("supjav.clip.empty");
+          elements.supjavClipboardStatus.classList.remove("hidden");
+        }
+        return;
+      }
+
+      // Check if it's HTML content
+      if (trimmed.includes("<") && trimmed.includes(">") && (trimmed.includes("btn-server") || trimmed.includes("entry-title") || trimmed.includes("faststream") || trimmed.includes("tvlogy"))) {
+        if (window.go?.main?.App?.AnalyzeSupJavHTML) {
+          try {
+            const metaData = await window.go.main.App.AnalyzeSupJavHTML(trimmed, currentSupJavUrl);
+            if (metaData && metaData.formats && metaData.formats.length > 0) {
+              closeSupJavTutorialModal();
+              state.currentMetaData = metaData;
+              renderResolutionOptions(metaData);
+              return;
+            }
+          } catch (e) {
+            console.warn("HTML parse error:", e);
+          }
+        }
+      }
+
+      // Extract embed links from text
+      let links = [];
+      if (window.go?.main?.App?.ExtractSupJavLinksFromText) {
+        links = await window.go.main.App.ExtractSupJavLinksFromText(trimmed);
+      }
+      if (!links || links.length === 0) {
+        const matches = trimmed.match(/https?:\/\/[^\s"'<>]*(?:faststream\.to|fststream\.to|tvlogy\.to|streamtape\.com|streamwish\.to|voe\.sx|\.m3u8)[^\s"'<>]*/gi);
+        if (matches) links = matches;
+      }
+
+      if (links && links.length > 0) {
+        const streamUrl = links[0];
+        if (elements.supjavClipboardStatus) {
+          elements.supjavClipboardStatus.textContent = t("supjav.clip.success");
+          elements.supjavClipboardStatus.classList.remove("hidden");
+        }
+        setTimeout(() => {
+          closeSupJavTutorialModal();
+          elements.urlInput.value = streamUrl;
+          updatePlatformBadge(streamUrl);
+          analyzeSingleVideo();
+        }, 500);
+      } else {
+        if (elements.supjavClipboardStatus) {
+          elements.supjavClipboardStatus.textContent = t("supjav.clip.empty");
+          elements.supjavClipboardStatus.classList.remove("hidden");
+        }
+      }
+    } catch (err) {
+      console.warn("Clipboard access error:", err);
+      if (elements.supjavClipboardStatus) {
+        elements.supjavClipboardStatus.textContent = `读取剪贴板失败: ${err.message || err}`;
+        elements.supjavClipboardStatus.classList.remove("hidden");
+      }
+    }
+  });
+
+  // Action 3: Direct stream download
+  elements.btnSupjavDirectDownload?.addEventListener("click", () => {
+    const val = elements.supjavDirectStreamInput?.value?.trim();
+    if (!val) return;
+    closeSupJavTutorialModal();
+    elements.urlInput.value = val;
+    updatePlatformBadge(val);
+    analyzeSingleVideo();
+  });
+
+  // Action 4: Open in default browser
+  elements.btnSupjavOpenBrowser?.addEventListener("click", async () => {
+    const targetUrl = currentSupJavUrl || elements.urlInput?.value?.trim() || "https://supjav.com/";
+    if (window.go?.main?.App?.OpenURLInBrowser) {
+      await window.go.main.App.OpenURLInBrowser(targetUrl);
+    } else {
+      window.open(targetUrl, "_blank");
+    }
+  });
+}
+
 function updatePlatformBadge(rawUrl) {
   if (!rawUrl) {
     elements.detectedPlatformBadge.classList.add("hidden");
+    elements.supjavGuideBtn?.classList.add("hidden");
     return;
   }
   const key = detectPlatformKey(rawUrl);
@@ -726,6 +887,12 @@ function updatePlatformBadge(rawUrl) {
   elements.platformIcon.textContent = pInfo.icon;
   elements.platformName.textContent = pInfo.name;
   elements.detectedPlatformBadge.style.color = pInfo.color;
+
+  if (key === "supjav") {
+    elements.supjavGuideBtn?.classList.remove("hidden");
+  } else {
+    elements.supjavGuideBtn?.classList.add("hidden");
+  }
 }
 
 function detectPlatformKey(rawUrl) {
@@ -780,7 +947,12 @@ async function analyzeSingleVideo() {
     state.currentMetaData = metaData;
     renderResolutionOptions(metaData);
   } catch (err) {
-    alert(t("alert.analyze.fail", { err: err.message || err }));
+    const errMsg = String(err?.message || err);
+    if (rawUrl.includes("supjav.com") || errMsg.includes("CLOUDFLARE_CHALLENGE_DETECTED") || errMsg.includes("Cloudflare")) {
+      openSupJavTutorialModal(rawUrl);
+      return;
+    }
+    alert(t("alert.analyze.fail", { err: errMsg }));
   } finally {
     btn.disabled = false;
     btn.innerHTML = originalText;

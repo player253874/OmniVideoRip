@@ -341,6 +341,46 @@ func (a *App) AnalyzeVideo(rawURL string) (extractors.VideoMetaData, error) {
 	return router.Analyze(a.ctx, rawURL)
 }
 
+func (a *App) OpenSupJavVerificationWindow(rawURL string) error {
+	if a.ctx == nil {
+		return fmt.Errorf("application not ready")
+	}
+	if err := extractors.ValidateHTTPURL(rawURL); err != nil {
+		return err
+	}
+	edgePaths := []string{
+		`C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe`,
+		`C:\Program Files\Microsoft\Edge\Application\msedge.exe`,
+	}
+	for _, p := range edgePaths {
+		if _, err := os.Stat(p); err == nil {
+			cmd := exec.Command(p, fmt.Sprintf("--app=%s", rawURL))
+			return cmd.Start()
+		}
+	}
+	runtime.BrowserOpenURL(a.ctx, rawURL)
+	return nil
+}
+
+func (a *App) OpenURLInBrowser(rawURL string) error {
+	if a.ctx == nil {
+		return fmt.Errorf("application not ready")
+	}
+	if err := extractors.ValidateHTTPURL(rawURL); err != nil {
+		return err
+	}
+	runtime.BrowserOpenURL(a.ctx, rawURL)
+	return nil
+}
+
+func (a *App) AnalyzeSupJavHTML(html, pageURL string) (extractors.VideoMetaData, error) {
+	return extractors.AnalyzeSupJavHTML(html, pageURL)
+}
+
+func (a *App) ExtractSupJavLinksFromText(text string) []string {
+	return extractors.ExtractEmbedLinksFromText(text)
+}
+
 func (a *App) SelectDirectory() (string, error) {
 	selection, err := runtime.OpenDirectoryDialog(a.ctx, runtime.OpenDialogOptions{
 		Title:            "选择 OmniVideoRip 默认保存目录",

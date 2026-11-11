@@ -47,6 +47,10 @@ func validateHTTPURL(rawURL string) error {
 	return nil
 }
 
+func ValidateHTTPURL(rawURL string) error {
+	return validateHTTPURL(rawURL)
+}
+
 func isPrivateIP(ip net.IP) bool {
 	return ip.IsLoopback() || ip.IsPrivate() || ip.IsLinkLocalUnicast() ||
 		ip.IsLinkLocalMulticast() || ip.IsUnspecified() || ip.IsMulticast()

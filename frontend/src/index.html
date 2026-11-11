@@ -31,7 +31,7 @@
           <div class="brand-text">
             <div class="brand-title-row">
               <h1 class="brand-title">OmniVideoRip</h1>
-              <span class="version-badge">v1.5.0</span>
+              <span class="version-badge">v1.5.1</span>
             </div>
             <p class="brand-tagline" data-i18n="brand.tagline">全网视频极速抓取平台</p>
           </div>
@@ -92,6 +92,9 @@
                 autocomplete="off"
               />
               <div class="input-actions">
+                <button type="button" id="supjav-guide-btn" class="action-btn supjav-guide-badge hidden" title="查看 SupJav 人机验证与下载指引">
+                  <span data-i18n="supjav.guide.badge">⚡ 验证指引</span>
+                </button>
                 <button type="button" id="paste-btn" class="action-btn" data-i18n-title="input.paste.title" title="一键粘贴剪贴板">
                   <span data-i18n="input.paste">📋 粘贴</span>
                 </button>
@@ -250,70 +253,61 @@
 
           <!-- Decorative Icon & Brand Pill Wall -->
           <div class="showcase-pills-container">
-            <div class="showcase-pill" title="YouTube (4K/8K / MP3)">
+            <div class="showcase-pill" data-search="YouTube" title="YouTube">
               <span class="pill-icon" style="color: #ef4444;">🔴</span>
               <span class="pill-name">YouTube</span>
-              <span class="pill-tag">4K / 8K</span>
             </div>
-            <div class="showcase-pill" title="TikTok / 抖音 (无水印 1080P)">
+            <div class="showcase-pill" data-search="TikTok" title="TikTok / 抖音">
               <span class="pill-icon" style="color: #06b6d4;">🎵</span>
               <span class="pill-name">TikTok / 抖音</span>
-              <span class="pill-tag">无水印</span>
             </div>
-            <div class="showcase-pill" title="Bilibili (4K 60fps / 多P批量)">
+            <div class="showcase-pill" data-search="Bilibili" title="Bilibili">
               <span class="pill-icon" style="color: #00aeec;">📺</span>
               <span class="pill-name">Bilibili</span>
-              <span class="pill-tag">4K 60fps</span>
             </div>
-            <div class="showcase-pill" title="TVer (日本民放电视台官方点播)">
+            <div class="showcase-pill" data-search="TVer" title="TVer">
               <span class="pill-icon" style="color: #3b82f6;">🇯🇵</span>
               <span class="pill-name">TVer</span>
-              <span class="pill-tag">日剧综艺</span>
             </div>
-            <div class="showcase-pill" title="X (Twitter) (推文多视频 / GIF)">
+            <div class="showcase-pill" data-search="Twitter" title="X (Twitter)">
               <span class="pill-icon" style="color: #f8fafc;">𝕏</span>
               <span class="pill-name">X (Twitter)</span>
-              <span class="pill-tag">高清推文</span>
             </div>
-            <div class="showcase-pill" title="Instagram (Reels / Stories)">
+            <div class="showcase-pill" data-search="Instagram" title="Instagram">
               <span class="pill-icon" style="color: #ec4899;">📷</span>
               <span class="pill-name">Instagram</span>
-              <span class="pill-tag">Reels</span>
             </div>
-            <div class="showcase-pill" title="Twitch (直播切片 / VOD 录播)">
+            <div class="showcase-pill" data-search="Twitch" title="Twitch">
               <span class="pill-icon" style="color: #a855f7;">🟣</span>
               <span class="pill-name">Twitch</span>
-              <span class="pill-tag">VOD 录播</span>
             </div>
-            <div class="showcase-pill" title="Facebook (Watch / Reels)">
+            <div class="showcase-pill" data-search="Facebook" title="Facebook">
               <span class="pill-icon" style="color: #1877f2;">🔵</span>
               <span class="pill-name">Facebook</span>
-              <span class="pill-tag">Watch</span>
             </div>
-            <div class="showcase-pill" title="Reddit (音画自动封装)">
+            <div class="showcase-pill" data-search="Reddit" title="Reddit">
               <span class="pill-icon" style="color: #ff4500;">🤖</span>
               <span class="pill-name">Reddit</span>
-              <span class="pill-tag">MP4 合成</span>
             </div>
-            <div class="showcase-pill" title="Vimeo (4K 创作者原画)">
+            <div class="showcase-pill" data-search="Vimeo" title="Vimeo">
               <span class="pill-icon" style="color: #1ab7ea;">▶️</span>
               <span class="pill-name">Vimeo</span>
-              <span class="pill-tag">4K 原画</span>
             </div>
-            <div class="showcase-pill" title="Niconico (ニコニコ動画)">
+            <div class="showcase-pill" data-search="Niconico" title="Niconico">
               <span class="pill-icon" style="color: #94a3b8;">🐱</span>
               <span class="pill-name">Niconico</span>
-              <span class="pill-tag">动画番剧</span>
             </div>
-            <div class="showcase-pill" title="MissAV / SupJav (自研 16 线程高速并发解密)">
+            <div class="showcase-pill" data-search="MissAV" title="MissAV">
+              <span class="pill-icon" style="color: #ec4899;">🌸</span>
+              <span class="pill-name">MissAV</span>
+            </div>
+            <div class="showcase-pill" data-search="SupJav" title="SupJav">
               <span class="pill-icon" style="color: #f43f5e;">⚡</span>
-              <span class="pill-name">MissAV / SupJav</span>
-              <span class="pill-tag">16 线程解密</span>
+              <span class="pill-name">SupJav</span>
             </div>
-            <div class="showcase-pill" title="SoundCloud (无损音频提取)">
+            <div class="showcase-pill" data-search="SoundCloud" title="SoundCloud">
               <span class="pill-icon" style="color: #ff5500;">🎧</span>
               <span class="pill-name">SoundCloud</span>
-              <span class="pill-tag">无损音轨</span>
             </div>
             <div class="showcase-pill showcase-pill-more">
               <span class="pill-icon">✨</span>
@@ -401,6 +395,107 @@
         <!-- Results list container -->
         <div class="modal-platforms-list" id="modal-platforms-list">
           <!-- Dynamically rendered site cards -->
+        </div>
+      </div>
+    </div>
+
+    <!-- SupJav Download & Cloudflare Verification Tutorial Modal -->
+    <div id="supjav-tutorial-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true">
+      <div class="modal-dialog supjav-modal-dialog">
+        <div class="modal-header">
+          <div class="modal-title-group">
+            <h3 class="modal-title" data-i18n="supjav.modal.title">⚡ SupJav 视频下载与验证指引</h3>
+            <p class="modal-subtitle" data-i18n="supjav.modal.subtitle">Cloudflare Turnstile 5秒盾人机验证拦截应对指南</p>
+          </div>
+          <button id="btn-close-supjav-modal" class="btn-close-modal" aria-label="关闭">&times;</button>
+        </div>
+
+        <div class="supjav-modal-body">
+          <div class="supjav-alert-banner">
+            <span class="banner-icon">🛡️</span>
+            <div class="banner-text" data-i18n="supjav.modal.banner">
+              SupJav 站点全站受 Cloudflare Turnstile 人机验证保护，常规后台自动请求会被直接拦截。我们为您准备了以下两套快速下载方案：
+            </div>
+          </div>
+
+          <div class="supjav-methods-container">
+            <!-- Method 1: Verification Window (Option 2) -->
+            <div class="supjav-method-card active-method">
+              <div class="method-badge" data-i18n="supjav.modal.m1.badge">⭐ 方案 1：独立窗口人机验证 (推荐)</div>
+              <h4 class="method-title" data-i18n="supjav.modal.m1.title">启动专属独立小窗口完成验证</h4>
+              
+              <div class="supjav-steps-list">
+                <div class="supjav-step-item">
+                  <span class="step-num">1</span>
+                  <div class="step-desc" data-i18n="supjav.modal.m1.s1">
+                    点击下方<strong>【启动独立验证窗口】</strong>，将在独立纯净小窗口中打开当前 SupJav 页面。
+                  </div>
+                </div>
+                <div class="supjav-step-item">
+                  <span class="step-num">2</span>
+                  <div class="step-desc" data-i18n="supjav.modal.m1.s2">
+                    在窗口中手动点击一次<strong>“确认您是人类 (Turnstile)”</strong>复选框通过验证。
+                  </div>
+                </div>
+                <div class="supjav-step-item">
+                  <span class="step-num">3</span>
+                  <div class="step-desc" data-i18n="supjav.modal.m1.s3">
+                    页面加载后，在视频下方的播放线路（如 <strong>FastStream</strong> / <strong>TVLogy</strong> / <strong>StreamWish</strong>）按钮上<strong>右键选择“复制链接地址”</strong>（或按 Ctrl+A 复制页面）。
+                  </div>
+                </div>
+                <div class="supjav-step-item">
+                  <span class="step-num">4</span>
+                  <div class="step-desc" data-i18n="supjav.modal.m1.s4">
+                    点击下方<strong>【自动读取剪贴板并下载】</strong>，软件将自动嗅探分流线路并开启 16 线程满速直下！
+                  </div>
+                </div>
+              </div>
+
+              <div class="method-actions">
+                <button type="button" id="btn-supjav-open-window" class="btn-supjav-primary">
+                  <span>🪟</span>
+                  <span data-i18n="supjav.modal.m1.btn_open">启动独立验证窗口</span>
+                </button>
+                <button type="button" id="btn-supjav-read-clipboard" class="btn-supjav-secondary">
+                  <span>📋</span>
+                  <span data-i18n="supjav.modal.m1.btn_clip">自动读取剪贴板并下载</span>
+                </button>
+              </div>
+              <div id="supjav-clipboard-status" class="supjav-status-text hidden"></div>
+            </div>
+
+            <!-- Method 2: Direct Stream Link -->
+            <div class="supjav-method-card">
+              <div class="method-badge secondary-badge" data-i18n="supjav.modal.m2.badge">⚡ 方案 2：直接填入分流链接</div>
+              <h4 class="method-title" data-i18n="supjav.modal.m2.title">直接输入播放线路或 .m3u8 极速直下</h4>
+              <p class="method-desc" data-i18n="supjav.modal.m2.desc">
+                若您已在外部浏览器中打开了该视频，可直接将播放线路（FastStream / TVLogy / StreamTape / StreamWish 等）或 .m3u8 链接粘贴到下方：
+              </p>
+              <div class="supjav-direct-box">
+                <input
+                  type="text"
+                  id="supjav-direct-stream-input"
+                  class="supjav-input"
+                  data-i18n-ph="supjav.modal.m2.ph"
+                  placeholder="在此直接粘贴 FastStream / TVLogy / StreamWish / StreamTape 或 .m3u8 链接..."
+                />
+                <button type="button" id="btn-supjav-direct-download" class="btn-supjav-direct">
+                  <span data-i18n="supjav.modal.m2.btn">🚀 解析并下载</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom auxiliary actions -->
+          <div class="supjav-modal-footer">
+            <button type="button" id="btn-supjav-open-browser" class="button button-secondary">
+              <span>🌐</span>
+              <span data-i18n="supjav.modal.btn_browser">在系统默认浏览器中打开视频页</span>
+            </button>
+            <button type="button" id="btn-supjav-done" class="button button-primary">
+              <span data-i18n="supjav.modal.btn_close">我知道了，返回主界面</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>

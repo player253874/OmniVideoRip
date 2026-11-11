@@ -1661,6 +1661,267 @@ body {
   display: none !important;
 }
 
+/* SupJav Trigger Badge */
+.supjav-guide-badge {
+  background: rgba(245, 158, 11, 0.15) !important;
+  color: #fbbf24 !important;
+  border: 1px solid rgba(245, 158, 11, 0.35) !important;
+  font-weight: 600;
+  padding: 0 10px !important;
+  font-size: 11.5px !important;
+  animation: supjavPulse 2s infinite ease-in-out;
+}
+
+.supjav-guide-badge:hover {
+  background: rgba(245, 158, 11, 0.25) !important;
+  border-color: rgba(245, 158, 11, 0.6) !important;
+}
+
+@keyframes supjavPulse {
+  0%, 100% { box-shadow: 0 0 0 rgba(245, 158, 11, 0); }
+  50% { box-shadow: 0 0 10px rgba(245, 158, 11, 0.35); }
+}
+
+/* SupJav Tutorial & Verification Modal */
+.supjav-modal-dialog {
+  max-width: 780px !important;
+  background: #101524 !important;
+  border: 1px solid rgba(245, 158, 11, 0.3) !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75), 0 0 35px rgba(245, 158, 11, 0.12) !important;
+}
+
+.supjav-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-height: 78vh;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.supjav-alert-banner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: 10px;
+  padding: 12px 16px;
+}
+
+.supjav-alert-banner .banner-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.supjav-alert-banner .banner-text {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #fde68a;
+}
+
+.supjav-methods-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.supjav-method-card {
+  background: rgba(18, 25, 44, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 18px 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.supjav-method-card.active-method {
+  border-color: rgba(99, 102, 241, 0.4);
+  background: linear-gradient(135deg, rgba(22, 30, 58, 0.9) 0%, rgba(15, 22, 42, 0.95) 100%);
+  box-shadow: inset 0 0 20px rgba(99, 102, 241, 0.05);
+}
+
+.method-badge {
+  align-self: flex-start;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 3px 9px;
+  border-radius: 6px;
+  background: rgba(99, 102, 241, 0.25);
+  color: #a5b4fc;
+  border: 1px solid rgba(99, 102, 241, 0.4);
+}
+
+.method-badge.secondary-badge {
+  background: rgba(16, 185, 129, 0.2);
+  color: #6ee7b7;
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.method-title {
+  margin: 0;
+  font-size: 15.5px;
+  font-weight: 700;
+  color: var(--text-bright);
+}
+
+.method-desc {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.supjav-steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.supjav-step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.step-num {
+  width: 22px;
+  height: 22px;
+  background: #6366f1;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.step-desc {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+.step-desc strong {
+  color: #38bdf8;
+}
+
+.method-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.btn-supjav-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4);
+}
+
+.btn-supjav-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.6);
+}
+
+.btn-supjav-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(99, 102, 241, 0.15);
+  color: #c7d2fe;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 18px;
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-supjav-secondary:hover {
+  background: rgba(99, 102, 241, 0.28);
+  border-color: rgba(99, 102, 241, 0.55);
+}
+
+.supjav-status-text {
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.35);
+  border-left: 3px solid #38bdf8;
+  color: #bae6fd;
+}
+
+.supjav-direct-box {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.supjav-input {
+  flex: 1;
+  background: rgba(10, 15, 30, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 9px 14px;
+  font-size: 12.5px;
+  color: var(--text-color);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.supjav-input:focus {
+  border-color: #10b981;
+}
+
+.btn-supjav-direct {
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 16px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+
+.btn-supjav-direct:hover {
+  opacity: 0.9;
+}
+
+.supjav-modal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 /* Footer */
 .app-footer {
   text-align: center;

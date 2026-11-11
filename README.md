@@ -2,7 +2,7 @@
 
 OmniVideoRip 是一个基于 Go + Wails + 原生 Web 技术构建的现代化全网视频极速提取与下载桌面端软件。
 
-[![Release](https://img.shields.io/badge/Release-v1.5.0-orange.svg)](./release/OmniVideoRip.exe)
+[![Release](https://img.shields.io/badge/Release-v1.5.1-orange.svg)](./release/OmniVideoRip.exe)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20x64-blue.svg)](file:///release/OmniVideoRip.exe)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
@@ -13,7 +13,7 @@ OmniVideoRip 是一个基于 Go + Wails + 原生 Web 技术构建的现代化全
 
 ## ✨ 核心特性
 - **纯净轻量**：主程序仅 ~12MB，极速启动，内存占用极小。
-- **全网主流与成人站点广泛支持**：支持 YouTube (1080P/720P/480P)、Bilibili、TikTok、X (Twitter)、TVer、MissAV、GGJav、**SupJav**、**RouVideo (肉视频)** 等 1800+ 视频站点，并配备支持网站全量实时查询名录。
+- **全网主流与成人站点广泛支持**：支持 YouTube (1080P/720P/480P)、Bilibili、TikTok、X (Twitter)、TVer、MissAV、GGJav、**SupJav**、**RouVideo (肉视频)** 等 1800+ 视频站点，并配备支持网站全量实时查询名录与 SupJav 独立人机验证助手。
 - **智能防 DNS 污染与全代理智能自适应**：支持跟随系统/环境网络代理（HTTP/HTTPS/SOCKS5/Clash/v2ray），无代理环境内置 Anycast 智能多节点直连与快速容灾，解决连接被重置/超时问题。
 - **双依赖在线热更新**：支持在界面中一键检测并更新 `yt-dlp` 与 `ffmpeg` 官方组件，长期自愈免重装。
 - **多语言自由切换与自适应**：默认智能跟随系统语言（简/繁/英/日），支持随时手动切换并持久保存。
@@ -22,6 +22,10 @@ OmniVideoRip 是一个基于 Go + Wails + 原生 Web 技术构建的现代化全
 ---
 
 ## 📝 版本更新说明 (Changelog)
+
+### [v1.5.1] - 2026-11-11
+- 🎨 **平台展示墙极简美化**：移除平台胶囊的小注释，仅保留平台精致 Icon 与名称。
+- ⚡ **SupJav 独立人机验证小窗口与专属下载助手**：新增独立验证小窗口、剪贴板分流源智能识别与一键下载指引。
 
 ### [v1.5.0] - 2026-11-11
 - 🚀 **SupJav 视频提取支持**：新增对 `supjav.com` 页面分析与流下载支持，智能探测多嵌入源与 Cloudflare 质询拦截指引。

@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"net/url"
 	"os"
 	"regexp"
 	"strings"
@@ -13,10 +14,76 @@ import (
 )
 
 var (
-	supjavServerRegex = regexp.MustCompile(`(?i)<(?:div|button|a)[^>]*class="[^"]*btn-server[^"]*"[^>]*(?:data-link|data-src|data-file|data-url)=["']([^"']+)["']`)
-	supjavIframeRegex = regexp.MustCompile(`(?i)<iframe[^>]+src=["']([^"']+)["']`)
-	supjavEntryTitle  = regexp.MustCompile(`(?i)<h1[^>]*class=["'][^"']*entry-title[^"']*["'][^>]*>([\s\S]*?)</h1>`)
+	supjavServerRegex   = regexp.MustCompile(`(?i)<(?:div|button|a)[^>]*class="[^"]*btn-server[^"]*"[^>]*(?:data-link|data-src|data-file|data-url)=["']([^"']+)["']`)
+	supjavIframeRegex   = regexp.MustCompile(`(?i)<iframe[^>]+src=["']([^"']+)["']`)
+	supjavEntryTitle    = regexp.MustCompile(`(?i)<h1[^>]*class=["'][^"']*entry-title[^"']*["'][^>]*>([\s\S]*?)</h1>`)
+	commonEmbedUrlRegex = regexp.MustCompile(`https?://[^\s"'<>]*(?:faststream\.to|fststream\.to|tvlogy\.to|streamtape\.com|streamwish\.to|voe\.sx)[^\s"'<>]*`)
 )
+
+func isSupJavEmbedURL(rawURL string) bool {
+	u, err := url.Parse(rawURL)
+	if err != nil {
+		return false
+	}
+	host := strings.ToLower(u.Hostname())
+	return matchesDomain(host, "faststream.to") ||
+		matchesDomain(host, "fststream.to") ||
+		matchesDomain(host, "tvlogy.to") ||
+		matchesDomain(host, "streamtape.com") ||
+		matchesDomain(host, "streamwish.to") ||
+		strings.Contains(rawURL, ".m3u8")
+}
+
+func ExtractEmbedLinksFromText(text string) []string {
+	var results []string
+	seen := make(map[string]bool)
+
+	add := func(link string) {
+		link = strings.TrimSpace(link)
+		if link == "" || seen[link] {
+			return
+		}
+		seen[link] = true
+		results = append(results, link)
+	}
+
+	for _, m := range commonEmbedUrlRegex.FindAllString(text, -1) {
+		add(m)
+	}
+	for _, m := range m3u8Regex.FindAllString(text, -1) {
+		add(m)
+	}
+	for _, e := range extractSupJavEmbeds(text) {
+		add(e)
+	}
+	return results
+}
+
+func AnalyzeSupJavHTML(html, pageURL string) (VideoMetaData, error) {
+	title, thumb := parseSupJavMetadata(html, pageURL)
+	embeds := extractSupJavEmbeds(html)
+	if len(embeds) == 0 {
+		embeds = ExtractEmbedLinksFromText(html)
+	}
+	if len(embeds) == 0 {
+		return VideoMetaData{}, fmt.Errorf("未在提供的内容中解析到有效的播放分流源")
+	}
+
+	formats := []VideoFormatOption{
+		{FormatID: "best", Resolution: "最佳画质 (Best Quality)", Extension: "mp4", Note: "原生并发直下 (已解析分流源)"},
+		{FormatID: "1080p", Resolution: "1080P 全高清", Extension: "mp4", Note: "1080P 极速分流"},
+		{FormatID: "720p", Resolution: "720P 高清", Extension: "mp4", Note: "720P 高清画质"},
+		{FormatID: "480p", Resolution: "480P 标清", Extension: "mp4", Note: "480P 标清画质"},
+	}
+
+	return VideoMetaData{
+		Title:     title,
+		Thumbnail: thumb,
+		Platform:  "supjav",
+		URL:       pageURL,
+		Formats:   formats,
+	}, nil
+}
 
 func isCloudflareChallenge(statusCode int, body string, header http.Header) bool {
 	if statusCode == http.StatusForbidden || statusCode == http.StatusServiceUnavailable {
@@ -119,6 +186,22 @@ func analyzeSupJavWithClient(ctx context.Context, client *http.Client, pageURL s
 		return VideoMetaData{}, err
 	}
 
+	if isSupJavEmbedURL(pageURL) {
+		formats := []VideoFormatOption{
+			{FormatID: "best", Resolution: "最佳画质 (Best Quality)", Extension: "mp4", Note: "分流原生并发直下 (推荐)"},
+			{FormatID: "1080p", Resolution: "1080P 全高清", Extension: "mp4", Note: "1080P 分流"},
+			{FormatID: "720p", Resolution: "720P 高清", Extension: "mp4", Note: "720P 分流"},
+			{FormatID: "480p", Resolution: "480P 标清", Extension: "mp4", Note: "480P 标清画质"},
+		}
+		title := codeNameFromURL(pageURL, "SUPJAV_STREAM")
+		return VideoMetaData{
+			Title:    title,
+			Platform: "supjav",
+			URL:      pageURL,
+			Formats:  formats,
+		}, nil
+	}
+
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, pageURL, nil)
 	if err != nil {
 		return VideoMetaData{}, err
@@ -140,7 +223,7 @@ func analyzeSupJavWithClient(ctx context.Context, client *http.Client, pageURL s
 
 	bodyStr := string(bodyBytes)
 	if isCloudflareChallenge(resp.StatusCode, bodyStr, resp.Header) {
-		return VideoMetaData{}, fmt.Errorf("SupJav 站点当前开启了 Cloudflare Turnstile 人机验证拦截 (HTTP %d)。\n建议：请在浏览器中打开该视频，直接复制播放器下方的分流源（如 FastStream / StreamTape / TVLogy / StreamWish 等）链接下载，或在设置中提供有效 Cookie", resp.StatusCode)
+		return VideoMetaData{}, fmt.Errorf("CLOUDFLARE_CHALLENGE_DETECTED: SupJav 站点当前开启了 Cloudflare Turnstile 人机验证拦截 (HTTP %d)。\n建议：请在软件中点击【打开独立验证窗口】完成人机验证，或直接复制播放器下方的分流源（如 FastStream / TVLogy 等）链接下载", resp.StatusCode)
 	}
 
 	if resp.StatusCode != http.StatusOK {
@@ -178,6 +261,20 @@ func DownloadSupJav(ctx context.Context, router *ExtractorRouter, pageURL, outDi
 	}
 
 	client := newSafeHTTPClient(30 * time.Second)
+
+	if isSupJavEmbedURL(pageURL) {
+		if strings.Contains(pageURL, ".m3u8") {
+			return downloadSupJavHLS(ctx, client, pageURL, "https://supjav.com/", outDir, "SupJav_Video", ffmpegPath, formatID, progressCb)
+		}
+		if strings.Contains(pageURL, "tvlogy") || strings.Contains(pageURL, "faststream") || strings.Contains(pageURL, "fststream") {
+			m3u8URL, ref, err := extractPlayableURLWithContext(ctx, client, []byte(`<iframe src="`+pageURL+`"></iframe>`))
+			if err == nil && m3u8URL != "" {
+				return downloadSupJavHLS(ctx, client, m3u8URL, ref, outDir, "SupJav_Video", ffmpegPath, formatID, progressCb)
+			}
+		}
+		return router.downloadWithYTDLPAndFormat(ctx, pageURL, outDir, formatID, progressCb)
+	}
+
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, pageURL, nil)
 	if err != nil {
 		return "", err
@@ -199,7 +296,7 @@ func DownloadSupJav(ctx context.Context, router *ExtractorRouter, pageURL, outDi
 
 	bodyStr := string(bodyBytes)
 	if isCloudflareChallenge(resp.StatusCode, bodyStr, resp.Header) {
-		return "", fmt.Errorf("SupJav 站点当前开启了 Cloudflare Turnstile 人机验证拦截 (HTTP %d)。\n建议：请在浏览器中打开该视频，直接复制播放器下方的分流源（如 FastStream / StreamTape / TVLogy / StreamWish 等）链接下载，或在设置中提供有效 Cookie", resp.StatusCode)
+		return "", fmt.Errorf("CLOUDFLARE_CHALLENGE_DETECTED: SupJav 站点当前开启了 Cloudflare Turnstile 人机验证拦截 (HTTP %d)。\n建议：请在软件中点击【打开独立验证窗口】完成人机验证，或直接复制播放器下方的分流源（如 FastStream / TVLogy 等）链接下载", resp.StatusCode)
 	}
 
 	if resp.StatusCode != http.StatusOK {

@@ -425,7 +425,7 @@ func detectPlatform(rawURL string) string {
 		return "ggjav"
 	case matchesDomain(host, "rou.video"):
 		return "rouvideo"
-	case matchesDomain(host, "supjav.com"):
+	case matchesDomain(host, "supjav.com"), matchesDomain(host, "faststream.to"), matchesDomain(host, "fststream.to"), matchesDomain(host, "tvlogy.to"):
 		return "supjav"
 
 	case matchesDomain(host, "youtube.com"), matchesDomain(host, "youtu.be"):

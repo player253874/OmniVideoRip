@@ -169,3 +169,35 @@ func TestAnalyzeSupJavSuccess(t *testing.T) {
 		t.Errorf("platform mismatch: %q", meta.Platform)
 	}
 }
+
+func TestAnalyzeSupJavEmbedURL(t *testing.T) {
+	meta, err := AnalyzeSupJav(context.Background(), "https://faststream.to/embed-test123.html")
+	if err != nil {
+		t.Fatalf("AnalyzeSupJav on embed URL failed: %v", err)
+	}
+	if len(meta.Formats) == 0 {
+		t.Errorf("expected non-empty formats")
+	}
+}
+
+func TestAnalyzeSupJavHTML(t *testing.T) {
+	html := `<html><body>
+		<h1 class="entry-title">TEST-001 Title</h1>
+		<div class="btn-server" data-link="https://faststream.to/embed-123">Server 1</div>
+	</body></html>`
+	meta, err := AnalyzeSupJavHTML(html, "https://supjav.com/zh/390226.html")
+	if err != nil {
+		t.Fatalf("AnalyzeSupJavHTML failed: %v", err)
+	}
+	if meta.Title != "TEST-001 Title" {
+		t.Errorf("expected title 'TEST-001 Title', got %q", meta.Title)
+	}
+}
+
+func TestExtractEmbedLinksFromText(t *testing.T) {
+	text := `Here is the link: https://faststream.to/embed-abc.html and another https://tvlogy.to/e/xyz and master https://cdn.test/test.m3u8`
+	links := ExtractEmbedLinksFromText(text)
+	if len(links) < 3 {
+		t.Fatalf("expected at least 3 links, got %d: %v", len(links), links)
+	}
+}
