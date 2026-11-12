@@ -596,7 +596,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -607,7 +607,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -618,7 +618,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -629,7 +629,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -640,7 +640,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -651,7 +651,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -662,7 +662,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -673,7 +673,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -684,7 +684,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -695,7 +695,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -706,7 +706,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -717,7 +717,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -728,7 +728,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -739,7 +739,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -750,7 +750,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -761,7 +761,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -772,7 +772,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -783,7 +783,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -794,7 +794,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -805,7 +805,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -816,7 +816,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -827,7 +827,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -838,7 +838,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -849,7 +849,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -860,7 +860,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -871,7 +871,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -882,7 +882,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -893,7 +893,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -904,7 +904,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -915,7 +915,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -926,7 +926,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -937,7 +937,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -948,7 +948,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -959,7 +959,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -970,7 +970,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -981,7 +981,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -992,7 +992,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1003,7 +1003,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1014,7 +1014,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1025,7 +1025,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1036,7 +1036,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1047,7 +1047,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1058,7 +1058,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1069,7 +1069,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1080,7 +1080,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1091,7 +1091,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1102,7 +1102,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1113,7 +1113,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1124,7 +1124,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1135,7 +1135,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1146,7 +1146,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1157,7 +1157,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1168,7 +1168,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1179,7 +1179,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1190,7 +1190,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1201,7 +1201,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1212,7 +1212,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1223,7 +1223,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1234,7 +1234,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1245,7 +1245,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1256,7 +1256,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1267,7 +1267,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1278,7 +1278,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1289,7 +1289,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1300,7 +1300,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1311,7 +1311,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1322,7 +1322,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1333,7 +1333,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1344,7 +1344,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1355,7 +1355,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1366,7 +1366,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1377,7 +1377,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1388,7 +1388,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1399,7 +1399,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1410,7 +1410,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1421,7 +1421,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1432,7 +1432,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1443,7 +1443,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1454,7 +1454,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1465,7 +1465,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1476,7 +1476,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1487,7 +1487,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1498,7 +1498,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1509,7 +1509,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1520,7 +1520,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1531,7 +1531,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1542,7 +1542,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1553,7 +1553,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1564,7 +1564,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1575,7 +1575,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1586,7 +1586,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1597,7 +1597,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1608,7 +1608,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1619,7 +1619,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1630,7 +1630,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1641,7 +1641,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1652,7 +1652,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1663,7 +1663,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1674,7 +1674,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1685,7 +1685,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1696,7 +1696,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1707,7 +1707,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1718,7 +1718,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1729,7 +1729,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1740,7 +1740,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1751,7 +1751,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1762,7 +1762,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1773,7 +1773,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1784,7 +1784,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1795,7 +1795,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1806,7 +1806,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1817,7 +1817,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1828,7 +1828,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1839,7 +1839,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1850,7 +1850,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1861,7 +1861,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1872,7 +1872,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1883,7 +1883,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1894,7 +1894,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1905,7 +1905,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1916,7 +1916,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1927,7 +1927,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1938,7 +1938,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1949,7 +1949,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1960,7 +1960,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1971,7 +1971,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1982,7 +1982,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -1993,7 +1993,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2004,7 +2004,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2015,7 +2015,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2026,7 +2026,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2037,7 +2037,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2048,7 +2048,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2059,7 +2059,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2070,7 +2070,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2081,7 +2081,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2092,7 +2092,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2103,7 +2103,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2114,7 +2114,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2125,7 +2125,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2136,7 +2136,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2147,7 +2147,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2158,7 +2158,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2169,7 +2169,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2180,7 +2180,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2191,7 +2191,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2202,7 +2202,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2213,7 +2213,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2224,7 +2224,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2235,7 +2235,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2246,7 +2246,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2257,7 +2257,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2268,7 +2268,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2279,7 +2279,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2290,7 +2290,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2301,7 +2301,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2312,7 +2312,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2323,7 +2323,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2334,7 +2334,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2345,7 +2345,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2356,7 +2356,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2367,7 +2367,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2378,7 +2378,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2389,7 +2389,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2400,7 +2400,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2411,7 +2411,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2422,7 +2422,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2433,7 +2433,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2444,7 +2444,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2455,7 +2455,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2466,7 +2466,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2477,7 +2477,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2488,7 +2488,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2499,7 +2499,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2510,7 +2510,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2521,7 +2521,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2532,7 +2532,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2543,7 +2543,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2554,7 +2554,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2565,7 +2565,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2576,7 +2576,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2587,7 +2587,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2598,7 +2598,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2609,7 +2609,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2620,7 +2620,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2631,7 +2631,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2642,7 +2642,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2653,7 +2653,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2664,7 +2664,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2675,7 +2675,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2686,7 +2686,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2697,7 +2697,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2708,7 +2708,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2719,7 +2719,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2730,7 +2730,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2741,7 +2741,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2752,7 +2752,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2763,7 +2763,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2774,7 +2774,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2785,7 +2785,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2796,7 +2796,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2807,7 +2807,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2818,7 +2818,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2829,7 +2829,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2840,7 +2840,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2851,7 +2851,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2862,7 +2862,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2873,7 +2873,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2884,7 +2884,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "japan",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2895,7 +2895,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2906,7 +2906,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2917,7 +2917,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2928,7 +2928,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2939,7 +2939,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2950,7 +2950,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2961,7 +2961,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2972,7 +2972,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2983,7 +2983,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -2994,7 +2994,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3005,7 +3005,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3016,7 +3016,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3027,7 +3027,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3038,7 +3038,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3049,7 +3049,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3060,7 +3060,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3071,7 +3071,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3082,7 +3082,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3093,7 +3093,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3104,7 +3104,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3115,7 +3115,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3126,7 +3126,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3137,7 +3137,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3148,7 +3148,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3159,7 +3159,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3170,7 +3170,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3181,7 +3181,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3192,7 +3192,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3203,7 +3203,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3214,7 +3214,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3225,7 +3225,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3236,7 +3236,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3247,7 +3247,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3258,7 +3258,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3269,7 +3269,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3280,7 +3280,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3291,7 +3291,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3302,7 +3302,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3313,7 +3313,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3324,7 +3324,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3335,7 +3335,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3346,7 +3346,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3357,7 +3357,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3368,7 +3368,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3379,7 +3379,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3390,7 +3390,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3401,7 +3401,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3412,7 +3412,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3423,7 +3423,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3434,7 +3434,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3445,7 +3445,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3456,7 +3456,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3467,7 +3467,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3478,7 +3478,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3489,7 +3489,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3500,7 +3500,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3511,7 +3511,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3522,7 +3522,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3533,7 +3533,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3544,7 +3544,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3555,7 +3555,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3566,7 +3566,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3577,7 +3577,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3588,7 +3588,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3599,7 +3599,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3610,7 +3610,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3621,7 +3621,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3632,7 +3632,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3643,7 +3643,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3654,7 +3654,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3665,7 +3665,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3676,7 +3676,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3687,7 +3687,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3698,7 +3698,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3709,7 +3709,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3720,7 +3720,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3731,7 +3731,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3742,7 +3742,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3753,7 +3753,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3764,7 +3764,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3775,7 +3775,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3786,7 +3786,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3797,7 +3797,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3808,7 +3808,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3819,7 +3819,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3830,7 +3830,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3841,7 +3841,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3852,7 +3852,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3863,7 +3863,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3874,7 +3874,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3885,7 +3885,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3896,7 +3896,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3907,7 +3907,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3918,7 +3918,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3929,7 +3929,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3940,7 +3940,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3951,7 +3951,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3962,7 +3962,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3973,7 +3973,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3984,7 +3984,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -3995,7 +3995,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4006,7 +4006,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4017,7 +4017,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4028,7 +4028,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4039,7 +4039,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4050,7 +4050,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4061,7 +4061,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4072,7 +4072,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4083,7 +4083,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4094,7 +4094,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4105,7 +4105,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4116,7 +4116,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4127,7 +4127,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4138,7 +4138,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4149,7 +4149,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4160,7 +4160,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4171,7 +4171,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4182,7 +4182,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4193,7 +4193,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4204,7 +4204,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4215,7 +4215,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4226,7 +4226,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4237,7 +4237,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4248,7 +4248,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4259,7 +4259,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4270,7 +4270,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4281,7 +4281,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4292,7 +4292,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4303,7 +4303,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4314,7 +4314,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4325,7 +4325,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4336,7 +4336,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4347,7 +4347,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4358,7 +4358,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4369,7 +4369,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4380,7 +4380,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4391,7 +4391,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4402,7 +4402,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4413,7 +4413,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4424,7 +4424,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4435,7 +4435,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4446,7 +4446,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4457,7 +4457,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4468,7 +4468,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4479,7 +4479,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4490,7 +4490,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4501,7 +4501,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4512,7 +4512,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4523,7 +4523,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4534,7 +4534,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4545,7 +4545,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4556,7 +4556,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4567,7 +4567,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4578,7 +4578,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4589,7 +4589,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4600,7 +4600,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4611,7 +4611,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4622,7 +4622,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4633,7 +4633,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4644,7 +4644,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4655,7 +4655,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4666,7 +4666,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4677,7 +4677,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4688,7 +4688,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4699,7 +4699,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4710,7 +4710,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4721,7 +4721,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4732,7 +4732,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4743,7 +4743,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4754,7 +4754,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4765,7 +4765,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4776,7 +4776,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4787,7 +4787,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4798,7 +4798,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4809,7 +4809,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4820,7 +4820,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4831,7 +4831,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4842,7 +4842,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4853,7 +4853,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4864,7 +4864,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4875,7 +4875,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4886,7 +4886,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4897,7 +4897,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4908,7 +4908,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4919,7 +4919,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4930,7 +4930,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4941,7 +4941,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4952,7 +4952,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4963,7 +4963,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4974,7 +4974,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4985,7 +4985,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -4996,7 +4996,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5007,7 +5007,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5018,7 +5018,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5029,7 +5029,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5040,7 +5040,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5051,7 +5051,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5062,7 +5062,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5073,7 +5073,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5084,7 +5084,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5095,7 +5095,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5106,7 +5106,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5117,7 +5117,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5128,7 +5128,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5139,7 +5139,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5150,7 +5150,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5161,7 +5161,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5172,7 +5172,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5183,7 +5183,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5194,7 +5194,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5205,7 +5205,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5216,7 +5216,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5227,7 +5227,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5238,7 +5238,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5249,7 +5249,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5260,7 +5260,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5271,7 +5271,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5282,7 +5282,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5293,7 +5293,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5304,7 +5304,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5315,7 +5315,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5326,7 +5326,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5337,7 +5337,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5348,7 +5348,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5359,7 +5359,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5370,7 +5370,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5381,7 +5381,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5392,7 +5392,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5403,7 +5403,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5414,7 +5414,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5425,7 +5425,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5436,7 +5436,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5447,7 +5447,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5458,7 +5458,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5469,7 +5469,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5480,7 +5480,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5491,7 +5491,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5502,7 +5502,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5513,7 +5513,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5524,7 +5524,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5535,7 +5535,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5546,7 +5546,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5557,7 +5557,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5568,7 +5568,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5579,7 +5579,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5590,7 +5590,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5601,7 +5601,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5612,7 +5612,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5623,7 +5623,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5634,7 +5634,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5645,7 +5645,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5656,7 +5656,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5667,7 +5667,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5678,7 +5678,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5689,7 +5689,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5700,7 +5700,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5711,7 +5711,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5722,7 +5722,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5733,7 +5733,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5744,7 +5744,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5755,7 +5755,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5766,7 +5766,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5777,7 +5777,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5788,7 +5788,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5799,7 +5799,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5810,7 +5810,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5821,7 +5821,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5832,7 +5832,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5843,7 +5843,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5854,7 +5854,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5865,7 +5865,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5876,7 +5876,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5887,7 +5887,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5898,7 +5898,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5909,7 +5909,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5920,7 +5920,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5931,7 +5931,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5942,7 +5942,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5953,7 +5953,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5964,7 +5964,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5975,7 +5975,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5986,7 +5986,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -5997,7 +5997,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6008,7 +6008,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6019,7 +6019,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6030,7 +6030,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6041,7 +6041,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6052,7 +6052,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6063,7 +6063,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6074,7 +6074,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6085,7 +6085,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6096,7 +6096,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6107,7 +6107,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6118,7 +6118,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6129,7 +6129,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6140,7 +6140,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6151,7 +6151,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6162,7 +6162,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6173,7 +6173,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6184,7 +6184,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6195,7 +6195,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6206,7 +6206,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6217,7 +6217,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6228,7 +6228,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6239,7 +6239,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6250,7 +6250,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6261,7 +6261,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6272,7 +6272,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6283,7 +6283,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6294,7 +6294,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6305,7 +6305,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6316,7 +6316,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6327,7 +6327,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6338,7 +6338,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6349,7 +6349,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6360,7 +6360,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6371,7 +6371,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6382,7 +6382,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6393,7 +6393,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6404,7 +6404,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6415,7 +6415,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6426,7 +6426,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6437,7 +6437,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6448,7 +6448,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6459,7 +6459,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6470,7 +6470,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6481,7 +6481,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6492,7 +6492,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6503,7 +6503,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6514,7 +6514,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6525,7 +6525,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6536,7 +6536,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6547,7 +6547,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6558,7 +6558,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6569,7 +6569,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6580,7 +6580,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6591,7 +6591,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6602,7 +6602,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6613,7 +6613,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6624,7 +6624,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6635,7 +6635,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6646,7 +6646,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6657,7 +6657,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6668,7 +6668,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6679,7 +6679,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6690,7 +6690,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6701,7 +6701,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6712,7 +6712,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6723,7 +6723,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6734,7 +6734,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6745,7 +6745,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6756,7 +6756,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6767,7 +6767,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6778,7 +6778,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6789,7 +6789,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6800,7 +6800,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6811,7 +6811,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6822,7 +6822,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6833,7 +6833,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6844,7 +6844,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6855,7 +6855,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6866,7 +6866,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6877,7 +6877,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6888,7 +6888,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6899,7 +6899,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6910,7 +6910,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6921,7 +6921,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6932,7 +6932,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6943,7 +6943,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6954,7 +6954,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6965,7 +6965,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6976,7 +6976,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6987,7 +6987,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -6998,7 +6998,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7009,7 +7009,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7020,7 +7020,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7031,7 +7031,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7042,7 +7042,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7053,7 +7053,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7064,7 +7064,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7075,7 +7075,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7086,7 +7086,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7097,7 +7097,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7108,7 +7108,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7119,7 +7119,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7130,7 +7130,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7141,7 +7141,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7152,7 +7152,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7163,7 +7163,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7174,7 +7174,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7185,7 +7185,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7196,7 +7196,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7207,7 +7207,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7218,7 +7218,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7229,7 +7229,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7240,7 +7240,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7251,7 +7251,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7262,7 +7262,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7273,7 +7273,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7284,7 +7284,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7295,7 +7295,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7306,7 +7306,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7317,7 +7317,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7328,7 +7328,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7339,7 +7339,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7350,7 +7350,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7361,7 +7361,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7372,7 +7372,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7383,7 +7383,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7394,7 +7394,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7405,7 +7405,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7416,7 +7416,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7427,7 +7427,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7438,7 +7438,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7449,7 +7449,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7460,7 +7460,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7471,7 +7471,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7482,7 +7482,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7493,7 +7493,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7504,7 +7504,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7515,7 +7515,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7526,7 +7526,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7537,7 +7537,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7548,7 +7548,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7559,7 +7559,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7570,7 +7570,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7581,7 +7581,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7592,7 +7592,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7603,7 +7603,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7614,7 +7614,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7625,7 +7625,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7636,7 +7636,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7647,7 +7647,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7658,7 +7658,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7669,7 +7669,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7680,7 +7680,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7691,7 +7691,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7702,7 +7702,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7713,7 +7713,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7724,7 +7724,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7735,7 +7735,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7746,7 +7746,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7757,7 +7757,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7768,7 +7768,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7779,7 +7779,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7790,7 +7790,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7801,7 +7801,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7812,7 +7812,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7823,7 +7823,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7834,7 +7834,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7845,7 +7845,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7856,7 +7856,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7867,7 +7867,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7878,7 +7878,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7889,7 +7889,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7900,7 +7900,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7911,7 +7911,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7922,7 +7922,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7933,7 +7933,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7944,7 +7944,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7955,7 +7955,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7966,7 +7966,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7977,7 +7977,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7988,7 +7988,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -7999,7 +7999,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8010,7 +8010,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8021,7 +8021,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8032,7 +8032,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8043,7 +8043,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8054,7 +8054,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8065,7 +8065,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8076,7 +8076,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8087,7 +8087,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8098,7 +8098,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8109,7 +8109,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8120,7 +8120,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8131,7 +8131,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8142,7 +8142,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8153,7 +8153,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8164,7 +8164,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8175,7 +8175,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8186,7 +8186,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8197,7 +8197,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8208,7 +8208,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8219,7 +8219,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8230,7 +8230,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8241,7 +8241,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8252,7 +8252,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8263,7 +8263,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8274,7 +8274,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8285,7 +8285,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8296,7 +8296,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8307,7 +8307,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8318,7 +8318,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8329,7 +8329,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8340,7 +8340,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8351,7 +8351,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8362,7 +8362,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8373,7 +8373,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8384,7 +8384,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8395,7 +8395,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8406,7 +8406,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8417,7 +8417,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8428,7 +8428,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8439,7 +8439,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8450,7 +8450,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8461,7 +8461,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8472,7 +8472,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8483,7 +8483,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8494,7 +8494,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8505,7 +8505,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8516,7 +8516,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8527,7 +8527,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8538,7 +8538,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8549,7 +8549,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8560,7 +8560,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8571,7 +8571,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8582,7 +8582,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8593,7 +8593,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8604,7 +8604,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8615,7 +8615,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8626,7 +8626,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8637,7 +8637,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8648,7 +8648,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8659,7 +8659,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8670,7 +8670,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8681,7 +8681,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8692,7 +8692,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8703,7 +8703,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8714,7 +8714,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8725,7 +8725,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8736,7 +8736,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8747,7 +8747,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8758,7 +8758,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8769,7 +8769,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8780,7 +8780,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8791,7 +8791,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8802,7 +8802,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8813,7 +8813,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8824,7 +8824,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8835,7 +8835,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8846,7 +8846,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8857,7 +8857,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8868,7 +8868,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8879,7 +8879,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8890,7 +8890,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8901,7 +8901,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8912,7 +8912,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8923,7 +8923,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8934,7 +8934,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8945,7 +8945,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8956,7 +8956,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8967,7 +8967,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8978,7 +8978,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -8989,7 +8989,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9000,7 +9000,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9011,7 +9011,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9022,7 +9022,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9033,7 +9033,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9044,7 +9044,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9055,7 +9055,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9066,7 +9066,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9077,7 +9077,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9088,7 +9088,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9099,7 +9099,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9110,7 +9110,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9121,7 +9121,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9132,7 +9132,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9143,7 +9143,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9154,7 +9154,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9165,7 +9165,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9176,7 +9176,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9187,7 +9187,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9198,7 +9198,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9209,7 +9209,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9220,7 +9220,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9231,7 +9231,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9242,7 +9242,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9253,7 +9253,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9264,7 +9264,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9275,7 +9275,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9286,7 +9286,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9297,7 +9297,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9308,7 +9308,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9319,7 +9319,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9330,7 +9330,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9341,7 +9341,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9352,7 +9352,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9363,7 +9363,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9374,7 +9374,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9385,7 +9385,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9396,7 +9396,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9407,7 +9407,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9418,7 +9418,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9429,7 +9429,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9440,7 +9440,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9451,7 +9451,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9462,7 +9462,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9473,7 +9473,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9484,7 +9484,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9495,7 +9495,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9506,7 +9506,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9517,7 +9517,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9528,7 +9528,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9539,7 +9539,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9550,7 +9550,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9561,7 +9561,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9572,7 +9572,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9583,7 +9583,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9594,7 +9594,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9605,7 +9605,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9616,7 +9616,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9627,7 +9627,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9638,7 +9638,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9649,7 +9649,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9660,7 +9660,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9671,7 +9671,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9682,7 +9682,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9693,7 +9693,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9704,7 +9704,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9715,7 +9715,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9726,7 +9726,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9737,7 +9737,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9748,7 +9748,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9759,7 +9759,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9770,7 +9770,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9781,7 +9781,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9792,7 +9792,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9803,7 +9803,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9814,7 +9814,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9825,7 +9825,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9836,7 +9836,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9847,7 +9847,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9858,7 +9858,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9869,7 +9869,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9880,7 +9880,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9891,7 +9891,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9902,7 +9902,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9913,7 +9913,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9924,7 +9924,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9935,7 +9935,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9946,7 +9946,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9957,7 +9957,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9968,7 +9968,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9979,7 +9979,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -9990,7 +9990,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10001,7 +10001,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10012,7 +10012,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10023,7 +10023,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10034,7 +10034,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10045,7 +10045,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10056,7 +10056,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10067,7 +10067,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10078,7 +10078,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10089,7 +10089,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10100,7 +10100,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10111,7 +10111,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10122,7 +10122,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10133,7 +10133,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10144,7 +10144,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10155,7 +10155,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10166,7 +10166,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10177,7 +10177,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10188,7 +10188,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10199,7 +10199,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10210,7 +10210,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10221,7 +10221,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10232,7 +10232,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10243,7 +10243,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10254,7 +10254,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10265,7 +10265,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10276,7 +10276,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10287,7 +10287,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10298,7 +10298,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10309,7 +10309,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10320,7 +10320,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10331,7 +10331,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10342,7 +10342,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10353,7 +10353,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10364,7 +10364,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10375,7 +10375,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10386,7 +10386,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10397,7 +10397,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10408,7 +10408,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10419,7 +10419,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10430,7 +10430,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10441,7 +10441,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10452,7 +10452,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10463,7 +10463,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10474,7 +10474,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "audio",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10485,7 +10485,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10496,7 +10496,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10507,7 +10507,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10518,7 +10518,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10529,7 +10529,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10540,7 +10540,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10551,7 +10551,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10562,7 +10562,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10573,7 +10573,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10584,7 +10584,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10595,7 +10595,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10606,7 +10606,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10617,7 +10617,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10628,7 +10628,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10639,7 +10639,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10650,7 +10650,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10661,7 +10661,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10672,7 +10672,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10683,7 +10683,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10694,7 +10694,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10705,7 +10705,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10716,7 +10716,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10727,7 +10727,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10738,7 +10738,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10749,7 +10749,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10760,7 +10760,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10771,7 +10771,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10782,7 +10782,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10793,7 +10793,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10804,7 +10804,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10815,7 +10815,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10826,7 +10826,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10837,7 +10837,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10848,7 +10848,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10859,7 +10859,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10870,7 +10870,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10881,7 +10881,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10892,7 +10892,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10903,7 +10903,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10914,7 +10914,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10925,7 +10925,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10936,7 +10936,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10947,7 +10947,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10958,7 +10958,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10969,7 +10969,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "japan",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10980,7 +10980,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "japan",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -10991,7 +10991,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "japan",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11002,7 +11002,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11013,7 +11013,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11024,7 +11024,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11035,7 +11035,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11046,7 +11046,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11057,7 +11057,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11068,7 +11068,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11079,7 +11079,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11090,7 +11090,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11101,7 +11101,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11112,7 +11112,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11123,7 +11123,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11134,7 +11134,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11145,7 +11145,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11156,7 +11156,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11167,7 +11167,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11178,7 +11178,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11189,7 +11189,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11200,7 +11200,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11211,7 +11211,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11222,7 +11222,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11233,7 +11233,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11244,7 +11244,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11255,7 +11255,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11266,7 +11266,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11277,7 +11277,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11288,7 +11288,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11299,7 +11299,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11310,7 +11310,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11321,7 +11321,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11332,7 +11332,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11343,7 +11343,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11354,7 +11354,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11365,7 +11365,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11376,7 +11376,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11387,7 +11387,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11398,7 +11398,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11409,7 +11409,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11420,7 +11420,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11431,7 +11431,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11442,7 +11442,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11453,7 +11453,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11464,7 +11464,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11475,7 +11475,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11486,7 +11486,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11497,7 +11497,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11508,7 +11508,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11519,7 +11519,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11530,7 +11530,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11541,7 +11541,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11552,7 +11552,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11563,7 +11563,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11574,7 +11574,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11585,7 +11585,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11596,7 +11596,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11607,7 +11607,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11618,7 +11618,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11629,7 +11629,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11640,7 +11640,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11651,7 +11651,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11662,7 +11662,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11673,7 +11673,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11684,7 +11684,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11695,7 +11695,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11706,7 +11706,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11717,7 +11717,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11728,7 +11728,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11739,7 +11739,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11750,7 +11750,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11761,7 +11761,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11772,7 +11772,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11783,7 +11783,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11794,7 +11794,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11805,7 +11805,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11816,7 +11816,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11827,7 +11827,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11838,7 +11838,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11849,7 +11849,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11860,7 +11860,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11871,7 +11871,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11882,7 +11882,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11893,7 +11893,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11904,7 +11904,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11915,7 +11915,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11926,7 +11926,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11937,7 +11937,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11948,7 +11948,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11959,7 +11959,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11970,7 +11970,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11981,7 +11981,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -11992,7 +11992,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12003,7 +12003,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12014,7 +12014,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12025,7 +12025,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12036,7 +12036,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12047,7 +12047,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12058,7 +12058,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12069,7 +12069,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12080,7 +12080,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12091,7 +12091,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12102,7 +12102,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12113,7 +12113,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12124,7 +12124,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12135,7 +12135,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12146,7 +12146,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12157,7 +12157,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12168,7 +12168,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12179,7 +12179,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12190,7 +12190,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12201,7 +12201,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12212,7 +12212,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12223,7 +12223,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12234,7 +12234,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12245,7 +12245,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12256,7 +12256,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12267,7 +12267,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12278,7 +12278,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12289,7 +12289,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12300,7 +12300,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12311,7 +12311,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12322,7 +12322,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12333,7 +12333,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12344,7 +12344,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12355,7 +12355,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12366,7 +12366,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12377,7 +12377,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12388,7 +12388,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12399,7 +12399,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12410,7 +12410,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12421,7 +12421,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12432,7 +12432,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12443,7 +12443,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12454,7 +12454,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12465,7 +12465,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12476,7 +12476,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12487,7 +12487,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12498,7 +12498,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12509,7 +12509,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12520,7 +12520,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12531,7 +12531,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12542,7 +12542,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12553,7 +12553,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12564,7 +12564,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12575,7 +12575,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12586,7 +12586,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12597,7 +12597,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12608,7 +12608,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12619,7 +12619,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12630,7 +12630,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12641,7 +12641,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12652,7 +12652,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12663,7 +12663,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12674,7 +12674,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12685,7 +12685,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12696,7 +12696,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12707,7 +12707,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12718,7 +12718,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12729,7 +12729,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12740,7 +12740,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12751,7 +12751,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12762,7 +12762,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12773,7 +12773,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12784,7 +12784,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12795,7 +12795,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12806,7 +12806,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12817,7 +12817,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12828,7 +12828,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12839,7 +12839,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12850,7 +12850,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12861,7 +12861,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12872,7 +12872,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12883,7 +12883,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12894,7 +12894,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12905,7 +12905,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12916,7 +12916,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12927,7 +12927,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12938,7 +12938,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12949,7 +12949,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12960,7 +12960,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12971,7 +12971,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12982,7 +12982,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -12993,7 +12993,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13004,7 +13004,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13015,7 +13015,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13026,7 +13026,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13037,7 +13037,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "streaming",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13048,7 +13048,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13059,7 +13059,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13070,7 +13070,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13081,7 +13081,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13092,7 +13092,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13103,7 +13103,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13114,7 +13114,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13125,7 +13125,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13136,7 +13136,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13147,7 +13147,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13158,7 +13158,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13169,7 +13169,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13180,7 +13180,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13191,7 +13191,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13202,7 +13202,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13213,7 +13213,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13224,7 +13224,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13235,7 +13235,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13246,7 +13246,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13257,7 +13257,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13268,7 +13268,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13279,7 +13279,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13290,7 +13290,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13301,7 +13301,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13312,7 +13312,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13323,7 +13323,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13334,7 +13334,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13345,7 +13345,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13356,7 +13356,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13367,7 +13367,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13378,7 +13378,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13389,7 +13389,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13400,7 +13400,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13411,7 +13411,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13422,7 +13422,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13433,7 +13433,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13444,7 +13444,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13455,7 +13455,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "adult",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13466,7 +13466,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13477,7 +13477,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13488,7 +13488,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13499,7 +13499,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   },
@@ -13510,7 +13510,7 @@ const SUPPORTED_PLATFORMS = [
     "icon": "🌐",
     "category": "popular",
     "tags": [
-      "yt-dlp 核心",
+      "智能解析内核",
       "原画直下"
     ]
   }

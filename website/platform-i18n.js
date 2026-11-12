@@ -117,7 +117,7 @@ const PLATFORM_TAG_I18N = {
   "原声专辑": ["Soundtracks", "サウンドトラック", "原聲專輯"],
   "播客音频": ["Podcast Audio", "ポッドキャスト音声", "播客音訊"],
   "MP3下载": ["MP3 Download", "MP3ダウンロード", "MP3下載"],
-  "yt-dlp 核心": ["yt-dlp Core", "yt-dlp コア", "yt-dlp 核心"],
+  "智能解析内核": ["Smart Parser Core", "スマート解析コア", "智慧剖析核心"],
 };
 
 const PLATFORM_NAME_I18N = {
