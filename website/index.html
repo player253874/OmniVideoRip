@@ -305,7 +305,7 @@
 
       /* Hero Section — Centered Showcase */
       .hero {
-        padding: 68px 0 32px;
+        padding: 40px 0 28px;
       }
 
       .hero-center {
@@ -315,53 +315,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-      }
-
-      .hero-emblem-wrap {
-        position: relative;
-        width: 76px;
-        height: 76px;
-        margin-bottom: 22px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 20px;
-        background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        box-shadow:
-          0 0 40px rgba(34, 211, 238, 0.24),
-          0 0 64px rgba(168, 85, 247, 0.2),
-          inset 0 1px 0 rgba(255, 255, 255, 0.2);
-      }
-
-      .hero-emblem {
-        width: 58px;
-        height: 58px;
-        border-radius: 14px;
-        object-fit: cover;
-      }
-
-      .hero-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 6px 14px;
-        border-radius: 999px;
-        border: 1px solid rgba(34, 211, 238, 0.28);
-        background: linear-gradient(90deg, rgba(34, 211, 238, 0.08), rgba(168, 85, 247, 0.1));
-        color: #cffafe;
-        font-size: 12.5px;
-        font-weight: 500;
-        font-family: var(--font-mono);
-        margin-bottom: 22px;
-      }
-
-      .status-dot {
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: var(--accent-emerald);
-        box-shadow: 0 0 8px var(--accent-emerald);
       }
 
       .hero-title {
@@ -1165,19 +1118,19 @@
     </header>
 
     <main>
+      <!-- Top In-Flow Ad Slot -->
+      <div class="site-ad-banner" style="padding-bottom: 0;">
+        <div class="container">
+          <div class="ad-banner-card">
+            <iframe data-aa="2453867" src="https://acceptable.a-ads.com/2453867/?size=Adaptive" title="Advertisement" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+
       <!-- Hero Section -->
       <section class="hero" id="downloads">
         <div class="container">
           <div class="hero-center">
-            <div class="hero-emblem-wrap" aria-hidden="true">
-              <img src="./assets/logo.png" alt="" class="hero-emblem" />
-            </div>
-
-            <div class="hero-pill">
-              <span class="status-dot"></span>
-              <span id="hero-pill-text">v1.5.3 稳定版 · Windows 10/11 (x64) · MIT 开源免费</span>
-            </div>
-
             <h1 class="hero-title">
               <span data-i18n="hero.h1.top">全网视频极速提取，</span>
               <span class="hero-title-accent" data-i18n="hero.h1.accent">开源免费，再无付费墙。</span>
@@ -1229,6 +1182,8 @@
             <div class="release-meta-line">
               <span><span data-i18n="hero.meta.ver">最新版本:</span> <strong id="rel-ver-tag">v1.5.3</strong></span>
               <span>•</span>
+              <span><span data-i18n="hero.meta.os">支持系统:</span> <strong>Windows 10/11 (x64)</strong></span>
+              <span>•</span>
               <span><span data-i18n="hero.meta.date">发布日期:</span> <strong id="rel-date-tag">2026-11-12</strong></span>
               <span>•</span>
               <a href="https://github.com/player253874/OmniVideoRip/releases" target="_blank" rel="noopener noreferrer" data-i18n="hero.meta.releases">查看全部发行版本 →</a>
@@ -1275,15 +1230,6 @@
           </div>
         </div>
       </section>
-
-      <!-- Top In-Flow Ad Slot -->
-      <div class="site-ad-banner">
-        <div class="container">
-          <div class="ad-banner-card">
-            <iframe data-aa="2453867" src="https://acceptable.a-ads.com/2453867/?size=Adaptive" title="Advertisement" loading="lazy"></iframe>
-          </div>
-        </div>
-      </div>
 
       <!-- Features Bento Grid -->
       <section class="section" id="features">
@@ -1426,6 +1372,15 @@
           </div>
         </div>
       </section>
+
+      <!-- Middle In-Flow Ad Slot -->
+      <div class="site-ad-banner">
+        <div class="container">
+          <div class="ad-banner-card">
+            <iframe data-aa="2453867" src="https://acceptable.a-ads.com/2453867/?size=Adaptive" title="Advertisement" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
 
       <!-- Transparent Comparison -->
       <section class="section" id="compare">
@@ -1643,8 +1598,6 @@
 
         function updateReleaseMetaUI() {
           const formattedDate = window.formatReleaseDateForLocale(SITE_CONFIG.releaseDate, currentLocale);
-          const pillEl = document.getElementById("hero-pill-text");
-          if (pillEl) pillEl.textContent = t("hero.pill", { ver: SITE_CONFIG.version });
           const verEl = document.getElementById("rel-ver-tag");
           if (verEl) verEl.textContent = `v${SITE_CONFIG.version}`;
           const dateEl = document.getElementById("rel-date-tag");
