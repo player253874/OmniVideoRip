@@ -1,5 +1,5 @@
 // Supported Platforms Directory Dataset
-// Generated automatically with 1,800+ streaming and social sites
+// Generated automatically with 1,200+ streaming and social sites
 const SUPPORTED_PLATFORMS = [
   {
     "id": "youtube",
