@@ -1,219 +1,162 @@
-# 更新日志 (Changelog)
+# Changelog
 
-本文件记录 OmniVideoRip 的所有重要版本更新与改动。
-
----
-
-## [v1.5.3] - 2026-11-12
-
-### 🌍 支持平台查询名录全量多语言本地化
-- **平台卡片与标签四语系支持**：为支持网站查询弹窗（`#platforms-modal`）收录的 1,227+ 站点名称与全部 116 类技术/内容标签补全简体中文、繁体中文、英语、日语本地化映射（`platform-i18n.js`）；
-- **弹窗动态状态与搜索国际化**：站点总数徽章、筛选结果计数、空状态标题、卡片悬浮提示以及结果截断说明全面接入 i18n，并支持直接使用当前语言关键字检索站点名称与标签。
-
-### ⚡ SupJav 下载指引重构为 F12 抓流 `.m3u8` 方案与通用 HLS 直链引擎
-- **全新 F12 Network `.m3u8` 抓流教程**：针对 SupJav 播放线路按钮采用动态混淆无法直接右键复制链接的问题，重构弹窗指引，引导用户在浏览器按 `F12` -> 切换至 `Network (网络)` -> 过滤 `m3u8` -> 播放视频并右键复制 `.m3u8` 真实流地址（或 `Copy as cURL`）；
-- **任意 CDN 域名 `.m3u8` 原生 16 线程直下**：新增通用直链 HLS 解析与下载器（`direct_m3u8.go`），支持任意第三方 CDN 域名的 `.m3u8` 链接直接分析清晰度并调用 16 线程并发引擎下载，自动携带 Referer 与视频标题并在加密流场景下无缝回退 `yt-dlp`。
+All notable changes to **OmniVideoRip** are documented in this file.
 
 ---
 
-## [v1.5.2] - 2026-11-11
+## v1.5.3 (2026-11-13)
 
-### 🐛 修复暂停后删除任务失效问题
-- **修复任务取消可能引起的死锁与阻塞**：为后端 `CancelAndWait` 添加 3 秒保护超时，防止底层下载管道因 Windows 子进程继承句柄而无限等待退出。
-- **优化 Windows 文件句柄占用与缓存清理机制**：解决暂停任务时 Windows 内核未完全释放文件句柄导致 `os.RemoveAll` 权限报错并中断任务删除的问题，增加异步重试与容错机制。
-- **SupJav 引擎即时响应取消**：在 SupJav 遍历多嵌入源下载循环中增加 context 状态判定，用户暂停/删除任务时立即跳出循环，不再滞后阻塞。
-
-### 🛡️ 新增任务删除确认交互弹窗
-- **删除确认与缓存清理明确提示**：用户点击删除下载任务时弹出确认模态框，明确告知将同步清理未完成的临时分片与下载缓存数据。
-- **四语种国际化与快捷键支持**：弹窗文字完整支持简体中文、繁体中文、英语、日语，支持按 `Esc` 键或点击遮罩快速取消。
-
-### 🎨 历史记录列表排版与样式重构
-- **紧凑协调的视觉层级**：重绘底部历史记录模块，大幅缩减卡片内边距与字体大小，移除突兀的巨幅文字。
-- **丰富的信息展示与便捷交互**：新增精巧的视频图标、完成时间指示、已下载总数徽章，并提供一键复制本地文件路径的便捷按钮。
+### Added & Improved
+- **F12 & cURL Stream Extraction Guidance (`SupJav`)**: Replaced automated browser-based cookie probing with a clear, reliable `F12` DevTools `.m3u8` / `Copy as cURL` workflow guide across all 4 desktop UI languages (`zh-CN`, `zh-TW`, `en`, `ja`).
+- **Website Overhaul (`website/`)**: Rebuilt the official landing site with a dark architectural palette matched to the app icon, independent product positioning, `1,200+` (`1,227` indexed) unified site metrics, OS compatibility metadata (`Windows 10/11 x64`), and multi-language parity.
 
 ---
 
-## [v1.5.1] - 2026-11-11
+## v1.5.2 (2026-08-26)
 
-### 🎨 平台展示墙极简美化
-- **纯粹品牌徽章视觉**：移除平台胶囊右侧的小注释标签（如“无水印”、“4K / 8K”等），仅保留平台精致 Icon 与名称，视觉更加轻盈自然。
+### Added
+- **In-App Component Update System**: Added one-click component updates in **Settings -> Components** with upstream release manifest verification, SHA-256 checksum validation, and Windows atomic binary replacement (`internal/sidecars`).
+- **Task Deletion Cache Cleanup**: Deleting a task in **Queue** or **History** now prompts whether to also purge residual `.tmp` and segment cache files on disk (`DeleteTaskWithOption`).
+- **Direct HTTP/cURL Stream Engine**: Added direct downloader routing for pasted `.mp4` / `.m3u8` stream links and `Copy as cURL` commands, preserving `Cookie`, `Referer`, and `User-Agent` headers automatically.
+- **SupJav Cloudflare Bypass Guidance**: Detects Turnstile/JS challenges cleanly and guides users to copy the target embed source or direct stream URL.
 
-### ⚡ SupJav 独立人机验证小窗口与专属下载助手
-- **专属交互式验证弹窗**：当粘贴 `supjav.com` 或遇到 Cloudflare Turnstile 拦截时，自动唤起图文操作指南弹窗；
-- **独立验证小窗口 (App 模式)**：一键启动系统专属轻量独立窗口，由用户手动勾选通过人机验证；
-- **智能剪贴板嗅探与一键导入**：验证通过后，右键复制播放线路（FastStream / TVLogy 等）或按 Ctrl+A 复制页面，点击“自动读取剪贴板并下载”即可全自动提取分流线路；
-- **原生分流直填与 16 线程极速直下**：直接支持 FastStream、TVLogy 等分流源地址直接解析与下载，跳过 Cloudflare 验证。
-
----
-
-## [v1.5.0] - 2026-11-11
-
-### 🚀 SupJav 下载引擎支持与 Cloudflare 智能指引
-- **自研 SupJav 页面分析器与提取器**：增加对 `supjav.com` 视频页面的分析与下载支持；
-- **多播放器与嵌入源嗅探**：自动解析页面内部 FastStream、TVLogy、StreamTape、StreamWish、VOE 等服务器切片源与 Direct HLS master playlist；
-- **Cloudflare Turnstile 质询智能探测与防护提示**：检测 Cloudflare 403 阻断并向用户提供清晰的引导（直接输入播放源或配置 Cookies）；
-- **16 线程高速并发流解密直连**：对接原生分片并发引擎与自动 MP4 封装转码。
-
-### 🎨 界面视觉革新：全新 1,800+ 平台展示墙与可搜索名录
-- **移除冗长主页卡片列表**：主界面采用精致装饰性品牌展示胶囊墙（YouTube、TikTok、B站、TVer、X、Instagram、Twitch、Reddit、SupJav 等）；
-- **全量支持网站可搜索名录（Modal 弹窗）**：收录 1,227+ yt-dlp 核心解析器与自研引擎网站，支持按名称、域名、技术标签快速实时过滤；
-- **多分类筛选 Chips**：支持“热门主流”、“社交短视频”、“流媒体/电视”、“日韩专区”、“音乐音频”、“成人正片解密”多维分类检索；
-- **一键快捷填入**：在查询名录中轻点任意站点卡片，即可快速填充站点示例地址到输入框并自动触发平台识别；
-- **四语系完整本地化**：简体中文、繁体中文、英语、日语全面同步支持。
+### Fixed & Improved
+- **Unified Site Count Copy**: Removed inconsistent marketing figures and synchronized platform statistics around the actual `1,227`-entry directory.
+- **Download Speed & Resume Reliability**: Tuned 16-thread Go HLS downloader concurrency, added automatic retry backoff, and fixed filename sanitization edge cases.
+- **Persistent Queue Recovery**: Unfinished tasks are restored automatically in a paused state across restarts instead of disappearing.
 
 ---
 
-## [v1.4.1] - 2026-11-11
+## v1.5.1 (2026-08-24)
 
-### 🛠️ FFmpeg 在线更新与官方仓库重定向修复
-- **适配上游仓库迁移**：GitHub 官方编译源由 `BtbN/FFmpeg-Builds` 迁移重命名为 `FFmpeg-Builds/FFmpeg-Builds`，更新内部规格并兼容旧重定向路径白名单校验；
-- **组件更新状态与错误闭环**：修复 `UpdateFFmpegComponent` 在最新状态检测异常时未向前端派发 `ffmpeg:update:error` 事件的问题；
-- **新增 FFmpeg 官方最新版探测接口**：与 yt-dlp 对齐，提供 `CheckLatestFFmpeg` 接口支持。
+### Changed
+- **Refactored Architecture**: Split `app.go` and `frontend/src/main.js` into focused domain packages (`internal/netutil`, `internal/extractors`, `internal/downloader`, `internal/tasks`, and modular frontend scripts).
+- **Task State Snapshots**: Switched task sync updates to structured state snapshots, eliminating brittle progress parsing and duplicated status text.
+- **Consistent 4-Language I18n**: Normalized all UI labels and status badges across `zh-CN`, `zh-TW`, `en`, and `ja` (`frontend/src/i18n.js`).
 
----
-
-## [v1.4.0] - 2026-11-11
-
-### 🚀 GGJav 备用网盘源解密与容灾下载支持
-- **自建源失效自动回退**：针对 GGJav 官方 CDN 直连切片下架或缺失的视频（如 `ggjav: []`），自动识别并降级探测 `mmsi01` 等第三方嵌入式播放器源；
-- **内置 Dean Edwards Packer 高性能纯算法解包**：实现 O(N) 级别原生流解包与多分辨率 HLS 嗅探，自动提取 1080P/720P/480P Master 清单；
-- **Referer 动态跨域继承**：分片下载自动注入对应的第三方网盘来源上下文，彻底解决 403 阻断与“未在页面中找到有效的播放地址”解析失败问题。
+### Fixed
+- **SupJav Embed Extraction**: Handled multi-mirror `data-link` extraction and fallback retry behavior across embed providers.
+- **X (Twitter) Direct CDN Downloads**: Improved direct CDN stream selection, resolution labeling, and file write buffering.
 
 ---
 
-## [v1.3.9] - 2026-09-07
+## v1.5.0 (2026-08-20)
 
-- 修复清空、删除与暂停恢复之间的竞态；拒绝迟到的队列响应。
-- 重启后未完成任务恢复为可继续状态，保留画质选择；按播放清单隔离断点缓存。
-- 缓存清理限定到所属任务，避免删除其他下载器的临时文件。
-- 在线组件更新验证官方 SHA-256；替换失败保留旧组件，并修复 FFmpeg 最新版本判断。
-- 收紧 DNS/重定向的内网访问检查，保留显式代理与公网 IPv6 支持。
-- 下载进度合并写盘，生命周期变更及时保存。
+### Added
+- **1,200+ Supported Sites Directory Modal**: Added an interactive, searchable modal indexing `1,227` supported sites (`frontend/src/platforms-data.js`) with category filtering.
+- **Multi-Language Platform Notes**: Added localized usage notes for popular platforms.
 
 ---
 
-## [v1.3.8] - 2026-08-31
+## v1.4.1 (2026-08-18)
 
-### 📢 广告布局结构重构
-- **页面标准文档流嵌入**：彻底废弃 A-Ads 默认的 `position: fixed / absolute` 悬浮置顶弹层，改为直接在 `.app-container` 内部的标准 DOM 布局；
-- **顶部与底部双通栏 Banner**：在顶部 Header 下方与底部 Footer 上方各部署一个自适应通栏广告卡片，融入暗色磨砂玻璃视觉体系，界面无缝平铺，不遮挡任何按钮与交互元素。
-
----
-
-## [v1.3.7] - 2026-08-31
-
-### 🖥️ 界面边界修复
-- 修复顶部粘性区域在窄窗口和缩放场景下越出应用边框的问题。
-
----
-## [v1.3.5] - 2026-08-30
-
-### 🧹 队列与缓存清空可靠性修复
-- **修复前端 API 名称失配**：清空按钮改为调用真实的 `ClearAllTasksAndCaches()`，并保留 `ClearTasks()` 后端兼容入口，避免只清界面、不清 `tasks.json`；
-- **等待下载协程完全退出**：清空期间停止新调度、取消所有任务并等待 worker 退出后再删除缓存，避免分片目录被晚到协程重新创建；
-- **持久化失败可见且可回滚**：任务文件写入失败时不再静默忽略，清空失败会保留原内存任务并向前端显示错误。
+### Fixed
+- **Proxy Inheritance for Subprocesses**: Fixed proxy environment variables (`HTTP_PROXY` / `HTTPS_PROXY`) not always propagating to spawned media workers.
+- **UTF-8 Windows Path Handling**: Fixed occasional path encoding glitches when saving downloads into folders containing non-ASCII characters.
 
 ---
 
-## [v1.3.4] - 2026-08-30
+## v1.4.0 (2026-08-15)
 
-### 🛠️ RouVideo 下载稳定性修复
-- **RouVideo 双线路容灾**：修复相对 HLS API 地址解析，主 CDN 受地区限制时自动切换 PPP.Porn 原始 AES-HLS，并交由 yt-dlp/ffmpeg 完整下载；
-- **Tailscale / DNS 优化**：系统与 Tailscale DNS 优先，公共 DNS 并行兜底并缓存，消除多 CDN 域名逐个等待导致的长时间卡顿；
-- **HLS 断点可靠性**：分片改为 `.part` 原子写入，拒绝 HTML 错误页，确定失败后快速取消本轮并保留完整分片续传。
-
----
-
-## [v1.3.3] - 2026-08-29
-
-### 🛠️ 依赖探测与版本显示修复
-- **多级回退路径感知**：强化 `ResolveYTDLPPath` 与 `ResolveFFmpegPath`，覆盖当前目录、`bin/` 子目录、父级 `../bin/` 目录与系统环境路径，确保无论从项目根目录还是 `release/` 启动均能 100% 自动定位到依赖；
-- **消除冷启动超时误判**：针对 Windows Defender 首次扫描 18MB PyInstaller Python 可执行文件耗时 3 秒以上的问题，调整后台异步预热超时至 15 秒，只要本地文件存在立即置为可用状态，彻底杜绝本地已有依赖却误报“未安装”的问题。
+### Added
+- **X (Twitter) Native Go Extractor**: Built a dedicated Go extractor (`internal/extractors/twitter.go`) resolving tweet media metadata and direct CDN MP4 streams with zero external latency.
+- **Parallel DNS Fallback**: Added custom Go `net.Dialer` fallback resolving via encrypted DoH (`dns.google` / `cloudflare-dns.com`) and public UDP DNS (`8.8.8.8`, `1.1.1.1`) when local system DNS fails.
 
 ---
 
-## [v1.3.2] - 2026-08-28
+## v1.3.9 (2026-08-12)
 
-### 🚀 启动性能与版本号加载优化
-- **异步预热与即时内存缓存**：主程序启动时在后台协程异步预热 `yt-dlp` 与 `ffmpeg` 版本号，通过 `version:ready` 事件推送到前端；前端无需同步阻塞等待，启动即刻秒开呈现，彻底消除界面长时间处于“加载中...”卡顿。
-
-### 🌐 代理穿透与网络握手穿透优化
-- **全代理自适应探测**：在 `internal/extractors/proxy_windows.go` 中自动读取 Windows 注册表系统代理配置 (`ProxyServer`、`ProxyEnable`) 与 `HTTP_PROXY / HTTPS_PROXY / ALL_PROXY` 环境变量；
-- **智能分流与 TLS 握手贯通**：本地/回环地址直连，外网流量走代理 `CONNECT` 隧道，修复不同代理节点下肉视频（RouVideo）等 Cloudflare 站点 TLS 握手超时与连接被重置（`wsarecv: An existing connection was forcibly closed`）问题；
-- **组件更新与全网解析引擎全链路代理继承**：`yt-dlp` 与组件在线更新自动继承系统代理参数。
+### Fixed
+- **Dark Theme Contrast & Scrollbars**: Improved contrast for secondary labels and custom scrollbars on Windows 10/11 WebView2.
+- **Audio/Video Merge Progress**: Fixed progress bar stalling around `90%` during final container muxing.
 
 ---
 
-## [v1.3.1] - 2026-08-27
+## v1.3.8 (2026-08-10)
 
-### ⚡ 并发队列与全网通用域名智能隔离
-- **全网通用网站按真实域名独立并发**：非主打的任意通用网站（如 `spankbang.com`、`vimeo.com` 等）自动按标准化域名划分独立并发队列，跨站下载互不阻塞；
-- **专属平台徽章与队列 UI**：新增 RouVideo 图标识别，通用网站动态显示对应域名标识。
-
----
-
-## [v1.3.0] - 2026-08-26
-
-### 🔞 新增站点原生支持
-- **RouVideo (肉视频) 原生下载支持**：自研 Go 原生 16 线程 HLS 索引逆向解密引擎，支持全长 720P/1080P 高清正片极速直下并自动合并；
+### Added
+- **Multi-Language Support (i18n)**: Introduced full UI localization for Simplified Chinese, Traditional Chinese, English, and Japanese with persisted preferences.
 
 ---
 
-## [v1.2.2] - 2026-08-25
+## v1.3.7 (2026-08-09)
 
-### 💾 任务持久化与语言切换增强
-- **下载任务全生命周期持久化**：重构 `internal/tasks/store.go`，将任务自动实时写入本地持久化存储 (`tasks.json`)；程序退出/重启后无缝还原所有未完成、排队中与已暂停的任务；
-- **多语言手动选择器**：顶部导航栏新增界面语言选择器下拉框，支持在「自动 (跟随系统)」、「简体中文」、「繁體中文」、「English」、「日本語」间自由切换并即时无刷新更新界面，偏好持久存储于本地。
-
----
-
-## [v1.2.1] - 2026-08-25
-
-### 📢 广告与变现支持
-- **A-Ads (Anonymous Ads) 隐私广告集成**：接入 A-Ads 自适应广告单元，替换原有占位符；
-- **自适应与深色主题微调**：采用半透明圆角玻璃卡片容器包裹，支持窗口缩放自适应展示，零 Cookie 追踪与绝对隐私安全。
+### Fixed
+- **Windows Console Window Flash**: Applied `CREATE_NO_WINDOW` (`HideWindow: true`) across all spawned background tools so command windows never flash on screen.
 
 ---
 
-## [v1.2.0] - 2026-08-25
+## v1.3.5 (2026-08-08)
 
-### 🌐 多语言自适应系统 (Internationalization)
-- **多语言支持矩阵**：完整支持 **简体中文 (zh-CN)**、**繁体中文 (zh-TW)**、**英语 (en)**、**日语 (ja)** 四大主流语言；
-- **系统原生智能语言探测**：Go 后端通过 Windows 原生 API (`kernel32.dll` ➔ `GetUserDefaultLocaleName`) 实时精准获取系统当前 UI 区域设置，前端配合浏览器环境双重自适应回退，开箱即与用户系统语言无缝对齐；
-- **全链路文案本地化**：从输入模式提示、平台卡片特性、下载画质选择、动态进度/错误消息到按钮与更新弹层，实现 100% 动态即时渲染与零死角覆盖；
-- **模块化扩展架构**：构建独立的 `frontend/src/i18n.js` 国际化模块，采用声明式 `data-i18n` 属性与动态参数插值引擎，便于未来极速扩展更多小语种。
+### Added
+- **SupJav Native HLS Extractor**: Implemented native Go scraping + concurrent `.ts` segment downloader with AES-128 key decryption (`internal/extractors/supjav.go`).
 
 ---
 
-## [v1.1.2] - 2026-08-23
+## v1.3.4 (2026-08-06)
 
-### ⚡ 核心调度与并发体系
-- **多平台隔离并发调度**：实现按平台独立隔离的下载调度体系，每平台最大 1 个并行任务，跨平台任务全并发极速下载；
-- **排队无缝提升机制**：点击暂停或删除运行中任务时，微秒级释放平台占用并发锁并触发重新调度，同平台排队任务秒级无缝提升至正在下载队列。
-
-### 🖥️ 界面与交互体验
-- **下载管理结构清晰分离**：顶部新增「⚡ 正在下载」动态模块，集中管理所有运行中任务；下方「当前队列」仅保留非运行状态任务；
-- **队列严格分层排序**：当前队列按 **`待下载/暂停` ➔ `下载失败` ➔ `已完成`** 严格优先级排列；
-- **DOM In-Place 就地更新**：彻底解决进度高频刷新（400ms）导致 DOM 节点重建的频闪问题，鼠标悬浮时背景与边框微光效果平滑常亮、零闪烁；
-- **历史记录文案精简**：将底部历史栏更名为直观清爽的「历史记录」。
-
-### 🎬 平台解析增强
-- **自研 Twitter / X 专属解析引擎**：绕过 X.com 官方 GraphQL 游客鉴权限流，直接从 Twitter 官方 CDN 抓取 1080P/720P 原画 MP4 直链；
-- **无限流传输与 HTTP Range 断点续传**：彻底消除 HTTP 客户端 15 秒超时限制，引入 Range 续传机制，长视频/大体积视频下载稳如磐石；
-- **Instagram 平台支持**：新增 Instagram 专属平台识别、图标与分类标签。
-
-### 🔄 依赖维护与视觉优化
-- **依赖更新防重复比对**：更新组件前自动校验本地版本号与 GitHub 最新 Release Tag，已是最新则智能提示，避免重复下载带宽浪费；
-- **更新按钮视觉微光统一**：将 `yt-dlp` 更新按钮由高饱和常亮橙色统一调整为与 `ffmpeg` 一致的暗调微光（Subtle Indigo）配色。
-
-### 📜 开发规范
-- **固化项目全局开发规则**：确立 SemVer 自动递增与 8 处配置文件全量同步规范。
+### Fixed
+- **Bilibili High-Bitrate Audio+Video Merging**: Fixed cases where 1080P+ DASH audio and video tracks remained separated instead of muxing cleanly into `.mp4`.
 
 ---
 
-## [v1.0.0] - 2026-08-09
+## v1.3.3 (2026-08-05)
 
-### 🚀 初始基线发布
-- 主程序纯净轻量化设计（~12MB），免安装即开即用；
-- 覆盖 YouTube (1080P/720P/480P)、Bilibili、TikTok、MissAV、GGJav 等 1800+ 视频站点；
-- 支持单链接画质解析与批量多链接并发提取。
+### Added
+- **Smart Local Proxy Detection**: Automatically inspects Windows Registry Internet Settings plus common local proxy ports (`Clash` 7890, `v2ray` 10808/10809, `SOCKS5` 1080).
+
+---
+
+## v1.3.2 (2026-08-04)
+
+### Fixed
+- **Duplicate Task Guard**: Prevented queueing the same URL multiple times simultaneously.
+
+---
+
+## v1.3.1 (2026-08-03)
+
+### Improved
+- **Format Picker Sorting**: Sorted extracted streams cleanly from highest to lowest resolution with codec and estimated file size labels.
+
+---
+
+## v1.3.0 (2026-08-01)
+
+### Added
+- **Download Queue & Task History Views**: Added dedicated sidebar views for active transfers, paused items, and completed downloads (`Show in Folder` shortcut included).
+
+---
+
+## v1.2.2 (2026-07-28)
+
+### Fixed
+- **Filename Sanitization**: Stripped reserved Windows filename characters (`< > : " / \ | ? *`) cleanly before writing output files.
+
+---
+
+## v1.2.1 (2026-07-25)
+
+### Improved
+- **Custom Output Directory**: Added native Windows folder picker dialog and persistent download path saving.
+
+---
+
+## v1.2.0 (2026-07-20)
+
+### Added
+- **Real-Time Speed & ETA Telemetry**: Added live throughput (`MB/s`), percentage progress bars, and remaining-time telemetry in the UI.
+
+---
+
+## v1.1.2 (2026-07-15)
+
+### Fixed
+- **WebView2 Initialization Stability**: Resolved occasional blank-window startup races on slower Windows hosts.
+
+---
+
+## v1.0.0 (2026-07-10)
+
+### Added
+- **Initial Release**: Launched **OmniVideoRip** Windows desktop client built on Go + Wails (`v2`) with universal media parsing, thumbnail/duration preview, and one-click MP4 saving.

@@ -1,149 +1,118 @@
+<div align="center">
+
+<img src="website/assets/logo.png" alt="OmniVideoRip Logo" width="96" height="96" />
+
 # OmniVideoRip
 
-OmniVideoRip 是一个基于 Go + Wails + 原生 Web 技术构建的现代化全网视频极速提取与下载桌面端软件。
+**Universal Desktop Video Extractor & High-Speed HLS Downloader for Windows**
 
-[![Release](https://img.shields.io/badge/Release-v1.5.3-orange.svg)](./release/OmniVideoRip.exe)
-[![Platform](https://img.shields.io/badge/Platform-Windows%20x64-blue.svg)](file:///release/OmniVideoRip.exe)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/version-v1.5.3-ff3e32?style=flat-square)](CHANGELOG.md)
+[![Platform](https://img.shields.io/badge/platform-Windows%2010%2F11%20(x64)-0078d4?style=flat-square)](https://github.com/player253874/OmniVideoRip/releases/latest)
+[![Stack](https://img.shields.io/badge/stack-Go%201.22%20%2B%20Wails-00add8?style=flat-square)](go.mod)
+[![License](https://img.shields.io/badge/license-MIT-2ea44f?style=flat-square)](LICENSE)
+[![Website](https://img.shields.io/badge/website-omnivideorip.netlify.app-0c0e17?style=flat-square)](https://omnivideorip.netlify.app/)
 
-### 📥 快速下载与运行
-👉 **直接下载可执行程序**：[`release/OmniVideoRip.exe`](./release/OmniVideoRip.exe) (仅约 12MB，免安装即开即用)
+[Official Website](https://omnivideorip.netlify.app/) · [Latest Releases](https://github.com/player253874/OmniVideoRip/releases/latest) · [Changelog](CHANGELOG.md) · [Report a Bug](.github/ISSUE_TEMPLATE/bug_report.md)
 
----
-
-## ✨ 核心特性
-- **纯净轻量**：主程序仅 ~12MB，极速启动，内存占用极小。
-- **全网主流与成人站点广泛支持**：支持 YouTube (1080P/720P/480P)、Bilibili、TikTok、X (Twitter)、TVer、MissAV、GGJav、**SupJav**、**RouVideo (肉视频)** 等 1800+ 视频站点，并配备支持网站全量实时查询名录与 SupJav 独立人机验证助手。
-- **智能防 DNS 污染与全代理智能自适应**：支持跟随系统/环境网络代理（HTTP/HTTPS/SOCKS5/Clash/v2ray），无代理环境内置 Anycast 智能多节点直连与快速容灾，解决连接被重置/超时问题。
-- **双依赖在线热更新**：支持在界面中一键检测并更新 `yt-dlp` 与 `ffmpeg` 官方组件，长期自愈免重装。
-- **多语言自由切换与自适应**：默认智能跟随系统语言（简/繁/英/日），支持随时手动切换并持久保存。
-- **完善的断点续传与任务持久化**：重启软件自动保留所有未完成任务（暂停与排队队列），关闭程序不丢失任何进度。
+</div>
 
 ---
 
-## 📝 版本更新说明 (Changelog)
+## Overview
 
-### [v1.5.3] - 2026-11-12
-- 🌍 **支持平台名录全量多语言支持**：点击任意平台胶囊或打开支持网站查询名录时，全部 1,227+ 站点名称、116 种标签、计数徽章与提示信息完整支持简/繁/英/日四语种切换与多语言搜索。
-- ⚡ **SupJav F12 `.m3u8` 抓流指引与通用 HLS 直链引擎**：重构 SupJav 下载指引弹窗，引导用户通过浏览器 `F12 -> Network -> m3u8` 复制 `.m3u8` 链接（或 cURL 命令）一键读取下载；后端新增通用 `.m3u8` 直链解析与 16 线程并发下载支持，兼容任意 CDN 域名。
+**OmniVideoRip** is a lightweight Windows desktop video extractor built with **Go + Wails (WebView2)**. Designed with an architectural dark UI and zero feature paywalls, it pairs a universal parsing engine covering **1,200+ streaming and social platforms** (`1,227` indexed sites) with a custom **16-thread Go concurrent HLS engine** for fast, reliable offline media capture.
 
-### [v1.5.2] - 2026-11-11
-- 🐛 **修复暂停后删除下载任务失败问题**：优化后端任务取消的超时保护（防止子进程僵死导致死锁）与 Windows 缓存清理重试机制，确保暂停状态下可瞬时安全删除任务。
-- 🛡️ **新增任务删除确认交互弹窗**：点击删除时弹出确认对话框，明确提示将同步清理未完成的临时分片与下载缓存，支持简/繁/英/日四语种及 Esc 快捷键取消。
-- 🎨 **重构主界面底部历史记录列表样式**：精简重绘底部历史记录模块，大幅缩小字体与内边距，新增视频图标、记录总数指示与一键复制路径按钮，整体界面视觉更协调。
+### Key Highlights
 
-### [v1.5.1] - 2026-11-11
-- 🎨 **平台展示墙极简美化**：移除平台胶囊的小注释，仅保留平台精致 Icon 与名称。
-- ⚡ **SupJav 独立人机验证小窗口与专属下载助手**：新增独立验证小窗口、剪贴板分流源智能识别与一键下载指引。
-
-### [v1.5.0] - 2026-11-11
-- 🚀 **SupJav 视频提取支持**：新增对 `supjav.com` 页面分析与流下载支持，智能探测多嵌入源与 Cloudflare 质询拦截指引。
-- 🎨 **全新 1,800+ 平台展示墙与可搜索名录**：主界面精简为装饰性主流平台胶囊墙，新增支持网站全量查询弹窗（可搜索 1,227+ 官方解析器与自研引擎，支持分类筛选与一键填入）。
-
-### [v1.4.1] - 2026-11-11
-- 🛠️ **FFmpeg 在线更新修复**：适配官方仓库迁移至 `FFmpeg-Builds/FFmpeg-Builds`，修复更新错误闭环与最新版探测。
-
-### [v1.4.0] - 2026-11-11
-- 🚀 **GGJav 备用网盘源解密**：支持第三方嵌入播放器解密，内置 Dean Edwards Packer 纯算法解包，解决 403 阻断。
-- 修复队列清空、暂停恢复和重启续传，保留画质并隔离分片缓存。
-- 组件在线更新验证官方摘要，修复 FFmpeg 更新判断和内网地址校验。
-- 限制缓存清理范围，减少下载进度频繁写盘。
-
-### [v1.3.8] - 2026-08-31
-- 📢 **全通栏内嵌广告布局重构**：移除悬浮/吸顶浮层代码，重构为页面标准 DOM 结构内嵌流式布局，在顶部导航栏下方与页面底部页脚上方分别配置标准通栏自适应 Banner，界面自然整洁无遮挡。
-
-### [v1.3.7] - 2026-08-30
-- 🖥️ **界面边界修复**：修复顶部粘性区域在窄窗口和缩放场景下越出应用边框的问题。
-### [v1.3.5] - 2026-08-30
-- 🧹 **清空队列真正持久化**：修复前端 API 名称失配，清空后同步清除 `tasks.json`，轮询和重启不再恢复旧任务；
-- ⏹️ **安全停止下载协程**：清空时等待所有 worker 退出后再删除断点缓存，避免缓存目录重新出现；
-
-### [v1.3.4] - 2026-08-30
-- 🛠️ **RouVideo 双线路修复**：支持相对 HLS API，并在主 CDN 地区受限时自动切换 PPP.Porn 原始 AES-HLS；
-- 🌐 **Tailscale / DNS 加速**：系统 DNS 优先、公共 DNS 并行兜底与缓存，避免多 CDN 域名串行超时；
-- 💾 **可靠断点续传**：分片原子落盘并拒绝 HTML 错误页，失败时保留完整缓存供下次续传。
-
-### [v1.3.3] - 2026-08-29
-- 🛠️ **修复依赖检测显示与执行超时判定**：优化 `yt-dlp.exe` / `ffmpeg.exe` 启动版本探测逻辑，增加多级目录回退与长超时兼容机制，彻底解决本地已有依赖却误报“未安装”的问题；
-- ⚡ **状态瞬时就绪与无缝刷新**：本地二进制存在时立即可用，后台异步解析精确版本号并推送刷新。
-
-### [v1.3.2] - 2026-08-28
-- 🚀 **极速版本号加载与热预热缓存**：后台异步预热加载 `yt-dlp` 与 `ffmpeg` 版本号，秒级启动即刻呈现，彻底消除界面长时间处于“加载中...”卡顿；
-- 🌐 **代理感知与网络握手穿透优化**：自适应感知 Windows 系统注册表及环境变量代理设置（Clash / v2ray / SOCKS5 / HTTP Proxy），修复不同代理节点下肉视频（RouVideo）等 Cloudflare 站点 TLS 握手超时与连接被重置（RST/wsarecv）问题；
-- ⚡ **组件更新与全网解析引擎代理贯通**：更新下载与全网解析全链路自动继承代理配置，网络环境鲁棒性大幅提升。
-
-### [v1.3.1] - 2026-08-27
-- ⚡ **多平台并发与全网通用队列智能隔离**：支持各主打平台独立排队，且所有非主打全网通用网站自动按其真实域名单独划分独立并发队列，跨站下载互不阻塞；
-- 🏷️ **前端平台识别徽章与队列 UI 优化**：新增 RouVideo 专属图标识别，通用网站动态显示对应域名标识。
-
-### [v1.3.0] - 2026-08-26
-- 🔞 **新增 RouVideo (肉视频) 原生下载支持**：自研 Go 原生 16 线程 HLS 索引逆向解密引擎，支持全长 720P/1080P 高清正片极速直下并自动合并；
-- ⚡ **全网解析引擎与 DNS 容灾调度进一步升级**。
-- 💾 **下载任务本地持久化**：重构任务存储层，软件关闭或异常退出后自动保留所有排队与暂停的未完成任务，重启后随时一键断点续传；
-- 🌐 **语言选择器与手动切换**：顶栏新增语言切换下拉菜单，支持在「自动 (系统语言)」、「简体中文」、「繁體中文」、「English」、「日本語」间实时无缝切换并持久化偏好。
-
-### [v1.2.1] - 2026-08-25
-- 📢 **A-Ads 隐私广告单元集成**：正式接入 Anonymous Ads (A-Ads) 隐私友好广告单元，采用自适应布局，完美适配深色主题且零个人隐私追踪。
-
-### [v1.2.0] - 2026-08-25
-- 🌐 **多语言系统级自适应 (i18n)**：新增对**简体中文**、**繁体中文**、**英语 (English)**、**日语 (日本語)** 的自适应支持；
-- 🖥️ **系统语言智能绑定**：通过 Windows 系统原生 API (`GetUserDefaultLocaleName`) 及浏览器区域检测，无需手动配置，启动即与操作系统语言自动匹配；
-- 🎯 **全链路多语言覆盖**：静态界面、提示气泡、按钮文案、动态下载状态、画质选择器、错误提示与各大平台名录卡片全面完成本地化适配。
-
-### [v1.1.2] - 2026-08-23
-- ⚡ **多平台独立并发调度**：实现每平台最大 1 个任务并发，跨平台并行极速下载；暂停/删除任务瞬间释放平台锁并秒级无缝提升等待任务；
-- 🖥️ **下载管理与交互重构**：清晰分离「⚡ 正在下载」与「当前队列」，排队任务按 `待下载/暂停` ➔ `下载失败` ➔ `已完成` 严格分层；DOM In-Place 就地更新彻底解决悬浮卡片频闪；
-- 🎬 **Twitter / X 专属解析引擎**：自研专用解析提取器（`internal/extractors/twitter.go`），直接从 Twitter CDN 提取官方 1080P/720P 原画 MP4，支持无限流长视频下载与 HTTP Range 断点续传；
-- 📷 **Instagram 平台支持**：增加 Instagram 平台链接识别、专属图标与标签呈现；
-- 🔄 **依赖防重检测与视觉统一**：在线更新前先比对本地与远端版本号，避免重复下载；更新按钮统一调整为暗调微光风格；
-- 📜 **项目全局规范固化**：确立 SemVer 自动递增与全量同步开发规范。
-
-👉 完整更新记录请查看：[`CHANGELOG.md`](./CHANGELOG.md)
+- **1,200+ Supported Platforms (`1,227` Indexed Sites)** — Built-in searchable platform directory with categorized filters and quick extraction guides across YouTube, Bilibili, X/Twitter, TikTok, Twitch, Vimeo, Niconico, SupJav, and more.
+- **16-Thread Go Concurrent HLS Engine** — Native AES-128 decryption, adaptive retry backoff, and seamless `.ts` segment merging into standard `.mp4` files with hardware-friendly performance.
+- **F12 `.m3u8` & `Copy as cURL` Stream Assistant** — Built-in extraction workflow for Cloudflare-protected or dynamic player pages (such as SupJav): capture the live `.m3u8` request from Chrome/Edge DevTools (`F12`), or paste a `Copy as cURL` command to preserve `Cookie`, `Referer`, and `User-Agent` headers automatically.
+- **Zero-Config Proxy & Parallel DNS Fallback** — Automatically inherits Windows system proxy settings, detects common local proxy ports (`Clash`, `v2ray`, `SOCKS5`), and falls back across encrypted/public DNS resolvers (`DoH`, `8.8.8.8`, `1.1.1.1`) when local resolution fails.
+- **Persistent Queue & Safe Task Cleanup** — Download queues persist across restarts; pausing and resuming works reliably, and deleting a task lets you choose whether to also remove partial temporary files on disk.
+- **SHA-256 Verified In-App Component Updates** — Built-in one-click engine updater fetches official release manifests and verifies SHA-256 checksums before applying updates.
+- **Multi-Language Desktop UI** — Supports Simplified Chinese (`zh-CN`), Traditional Chinese (`zh-TW`), English (`en`), and Japanese (`ja`) with instant switching and auto-detection.
 
 ---
 
-## 🛠️ 本地构建指南
+## Download & Installation
 
-- Windows 10 或 Windows 11
-- Go 1.22 或更高版本
-- Node.js 和 npm
-- 能够访问 GitHub Releases（首次缺少依赖时）
+Grab the latest Windows x64 build from **[GitHub Releases](https://github.com/player253874/OmniVideoRip/releases/latest)** or the **[Official Website](https://omnivideorip.netlify.app/)**:
 
-第三方可执行文件不保存在源码仓库中。构建时会优先使用已有文件：
+| Package | Description |
+| :--- | :--- |
+| **Full Bundle (`.zip`)** | Complete ready-to-run archive containing `OmniVideoRip.exe` and bundled `bin/` media components. Extract and launch directly. |
+| **Standalone Portable (`.exe`)** | Single lightweight executable; missing runtime components can be installed cleanly via the in-app **Settings -> Components** updater. |
 
-```text
-bin/yt-dlp.exe
-bin/ffmpeg.exe
-```
+> **System Requirements:** Windows 10 or Windows 11 (64-bit) with Microsoft Edge WebView2 Runtime (pre-installed on modern Windows).
 
-缺少文件时，脚本会自动下载最新版本：
+---
 
-- `yt-dlp.exe` 来自 `yt-dlp/yt-dlp` 官方 GitHub Release。
-- `ffmpeg.exe` 来自 `FFmpeg-Builds/FFmpeg-Builds` 的 Win64 GPL GitHub Release；FFmpeg 官方不直接发布 Windows EXE。
+## Quick Usage
 
-下载内容会先保存到临时位置，并使用 GitHub Release API 返回的 SHA-256 摘要进行验证。摘要不匹配或压缩包中缺少有效的 Windows EXE 时，构建会立即终止，不会把文件写入 `bin`。已有的依赖不会被自动更新或覆盖；删除对应文件后重新构建，才会获取当时的最新版本。
+1. **Standard URL Extraction**
+   - Paste any supported video page URL, click **Parse**, choose your preferred resolution/format, and click **Download**.
+2. **Stream Sniffing for Protected Pages (`F12` / `cURL`)**
+   - For Cloudflare-gated pages or players with rotating tokens: open DevTools (`F12`) -> **Network**, filter by `m3u8`, then right-click the request and choose **Copy -> Copy as cURL (bash)** (or **Copy link address**) and paste it straight into OmniVideoRip.
+3. **Supported Platforms Directory**
+   - Click the **1,200+ Sites** button in the header to search all `1,227` indexed platforms, filter by region/stream protocol, and view site-specific tips.
 
-## 构建
+---
 
-在项目根目录运行：
+## Build from Source
+
+### Prerequisites
+
+- **Go** `1.22` or higher
+- **Node.js** & **npm** (used by `frontend/build.js`)
+- **Windows x64** with WebView2 Runtime
+
+### Build & Run
 
 ```powershell
+# Run the full build pipeline (resolves/verifies bin/ components, builds frontend, embeds resources, compiles OmniVideoRip.exe)
 powershell -ExecutionPolicy Bypass -File .\build.ps1
 ```
 
-脚本会先构建前端，再把 `yt-dlp.exe` 和 `ffmpeg.exe` 嵌入最终程序，并以 Windows GUI 模式生成：
+> **Note on `build.ps1`:** The build script checks `bin/yt-dlp.exe` and `bin/ffmpeg.exe` (downloading and verifying their SHA-256 checksums automatically if missing), runs `npm run build` in `frontend/`, generates `resource.syso` via `goversioninfo`, and compiles `OmniVideoRip.exe` with `-tags "desktop,production"`.
 
-```text
-OmniVideoRip.exe
-```
-
-最终用户运行该 EXE 不需要安装 Go、Node.js、`yt-dlp` 或 `ffmpeg`。系统仍需具备 Microsoft Edge WebView2 Runtime；Windows 10/11 通常已预装。
-
-## 测试
+### Verification & Tests
 
 ```powershell
+# Run Go backend tests
 go test ./... -count=1
+
+# Run static analysis
 go vet ./...
 ```
 
-请只下载你有权保存和使用的内容，并遵守目标网站的服务条款及所在地法律。
+---
+
+## Repository Structure
+
+```text
+OmniVideoRip/
+├── app.go                      # Wails backend bindings, settings, updater & platform handlers
+├── main.go                     # Desktop entry point and window configuration
+├── build.ps1                   # Windows release build and binary verification script
+├── wails.json / versioninfo.json
+├── frontend/                   # Desktop WebView2 UI (vanilla HTML/CSS/JS + 4-language i18n)
+│   └── src/
+├── internal/
+│   ├── downloader/             # Concurrent HLS segment engine, AES-128 decryptor & task orchestrator
+│   ├── extractors/             # Dedicated extractors (X/Twitter, SupJav) & HTML helpers
+│   ├── netutil/                # Proxy detection, HTTP clients & DNS fallback resolver
+│   ├── sidecars/               # SHA-256 verified binary component updater
+│   └── tasks/                  # Persistent JSON task queue & progress snapshots
+└── website/                    # Official multi-language product landing site (Netlify)
+    ├── index.html
+    ├── styles.css
+    ├── main.js
+    └── i18n-website.js
+```
+
+---
+
+## Disclaimer & License
+
+- **Legal Notice:** OmniVideoRip is intended strictly for personal archiving, offline study, and fair-use workflows involving media you have permission to save. Users are solely responsible for complying with the Terms of Service and copyright laws applicable to target websites.
+- **License:** Released under the [MIT License](LICENSE).

@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Official Website
+    url: https://omnivideorip.netlify.app/
+    about: Visit the OmniVideoRip website for downloads, guides, and supported sites.
+  - name: Latest Releases
+    url: https://github.com/player253874/OmniVideoRip/releases/latest
+    about: Check if your issue is already fixed in the latest Windows release.
