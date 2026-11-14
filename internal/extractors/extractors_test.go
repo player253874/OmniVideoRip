@@ -221,3 +221,44 @@ func TestResumeDirKeysMatchNewExtractors(t *testing.T) {
 		}
 	}
 }
+
+func TestGetTaskResumeDirNotInOutputDir(t *testing.T) {
+	outDir := filepath.Join(t.TempDir(), "UserDownloads")
+	resumePath := GetTaskResumeDir(outDir, "youtube", "https://www.youtube.com/watch?v=MJ443eAUlPs")
+	rel, err := filepath.Rel(outDir, resumePath)
+	if err == nil && !strings.HasPrefix(rel, "..") {
+		t.Fatalf("resume dir %q should not be created inside user download folder %q", resumePath, outDir)
+	}
+}
+
+func TestMoveFileAndLegacyCleanup(t *testing.T) {
+	srcDir := t.TempDir()
+	dstDir := t.TempDir()
+	src := filepath.Join(srcDir, "video.downloading")
+	dst := filepath.Join(dstDir, "final.mp4")
+
+	if err := os.WriteFile(src, []byte("mp4-payload"), 0600); err != nil {
+		t.Fatal(err)
+	}
+	if err := moveFile(src, dst); err != nil {
+		t.Fatalf("moveFile failed: %v", err)
+	}
+	if _, err := os.Stat(src); !os.IsNotExist(err) {
+		t.Fatalf("source temp file %q still exists after move", src)
+	}
+	got, err := os.ReadFile(dst)
+	if err != nil || string(got) != "mp4-payload" {
+		t.Fatalf("destination file mismatch: got %q, err=%v", string(got), err)
+	}
+
+	legacy := legacyResumeDir(dstDir, "youtube", "https://www.youtube.com/watch?v=abc")
+	if err := os.MkdirAll(legacy, 0755); err != nil {
+		t.Fatal(err)
+	}
+	if err := CleanupTaskResumeCache(dstDir, "youtube", "https://www.youtube.com/watch?v=abc"); err != nil {
+		t.Fatalf("CleanupTaskResumeCache failed: %v", err)
+	}
+	if _, err := os.Stat(legacy); !os.IsNotExist(err) {
+		t.Fatalf("legacy resume dir %q was not cleaned up", legacy)
+	}
+}

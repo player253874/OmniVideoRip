@@ -8,6 +8,7 @@ import (
 	"net/url"
 	"os"
 	"path/filepath"
+	"sort"
 	"strings"
 	"sync"
 	"time"
@@ -176,6 +177,12 @@ func (s *Store) List() []Task {
 	for _, task := range s.tasks {
 		tasksList = append(tasksList, task)
 	}
+	sort.Slice(tasksList, func(i, j int) bool {
+		if tasksList[i].CreatedAt != tasksList[j].CreatedAt {
+			return tasksList[i].CreatedAt > tasksList[j].CreatedAt
+		}
+		return tasksList[i].ID < tasksList[j].ID
+	})
 	return tasksList
 }
 

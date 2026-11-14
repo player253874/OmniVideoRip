@@ -20,13 +20,16 @@ type QueuedTaskItem struct {
 }
 
 type Executor struct {
-	logger     *log.Logger
-	store      *tasks.Store
-	outputDir  string
-	ytdlpPath  string
-	ffmpegPath string
-	wailsCtx   context.Context
-	ctxMu      sync.Mutex
+	logger        *log.Logger
+	store         *tasks.Store
+	outputDir     string
+	ytdlpPath     string
+	ffmpegPath    string
+	cookieMode    string
+	cookieBrowser string
+	cookieFile    string
+	wailsCtx      context.Context
+	ctxMu         sync.Mutex
 
 	mu               sync.Mutex
 	pendingQueue     []QueuedTaskItem
@@ -67,6 +70,14 @@ func (e *Executor) SetSidecarPaths(ytdlpPath, ffmpegPath string) {
 	defer e.ctxMu.Unlock()
 	e.ytdlpPath = ytdlpPath
 	e.ffmpegPath = ffmpegPath
+}
+
+func (e *Executor) SetCookieOptions(mode, browser, filePath string) {
+	e.ctxMu.Lock()
+	defer e.ctxMu.Unlock()
+	e.cookieMode = mode
+	e.cookieBrowser = browser
+	e.cookieFile = filePath
 }
 
 func (e *Executor) Run(ctx context.Context) {
@@ -376,6 +387,7 @@ func (e *Executor) processTask(taskCtx context.Context, taskID, formatID string)
 
 	e.ctxMu.Lock()
 	router := extractors.NewRouter(e.outputDir, e.ytdlpPath, e.ffmpegPath)
+	router.SetCookieOptions(e.cookieMode, e.cookieBrowser, e.cookieFile)
 	e.ctxMu.Unlock()
 
 	outPath, err := router.DownloadWithFormat(taskCtx, task.URL, task.OutputDir, formatID, func(percent int, msg string) {

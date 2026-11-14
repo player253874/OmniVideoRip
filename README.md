@@ -6,7 +6,7 @@
 
 **Universal Desktop Video Extractor & High-Speed HLS Downloader for Windows**
 
-[![Version](https://img.shields.io/badge/version-v1.5.3-ff3e32?style=flat-square)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-v1.6.5-ff3e32?style=flat-square)](CHANGELOG.md)
 [![Platform](https://img.shields.io/badge/platform-Windows%2010%2F11%20(x64)-0078d4?style=flat-square)](https://github.com/player253874/OmniVideoRip/releases/latest)
 [![Stack](https://img.shields.io/badge/stack-Go%201.22%20%2B%20Wails-00add8?style=flat-square)](go.mod)
 [![License](https://img.shields.io/badge/license-MIT-2ea44f?style=flat-square)](LICENSE)

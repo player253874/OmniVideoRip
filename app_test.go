@@ -219,3 +219,82 @@ func TestDeleteTaskPropagatesPersistenceError(t *testing.T) {
 		t.Fatal("failed delete lost task")
 	}
 }
+
+func TestSetCookieConfigValidation(t *testing.T) {
+	t.Setenv("APPDATA", t.TempDir())
+	app := NewApp()
+
+	if _, err := app.SetCookieConfig("unknown-mode", "", ""); err == nil {
+		t.Fatalf("expected error for unsupported mode")
+	}
+
+	if _, err := app.SetCookieConfig("file", "", filepath.Join(t.TempDir(), "missing.txt")); err == nil {
+		t.Fatalf("expected error for missing cookies.txt file")
+	}
+
+	cookieFile := filepath.Join(t.TempDir(), "cookies.txt")
+	if err := os.WriteFile(cookieFile, []byte("# Netscape HTTP Cookie File\n"), 0600); err != nil {
+		t.Fatal(err)
+	}
+	cfg, err := app.SetCookieConfig("file", "", cookieFile)
+	if err != nil {
+		t.Fatalf("SetCookieConfig(file) failed: %v", err)
+	}
+	if cfg.Mode != "file" || cfg.File != cookieFile {
+		t.Fatalf("unexpected cookie config: %+v", cfg)
+	}
+
+	cfg, err = app.SetCookieConfig("browser", "Chrome", "")
+	if err != nil {
+		t.Fatalf("SetCookieConfig(legacy browser fallback) failed: %v", err)
+	}
+	if cfg.Mode != "none" {
+		t.Fatalf("expected legacy browser mode to fallback to none, got: %+v", cfg)
+	}
+}
+
+func TestSubmitBatchDownloadsWithQuality(t *testing.T) {
+	store := tasks.NewStore()
+	taskExecutor := executor.New(log.New(io.Discard, "", 0), store, t.TempDir(), "", "")
+	app := &App{taskStore: store, taskExecutor: taskExecutor}
+
+	created, err := app.SubmitBatchDownloadsWithQuality("https://www.youtube.com/watch?v=abc\nhttps://www.youtube.com/watch?v=def", t.TempDir(), "720p")
+	if err != nil {
+		t.Fatalf("SubmitBatchDownloadsWithQuality failed: %v", err)
+	}
+	if len(created) != 2 {
+		t.Fatalf("created %d tasks; want 2", len(created))
+	}
+	for _, task := range created {
+		if task.FormatID != "720p" {
+			t.Fatalf("task FormatID = %q; want 720p", task.FormatID)
+		}
+	}
+}
+
+func TestCleanupOldExecutableBackupsForPath(t *testing.T) {
+	dir := t.TempDir()
+	exePath := filepath.Join(dir, "OmniVideoRip.exe")
+	oldExact := filepath.Join(dir, "OmniVideoRip.exe.old")
+	oldTimestamped := filepath.Join(dir, "OmniVideoRip.exe.20261114214500.old")
+	unrelatedOld := filepath.Join(dir, "OtherApp.exe.old")
+
+	for _, p := range []string{exePath, oldExact, oldTimestamped, unrelatedOld} {
+		if err := os.WriteFile(p, []byte("stub"), 0644); err != nil {
+			t.Fatal(err)
+		}
+	}
+
+	cleanupOldExecutableBackupsForPath(exePath)
+
+	for _, removed := range []string{oldExact, oldTimestamped} {
+		if _, err := os.Stat(removed); !os.IsNotExist(err) {
+			t.Fatalf("expected backup %s to be removed, stat err = %v", removed, err)
+		}
+	}
+	for _, kept := range []string{exePath, unrelatedOld} {
+		if _, err := os.Stat(kept); err != nil {
+			t.Fatalf("expected %s to remain intact: %v", kept, err)
+		}
+	}
+}

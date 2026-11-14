@@ -2,6 +2,7 @@ package extractors
 
 import (
 	"bufio"
+	"bytes"
 	"context"
 	"encoding/json"
 	"fmt"
@@ -37,9 +38,12 @@ type VideoMetaData struct {
 }
 
 type ExtractorRouter struct {
-	outputDir  string
-	ytdlpPath  string
-	ffmpegPath string
+	outputDir     string
+	ytdlpPath     string
+	ffmpegPath    string
+	cookieMode    string
+	cookieBrowser string
+	cookieFile    string
 }
 
 func NewRouter(outputDir, ytdlpPath, ffmpegPath string) *ExtractorRouter {
@@ -48,6 +52,81 @@ func NewRouter(outputDir, ytdlpPath, ffmpegPath string) *ExtractorRouter {
 		ytdlpPath:  ytdlpPath,
 		ffmpegPath: ffmpegPath,
 	}
+}
+
+// SetCookieOptions configures optional cookie authentication for yt-dlp calls.
+func (r *ExtractorRouter) SetCookieOptions(mode, browser, filePath string) {
+	r.cookieMode = normalizeCookieMode(mode)
+	r.cookieBrowser = normalizeCookieBrowser(browser)
+	r.cookieFile = strings.TrimSpace(filePath)
+}
+
+func normalizeCookieMode(mode string) string {
+	switch strings.ToLower(strings.TrimSpace(mode)) {
+	case "browser", "file":
+		return strings.ToLower(strings.TrimSpace(mode))
+	default:
+		return "none"
+	}
+}
+
+func normalizeCookieBrowser(browser string) string {
+	switch strings.ToLower(strings.TrimSpace(browser)) {
+	case "edge", "chrome", "firefox", "brave":
+		return strings.ToLower(strings.TrimSpace(browser))
+	default:
+		return ""
+	}
+}
+
+func appendCookieArgs(args []string, mode, browser, cookieFile string) []string {
+	switch normalizeCookieMode(mode) {
+	case "browser":
+		if b := normalizeCookieBrowser(browser); b != "" {
+			return append(args, "--cookies-from-browser", b)
+		}
+	case "file":
+		if cleanPath := strings.TrimSpace(cookieFile); cleanPath != "" {
+			return append(args, "--cookies", cleanPath)
+		}
+	}
+	return args
+}
+
+// prepareTempCookieCopy clones cookieFile into a throwaway temp file so yt-dlp's automatic
+// cookie-jar write-back never corrupts or overwrites the user's exported cookies.txt.
+func prepareTempCookieCopy(srcPath string) (string, func()) {
+	cleanPath := strings.TrimSpace(srcPath)
+	if cleanPath == "" {
+		return "", func() {}
+	}
+	data, err := os.ReadFile(cleanPath)
+	if err != nil {
+		return cleanPath, func() {}
+	}
+	tmp, err := os.CreateTemp("", "omnivideorip-cookie-*.txt")
+	if err != nil {
+		return cleanPath, func() {}
+	}
+	tmpPath := tmp.Name()
+	if _, err := tmp.Write(data); err != nil {
+		tmp.Close()
+		_ = os.Remove(tmpPath)
+		return cleanPath, func() {}
+	}
+	if err := tmp.Close(); err != nil {
+		_ = os.Remove(tmpPath)
+		return cleanPath, func() {}
+	}
+	return tmpPath, func() { _ = os.Remove(tmpPath) }
+}
+
+func appendScopedCookieArgs(args []string, mode, browser, cookieFile string) ([]string, func()) {
+	if normalizeCookieMode(mode) == "file" && strings.TrimSpace(cookieFile) != "" {
+		tmpCookie, cleanup := prepareTempCookieCopy(cookieFile)
+		return append(args, "--cookies", tmpCookie), cleanup
+	}
+	return appendCookieArgs(args, mode, browser, cookieFile), func() {}
 }
 
 func (r *ExtractorRouter) Analyze(ctx context.Context, pageURL string) (VideoMetaData, error) {
@@ -90,19 +169,25 @@ func (r *ExtractorRouter) Analyze(ctx context.Context, pageURL string) (VideoMet
 		"--encoding", "utf-8",
 	}
 	args = append(args, getJSRuntimeArgs()...)
+	var cleanupCookies func()
+	args, cleanupCookies = appendScopedCookieArgs(args, r.cookieMode, r.cookieBrowser, r.cookieFile)
+	defer cleanupCookies()
 	if u, err := url.Parse(pageURL); err == nil {
 		if proxyURL, _ := GetSystemProxyURL(u); proxyURL != nil {
 			args = append(args, "--proxy", proxyURL.String())
 		}
 	}
-	args = append(args, pageURL)
+	args = append(args, "--", pageURL)
 
 	cmd := exec.CommandContext(ctx, ytPath, args...)
 	hideCmdWindow(cmd)
 
+	var stderrBuf bytes.Buffer
+	cmd.Stderr = &stderrBuf
+
 	outBytes, err := cmd.Output()
 	if err != nil {
-		return VideoMetaData{}, fmt.Errorf("解析视频元信息失败: 请检查网络连接或链接有效性")
+		return VideoMetaData{}, fmt.Errorf("%s", formatYTDLPError(stderrBuf.String(), err))
 	}
 
 	var rawData map[string]interface{}
@@ -191,6 +276,24 @@ func getJSRuntimeArgs() []string {
 	if _, err := exec.LookPath("deno"); err == nil {
 		return []string{"--js-runtimes", "deno"}
 	}
+	// Fallback to standard Windows installation paths when GUI PATH omits them
+	nodeCandidates := []string{
+		`C:\Program Files\nodejs\node.exe`,
+		filepath.Join(os.Getenv("LOCALAPPDATA"), "Programs", "nodejs", "node.exe"),
+	}
+	for _, p := range nodeCandidates {
+		if p != "" {
+			if _, err := os.Stat(p); err == nil {
+				return []string{"--js-runtimes", "node:" + p}
+			}
+		}
+	}
+	if home, err := os.UserHomeDir(); err == nil {
+		denoPath := filepath.Join(home, ".deno", "bin", "deno.exe")
+		if _, err := os.Stat(denoPath); err == nil {
+			return []string{"--js-runtimes", "deno:" + denoPath}
+		}
+	}
 	return nil
 }
 
@@ -210,13 +313,15 @@ func (r *ExtractorRouter) downloadWithYTDLPAndFormat(ctx context.Context, pageUR
 		progressCb(5, fmt.Sprintf("正在启动解析引擎 (%s)...", sourceTip))
 	}
 
+	// Only force web_embedded when no user cookies are configured, because web_embedded ignores account cookies.
 	primaryClient := ""
-	if detectPlatform(pageURL) == "youtube" {
+	hasCookies := normalizeCookieMode(r.cookieMode) != "none"
+	if detectPlatform(pageURL) == "youtube" && !hasCookies {
 		primaryClient = "web_embedded"
 	}
 
 	outPath, err := r.runYTDLP(ctx, ytPath, ffPath, pageURL, outDir, formatID, primaryClient, progressCb)
-	if err != nil && ctx.Err() == nil && strings.Contains(err.Error(), "403") && detectPlatform(pageURL) == "youtube" {
+	if err != nil && ctx.Err() == nil && strings.Contains(err.Error(), "403") && detectPlatform(pageURL) == "youtube" && !hasCookies {
 		if progressCb != nil {
 			progressCb(10, "检测到 YouTube 流媒体防爬限制，正在自动切换兼容模式重试...")
 		}
@@ -264,6 +369,9 @@ func (r *ExtractorRouter) runYTDLPWithReferer(ctx context.Context, ytPath, ffPat
 	args = append(args, "--paths", "temp:"+cacheDir)
 
 	args = append(args, getJSRuntimeArgs()...)
+	var cleanupCookies func()
+	args, cleanupCookies = appendScopedCookieArgs(args, r.cookieMode, r.cookieBrowser, r.cookieFile)
+	defer cleanupCookies()
 
 	if clientOverride != "" {
 		args = append(args, "--extractor-args", fmt.Sprintf("youtube:player_client=%s", clientOverride))
@@ -370,16 +478,16 @@ func (r *ExtractorRouter) runYTDLPWithReferer(ctx context.Context, ytPath, ffPat
 		waitErr = scanErr
 	}
 	if waitErr != nil {
-		errMsg := waitErr.Error()
-		if len(errLines) > 0 {
-			rawErr := strings.Join(errLines, "\n")
-			if strings.Contains(rawErr, "Failed to resolve") || strings.Contains(rawErr, "getaddrinfo failed") || strings.Contains(rawErr, "HTTPSConnection") {
-				errMsg = "网络 / DNS 连接失败：无法连接视频站点或媒体 CDN。请检查网络、代理或 Tailscale 出口设置！"
-			} else {
-				errMsg = rawErr
-			}
+		// Remove empty temp cache folder if nothing was actually written (e.g., failed before download started)
+		if entries, readErr := os.ReadDir(cacheDir); readErr == nil && len(entries) == 0 {
+			_ = os.Remove(cacheDir)
 		}
-		return outputPath, fmt.Errorf("全网解析下载失败: %s", errMsg)
+		rawErr := strings.Join(errLines, "\n")
+		formatted := formatYTDLPError(rawErr, waitErr)
+		if strings.HasPrefix(formatted, "YOUTUBE_BOT_CHECK:") || strings.HasPrefix(formatted, "COOKIE_DB_LOCKED:") {
+			return outputPath, fmt.Errorf("%s", formatted)
+		}
+		return outputPath, fmt.Errorf("全网解析下载失败: %s", formatted)
 	}
 
 	if outputPath == "" {
@@ -389,6 +497,7 @@ func (r *ExtractorRouter) runYTDLPWithReferer(ctx context.Context, ytPath, ffPat
 		return "", fmt.Errorf("download completed but final output file is missing: %s", outputPath)
 	}
 
+	_ = os.RemoveAll(cacheDir)
 	return outputPath, nil
 }
 
@@ -459,4 +568,47 @@ func matchesDomain(host, domain string) bool {
 	host = strings.TrimSuffix(strings.ToLower(strings.TrimSpace(host)), ".")
 	domain = strings.TrimSuffix(strings.ToLower(strings.TrimSpace(domain)), ".")
 	return host == domain || strings.HasSuffix(host, "."+domain)
+}
+
+func formatYTDLPError(rawStderr string, fallbackErr error) string {
+	trimmed := strings.TrimSpace(rawStderr)
+	lower := strings.ToLower(trimmed)
+
+	if strings.Contains(lower, "sign in to confirm you") || strings.Contains(lower, "not a bot") {
+		return "YOUTUBE_BOT_CHECK: YouTube 触发了人机风控拦截（要求账号 Cookie 验证或更换代理节点）。请在主界面点击【导入 cookies.txt】，使用浏览器扩展 Get cookies.txt LOCALLY 导出后导入，或切换代理节点后重试。"
+	}
+	if strings.Contains(lower, "could not copy") && strings.Contains(lower, "cookie") || strings.Contains(lower, "cookie database") || strings.Contains(lower, "dpapi") {
+		return "COOKIE_DB_LOCKED: 无法读取浏览器 Cookies（浏览器运行中可能锁定了数据库）。请完全关闭浏览器后重试，或使用扩展导出 cookies.txt 后导入本软件。"
+	}
+	if strings.Contains(lower, "failed to resolve") || strings.Contains(lower, "getaddrinfo failed") || strings.Contains(lower, "httpsconnection") || strings.Contains(lower, "unable to connect") || strings.Contains(lower, "timed out") {
+		return "网络 / DNS 连接失败：无法连接目标站点或媒体 CDN。请检查网络连接、系统代理或节点状态。"
+	}
+	if core := extractCoreYTDLPError(trimmed); core != "" {
+		return core
+	}
+	if fallbackErr != nil {
+		return fmt.Sprintf("解析视频元信息失败: %v", fallbackErr)
+	}
+	return "解析视频元信息失败: 请检查网络连接或链接有效性"
+}
+
+func extractCoreYTDLPError(rawStderr string) string {
+	if rawStderr == "" {
+		return ""
+	}
+	var errorLines []string
+	for _, line := range strings.Split(rawStderr, "\n") {
+		clean := strings.TrimSpace(line)
+		if clean == "" || strings.HasPrefix(clean, "WARNING:") {
+			continue
+		}
+		if strings.HasPrefix(clean, "ERROR:") {
+			clean = strings.TrimSpace(strings.TrimPrefix(clean, "ERROR:"))
+			errorLines = append(errorLines, clean)
+		}
+	}
+	if len(errorLines) > 0 {
+		return strings.Join(errorLines, " | ")
+	}
+	return rawStderr
 }

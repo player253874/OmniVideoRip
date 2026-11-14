@@ -4,6 +4,54 @@ All notable changes to **OmniVideoRip** are documented in this file.
 
 ---
 
+## v1.6.5 (2026-11-14)
+
+### Improved
+- **Locked Binary Hot-Swap on Windows (`build.ps1`)**: Stages builds to `OmniVideoRip.exe.new` and, when `OmniVideoRip.exe` is locked by a running instance, renames the running binary to `OmniVideoRip.exe.old` (or a timestamped `.old` fallback) so the fresh `OmniVideoRip.exe` lands immediately without interrupting active downloads.
+- **Automatic `.old` Backup Cleanup (`app.go`)**: Cleans unlocked `OmniVideoRip.exe*.old` backups automatically on startup and added `appVersion` unification across single/batch task metadata (`ClientVersion`).
+
+---
+
+## v1.6.4 (2026-11-14)
+
+### Changed
+- **Unified Supported Site Count to `1,200+`**: Updated all desktop UI labels, i18n translations (`zh-CN`, `en`, `ja`, `zh-TW`), metadata, and platform list descriptions in `frontend/src/` from `1,800+` / `1,850+` to `1,200+` to match the website and actual dataset (`1,227` platforms).
+
+---
+
+## v1.6.3 (2026-11-14)
+
+### Fixed
+- **Protected `cookies.txt` Against `yt-dlp` Overwrite (`prepareTempCookieCopy`)**: Cloned imported `cookies.txt` files to an isolated temporary file per extraction/download call so `yt-dlp`'s cookie-jar write-back never corrupts or invalidates the user's original exported cookie file during retries or concurrent batch runs.
+- **Updated Cookie Export Guide for Session Longevity**: Added clear instructions in `#youtube-cookie-modal` recommending Incognito/InPrivate export (and closing the incognito window directly) to avoid rapid YouTube cookie rotation.
+
+---
+
+## v1.6.2 (2026-11-14)
+
+### Fixed
+- **Clean Download Output Folder (Relocated Resume Cache)**: Moved `.omnivideorip-resume-*` temporary task directories from the user's download folder (`outDir`) into the OS application cache directory (`os.UserCacheDir()/OmniVideoRip/resume`) while keeping cross-volume file moves working seamlessly (`moveFile`) and cleaning completed/empty temp cache folders automatically.
+
+---
+
+## v1.6.1 (2026-11-14)
+
+### Added & Fixed
+- **Simplified `cookies.txt` Import & Interactive Step-by-Step Guide Modal**: Removed unreliable Windows direct browser DB reading (`Chrome`/`Edge` lock & App-Bound Encryption issues) in favor of a clear `cookies.txt` workflow, complete with a guided 3-step modal (`Get cookies.txt LOCALLY` extension store link, export instructions, and one-click file import).
+- **Batch Quality Selector**: Added a shared quality selector (`Best`, `1080P`, `720P`, `480P`, `Audio MP3`) to the batch download action bar (`SubmitBatchDownloadsWithQuality`).
+- **Fixed Queue List Jumping & Header Version Sync**: Fixed `Store.List()` random Go map ordering and JS string-subtraction `NaN` sorting in `renderQueuePanel` so failed/queued tasks stay in deterministic order; synced `.version-badge` and native window title (`OmniVideoRip v1.6.1`).
+
+---
+
+## v1.6.0 (2026-11-14)
+
+### Added & Fixed
+- **Account Cookies Authentication (`Browser` & `cookies.txt`)**: Added a compact cookie source selector (`Edge`, `Chrome`, `Firefox`, `Brave`, or local Netscape `cookies.txt`) persisted in `config.json` and applied across both metadata analysis (`Analyze`) and queued downloads.
+- **Clear YouTube Bot Check & Error Diagnostics**: Fixed `ExtractorRouter.Analyze` discarding `yt-dlp` stderr behind a generic network error message. Surfaced structured diagnostics (`YOUTUBE_BOT_CHECK`, `COOKIE_DB_LOCKED`, DNS/network errors, and raw upstream `ERROR:` lines) with 4-language remediation guidance.
+- **Improved Windows JS Runtime Discovery & Cookie-Compatible Client Routing**: Added standard Windows `node.exe` / `deno.exe` path fallbacks for GUI launches and avoided forcing `web_embedded` when account cookies are configured.
+
+---
+
 ## v1.5.3 (2026-11-13)
 
 ### Added & Improved

@@ -23,8 +23,19 @@ import (
 	"github.com/wailsapp/wails/v2/pkg/runtime"
 )
 
+const appVersion = "1.6.5"
+
 type AppConfig struct {
-	DownloadDir string `json:"downloadDir"`
+	DownloadDir   string `json:"downloadDir"`
+	CookieMode    string `json:"cookieMode,omitempty"`
+	CookieBrowser string `json:"cookieBrowser,omitempty"`
+	CookieFile    string `json:"cookieFile,omitempty"`
+}
+
+type CookieConfig struct {
+	Mode    string `json:"mode"`
+	Browser string `json:"browser"`
+	File    string `json:"file"`
 }
 
 type VersionInfo struct {
@@ -35,6 +46,7 @@ type VersionInfo struct {
 
 type App struct {
 	taskMu       sync.Mutex
+	cfgMu        sync.RWMutex
 	ctx          context.Context
 	logger       *log.Logger
 	paths        config.Paths
@@ -42,13 +54,39 @@ type App struct {
 	taskExecutor *executor.Executor
 	ytdlpPath    string
 	ffmpegPath   string
+	cookieCfg    CookieConfig
 
 	verMu      sync.RWMutex
 	cachedInfo *VersionInfo
 }
 
 func NewApp() *App {
-	return &App{}
+	return &App{
+		cookieCfg: CookieConfig{Mode: "none"},
+	}
+}
+
+func normalizeCookieConfig(mode, browser, file string) (CookieConfig, error) {
+	m := strings.ToLower(strings.TrimSpace(mode))
+	f := strings.TrimSpace(file)
+	switch m {
+	case "", "none":
+		return CookieConfig{Mode: "none", File: f}, nil
+	case "file":
+		if f == "" {
+			return CookieConfig{}, fmt.Errorf("cookies file path cannot be empty")
+		}
+		info, err := os.Stat(f)
+		if err != nil || info.IsDir() {
+			return CookieConfig{}, fmt.Errorf("cookies file not found: %s", f)
+		}
+		return CookieConfig{Mode: "file", File: f}, nil
+	case "browser":
+		// Direct browser DB reading is unreliable on Windows due to file locks and App-Bound Encryption; fallback cleanly.
+		return CookieConfig{Mode: "none", File: f}, nil
+	default:
+		return CookieConfig{}, fmt.Errorf("unsupported cookie mode: %s", mode)
+	}
 }
 
 func (a *App) LoadConfig() {
@@ -60,8 +98,17 @@ func (a *App) LoadConfig() {
 	data, err := os.ReadFile(configPath)
 	if err == nil {
 		var cfg AppConfig
-		if err := json.Unmarshal(data, &cfg); err == nil && cfg.DownloadDir != "" {
-			a.paths.DownloadsDir = cfg.DownloadDir
+		if err := json.Unmarshal(data, &cfg); err == nil {
+			if cfg.DownloadDir != "" {
+				a.paths.DownloadsDir = cfg.DownloadDir
+			}
+			a.cfgMu.Lock()
+			if normalized, normErr := normalizeCookieConfig(cfg.CookieMode, cfg.CookieBrowser, cfg.CookieFile); normErr == nil {
+				a.cookieCfg = normalized
+			} else {
+				a.cookieCfg = CookieConfig{Mode: "none", Browser: cfg.CookieBrowser, File: cfg.CookieFile}
+			}
+			a.cfgMu.Unlock()
 		}
 	}
 }
@@ -74,7 +121,15 @@ func (a *App) SaveConfig() {
 	appConfigDir := filepath.Join(configDir, "OmniVideoRip")
 	_ = os.MkdirAll(appConfigDir, 0755)
 	configPath := filepath.Join(appConfigDir, "config.json")
-	cfg := AppConfig{DownloadDir: a.paths.DownloadsDir}
+	a.cfgMu.RLock()
+	cookieCfg := a.cookieCfg
+	a.cfgMu.RUnlock()
+	cfg := AppConfig{
+		DownloadDir:   a.paths.DownloadsDir,
+		CookieMode:    cookieCfg.Mode,
+		CookieBrowser: cookieCfg.Browser,
+		CookieFile:    cookieCfg.File,
+	}
 	data, _ := json.MarshalIndent(cfg, "", "  ")
 	_ = os.WriteFile(configPath, data, 0644)
 }
@@ -105,10 +160,43 @@ func (a *App) OnStartup(ctx context.Context) {
 
 	a.taskStore = tasks.NewStore(tasksFile)
 	a.taskExecutor = executor.New(a.logger, a.taskStore, a.paths.DownloadsDir, a.ytdlpPath, a.ffmpegPath)
+	a.cfgMu.RLock()
+	cookieCfg := a.cookieCfg
+	a.cfgMu.RUnlock()
+	a.taskExecutor.SetCookieOptions(cookieCfg.Mode, cookieCfg.Browser, cookieCfg.File)
 	a.taskExecutor.SetWailsContext(ctx)
 
 	go a.warmupVersionInfo()
+	go func() {
+		if exePath, err := os.Executable(); err == nil {
+			cleanupOldExecutableBackupsForPath(exePath)
+		}
+	}()
 	go a.taskExecutor.Run(ctx)
+}
+
+// cleanupOldExecutableBackupsForPath removes leftover .old binaries created during locked in-place upgrades.
+func cleanupOldExecutableBackupsForPath(exePath string) {
+	cleanExe := strings.TrimSpace(exePath)
+	if cleanExe == "" {
+		return
+	}
+	dir := filepath.Dir(cleanExe)
+	base := filepath.Base(cleanExe)
+	if base == "" || base == "." || base == string(filepath.Separator) {
+		return
+	}
+
+	exactOld := filepath.Join(dir, base+".old")
+	_ = os.Remove(exactOld)
+
+	matches, err := filepath.Glob(filepath.Join(dir, base+".*.old"))
+	if err != nil {
+		return
+	}
+	for _, match := range matches {
+		_ = os.Remove(match)
+	}
 }
 
 func (a *App) UpdateYTDLPComponent() (string, error) {
@@ -218,7 +306,7 @@ func (a *App) CheckLatestFFmpeg() (string, error) {
 }
 
 func (a *App) warmupVersionInfo() VersionInfo {
-	info := VersionInfo{AppVersion: "1.5.3"}
+	info := VersionInfo{AppVersion: appVersion}
 
 	ytPath, _ := sidecars.ResolveYTDLPPath(a.ytdlpPath)
 	if ytPath != "" {
@@ -276,7 +364,7 @@ func (a *App) GetVersionInfo() VersionInfo {
 	}
 	a.verMu.RUnlock()
 
-	info := VersionInfo{AppVersion: "1.5.3"}
+	info := VersionInfo{AppVersion: appVersion}
 	ytPath, _ := sidecars.ResolveYTDLPPath(a.ytdlpPath)
 	if ytPath != "" {
 		info.YTDLPVersion = "已就绪"
@@ -338,7 +426,45 @@ func (a *App) AnalyzeVideo(rawURL string) (extractors.VideoMetaData, error) {
 		return extractors.VideoMetaData{}, fmt.Errorf("application is not ready")
 	}
 	router := extractors.NewRouter(a.paths.DownloadsDir, a.ytdlpPath, a.ffmpegPath)
+	a.cfgMu.RLock()
+	cookieCfg := a.cookieCfg
+	a.cfgMu.RUnlock()
+	router.SetCookieOptions(cookieCfg.Mode, cookieCfg.Browser, cookieCfg.File)
 	return router.Analyze(a.ctx, rawURL)
+}
+
+func (a *App) GetCookieConfig() CookieConfig {
+	a.cfgMu.RLock()
+	defer a.cfgMu.RUnlock()
+	return a.cookieCfg
+}
+
+func (a *App) SetCookieConfig(mode, browser, filePath string) (CookieConfig, error) {
+	normalized, err := normalizeCookieConfig(mode, browser, filePath)
+	if err != nil {
+		return CookieConfig{}, err
+	}
+	a.cfgMu.Lock()
+	a.cookieCfg = normalized
+	a.cfgMu.Unlock()
+	if a.taskExecutor != nil {
+		a.taskExecutor.SetCookieOptions(normalized.Mode, normalized.Browser, normalized.File)
+	}
+	a.SaveConfig()
+	return normalized, nil
+}
+
+func (a *App) SelectCookiesFile() (string, error) {
+	if a.ctx == nil {
+		return "", fmt.Errorf("application is not ready")
+	}
+	return runtime.OpenFileDialog(a.ctx, runtime.OpenDialogOptions{
+		Title: "选择 Netscape cookies.txt 文件",
+		Filters: []runtime.FileFilter{
+			{DisplayName: "Cookies Text Files (*.txt)", Pattern: "*.txt"},
+			{DisplayName: "All Files (*.*)", Pattern: "*.*"},
+		},
+	})
 }
 
 func (a *App) OpenSupJavVerificationWindow(rawURL string) error {
@@ -425,7 +551,7 @@ func (a *App) SubmitDownloadWithQuality(rawURL, outputDir, formatID string) (tas
 		OutputDir:     outDir,
 		Source:        "OmniVideoRip_Desktop",
 		FormatID:      formatID,
-		ClientVersion: "1.3.9",
+		ClientVersion: appVersion,
 	}
 
 	task, err := a.taskStore.Create(req)
@@ -444,6 +570,11 @@ func (a *App) SubmitDownloadWithQuality(rawURL, outputDir, formatID string) (tas
 }
 
 func (a *App) SubmitBatchDownloads(rawURLsText, outputDir string) ([]tasks.Task, error) {
+	return a.SubmitBatchDownloadsWithQuality(rawURLsText, outputDir, "best")
+}
+
+// SubmitBatchDownloadsWithQuality queues multiple URLs with a shared target quality preset.
+func (a *App) SubmitBatchDownloadsWithQuality(rawURLsText, outputDir, formatID string) ([]tasks.Task, error) {
 	a.taskMu.Lock()
 	defer a.taskMu.Unlock()
 	if a.taskStore == nil || a.taskExecutor == nil {
@@ -454,6 +585,7 @@ func (a *App) SubmitBatchDownloads(rawURLsText, outputDir string) ([]tasks.Task,
 		outDir = a.paths.DownloadsDir
 	}
 
+	targetFormat := normalizeBatchFormat(formatID)
 	lines := strings.Split(rawURLsText, "\n")
 	var createdTasks []tasks.Task
 
@@ -469,7 +601,8 @@ func (a *App) SubmitBatchDownloads(rawURLsText, outputDir string) ([]tasks.Task,
 				URL:           cleanURL,
 				OutputDir:     outDir,
 				Source:        "OmniVideoRip_Batch",
-				ClientVersion: "1.3.9",
+				FormatID:      targetFormat,
+				ClientVersion: appVersion,
 			}
 
 			task, err := a.taskStore.Create(req)
@@ -477,7 +610,7 @@ func (a *App) SubmitBatchDownloads(rawURLsText, outputDir string) ([]tasks.Task,
 				continue
 			}
 
-			if err := a.taskExecutor.Enqueue(task.ID); err == nil {
+			if err := a.taskExecutor.EnqueueWithFormat(task.ID, targetFormat); err == nil {
 				currentTask, _ := a.taskStore.Get(task.ID)
 				createdTasks = append(createdTasks, currentTask)
 			} else {
@@ -492,6 +625,15 @@ func (a *App) SubmitBatchDownloads(rawURLsText, outputDir string) ([]tasks.Task,
 	}
 
 	return createdTasks, nil
+}
+
+func normalizeBatchFormat(formatID string) string {
+	switch strings.ToLower(strings.TrimSpace(formatID)) {
+	case "1080p", "720p", "480p", "audio":
+		return strings.ToLower(strings.TrimSpace(formatID))
+	default:
+		return "best"
+	}
 }
 
 func (a *App) GetAllTasks() []tasks.Task {

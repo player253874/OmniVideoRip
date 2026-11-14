@@ -331,35 +331,55 @@ func resolveURL(baseURL, reference string) (string, error) {
 	return resolved, nil
 }
 
-// resumeDir returns a deterministic working directory for a given video URL,
-// so interrupted downloads can be resumed by reusing the same directory.
-func resumeDir(outDir, platform, videoKey string) string {
+func taskCacheRoot() string {
+	if cacheDir, err := os.UserCacheDir(); err == nil && strings.TrimSpace(cacheDir) != "" {
+		return filepath.Join(cacheDir, "OmniVideoRip", "resume")
+	}
+	return filepath.Join(os.TempDir(), "OmniVideoRip", "resume")
+}
+
+func resumeDirName(platform, videoKey string) string {
 	safe := sanitizeFilename(platform + "_" + videoKey)
 	if len(safe) > 80 {
 		safe = safe[:80]
 	}
-	return filepath.Join(outDir, ".omnivideorip-resume-"+safe)
+	return ".omnivideorip-resume-" + safe
 }
 
-// GetTaskResumeDir returns the deterministic resume directory for a task.
-func GetTaskResumeDir(outDir, platform, rawURL string) string {
-	var key string
+func taskResumeBaseKey(platform, rawURL string) string {
 	switch strings.ToLower(platform) {
 	case "missav":
-		key = codeNameFromURL(rawURL, "MISSAV")
+		return codeNameFromURL(rawURL, "MISSAV")
 	case "ggjav":
-		key = codeNameFromURL(rawURL, "GGJAV")
+		return codeNameFromURL(rawURL, "GGJAV")
 	case "rouvideo":
-		key = codeNameFromURL(rawURL, "ROUVIDEO")
+		return codeNameFromURL(rawURL, "ROUVIDEO")
 	default:
-		key = codeNameFromURL(rawURL, "VIDEO")
+		return codeNameFromURL(rawURL, "VIDEO")
 	}
+}
+
+func legacyResumeDir(outDir, platform, rawURL string) string {
+	key := taskResumeBaseKey(platform, rawURL)
 	digest := sha256.Sum256([]byte(rawURL))
 	for len(key) > 32 {
 		runes := []rune(key)
 		key = string(runes[:len(runes)-1])
 	}
-	return resumeDir(outDir, platform, key+fmt.Sprintf("-%x", digest[:8]))
+	return filepath.Join(outDir, resumeDirName(platform, key+fmt.Sprintf("-%x", digest[:8])))
+}
+
+// GetTaskResumeDir returns the deterministic resume directory inside the system cache root
+// so user download folders stay clean without extra subdirectories.
+func GetTaskResumeDir(outDir, platform, rawURL string) string {
+	key := taskResumeBaseKey(platform, rawURL)
+	cleanOut := strings.ToLower(filepath.Clean(strings.TrimSpace(outDir)))
+	digest := sha256.Sum256([]byte(cleanOut + "\n" + rawURL))
+	for len(key) > 32 {
+		runes := []rune(key)
+		key = string(runes[:len(runes)-1])
+	}
+	return filepath.Join(taskCacheRoot(), resumeDirName(platform, key+fmt.Sprintf("-%x", digest[:8])))
 }
 
 // CleanupTaskResumeCache removes the deterministic resume directory for a given task.
@@ -367,18 +387,58 @@ func CleanupTaskResumeCache(outDir, platform, rawURL string) error {
 	if strings.TrimSpace(outDir) == "" || strings.TrimSpace(rawURL) == "" {
 		return nil
 	}
-	dir := GetTaskResumeDir(outDir, platform, rawURL)
-	info, err := os.Lstat(dir)
-	if os.IsNotExist(err) {
+	candidates := []string{
+		GetTaskResumeDir(outDir, platform, rawURL),
+		legacyResumeDir(outDir, platform, rawURL),
+	}
+	for _, dir := range candidates {
+		info, err := os.Lstat(dir)
+		if os.IsNotExist(err) {
+			continue
+		}
+		if err != nil {
+			return err
+		}
+		if info.Mode()&os.ModeSymlink != 0 {
+			return fmt.Errorf("refusing linked cache directory")
+		}
+		if err := os.RemoveAll(dir); err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+// moveFile moves src to dst and falls back to streaming copy when src and dst span different volumes.
+func moveFile(src, dst string) error {
+	_ = os.Remove(dst)
+	if err := os.Rename(src, dst); err == nil {
 		return nil
 	}
+	in, err := os.Open(src)
 	if err != nil {
 		return err
 	}
-	if info.Mode()&os.ModeSymlink != 0 {
-		return fmt.Errorf("refusing linked cache directory")
+	tmpDst := dst + ".moving.tmp"
+	_ = os.Remove(tmpDst)
+	out, err := os.Create(tmpDst)
+	if err != nil {
+		in.Close()
+		return err
 	}
-	return os.RemoveAll(dir)
+	_, copyErr := io.Copy(out, in)
+	closeOutErr := out.Close()
+	in.Close()
+	if copyErr != nil || closeOutErr != nil {
+		_ = os.Remove(tmpDst)
+		return errors.Join(copyErr, closeOutErr)
+	}
+	if err := os.Rename(tmpDst, dst); err != nil {
+		_ = os.Remove(tmpDst)
+		return err
+	}
+	_ = os.Remove(src)
+	return nil
 }
 
 // CleanupAllUnfinishedCaches removes all .omnivideorip-resume-* and temporary segment caches in outDir and tempDir.

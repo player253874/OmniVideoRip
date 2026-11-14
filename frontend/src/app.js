@@ -27,6 +27,7 @@ const state = {
   activeMode: "single",
   pollHandle: null,
   outputDir: localStorage.getItem("custom_output_dir") || "",
+  cookieConfig: { mode: "none", browser: "", file: "" },
   tasksMap: new Map(),
   history: JSON.parse(localStorage.getItem("download_history") || "[]"),
   currentMetaData: null,
@@ -59,9 +60,22 @@ const elements = {
   batchUrlInput: document.getElementById("batch-url-input"),
   batchPasteBtn: document.getElementById("batch-paste-btn"),
   batchClearBtn: document.getElementById("batch-clear-btn"),
+  batchQualitySelect: document.getElementById("batch-quality-select"),
 
   singleOutputDirInput: document.getElementById("single-output-dir-input"),
   singleBrowseBtn: document.getElementById("single-browse-btn"),
+  cookieSettingsBar: document.getElementById("cookie-settings-bar"),
+  cookieStatusBadge: document.getElementById("cookie-status-badge"),
+  cookieHelpBtn: document.getElementById("cookie-help-btn"),
+  cookieClearBtn: document.getElementById("cookie-clear-btn"),
+  cookieFileBrowseBtn: document.getElementById("cookie-file-browse-btn"),
+
+  // YouTube Cookie Guide Modal
+  youtubeCookieModal: document.getElementById("youtube-cookie-modal"),
+  btnCloseYtCookieModal: document.getElementById("btn-close-yt-cookie-modal"),
+  btnYtOpenExt: document.getElementById("btn-yt-open-ext"),
+  btnYtImportCookie: document.getElementById("btn-yt-import-cookie"),
+  btnYtCookieDone: document.getElementById("btn-yt-cookie-done"),
 
   downloadForm: document.getElementById("download-form"),
   urlInput: document.getElementById("url-input"),
@@ -141,6 +155,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   bindEvents();
   initPlatformsModal();
   initSupJavModal();
+  initYouTubeCookieModal();
   renderHistory();
 });
 
@@ -154,11 +169,14 @@ function renderVersionInfo(verInfo) {
   _lastVersionInfo = verInfo;
 
   const verApp = document.getElementById("ver-app");
+  const verBadge = document.querySelector(".version-badge");
   const verYtdlp = document.getElementById("ver-ytdlp");
   const verFfmpeg = document.getElementById("ver-ffmpeg");
 
-  if (verApp && verInfo.appVersion) {
-    verApp.textContent = "v" + verInfo.appVersion;
+  if (verInfo.appVersion) {
+    const formatted = "v" + verInfo.appVersion;
+    if (verApp) verApp.textContent = formatted;
+    if (verBadge) verBadge.textContent = formatted;
   }
 
   if (verYtdlp) {
@@ -207,6 +225,11 @@ async function initWailsApp() {
       const defaultDir = await window.go.main.App.GetDefaultDownloadDir();
       if (defaultDir && !localStorage.getItem("custom_output_dir")) {
         state.outputDir = defaultDir;
+      }
+
+      if (window.go.main.App.GetCookieConfig) {
+        const cookieCfg = await window.go.main.App.GetCookieConfig();
+        syncCookieUI(cookieCfg);
       }
 
       await refreshTaskSnapshot();
@@ -342,6 +365,7 @@ function bindEvents() {
       renderActiveDownloads();
       renderQueuePanel();
       renderHistory();
+      syncCookieUI(state.cookieConfig);
       if (_lastVersionInfo) {
         renderVersionInfo(_lastVersionInfo);
       } else {
@@ -511,6 +535,18 @@ function bindEvents() {
     } catch (err) {
       console.warn("Folder dialog failed:", err);
     }
+  });
+
+  elements.cookieHelpBtn?.addEventListener("click", () => {
+    openYouTubeCookieModal();
+  });
+
+  elements.cookieClearBtn?.addEventListener("click", async () => {
+    await clearCookieFileConfig();
+  });
+
+  elements.cookieFileBrowseBtn?.addEventListener("click", async () => {
+    await browseAndApplyCookiesFile();
   });
 
   elements.resCloseBtn?.addEventListener("click", () => {
@@ -1002,6 +1038,11 @@ async function analyzeSingleVideo() {
       openSupJavTutorialModal(rawUrl);
       return;
     }
+    if (errMsg.includes("YOUTUBE_BOT_CHECK") || errMsg.includes("COOKIE_DB_LOCKED")) {
+      highlightCookieSettingsBar();
+      openYouTubeCookieModal();
+      return;
+    }
     alert(t("alert.analyze.fail", { err: errMsg }));
   } finally {
     btn.disabled = false;
@@ -1093,9 +1134,13 @@ async function submitBatchTasks() {
     return;
   }
 
+  const batchQuality = elements.batchQualitySelect ? elements.batchQualitySelect.value : "best";
+
   try {
     let newTasks = [];
-    if (window.go && window.go.main && window.go.main.App && window.go.main.App.SubmitBatchDownloads) {
+    if (window.go && window.go.main && window.go.main.App && window.go.main.App.SubmitBatchDownloadsWithQuality) {
+      newTasks = await window.go.main.App.SubmitBatchDownloadsWithQuality(rawText, state.outputDir, batchQuality);
+    } else if (window.go && window.go.main && window.go.main.App && window.go.main.App.SubmitBatchDownloads) {
       newTasks = await window.go.main.App.SubmitBatchDownloads(rawText, state.outputDir);
     } else {
       const urls = rawText.split("\n").filter((u) => u.trim());
@@ -1252,12 +1297,27 @@ window.copyFilePath = async function (pathStr) {
   }
 };
 
+function parseTaskTimestamp(ts) {
+  if (typeof ts === "number" && Number.isFinite(ts)) return ts;
+  if (!ts) return 0;
+  const parsed = Date.parse(ts);
+  return Number.isNaN(parsed) ? 0 : parsed;
+}
+
+function compareTasksDeterministic(a, b) {
+  const ta = parseTaskTimestamp(a.createdAt);
+  const tb = parseTaskTimestamp(b.createdAt);
+  if (tb !== ta) return tb - ta;
+  return String(a.id || "").localeCompare(String(b.id || ""));
+}
+
 function renderActiveDownloads() {
   if (!elements.activeDownloadsSection || !elements.activeDownloadsList) return;
 
   const runningTasks = Array.from(state.tasksMap.values()).filter(
     (t) => t.status === "running" || t.status === "downloading" || t.status === "merging"
   );
+  runningTasks.sort(compareTasksDeterministic);
 
   if (runningTasks.length === 0) {
     elements.activeDownloadsSection.classList.add("hidden");
@@ -1373,12 +1433,12 @@ function renderQueuePanel() {
   if (elements.queueFailedCount) elements.queueFailedCount.textContent = t("queue.failed", { n: failed });
   if (elements.queueDoneCount) elements.queueDoneCount.textContent = t("queue.done", { n: done });
 
-  // Strict sorting: 待下载 (1) -> 失败 (2) -> 已完成 (3)
+  // Strict sorting: 待下载 (1) -> 失败 (2) -> 已完成 (3), with stable timestamp + ID tie-breaker
   queueTasks.sort((a, b) => {
     const wa = getTaskSortWeight(a.status);
     const wb = getTaskSortWeight(b.status);
     if (wa !== wb) return wa - wb;
-    return (b.createdAt || 0) - (a.createdAt || 0);
+    return compareTasksDeterministic(a, b);
   });
 
   elements.queueTasksList.innerHTML = queueTasks
@@ -1501,4 +1561,105 @@ function escapeHtml(str) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
+}
+
+function syncCookieUI(cfg) {
+  const normalized = cfg || { mode: "none", browser: "", file: "" };
+  state.cookieConfig = normalized;
+
+  const isFile = normalized.mode === "file" && Boolean(normalized.file);
+  if (elements.cookieStatusBadge) {
+    if (isFile) {
+      const baseName = normalized.file.split(/[/\\]/).pop() || normalized.file;
+      elements.cookieStatusBadge.textContent = t("cookie.status.loaded", { file: baseName });
+      elements.cookieStatusBadge.title = normalized.file;
+      elements.cookieStatusBadge.classList.add("cookie-loaded");
+    } else {
+      elements.cookieStatusBadge.textContent = t("cookie.status.none");
+      elements.cookieStatusBadge.title = "";
+      elements.cookieStatusBadge.classList.remove("cookie-loaded");
+    }
+  }
+
+  if (elements.cookieClearBtn) {
+    elements.cookieClearBtn.classList.toggle("hidden", !isFile);
+  }
+}
+
+async function clearCookieFileConfig() {
+  const api = window.go?.main?.App;
+  if (!api?.SetCookieConfig) return;
+  try {
+    const saved = await api.SetCookieConfig("none", "", "");
+    syncCookieUI(saved);
+  } catch (err) {
+    alert(t("alert.cookie.fail", { err: err?.message || err }));
+  }
+}
+
+async function browseAndApplyCookiesFile() {
+  const api = window.go?.main?.App;
+  if (!api?.SelectCookiesFile || !api?.SetCookieConfig) return false;
+
+  try {
+    const filePath = await api.SelectCookiesFile();
+    if (!filePath) {
+      syncCookieUI(state.cookieConfig);
+      return false;
+    }
+    const saved = await api.SetCookieConfig("file", "", filePath);
+    syncCookieUI(saved);
+    return true;
+  } catch (err) {
+    syncCookieUI(state.cookieConfig);
+    alert(t("alert.cookie.fail", { err: err?.message || err }));
+    return false;
+  }
+}
+
+function highlightCookieSettingsBar() {
+  if (!elements.cookieSettingsBar) return;
+  elements.cookieSettingsBar.classList.remove("cookie-highlight");
+  void elements.cookieSettingsBar.offsetWidth;
+  elements.cookieSettingsBar.classList.add("cookie-highlight");
+  elements.cookieFileBrowseBtn?.focus();
+}
+
+function openYouTubeCookieModal() {
+  if (elements.youtubeCookieModal) {
+    elements.youtubeCookieModal.classList.remove("hidden");
+  }
+}
+
+function closeYouTubeCookieModal() {
+  if (elements.youtubeCookieModal) {
+    elements.youtubeCookieModal.classList.add("hidden");
+  }
+}
+
+function initYouTubeCookieModal() {
+  const extStoreUrl = "https://chromewebstore.google.com/detail/get-cookiestxt-locally/cclelndahbckbenkjhflpdbgdldlbecc";
+
+  elements.btnCloseYtCookieModal?.addEventListener("click", closeYouTubeCookieModal);
+  elements.btnYtCookieDone?.addEventListener("click", closeYouTubeCookieModal);
+  elements.youtubeCookieModal?.addEventListener("click", (e) => {
+    if (e.target === elements.youtubeCookieModal) {
+      closeYouTubeCookieModal();
+    }
+  });
+
+  elements.btnYtOpenExt?.addEventListener("click", () => {
+    if (window.go?.main?.App?.OpenURLInBrowser) {
+      window.go.main.App.OpenURLInBrowser(extStoreUrl);
+    } else {
+      window.open(extStoreUrl, "_blank");
+    }
+  });
+
+  elements.btnYtImportCookie?.addEventListener("click", async () => {
+    const imported = await browseAndApplyCookiesFile();
+    if (imported) {
+      closeYouTubeCookieModal();
+    }
+  });
 }

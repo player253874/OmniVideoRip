@@ -8,7 +8,7 @@
     <link rel="shortcut icon" type="image/png" href="./assets/logo.png" />
     <meta
       name="description"
-      content="OmniVideoRip 全能视频抓取器。支持 YouTube、Bilibili、GGJav、MissAV、TikTok、X (Twitter)、Instagram 等 1800+ 站点的高清音视频本地极速提取与多任务批量排队下载。"
+      content="OmniVideoRip 全能视频抓取器。支持 YouTube、Bilibili、GGJav、MissAV、TikTok、X (Twitter)、Instagram 等 1,200+ 站点的高清音视频本地极速提取与多任务批量排队下载。"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -32,7 +32,7 @@
           <div class="brand-text">
             <div class="brand-title-row">
               <h1 class="brand-title">OmniVideoRip</h1>
-              <span class="version-badge">v1.5.3</span>
+              <span class="version-badge">v1.6.5</span>
             </div>
             <p class="brand-tagline" data-i18n="brand.tagline">全网视频极速抓取平台</p>
           </div>
@@ -124,6 +124,16 @@
                 <button type="button" id="batch-clear-btn" class="button button-text button-small" data-i18n="batch.clear">
                   清空列表
                 </button>
+                <div class="batch-quality-group">
+                  <label for="batch-quality-select" class="batch-quality-label" data-i18n="batch.quality.label">画质:</label>
+                  <select id="batch-quality-select" class="compact-cookie-select">
+                    <option value="best" data-i18n="batch.quality.best">最佳画质 (推荐)</option>
+                    <option value="1080p">1080P Full HD</option>
+                    <option value="720p">720P HD</option>
+                    <option value="480p">480P SD</option>
+                    <option value="audio" data-i18n="batch.quality.audio">仅音频 (MP3)</option>
+                  </select>
+                </div>
                 <button class="button button-submit" type="submit" style="margin-left: auto;" data-i18n="batch.submit">
                   开始批量下载
                 </button>
@@ -146,6 +156,25 @@
               <button type="button" id="single-browse-btn" class="button button-subtle-browse" data-i18n="path.browse">
                 更改目录 📁
               </button>
+            </div>
+
+            <!-- Compact Cookies File Import Bar (For YouTube Bot Verification & Auth) -->
+            <div class="secondary-path-bar secondary-cookie-bar" id="cookie-settings-bar">
+              <div class="path-meta-info cookie-meta-info">
+                <span class="path-meta-label" data-i18n="cookie.label">🍪 登录态 Cookies:</span>
+                <span id="cookie-status-badge" class="compact-cookie-status" data-i18n="cookie.status.none">未导入 cookies.txt (仅 YouTube 风控拦截时需要)</span>
+              </div>
+              <div class="cookie-bar-actions">
+                <button type="button" id="cookie-help-btn" class="button button-subtle-browse button-cookie-help" data-i18n="cookie.help.btn">
+                  ❓ 如何导出
+                </button>
+                <button type="button" id="cookie-clear-btn" class="button button-subtle-browse hidden" data-i18n="cookie.clear.btn">
+                  清除
+                </button>
+                <button type="button" id="cookie-file-browse-btn" class="button button-subtle-browse" data-i18n="cookie.browse">
+                  导入 cookies.txt 📄
+                </button>
+              </div>
             </div>
           </form>
 
@@ -223,7 +252,7 @@
           </div>
 
           <div id="version-info-bar" class="version-bar">
-            <div class="version-item"><span data-i18n="ver.app.label">主程序</span> <span id="ver-app">v1.5.3</span></div>
+            <div class="version-item"><span data-i18n="ver.app.label">主程序</span> <span id="ver-app">v1.6.5</span></div>
             <div class="version-item">
               <span data-i18n="ver.ytdlp.label">yt-dlp</span> <span id="ver-ytdlp" class="ver-missing">未安装 (需点击更新)</span>
               <button type="button" id="btn-update-ytdlp" class="version-update-btn" data-i18n-title="update.ytdlp.btn.title" title="检查并更新 yt-dlp 解析引擎 (针对各视频网站反爬高频更新)">
@@ -244,11 +273,11 @@
           <div class="showcase-header">
             <div class="showcase-badge">
               <span class="showcase-badge-pulse"></span>
-              <span data-i18n="showcase.eyebrow">1,800+ PLATFORMS POWERED BY YT-DLP & NATIVE ENGINES</span>
+              <span data-i18n="showcase.eyebrow">1,200+ PLATFORMS POWERED BY UNIVERSAL & NATIVE ENGINES</span>
             </div>
             <h2 class="showcase-title" data-i18n="showcase.title">支持全网超千家音视频与社媒平台</h2>
             <p class="showcase-subtitle" data-i18n="showcase.subtitle">
-              集成官方完整 yt-dlp 1800+ 站点解析生态与自研 16 线程并发流解密引擎，全球主流社媒短视频、海内外长剧集、高码率切片原画一键极速抓取。
+              集成全网 1,200+ 站点解析生态与自研 16 线程并发流解密引擎，全球主流社媒短视频、海内外长剧集、高码率切片原画一键极速抓取。
             </p>
           </div>
 
@@ -312,7 +341,7 @@
             </div>
             <div class="showcase-pill showcase-pill-more">
               <span class="pill-icon">✨</span>
-              <span class="pill-name" data-i18n="showcase.more">+ 1,800 更多平台</span>
+              <span class="pill-name" data-i18n="showcase.more">+ 1,200 更多平台</span>
             </div>
           </div>
 
@@ -320,7 +349,7 @@
           <div class="showcase-cta-bar">
             <button id="btn-open-platforms-modal" class="btn-search-platforms" type="button">
               <span class="cta-search-icon">🔍</span>
-              <span data-i18n="showcase.search.btn">查询全部支持网站名录 (可搜索 1800+ 站点)</span>
+              <span data-i18n="showcase.search.btn">查询全部支持网站名录 (可搜索 1,200+ 站点)</span>
               <span class="cta-arrow">→</span>
             </button>
           </div>
@@ -361,7 +390,7 @@
         <div class="modal-header">
           <div class="modal-title-group">
             <h3 class="modal-title" data-i18n="modal.platforms.title">🔍 支持网站全量查询名录</h3>
-            <p class="modal-subtitle" data-i18n="modal.platforms.subtitle">收录全球 1,800+ 主流媒体、社交平台与自研解密站点，输入关键字即可实时筛选</p>
+            <p class="modal-subtitle" data-i18n="modal.platforms.subtitle">收录全球 1,200+ 主流媒体、社交平台与自研解密站点，输入关键字即可实时筛选</p>
           </div>
           <button id="btn-close-platforms-modal" class="btn-close-modal" aria-label="关闭">&times;</button>
         </div>
@@ -380,12 +409,12 @@
             />
             <button id="btn-clear-platforms-search" class="btn-clear-search hidden" title="清空">&times;</button>
           </div>
-          <div class="platforms-count-badge" id="platforms-search-count">共 1,850+ 站点</div>
+          <div class="platforms-count-badge" id="platforms-search-count">共 1,200+ 站点</div>
         </div>
 
         <!-- Category Filter Chips -->
         <div class="modal-category-chips" id="platforms-category-chips">
-          <button class="chip-btn active" data-cat="all" data-i18n="cat.all">全部 (1800+)</button>
+          <button class="chip-btn active" data-cat="all" data-i18n="cat.all">全部 (1,200+)</button>
           <button class="chip-btn" data-cat="popular" data-i18n="cat.popular">热门主流</button>
           <button class="chip-btn" data-cat="social" data-i18n="cat.social">社交短视频</button>
           <button class="chip-btn" data-cat="streaming" data-i18n="cat.streaming">流媒体/电视</button>
@@ -495,6 +524,69 @@
               <span data-i18n="supjav.modal.m1.btn_open">启动独立小窗口打开</span>
             </button>
             <button type="button" id="btn-supjav-done" class="button button-primary">
+              <span data-i18n="supjav.modal.btn_close">我知道了，返回主界面</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- YouTube Verification & cookies.txt Import Guide Modal -->
+    <div id="youtube-cookie-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true">
+      <div class="modal-dialog supjav-modal-dialog">
+        <div class="modal-header">
+          <div class="modal-title-group">
+            <h3 class="modal-title" data-i18n="yt.modal.title">🍪 YouTube 人机验证与导入 cookies.txt 指南</h3>
+            <p class="modal-subtitle" data-i18n="yt.modal.subtitle">当前代理节点触发了 YouTube 风控拦截 · 导入登录态 cookies.txt 即可解决</p>
+          </div>
+          <button id="btn-close-yt-cookie-modal" class="btn-close-modal" aria-label="关闭">&times;</button>
+        </div>
+
+        <div class="supjav-modal-body">
+          <div class="supjav-alert-banner">
+            <span class="banner-icon">🛡️</span>
+            <div class="banner-text" data-i18n="yt.modal.banner">
+              因为 Windows 版 Chrome/Edge 正在运行时会锁定并加密数据库，直接读取浏览器极易报错。使用浏览器扩展导出一次 cookies.txt 文本文件是最稳定、免关浏览器的解法：
+            </div>
+          </div>
+
+          <div class="supjav-method-card active-method">
+            <div class="method-badge" data-i18n="yt.modal.badge">⭐ 三步完成设置 (导入一次即可长期记住路径)</div>
+            <div class="supjav-steps-list">
+              <div class="supjav-step-item">
+                <span class="step-num">1</span>
+                <div class="step-desc" data-i18n="yt.modal.s1">
+                  在 Chrome / Edge 安装免费扩展 Get cookies.txt LOCALLY，并在浏览器“扩展管理 → 详情”里打开【在无痕模式下启用】。
+                </div>
+              </div>
+              <div class="supjav-step-item">
+                <span class="step-num">2</span>
+                <div class="step-desc" data-i18n="yt.modal.s2">
+                  新开一个【无痕/隐私窗口】登录 YouTube (youtube.com)，点扩展图标 → Export 保存 cookies.txt 到固定目录；完成后直接点右上角 ✕ 关闭无痕窗口（切勿点退出登录，普通窗口导出极易因后台 Cookie 轮换快速失效）。
+                </div>
+              </div>
+              <div class="supjav-step-item">
+                <span class="step-num">3</span>
+                <div class="step-desc" data-i18n="yt.modal.s3">
+                  点击下方【选择并导入 cookies.txt】选中刚刚保存的文件，完成后重新点击“解析画质”或切换一个干净的海外代理节点重试。
+                </div>
+              </div>
+            </div>
+
+            <div class="method-actions">
+              <button type="button" id="btn-yt-open-ext" class="btn-supjav-secondary">
+                <span>🧩</span>
+                <span data-i18n="yt.modal.btn_ext">1. 打开 Get cookies.txt LOCALLY 扩展商店</span>
+              </button>
+              <button type="button" id="btn-yt-import-cookie" class="btn-supjav-primary">
+                <span>📄</span>
+                <span data-i18n="yt.modal.btn_import">2. 选择并导入 cookies.txt</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="supjav-modal-footer">
+            <button type="button" id="btn-yt-cookie-done" class="button button-primary">
               <span data-i18n="supjav.modal.btn_close">我知道了，返回主界面</span>
             </button>
           </div>

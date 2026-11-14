@@ -8,6 +8,9 @@ Thumbs.db
 # Generated binaries, packages, caches, and publish-only assets
 *.exe
 *.exe~
+*.exe.old
+*.exe.*.old
+*.exe.new
 *.zip
 /bin/
 /frontend/dist/

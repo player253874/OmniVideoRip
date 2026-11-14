@@ -137,8 +137,71 @@ function Ensure-FFmpeg {
     }
 }
 
+function Clear-StaleExecutableBackups {
+    param(
+        [Parameter(Mandatory = $true)][string]$RepoRoot,
+        [Parameter(Mandatory = $true)][string]$ExecutableName
+    )
+
+    $candidates = @()
+    $exactOld = Join-Path $RepoRoot ($ExecutableName + ".old")
+    if (Test-Path -LiteralPath $exactOld -PathType Leaf) {
+        $candidates += Get-Item -LiteralPath $exactOld
+    }
+    $candidates += Get-ChildItem -LiteralPath $RepoRoot -File -Filter ($ExecutableName + ".*.old") -ErrorAction SilentlyContinue
+
+    foreach ($item in $candidates) {
+        try {
+            Remove-Item -LiteralPath $item.FullName -Force -ErrorAction Stop
+        } catch {
+            # Leave backups still locked by older running instances; they will be cleaned on next launch/build.
+        }
+    }
+}
+
+function Install-BuiltExecutable {
+    param(
+        [Parameter(Mandatory = $true)][string]$StagedPath,
+        [Parameter(Mandatory = $true)][string]$TargetPath
+    )
+
+    $repoRoot = Split-Path -Parent $TargetPath
+    $exeName = Split-Path -Leaf $TargetPath
+    Clear-StaleExecutableBackups -RepoRoot $repoRoot -ExecutableName $exeName
+
+    if (-not (Test-Path -LiteralPath $TargetPath -PathType Leaf)) {
+        Move-Item -LiteralPath $StagedPath -Destination $TargetPath
+        return
+    }
+
+    try {
+        Move-Item -LiteralPath $StagedPath -Destination $TargetPath -Force -ErrorAction Stop
+    } catch {
+        # On Windows, a running executable cannot be overwritten in-place, but can be renamed to .old.
+        $backupPath = $TargetPath + ".old"
+        if (Test-Path -LiteralPath $backupPath -PathType Leaf) {
+            try {
+                Remove-Item -LiteralPath $backupPath -Force -ErrorAction Stop
+            } catch {
+                $backupPath = "{0}.{1}.old" -f $TargetPath, (Get-Date -Format "yyyyMMddHHmmss")
+            }
+        }
+
+        Move-Item -LiteralPath $TargetPath -Destination $backupPath -Force -ErrorAction Stop
+        Move-Item -LiteralPath $StagedPath -Destination $TargetPath -Force -ErrorAction Stop
+
+        try {
+            Remove-Item -LiteralPath $backupPath -Force -ErrorAction Stop
+        } catch {
+            Write-Warning ("Running executable was locked; moved old binary to {0} and installed new {1}." -f (Split-Path -Leaf $backupPath), $exeName)
+        }
+    }
+}
+
 $repoRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
 Push-Location $repoRoot
+$stagedExe = Join-Path $repoRoot "OmniVideoRip.exe.new"
+$targetExe = Join-Path $repoRoot "OmniVideoRip.exe"
 try {
     $binDir = Join-Path $repoRoot "bin"
     Ensure-YtDlp -BinDir $binDir
@@ -163,8 +226,16 @@ try {
         throw "goversioninfo failed with exit code $LASTEXITCODE"
     }
 
-    go build -buildvcs=false -trimpath -tags "desktop,production" -ldflags "-H windowsgui -s -w" -o "OmniVideoRip.exe" .
+    if (Test-Path -LiteralPath $stagedExe) {
+        Remove-Item -LiteralPath $stagedExe -Force
+    }
+    go build -buildvcs=false -trimpath -tags "desktop,production" -ldflags "-H windowsgui -s -w" -o $stagedExe .
     if ($LASTEXITCODE -ne 0) { throw "Go build failed" }
+
+    Install-BuiltExecutable -StagedPath $stagedExe -TargetPath $targetExe
 } finally {
+    if (Test-Path -LiteralPath $stagedExe) {
+        Remove-Item -LiteralPath $stagedExe -Force -ErrorAction SilentlyContinue
+    }
     Pop-Location
 }

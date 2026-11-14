@@ -189,3 +189,22 @@ func TestStoreClearRollsBackWhenPersistenceFails(t *testing.T) {
 		t.Fatalf("failed clear lost in-memory tasks; count = %d", store.Count())
 	}
 }
+
+func TestStoreListDeterministicOrder(t *testing.T) {
+	store := NewStore()
+	for i := 0; i < 6; i++ {
+		if _, err := store.Create(CreateTaskRequest{URL: fmt.Sprintf("https://www.youtube.com/watch?v=id%d", i)}); err != nil {
+			t.Fatal(err)
+		}
+	}
+
+	first := store.List()
+	for attempt := 0; attempt < 20; attempt++ {
+		next := store.List()
+		for i := range first {
+			if first[i].ID != next[i].ID {
+				t.Fatalf("List() order changed between calls: %v vs %v", first[i].ID, next[i].ID)
+			}
+		}
+	}
+}

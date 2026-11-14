@@ -391,11 +391,11 @@ func DownloadTwitter(ctx context.Context, pageURL, outDir, formatID string, prog
 	}
 
 	_ = outFile.Close()
-	// Rename temp file to final destination
-	_ = os.Remove(outPath)
-	if err := os.Rename(tempPath, outPath); err != nil {
+	// Move temp file to final destination (supports cross-volume cache -> download folder)
+	if err := moveFile(tempPath, outPath); err != nil {
 		return "", fmt.Errorf("移动完成文件失败: %w", err)
 	}
+	_ = os.RemoveAll(workDir)
 
 	if progressCb != nil {
 		progressCb(100, "推特视频下载完成！")
